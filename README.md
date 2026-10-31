@@ -1,26 +1,5 @@
 # Mutational accessibility and protein language models: figures
 
-> ## ⚠️ `N145S` was a phantom mutation in Figure 1B/C — FIXED 20 Oct 2026
->
-> **The J.2 → K transition is NINE replacements, not ten:**
-> `K2N`, `T135K`, `S144N`, `N158D`, `I160K`, `Q173R`, `K189R`, `T328A`, `HA2:S49N`.
-> Residue 145 is Serine in J.2, J.2.4 and K alike, and in the A/Aichi/2/1968 H3-numbering
-> reference. There is no change at 145 on that path, in nucleotide or amino acid.
->
-> **Root cause.** The panel diffed a *stored* results table's `ref_aa` against a *live*
-> reference FASTA. The `J.2_int` root was corrected at precursor codon 161 (`aat` → `agt`)
-> on 15 Jun 2026 and the May tables were never rebuilt, so the 2 Jul 2026 render compared a
-> stale J.2 against a current K and emitted both `S144N` and `N145S`. Nothing warned.
->
-> **Fix.** `guides/composites/fig01.yaml` places the fine-tuned model (`ESM2_650M_HA80`)
-> render (`data/frozen_panels/fig1bc_ranked_mutations_finetuned_esm2_ha80.pdf`), matching the
-> Results text (HA2:S49N highest at rank 7, T328A lowest at rank 578); `output/fig01_composite.pdf`
-> and `fig01_composite.png` carry exactly the canonical nine. The 2 Jul file is kept as
-> `data/frozen_panels/fig1bc_ranked_mutations.pdf` **for provenance only — do not place it.**
->
-> **Standing risk this exposed:** re-plotting an old table against newer roots can silently
-> invent or erase replacements. Full account in `LINEAGE_DEFINITIONS.md` section 6.
-
 
 Code to redraw the figures of *Protein language models learn underlying mutation biases
 alongside fitness landscapes* (MacLean et al.) from the derived tables the analysis produced.
