@@ -1,0 +1,25 @@
+panel	panel_label	model_label	model_role	scoring	best_alpha	rho_best	rho_alpha0	interpretable	n	n_sites	stratum	series	role	estimate_unmasked	lo_unmasked	hi_unmasked	estimate_masked	lo_masked	hi_masked	estimate_delta
+A-D	MA22 cell entry	Base (ESM-2)	base	published	-0.05	0.419438	0.417204	True	9234	504										
+A-D	MA22 cell entry	Fine-tuned (IAV)	finetune	published	-0.17	0.323245	0.289727	True	9234	504										
+A-D	MA22 sera escape	Base (ESM-2)	base	published	-0.01	0.0729509	0.0729162	True	5635	473										
+A-D	MA22 sera escape	Fine-tuned (IAV)	finetune	published	-0.21	0.145941	0.120282	True	5635	473										
+A-D	MA22 pH stability	Base (ESM-2)	base	published	-0.02	0.137949	0.137807	True	5472	469										
+A-D	MA22 pH stability	Fine-tuned (IAV)	finetune	published	-0.18	0.14499	0.126771	True	5472	469										
+A-D	Perth09 preference ratio	Base (ESM-2)	base	published	-0.04	0.460297	0.458976	True	10754	566										
+A-D	Perth09 preference ratio	Fine-tuned (IAV)	finetune	published	-0.13	0.263019	0.244371	True	10754	566										
+A-D	MA22 cell entry	Base (ESM-2)	base	masked	-0.06	0.430637	0.42711	True	9234	504										
+A-D	MA22 cell entry	Fine-tuned (IAV)	finetune	masked	-0.21	0.401751	0.350884	True	9234	504										
+A-D	MA22 sera escape	Base (ESM-2)	base	masked	-0.04	0.0830501	0.0824277	True	5635	473										
+A-D	MA22 sera escape	Fine-tuned (IAV)	finetune	masked	-0.24	0.172958	0.137812	True	5635	473										
+A-D	MA22 pH stability	Base (ESM-2)	base	masked	-0.03	0.121563	0.121007	True	5472	469										
+A-D	MA22 pH stability	Fine-tuned (IAV)	finetune	masked	-0.21	0.160634	0.138381	True	5472	469										
+A-D	Perth09 preference ratio	Base (ESM-2)	base	masked	-0.04	0.459615	0.457401	True	10754	566										
+A-D	Perth09 preference ratio	Fine-tuned (IAV)	finetune	masked	-0.18	0.338103	0.296819	True	10754	566										
+E											all	ESM2_650M_HA80_raw	base	0.275048	0.256292	0.295906	0.304498	0.284528	0.324944	0.0294501
+E											all	ESM2_650M_HA80	finetune	0.654875	0.636782	0.675068	0.641756	0.62048	0.660414	-0.0131188
+E											1	ESM2_650M_HA80_raw	base	0.0705447	0.0412282	0.0980428	0.0652626	0.0329958	0.0942782	-0.0052821
+E											1	ESM2_650M_HA80	finetune	0.29183	0.261095	0.324017	0.256926	0.221323	0.286493	-0.0349037
+E											2	ESM2_650M_HA80_raw	base	0.0704709	0.0453951	0.102607	0.0706331	0.0422964	0.101351	0.000162173
+E											2	ESM2_650M_HA80	finetune	0.24955	0.223303	0.275797	0.231321	0.208783	0.260074	-0.0182291
+E											3	ESM2_650M_HA80_raw	base	-0.00314837	-0.0577331	0.0460479	-0.00837583	-0.0593257	0.0412064	-0.00522746
+E											3	ESM2_650M_HA80	finetune	0.138951	0.093765	0.182102	0.075164	0.0253836	0.124564	-0.0637868

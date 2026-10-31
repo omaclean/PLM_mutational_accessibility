@@ -1,0 +1,131 @@
+scoring	metric	model	model_label	model_role	scope	held_out_lineage	alpha_star	n_tied_alpha	metric_at_alpha_star	metric_at_reference	estimate	ci_lo	ci_hi	n_folds	n_folds_gain_positive	panel_label	organism	trait	n	n_sites	n_boot	frac_boundary_low	frac_boundary_high	boundary	weak_signal	interpretable
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	C.1	1	1	0.925971	0.773439	0.152532			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	D	1	1	0.9209	0.789485	0.131415			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	E	1	1	0.92952	0.796689	0.132831			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	E.2	1	1	0.918743	0.763793	0.15495			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1	1	1	0.926084	0.803955	0.122128			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1.1	1	1	0.935715	0.79302	0.142695			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1.3	1	1	0.933039	0.801241	0.131798			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.2	1	1	0.935175	0.794842	0.140332			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.2.2	1	1	0.933164	0.802033	0.131131			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J	1	1	0.93133	0.801454	0.129876			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J.2	1	1	0.929343	0.768563	0.16078			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J.2.4	1	1	0.923211	0.793935	0.129276			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	K	1	1	0.937893	0.780154	0.15774			13												
+masked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	mean						0.139806	0.133149	0.146949	13	13											
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	C.1	0.58	1	0.951594	0.932779	0.0188151			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	D	0.58	1	0.95397	0.93976	0.0142092			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	E	0.58	1	0.954738	0.939801	0.0149366			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	E.2	0.58	1	0.948316	0.929787	0.018529			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1	0.58	1	0.947354	0.928931	0.0184233			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1.1	0.56	1	0.950787	0.923164	0.0276235			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1.3	0.58	1	0.953887	0.933287	0.0206002			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.2	0.56	1	0.952429	0.927187	0.0252411			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.2.2	0.56	1	0.954775	0.934119	0.0206562			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J	0.58	1	0.951758	0.932257	0.0195011			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J.2	0.56	1	0.9458	0.910243	0.0355578			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J.2.4	0.56	1	0.948978	0.930349	0.0186292			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	K	0.56	1	0.949818	0.908011	0.0418072			13												
+masked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	mean						0.0226561	0.0188409	0.0270417	13	13											
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	C.1	1	1	0.373929	0.156319	0.217611			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	D	1	1	0.209297	0.0986147	0.110682			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	E	1	1	0.252178	0.112729	0.139448			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	E.2	1	1	0.187795	0.0824573	0.105337			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1	1	1	0.167452	0.0756731	0.0917791			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1.1	1	1	0.455101	0.193835	0.261266			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1.3	1	1	0.282843	0.120189	0.162654			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.2	1	1	0.414283	0.168562	0.245721			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.2.2	1	1	0.290129	0.127213	0.162916			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J	1	1	0.352337	0.162938	0.1894			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J.2	1	1	0.557701	0.257473	0.300228			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J.2.4	1	1	0.129951	0.0550696	0.0748815			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	K	1	1	0.522966	0.227258	0.295708			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	mean						0.181356	0.141524	0.22293	13	13											
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	C.1	0.58	1	0.551495	0.482313	0.0691816			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	D	0.58	1	0.338189	0.312336	0.0258527			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	E	0.58	1	0.367814	0.330152	0.0376617			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	E.2	0.58	1	0.31821	0.277537	0.0406727			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1	0.58	1	0.25217	0.218407	0.0337635			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1.1	0.56	1	0.535292	0.438525	0.0967674			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1.3	0.58	1	0.389732	0.320697	0.0690347			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.2	0.56	1	0.510076	0.411348	0.0987286			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.2.2	0.56	1	0.380786	0.313578	0.0672078			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J	0.58	1	0.456409	0.38126	0.0751489			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J.2	0.56	1	0.613486	0.493016	0.12047			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J.2.4	0.58	1	0.217465	0.177639	0.0398262			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	K	0.56	1	0.569255	0.425831	0.143424			13												
+masked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	mean						0.0705953	0.052829	0.0897219	13	13											
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	C.1	1	1	0.922521	0.75429	0.168231			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	D	1	1	0.916671	0.764438	0.152233			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	E	1	1	0.926345	0.777092	0.149253			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	E.2	1	1	0.918653	0.754032	0.16462			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1	1	1	0.922612	0.783089	0.139523			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1.1	1	1	0.930589	0.765961	0.164628			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1.3	1	1	0.92951	0.779686	0.149825			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.2	1	1	0.93077	0.771692	0.159078			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.2.2	1	1	0.929694	0.781454	0.14824			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J	1	1	0.926119	0.775378	0.150741			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J.2	1	1	0.926087	0.746079	0.180008			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J.2.4	1	1	0.918677	0.77127	0.147406			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	K	1	1	0.932709	0.752281	0.180428			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	mean						0.158016	0.151416	0.165059	13	13											
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	C.1	0.66	1	0.94489	0.922508	0.0223826			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	D	0.66	1	0.94714	0.930528	0.0166121			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	E	0.68	1	0.949354	0.93259	0.0167637			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	E.2	0.66	1	0.941506	0.919993	0.0215135			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1	0.66	1	0.940699	0.917163	0.0235356			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1.1	0.66	1	0.942185	0.908479	0.0337066			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1.3	0.66	1	0.94471	0.916412	0.0282986			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.2	0.66	1	0.945738	0.914874	0.030864			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.2.2	0.66	1	0.946088	0.919314	0.0267741			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J	0.66	1	0.94265	0.916363	0.0262864			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J.2	0.66	1	0.936775	0.894056	0.0427189			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J.2.4	0.66	1	0.939361	0.910878	0.0284833			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	K	0.62	1	0.940498	0.889607	0.0508907			13												
+unmasked	site_logistic_auroc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	mean						0.0283715	0.0237751	0.0336208	13	13											
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	C.1	1	1	0.359221	0.132976	0.226244			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	D	1	1	0.188654	0.0732347	0.115419			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	E	1	1	0.234484	0.0860115	0.148472			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	E.2	1	1	0.192593	0.0729627	0.119631			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1	1	1	0.16274	0.0633921	0.0993476			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1.1	1	1	0.430137	0.157255	0.272882			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.1.3	1	1	0.26479	0.0976713	0.167119			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.2	1	1	0.385938	0.13701	0.248928			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	G.2.2	1	1	0.273356	0.0991506	0.174205			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J	1	1	0.332927	0.126989	0.205937			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J.2	1	1	0.534738	0.214714	0.320024			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	J.2.4	1	1	0.118419	0.0412536	0.0771652			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	fold	K	1	1	0.490811	0.184074	0.306737			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80_raw	Base model (ESM-2)	base	mean						0.190932	0.149533	0.233821	13	13											
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	C.1	0.66	1	0.506866	0.432293	0.074573			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	D	0.66	1	0.29439	0.246203	0.0481876			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	E	0.66	1	0.34653	0.291177	0.055353			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	E.2	0.66	1	0.287551	0.227595	0.0599557			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1	0.66	1	0.213308	0.162639	0.0506691			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1.1	0.66	1	0.469936	0.345214	0.124722			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.1.3	0.66	1	0.335339	0.245119	0.0902198			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.2	0.66	1	0.448805	0.325887	0.122918			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	G.2.2	0.66	1	0.327148	0.237518	0.0896296			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J	0.66	1	0.392146	0.284034	0.108112			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J.2	0.66	1	0.548371	0.398804	0.149567			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	J.2.4	0.66	1	0.180841	0.124136	0.0567054			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	fold	K	0.66	1	0.508207	0.340729	0.167478			13												
+unmasked	site_logistic_pr_auc	ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	mean						0.0921608	0.0721845	0.113646	13	13											
+masked	dms_spearman_rho	ESM-2 650M base	Base (ESM-2)	base	dms_alpha_star		-0.06		0.430637	0.42711	-0.06	-0.08	-0.03			MA22 cell entry	Influenza H3N2	MDCKSIAT1 cell entry	9234	504	1000	0	0	False	False	True
+masked	dms_spearman_rho	HA-80 fine-tuned	Fine-tuned (IAV)	finetune	dms_alpha_star		-0.21		0.401751	0.350884	-0.21	-0.22	-0.19			MA22 cell entry	Influenza H3N2	MDCKSIAT1 cell entry	9234	504	1000	0	0	False	False	True
+masked	dms_spearman_rho	ESM-2 650M base	Base (ESM-2)	base	dms_alpha_star		-0.04		0.0830501	0.0824277	-0.04	-0.2	0.17			MA22 sera escape	Influenza H3N2	sera escape	5635	473	1000	0.003	0	False	False	True
+masked	dms_spearman_rho	HA-80 fine-tuned	Fine-tuned (IAV)	finetune	dms_alpha_star		-0.24		0.172958	0.137812	-0.24	-0.28	-0.19			MA22 sera escape	Influenza H3N2	sera escape	5635	473	1000	0	0	False	False	True
+masked	dms_spearman_rho	ESM-2 650M base	Base (ESM-2)	base	dms_alpha_star		-0.03		0.121563	0.121007	-0.03	-0.11	0.12025			MA22 pH stability	Influenza H3N2	pH stability	5472	469	1000	0	0	False	False	True
+masked	dms_spearman_rho	HA-80 fine-tuned	Fine-tuned (IAV)	finetune	dms_alpha_star		-0.21		0.160634	0.138381	-0.215	-0.27	-0.14			MA22 pH stability	Influenza H3N2	pH stability	5472	469	1000	0	0	False	False	True
+masked	dms_spearman_rho	ESM-2 650M base	Base (ESM-2)	base	dms_alpha_star		-0.04		0.459615	0.457401	-0.04	-0.06	-0.03			Perth09 preference ratio	Influenza H3N2	preference ratio	10754	566	1000	0	0	False	False	True
+masked	dms_spearman_rho	HA-80 fine-tuned	Fine-tuned (IAV)	finetune	dms_alpha_star		-0.18		0.338103	0.296819	-0.18	-0.2	-0.16			Perth09 preference ratio	Influenza H3N2	preference ratio	10754	566	1000	0	0	False	False	True
+masked	dms_spearman_rho	ESM-C 600M base	Base (ESM-C)	base	dms_alpha_star		0.04		0.0752888	0.0683121	0.04	-0.02	0.09			BA.2 cell entry	SARS-CoV-2	spike mediated entry	7022	1240	1000	0.012	0	False	False	True
+masked	dms_spearman_rho	SC2 fine-tuned	Fine-tuned (SC2)	finetune	dms_alpha_star		-0.19		0.363464	0.299524	-0.19	-0.22	-0.16			BA.2 cell entry	SARS-CoV-2	spike mediated entry	7022	1240	1000	0	0	False	False	True
+masked	dms_spearman_rho	ESM-C 600M base	Base (ESM-C)	base	dms_alpha_star		0.05		-0.032332	-0.0265659	0.05	-1	0.12			BA.2 ACE2 binding	SARS-CoV-2	ACE2 binding	6165	1196	1000	0.121	0	False	True	False
+masked	dms_spearman_rho	SC2 fine-tuned	Fine-tuned (SC2)	finetune	dms_alpha_star		-0.18		-0.204752	-0.171356	-0.18	-0.22	-0.13			BA.2 ACE2 binding	SARS-CoV-2	ACE2 binding	6165	1196	1000	0	0	False	False	True
+masked	dms_spearman_rho	ESM-C 600M base	Base (ESM-C)	base	dms_alpha_star		0.03		0.0795504	0.0745399	0.03	0	0.1			XBB.1.5 cell entry	SARS-CoV-2	spike mediated entry	6793	1233	1000	0.001	0	False	False	True
+masked	dms_spearman_rho	SC2 fine-tuned	Fine-tuned (SC2)	finetune	dms_alpha_star		-0.16		0.378079	0.324608	-0.16	-0.18	-0.13			XBB.1.5 cell entry	SARS-CoV-2	spike mediated entry	6793	1233	1000	0	0	False	False	True
+masked	dms_spearman_rho	ESM-C 600M base	Base (ESM-C)	base	dms_alpha_star		-1		-0.0629108	-0.0144606	-0.67	-1	0.99025			XBB.1.5 ACE2 binding	SARS-CoV-2	ACE2 binding	5891	1148	1000	0.31	0.025	True	True	False
+masked	dms_spearman_rho	SC2 fine-tuned	Fine-tuned (SC2)	finetune	dms_alpha_star		-0.32		-0.124313	-0.056474	-0.32	-0.47	-0.24			XBB.1.5 ACE2 binding	SARS-CoV-2	ACE2 binding	5891	1148	1000	0	0	False	False	True
+masked	dms_spearman_rho	ESM-C 600M base	Base (ESM-C)	base	dms_alpha_star		0		0.0198052	0.0198052	0	-1	1			XBB.1.5 sera escape	SARS-CoV-2	human sera escape	5502	1114	1000	0.065	0.038	False	True	False
+masked	dms_spearman_rho	SC2 fine-tuned	Fine-tuned (SC2)	finetune	dms_alpha_star		-0.13		0.100048	0.0849745	-0.13	-0.29	-0.06			XBB.1.5 sera escape	SARS-CoV-2	human sera escape	5502	1114	1000	0	0	False	False	True

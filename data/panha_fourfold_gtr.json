@@ -1,0 +1,21 @@
+{
+  "species": "panha_fourfold",
+  "source": "fourfold-degenerate-sites",
+  "exchangeabilities": {
+    "A-C": 0.933616577830031,
+    "A-G": 4.675669311187405,
+    "A-T": 0.5048244889566786,
+    "C-G": 0.17665069555105256,
+    "C-T": 5.066093205076891,
+    "G-T": 1.0
+  },
+  "base_frequencies": {
+    "A": 0.4132421559779716,
+    "C": 0.16651357244647425,
+    "G": 0.18691975993896262,
+    "T": 0.23332451163659151
+  },
+  "realised_ti_tv": 3.443771383700712,
+  "n_substitutions": 79228,
+  "n_branches_scanned": 140642
+}

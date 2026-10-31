@@ -1,0 +1,86 @@
+name: h3n2_13lineage
+description: >
+  Thirteen H3N2 clades defined by Nextstrain, each with a reconstructed root and a
+  disjoint set of sequences. The set the revised manuscript's figures are drawn from.
+virus: influenza A/H3N2 haemagglutinin (HA)
+reference: A/Darwin/6/2021
+
+# Fine-tuning corpus ends before this date; no lineage tip may precede it.
+# Clade C was dropped because its tips start 2013-12-31, inside the corpus.
+corpus_cutoff: 2015-01-01
+
+results_dir: results/h3n2_13lineage
+
+# `key` is the value of the `model` column in the tables. `label` is what the
+# reader sees; checkpoint ids belong in the Methods.
+models:
+  - {key: ESM2_650M_HA80_raw, label: Base model (ESM-2), role: base}
+  - {key: ESM2_650M_HA80, label: Fine-tuned on influenza HA, role: finetune}
+
+# Roots are Nextstrain clade-root reconstructions, not observed tips.
+# Alignments are not shipped (GISAID-derived), so `alignment` is omitted.
+lineages:
+  - {id: C.1,   root: data/roots/h3n2_13lineage/C.1.nt.fa,   root_type: reconstructed}
+  - {id: D,     root: data/roots/h3n2_13lineage/D.nt.fa,     root_type: reconstructed}
+  - {id: E,     root: data/roots/h3n2_13lineage/E.nt.fa,     root_type: reconstructed}
+  - {id: E.2,   root: data/roots/h3n2_13lineage/E.2.nt.fa,   root_type: reconstructed}
+  - {id: G.1,   root: data/roots/h3n2_13lineage/G.1.nt.fa,   root_type: reconstructed}
+  - {id: G.1.1, root: data/roots/h3n2_13lineage/G.1.1.nt.fa, root_type: reconstructed}
+  - {id: G.1.3, root: data/roots/h3n2_13lineage/G.1.3.nt.fa, root_type: reconstructed}
+  - {id: G.2,   root: data/roots/h3n2_13lineage/G.2.nt.fa,   root_type: reconstructed}
+  - {id: G.2.2, root: data/roots/h3n2_13lineage/G.2.2.nt.fa, root_type: reconstructed}
+  - {id: J,     root: data/roots/h3n2_13lineage/J.nt.fa,     root_type: reconstructed}
+  - {id: J.2,   root: data/roots/h3n2_13lineage/J.2.nt.fa,   root_type: reconstructed}
+  - {id: J.2.4, root: data/roots/h3n2_13lineage/J.2.4.nt.fa, root_type: reconstructed}
+  - {id: K,     root: data/roots/h3n2_13lineage/K.nt.fa,     root_type: reconstructed}
+
+tables:
+  alpha_sweep_by_lineage: alpha_sweep_by_lineage.tsv.gz
+  alpha_sweep_by_lineage_masked: alpha_sweep_by_lineage_masked.tsv.gz
+  dms_scores: dms_scores.tsv.gz
+  # The masked marginal for every row of dms_scores. Since 19 Oct 2026 this is the probability
+  # the DMS figures report; dms_scores.log_plm is the wild-type (unmasked) arm, kept because the
+  # archive's own curves were computed from it and reproducing them is the gate. Built from the
+  # GPU profiles by tools/build_masked_dms_scores.py. See mutacc/masked_dms.py.
+  dms_scores_masked: dms_scores_masked.tsv.gz
+  dms_peak_summary: dms_peak_summary.tsv.gz
+  dms_alpha_curves: dms_alpha_curves.tsv.gz
+  # The masked-marginal estimator check (Figure SO). Both are built offline from one forward
+  # pass per site on a GPU: dev/masked_dms/build_masked_tables.py and
+  # dev/masked_fig02/compare_fig02.py. See figures/make_sO_masked_marginals.py.
+  masked_dms_curves: masked_dms_curves.tsv.gz
+  masked_strata: masked_strata.tsv.gz
+  dms_alpha_bands_published: dms_alpha_bands_published.tsv.gz
+  dms_alpha_bands_reversible: dms_alpha_bands_reversible.tsv.gz
+  dms_spectrum_influenza_h3n2: dms_spectrum_influenza_h3n2.tsv.gz
+  dms_spectrum_sars_cov_2: dms_spectrum_sars_cov_2.tsv.gz
+  replacement_scores: replacement_scores.tsv.gz
+  replacement_scores_masked: replacement_scores_masked.tsv.gz
+  replacement_observed: replacement_observed.tsv.gz
+  # How often each replacement was observed, beside whether it was. Derived from the same
+  # archive table as replacement_observed by tools/export_sB_frequency.py, which checks that
+  # obs_freq > 0 agrees with obs_present on every row. The "picking the winners" panels of
+  # Figure 3 and the ranking-metrics figure need the frequency, and so does the lineage
+  # panel; the 0/1 flag says what happened but cannot rank it.
+  replacement_frequency: replacement_frequency.tsv.gz
+  replacement_properties: replacement_properties.tsv.gz
+  dms_cross_lineage_pairs: dms_cross_lineage_pairs.tsv.gz
+  dms_within_stratum: dms_within_stratum.tsv.gz
+  epistasis_cells: epistasis_cells.tsv.gz
+  epistasis_null_draws: epistasis_null_draws.tsv.gz
+  epistasis_focal_sites: epistasis_focal_sites.tsv.gz
+  contact_strata_benchmark: contact_strata_benchmark.tsv.gz
+  contact_surface_vs_core: contact_surface_vs_core.tsv.gz
+  contact_residue_accuracy: contact_residue_accuracy.tsv.gz
+  contact_positional_accuracy: contact_positional_accuracy.tsv.gz
+  contact_regions: contact_regions.tsv.gz
+  audit_within_replacement: audit_within_replacement.tsv.gz
+  audit_within_replacement_by_lineage: audit_within_replacement_by_lineage.tsv.gz
+  audit_persistence: audit_persistence.tsv.gz
+  audit_persistence_by_residue: audit_persistence_by_residue.tsv.gz
+  audit_interval_unit: audit_interval_unit.tsv.gz
+  audit_corpus_split: audit_corpus_split.tsv.gz
+  corpus_membership: corpus_membership.tsv.gz
+  antigenic_sites: antigenic_sites.tsv.gz
+  antigenic_residue_accuracy: antigenic_residue_accuracy.tsv.gz
+  antigenic_pair_benchmark: antigenic_pair_benchmark.tsv.gz

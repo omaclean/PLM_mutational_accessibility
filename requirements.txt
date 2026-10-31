@@ -1,0 +1,35 @@
+# Everything needed to run the test suite and every script in this repository.
+#
+#     python -m pip install -r requirements.txt
+#     python -m pytest tests/ -q
+#
+# The versions are the ones the figures in output/ were last built with, as lower
+# bounds rather than pins, so a newer point release is allowed. Nothing here is a
+# machine-learning dependency: no model is run from this repository, only its
+# scored output tables under results/.
+#
+# A conda equivalent is environment.yml (env name: mutacc). Use one or the other.
+
+numpy>=1.26.4
+pandas>=2.3.3
+scipy>=1.18.1
+matplotlib>=3.10.8          # also supplies the DejaVu fonts the house style and panelise.py use
+PyYAML>=6.0.1               # guides/ and guides/composites/ are YAML
+biopython>=1.83             # mutacc.accessibility reads the genetic code from Bio.Data.CodonTable
+Pillow>=11.1.0              # figures/panelise.py crops raster panels
+PyMuPDF>=1.28.2             # figures/panelise.py places panels and rasterises the composites
+fonttools>=4.61.0           # optional: lets panelise.py subset embedded fonts; it skips if absent
+threadpoolctl>=3.5.0        # mutacc.linkfit holds BLAS to one thread; without it the fit
+                            # is still correct, only slower and far less neighbourly
+pytest>=9.0.2               # tests only
+
+# IMPORT-ORDER WARNING, and it is not hypothetical.
+#
+# PyMuPDF ships its own native libraries. On a machine whose system libstdc++ is older
+# than Pillow's libLerc needs, importing `fitz` *before* Pillow drags in the system
+# libstdc++ and Pillow then dies with:
+#
+#     ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found
+#
+# Import matplotlib (or Pillow) first and the clash does not arise. figures/panelise.py
+# does this deliberately and says so; any new module using both needs the same order.

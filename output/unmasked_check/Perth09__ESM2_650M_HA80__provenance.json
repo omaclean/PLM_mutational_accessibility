@@ -1,0 +1,13 @@
+{
+  "dataset": "Perth09",
+  "reference_file": "/home3/oml4h/Mut_acc_PLM_MS/data/dms/perth2009/data_Perth09_HA_reference.fa",
+  "protein_length": 566,
+  "protein_md5": "814989d84d741e8a2df4a42a34b2970d",
+  "model_label": "ESM2_650M_HA80",
+  "model_source": "/home3/oml4h/hugging_face_downloads/model_weights_topublish/ESM2-HA80",
+  "unmasked_scoring": "single unmasked forward pass of the reference; softmax over the vocabulary. The published quantity.",
+  "masked_scoring": "one forward pass per site with that site replaced by <mask>; softmax over the vocabulary, read at the masked position only.",
+  "unmasked_cache_max_abs_diff": 2.535564041117322e-06,
+  "built_utc": "2026-10-19T15:54:09+00:00",
+  "built_by": "dev/masked_dms/embed_masked_profile.py"
+}

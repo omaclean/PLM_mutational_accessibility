@@ -1,0 +1,617 @@
+panel	condition	category	metric	value	lo	hi	n
+A	Human	A->C	observed_percentage	3.040372061748802			70538.0
+A	Human	A->G	observed_percentage	8.881422558614165			206053.0
+A	Human	A->T	observed_percentage	7.767392442818997			180207.0
+A	Human	C->A	observed_percentage	6.967020036249297			161638.0
+A	Human	C->G	observed_percentage	2.4536593040221204			56926.0
+A	Human	C->T	observed_percentage	23.741436049731792			550812.0
+A	Human	G->A	observed_percentage	18.15675989043316			421245.0
+A	Human	G->C	observed_percentage	2.4843052613203622			57637.0
+A	Human	G->T	observed_percentage	6.305481143684713			146290.0
+A	Human	T->A	observed_percentage	6.763661911730161			156920.0
+A	Human	T->C	observed_percentage	11.48326864349614			266417.0
+A	Human	T->G	observed_percentage	1.95522069615029			45362.0
+A	SARS-CoV-2	A->C	observed_percentage	1.4649436117684869			32090.0
+A	SARS-CoV-2	A->G	observed_percentage	6.294053305869634			137873.0
+A	SARS-CoV-2	A->T	observed_percentage	14.624738875741375			320359.0
+A	SARS-CoV-2	C->A	observed_percentage	2.896516273702048			63449.0
+A	SARS-CoV-2	C->G	observed_percentage	0.5163595261051217			11311.0
+A	SARS-CoV-2	C->T	observed_percentage	35.08487451427236			768544.0
+A	SARS-CoV-2	G->A	observed_percentage	13.224985026441113			289697.0
+A	SARS-CoV-2	G->C	observed_percentage	1.3946409267537323			30550.0
+A	SARS-CoV-2	G->T	observed_percentage	16.22389670435621			355389.0
+A	SARS-CoV-2	T->A	observed_percentage	2.9529410260905133			64685.0
+A	SARS-CoV-2	T->C	observed_percentage	4.870423934320858			106688.0
+A	SARS-CoV-2	T->G	observed_percentage	0.4516262745785491			9893.0
+A	Influenza H3N2	A->C	observed_percentage	12.897998020338385			302829.0
+A	Influenza H3N2	A->G	observed_percentage	19.058033729208866			447459.0
+A	Influenza H3N2	A->T	observed_percentage	2.705125824362104			63513.0
+A	Influenza H3N2	C->A	observed_percentage	1.5479096851792855			36343.0
+A	Influenza H3N2	C->G	observed_percentage	2.9789051892007925			69941.0
+A	Influenza H3N2	C->T	observed_percentage	4.661787930878803			109453.0
+A	Influenza H3N2	G->A	observed_percentage	4.165041083941401			97790.0
+A	Influenza H3N2	G->C	observed_percentage	9.80260456685106			230153.0
+A	Influenza H3N2	G->T	observed_percentage	2.6576360932178704			62398.0
+A	Influenza H3N2	T->A	observed_percentage	1.8370220573829283			43131.0
+A	Influenza H3N2	T->C	observed_percentage	34.85341644959104			818315.0
+A	Influenza H3N2	T->G	observed_percentage	2.8345193698474707			66551.0
+A	JC69 (flat)	A->C	observed_percentage	7.288873693847477			178657.0
+A	JC69 (flat)	A->G	observed_percentage	12.471910479084425			305698.0
+A	JC69 (flat)	A->T	observed_percentage	7.548513070908804			185021.0
+A	JC69 (flat)	C->A	observed_percentage	5.336397001826125			130800.0
+A	JC69 (flat)	C->G	observed_percentage	4.7603680318813			116681.0
+A	JC69 (flat)	C->T	observed_percentage	14.25356534964824			349368.0
+A	JC69 (flat)	G->A	observed_percentage	10.035935003663674			245990.0
+A	JC69 (flat)	G->C	observed_percentage	5.138362819510651			125946.0
+A	JC69 (flat)	G->T	observed_percentage	5.215226519445211			127830.0
+A	JC69 (flat)	T->A	observed_percentage	6.139508431344071			150485.0
+A	JC69 (flat)	T->C	observed_percentage	17.169122986815673			420831.0
+A	JC69 (flat)	T->G	observed_percentage	4.642216612024355			113785.0
+B	Base	Flat	spearman_rho_all_replacements	0.10258999257002914			13300.0
+B	Base	Human	spearman_rho_all_replacements	0.12635539496213802			13300.0
+B	Base	SC2	spearman_rho_all_replacements	0.13854158535216818			13300.0
+B	Base	H3N2	spearman_rho_all_replacements	0.05136532237541172			13300.0
+B	Flat FT	Flat	spearman_rho_all_replacements	0.3109534920221094			13300.0
+B	Flat FT	Human	spearman_rho_all_replacements	0.2794072929999404			13300.0
+B	Flat FT	SC2	spearman_rho_all_replacements	0.2977791612460917			13300.0
+B	Flat FT	H3N2	spearman_rho_all_replacements	0.25098063679124855			13300.0
+B	Human FT	Flat	spearman_rho_all_replacements	0.40733725381189334			13300.0
+B	Human FT	Human	spearman_rho_all_replacements	0.4061081347094175			13300.0
+B	Human FT	SC2	spearman_rho_all_replacements	0.40319778484073876			13300.0
+B	Human FT	H3N2	spearman_rho_all_replacements	0.36969848359006824			13300.0
+B	SC2 FT	Flat	spearman_rho_all_replacements	0.44149110916387957			13300.0
+B	SC2 FT	Human	spearman_rho_all_replacements	0.4337698544797606			13300.0
+B	SC2 FT	SC2	spearman_rho_all_replacements	0.46719291270204777			13300.0
+B	SC2 FT	H3N2	spearman_rho_all_replacements	0.3959184486098486			13300.0
+B	H3N2 FT	Flat	spearman_rho_all_replacements	0.5030333582342754			13300.0
+B	H3N2 FT	Human	spearman_rho_all_replacements	0.5003693628842848			13300.0
+B	H3N2 FT	SC2	spearman_rho_all_replacements	0.5018168089714667			13300.0
+B	H3N2 FT	H3N2	spearman_rho_all_replacements	0.4981365033927662			13300.0
+C	Base (untuned)	alpha=-0.500	spearman_rho_vs_fitness	0.0587552554154928			13300.0
+C	Base (untuned)	alpha=-0.490	spearman_rho_vs_fitness	0.05878147396302538			13300.0
+C	Base (untuned)	alpha=-0.480	spearman_rho_vs_fitness	0.05881871626010924			13300.0
+C	Base (untuned)	alpha=-0.470	spearman_rho_vs_fitness	0.05884169730396596			13300.0
+C	Base (untuned)	alpha=-0.460	spearman_rho_vs_fitness	0.05886415528342338			13300.0
+C	Base (untuned)	alpha=-0.450	spearman_rho_vs_fitness	0.05890456382958248			13300.0
+C	Base (untuned)	alpha=-0.440	spearman_rho_vs_fitness	0.05892668132567747			13300.0
+C	Base (untuned)	alpha=-0.430	spearman_rho_vs_fitness	0.0589700659616759			13300.0
+C	Base (untuned)	alpha=-0.420	spearman_rho_vs_fitness	0.05899702360998167			13300.0
+C	Base (untuned)	alpha=-0.410	spearman_rho_vs_fitness	0.059013660940781934			13300.0
+C	Base (untuned)	alpha=-0.400	spearman_rho_vs_fitness	0.059047882433397314			13300.0
+C	Base (untuned)	alpha=-0.390	spearman_rho_vs_fitness	0.059084550441480886			13300.0
+C	Base (untuned)	alpha=-0.380	spearman_rho_vs_fitness	0.05911271708920294			13300.0
+C	Base (untuned)	alpha=-0.370	spearman_rho_vs_fitness	0.05913458889600242			13300.0
+C	Base (untuned)	alpha=-0.360	spearman_rho_vs_fitness	0.059165696941332176			13300.0
+C	Base (untuned)	alpha=-0.350	spearman_rho_vs_fitness	0.059185527780235114			13300.0
+C	Base (untuned)	alpha=-0.340	spearman_rho_vs_fitness	0.05921372139699496			13300.0
+C	Base (untuned)	alpha=-0.330	spearman_rho_vs_fitness	0.05923862086740598			13300.0
+C	Base (untuned)	alpha=-0.320	spearman_rho_vs_fitness	0.05927858243298185			13300.0
+C	Base (untuned)	alpha=-0.310	spearman_rho_vs_fitness	0.0593070513298182			13300.0
+C	Base (untuned)	alpha=-0.300	spearman_rho_vs_fitness	0.0593445734018182			13300.0
+C	Base (untuned)	alpha=-0.290	spearman_rho_vs_fitness	0.05939448379927591			13300.0
+C	Base (untuned)	alpha=-0.280	spearman_rho_vs_fitness	0.059477825384688376			13300.0
+C	Base (untuned)	alpha=-0.270	spearman_rho_vs_fitness	0.059616993970241235			13300.0
+C	Base (untuned)	alpha=-0.260	spearman_rho_vs_fitness	0.05979827466392851			13300.0
+C	Base (untuned)	alpha=-0.250	spearman_rho_vs_fitness	0.06009233491722859			13300.0
+C	Base (untuned)	alpha=-0.240	spearman_rho_vs_fitness	0.0605054261377157			13300.0
+C	Base (untuned)	alpha=-0.230	spearman_rho_vs_fitness	0.06110108794362438			13300.0
+C	Base (untuned)	alpha=-0.220	spearman_rho_vs_fitness	0.06193576316659272			13300.0
+C	Base (untuned)	alpha=-0.210	spearman_rho_vs_fitness	0.06308010364600307			13300.0
+C	Base (untuned)	alpha=-0.200	spearman_rho_vs_fitness	0.06460567278595974			13300.0
+C	Base (untuned)	alpha=-0.190	spearman_rho_vs_fitness	0.06657829392056576			13300.0
+C	Base (untuned)	alpha=-0.180	spearman_rho_vs_fitness	0.06908218597821737			13300.0
+C	Base (untuned)	alpha=-0.170	spearman_rho_vs_fitness	0.07214372645924542			13300.0
+C	Base (untuned)	alpha=-0.160	spearman_rho_vs_fitness	0.07576007145287024			13300.0
+C	Base (untuned)	alpha=-0.150	spearman_rho_vs_fitness	0.07993258512960451			13300.0
+C	Base (untuned)	alpha=-0.140	spearman_rho_vs_fitness	0.08462470655264662			13300.0
+C	Base (untuned)	alpha=-0.130	spearman_rho_vs_fitness	0.08979224412172783			13300.0
+C	Base (untuned)	alpha=-0.120	spearman_rho_vs_fitness	0.09533083137125624			13300.0
+C	Base (untuned)	alpha=-0.110	spearman_rho_vs_fitness	0.10119677685322069			13300.0
+C	Base (untuned)	alpha=-0.100	spearman_rho_vs_fitness	0.10740151540117925			13300.0
+C	Base (untuned)	alpha=-0.090	spearman_rho_vs_fitness	0.11388379045585048			13300.0
+C	Base (untuned)	alpha=-0.080	spearman_rho_vs_fitness	0.12069111117903693			13300.0
+C	Base (untuned)	alpha=-0.070	spearman_rho_vs_fitness	0.1277444662972577			13300.0
+C	Base (untuned)	alpha=-0.060	spearman_rho_vs_fitness	0.1350178357816116			13300.0
+C	Base (untuned)	alpha=-0.050	spearman_rho_vs_fitness	0.14228933534166038			13300.0
+C	Base (untuned)	alpha=-0.040	spearman_rho_vs_fitness	0.14928981738904418			13300.0
+C	Base (untuned)	alpha=-0.030	spearman_rho_vs_fitness	0.15545166927242135			13300.0
+C	Base (untuned)	alpha=-0.020	spearman_rho_vs_fitness	0.16002555856987735			13300.0
+C	Base (untuned)	alpha=-0.010	spearman_rho_vs_fitness	0.16304316360323234			13300.0
+C	Base (untuned)	alpha=+0.000	spearman_rho_vs_fitness	0.16431669145293962			13300.0
+C	Base (untuned)	alpha=+0.010	spearman_rho_vs_fitness	0.1638062192025715			13300.0
+C	Base (untuned)	alpha=+0.020	spearman_rho_vs_fitness	0.16186141991798927			13300.0
+C	Base (untuned)	alpha=+0.030	spearman_rho_vs_fitness	0.15867884019673156			13300.0
+C	Base (untuned)	alpha=+0.040	spearman_rho_vs_fitness	0.1543873499051568			13300.0
+C	Base (untuned)	alpha=+0.050	spearman_rho_vs_fitness	0.14942160574974578			13300.0
+C	Base (untuned)	alpha=+0.060	spearman_rho_vs_fitness	0.14387703851408182			13300.0
+C	Base (untuned)	alpha=+0.070	spearman_rho_vs_fitness	0.1380839644079232			13300.0
+C	Base (untuned)	alpha=+0.080	spearman_rho_vs_fitness	0.1322335016274437			13300.0
+C	Base (untuned)	alpha=+0.090	spearman_rho_vs_fitness	0.12641498390304334			13300.0
+C	Base (untuned)	alpha=+0.100	spearman_rho_vs_fitness	0.1207437719419384			13300.0
+C	Base (untuned)	alpha=+0.110	spearman_rho_vs_fitness	0.11526533464229557			13300.0
+C	Base (untuned)	alpha=+0.120	spearman_rho_vs_fitness	0.10993884282204482			13300.0
+C	Base (untuned)	alpha=+0.130	spearman_rho_vs_fitness	0.1048627195910703			13300.0
+C	Base (untuned)	alpha=+0.140	spearman_rho_vs_fitness	0.10013753755430105			13300.0
+C	Base (untuned)	alpha=+0.150	spearman_rho_vs_fitness	0.09581312984470652			13300.0
+C	Base (untuned)	alpha=+0.160	spearman_rho_vs_fitness	0.09191806442609873			13300.0
+C	Base (untuned)	alpha=+0.170	spearman_rho_vs_fitness	0.08841209777418609			13300.0
+C	Base (untuned)	alpha=+0.180	spearman_rho_vs_fitness	0.0852884249207361			13300.0
+C	Base (untuned)	alpha=+0.190	spearman_rho_vs_fitness	0.08256066235657168			13300.0
+C	Base (untuned)	alpha=+0.200	spearman_rho_vs_fitness	0.08021878795936457			13300.0
+C	Base (untuned)	alpha=+0.210	spearman_rho_vs_fitness	0.07824605616411488			13300.0
+C	Base (untuned)	alpha=+0.220	spearman_rho_vs_fitness	0.07656720224826385			13300.0
+C	Base (untuned)	alpha=+0.230	spearman_rho_vs_fitness	0.07515168525012687			13300.0
+C	Base (untuned)	alpha=+0.240	spearman_rho_vs_fitness	0.0739285279619301			13300.0
+C	Base (untuned)	alpha=+0.250	spearman_rho_vs_fitness	0.07289099148573691			13300.0
+C	Base (untuned)	alpha=+0.260	spearman_rho_vs_fitness	0.07202300410077128			13300.0
+C	Base (untuned)	alpha=+0.270	spearman_rho_vs_fitness	0.0712977321559361			13300.0
+C	Base (untuned)	alpha=+0.280	spearman_rho_vs_fitness	0.07065960609976286			13300.0
+C	Base (untuned)	alpha=+0.290	spearman_rho_vs_fitness	0.07013570848324391			13300.0
+C	Base (untuned)	alpha=+0.300	spearman_rho_vs_fitness	0.06971064326741457			13300.0
+C	Base (untuned)	alpha=+0.310	spearman_rho_vs_fitness	0.06934359084578155			13300.0
+C	Base (untuned)	alpha=+0.320	spearman_rho_vs_fitness	0.06905721809983886			13300.0
+C	Base (untuned)	alpha=+0.330	spearman_rho_vs_fitness	0.068806928787224			13300.0
+C	Base (untuned)	alpha=+0.340	spearman_rho_vs_fitness	0.06859594484094385			13300.0
+C	Base (untuned)	alpha=+0.350	spearman_rho_vs_fitness	0.06841012512562857			13300.0
+C	Base (untuned)	alpha=+0.360	spearman_rho_vs_fitness	0.06826569719894324			13300.0
+C	Base (untuned)	alpha=+0.370	spearman_rho_vs_fitness	0.06812627188081541			13300.0
+C	Base (untuned)	alpha=+0.380	spearman_rho_vs_fitness	0.06799778610575338			13300.0
+C	Base (untuned)	alpha=+0.390	spearman_rho_vs_fitness	0.06789130891199875			13300.0
+C	Base (untuned)	alpha=+0.400	spearman_rho_vs_fitness	0.0677835069981606			13300.0
+C	Base (untuned)	alpha=+0.410	spearman_rho_vs_fitness	0.06767189735446055			13300.0
+C	Base (untuned)	alpha=+0.420	spearman_rho_vs_fitness	0.067566140009717			13300.0
+C	Base (untuned)	alpha=+0.430	spearman_rho_vs_fitness	0.06746961579055352			13300.0
+C	Base (untuned)	alpha=+0.440	spearman_rho_vs_fitness	0.06736147039876593			13300.0
+C	Base (untuned)	alpha=+0.450	spearman_rho_vs_fitness	0.06724969679550748			13300.0
+C	Base (untuned)	alpha=+0.460	spearman_rho_vs_fitness	0.06714445773329301			13300.0
+C	Base (untuned)	alpha=+0.470	spearman_rho_vs_fitness	0.06704734582346454			13300.0
+C	Base (untuned)	alpha=+0.480	spearman_rho_vs_fitness	0.0669526913865705			13300.0
+C	Base (untuned)	alpha=+0.490	spearman_rho_vs_fitness	0.06684826473333005			13300.0
+C	Base (untuned)	alpha=+0.500	spearman_rho_vs_fitness	0.06675033591672888			13300.0
+C	Base (untuned)	optimum	optimal_alpha	0.0			13300.0
+C	JC69 (flat) FT	alpha=-0.500	spearman_rho_vs_fitness	0.3492450885846511			13300.0
+C	JC69 (flat) FT	alpha=-0.490	spearman_rho_vs_fitness	0.3535406412405078			13300.0
+C	JC69 (flat) FT	alpha=-0.480	spearman_rho_vs_fitness	0.3580788224219205			13300.0
+C	JC69 (flat) FT	alpha=-0.470	spearman_rho_vs_fitness	0.36248753716325166			13300.0
+C	JC69 (flat) FT	alpha=-0.460	spearman_rho_vs_fitness	0.3670179669005122			13300.0
+C	JC69 (flat) FT	alpha=-0.450	spearman_rho_vs_fitness	0.37127829188845307			13300.0
+C	JC69 (flat) FT	alpha=-0.440	spearman_rho_vs_fitness	0.37590994218877755			13300.0
+C	JC69 (flat) FT	alpha=-0.430	spearman_rho_vs_fitness	0.3802835387362462			13300.0
+C	JC69 (flat) FT	alpha=-0.420	spearman_rho_vs_fitness	0.3847793298307996			13300.0
+C	JC69 (flat) FT	alpha=-0.410	spearman_rho_vs_fitness	0.3891607733799295			13300.0
+C	JC69 (flat) FT	alpha=-0.400	spearman_rho_vs_fitness	0.3933981467994072			13300.0
+C	JC69 (flat) FT	alpha=-0.390	spearman_rho_vs_fitness	0.3977296508485827			13300.0
+C	JC69 (flat) FT	alpha=-0.380	spearman_rho_vs_fitness	0.40198508685360945			13300.0
+C	JC69 (flat) FT	alpha=-0.370	spearman_rho_vs_fitness	0.4062013432561084			13300.0
+C	JC69 (flat) FT	alpha=-0.360	spearman_rho_vs_fitness	0.4102306323981459			13300.0
+C	JC69 (flat) FT	alpha=-0.350	spearman_rho_vs_fitness	0.41446616652273727			13300.0
+C	JC69 (flat) FT	alpha=-0.340	spearman_rho_vs_fitness	0.4182989644930944			13300.0
+C	JC69 (flat) FT	alpha=-0.330	spearman_rho_vs_fitness	0.42221665566211714			13300.0
+C	JC69 (flat) FT	alpha=-0.320	spearman_rho_vs_fitness	0.4260078517996339			13300.0
+C	JC69 (flat) FT	alpha=-0.310	spearman_rho_vs_fitness	0.42957587666095526			13300.0
+C	JC69 (flat) FT	alpha=-0.300	spearman_rho_vs_fitness	0.43303674366666006			13300.0
+C	JC69 (flat) FT	alpha=-0.290	spearman_rho_vs_fitness	0.4363287708959534			13300.0
+C	JC69 (flat) FT	alpha=-0.280	spearman_rho_vs_fitness	0.4395137464975749			13300.0
+C	JC69 (flat) FT	alpha=-0.270	spearman_rho_vs_fitness	0.4423828217340124			13300.0
+C	JC69 (flat) FT	alpha=-0.260	spearman_rho_vs_fitness	0.44540064959262815			13300.0
+C	JC69 (flat) FT	alpha=-0.250	spearman_rho_vs_fitness	0.4479562912224012			13300.0
+C	JC69 (flat) FT	alpha=-0.240	spearman_rho_vs_fitness	0.45033252712815114			13300.0
+C	JC69 (flat) FT	alpha=-0.230	spearman_rho_vs_fitness	0.4525065728760636			13300.0
+C	JC69 (flat) FT	alpha=-0.220	spearman_rho_vs_fitness	0.454392407589442			13300.0
+C	JC69 (flat) FT	alpha=-0.210	spearman_rho_vs_fitness	0.45607065817171927			13300.0
+C	JC69 (flat) FT	alpha=-0.200	spearman_rho_vs_fitness	0.4574269246929121			13300.0
+C	JC69 (flat) FT	alpha=-0.190	spearman_rho_vs_fitness	0.45861943628198665			13300.0
+C	JC69 (flat) FT	alpha=-0.180	spearman_rho_vs_fitness	0.4593947556586218			13300.0
+C	JC69 (flat) FT	alpha=-0.170	spearman_rho_vs_fitness	0.46014896808210265			13300.0
+C	JC69 (flat) FT	alpha=-0.160	spearman_rho_vs_fitness	0.46046044152737664			13300.0
+C	JC69 (flat) FT	alpha=-0.150	spearman_rho_vs_fitness	0.4604551311036828			13300.0
+C	JC69 (flat) FT	alpha=-0.140	spearman_rho_vs_fitness	0.46022828563786367			13300.0
+C	JC69 (flat) FT	alpha=-0.130	spearman_rho_vs_fitness	0.459650444803293			13300.0
+C	JC69 (flat) FT	alpha=-0.120	spearman_rho_vs_fitness	0.4587659315181751			13300.0
+C	JC69 (flat) FT	alpha=-0.110	spearman_rho_vs_fitness	0.4575676718607152			13300.0
+C	JC69 (flat) FT	alpha=-0.100	spearman_rho_vs_fitness	0.4561453944709339			13300.0
+C	JC69 (flat) FT	alpha=-0.090	spearman_rho_vs_fitness	0.4542838055853511			13300.0
+C	JC69 (flat) FT	alpha=-0.080	spearman_rho_vs_fitness	0.45250980549134007			13300.0
+C	JC69 (flat) FT	alpha=-0.070	spearman_rho_vs_fitness	0.4502768558643316			13300.0
+C	JC69 (flat) FT	alpha=-0.060	spearman_rho_vs_fitness	0.44759971720432173			13300.0
+C	JC69 (flat) FT	alpha=-0.050	spearman_rho_vs_fitness	0.4448967661539399			13300.0
+C	JC69 (flat) FT	alpha=-0.040	spearman_rho_vs_fitness	0.44179854283322556			13300.0
+C	JC69 (flat) FT	alpha=-0.030	spearman_rho_vs_fitness	0.4385317948128174			13300.0
+C	JC69 (flat) FT	alpha=-0.020	spearman_rho_vs_fitness	0.4350074893745998			13300.0
+C	JC69 (flat) FT	alpha=-0.010	spearman_rho_vs_fitness	0.4313549001303301			13300.0
+C	JC69 (flat) FT	alpha=+0.000	spearman_rho_vs_fitness	0.427013904279821			13300.0
+C	JC69 (flat) FT	alpha=+0.010	spearman_rho_vs_fitness	0.4234940945650686			13300.0
+C	JC69 (flat) FT	alpha=+0.020	spearman_rho_vs_fitness	0.41938104736519166			13300.0
+C	JC69 (flat) FT	alpha=+0.030	spearman_rho_vs_fitness	0.4149112797646008			13300.0
+C	JC69 (flat) FT	alpha=+0.040	spearman_rho_vs_fitness	0.4105867722188599			13300.0
+C	JC69 (flat) FT	alpha=+0.050	spearman_rho_vs_fitness	0.40593783991411575			13300.0
+C	JC69 (flat) FT	alpha=+0.060	spearman_rho_vs_fitness	0.4013382672898093			13300.0
+C	JC69 (flat) FT	alpha=+0.070	spearman_rho_vs_fitness	0.39657494258593573			13300.0
+C	JC69 (flat) FT	alpha=+0.080	spearman_rho_vs_fitness	0.3918981346410665			13300.0
+C	JC69 (flat) FT	alpha=+0.090	spearman_rho_vs_fitness	0.38673298566726055			13300.0
+C	JC69 (flat) FT	alpha=+0.100	spearman_rho_vs_fitness	0.3821822633151381			13300.0
+C	JC69 (flat) FT	alpha=+0.110	spearman_rho_vs_fitness	0.37741000231377425			13300.0
+C	JC69 (flat) FT	alpha=+0.120	spearman_rho_vs_fitness	0.37251301528289066			13300.0
+C	JC69 (flat) FT	alpha=+0.130	spearman_rho_vs_fitness	0.36773615099168483			13300.0
+C	JC69 (flat) FT	alpha=+0.140	spearman_rho_vs_fitness	0.3627960404427628			13300.0
+C	JC69 (flat) FT	alpha=+0.150	spearman_rho_vs_fitness	0.3580444674127673			13300.0
+C	JC69 (flat) FT	alpha=+0.160	spearman_rho_vs_fitness	0.35317602875065973			13300.0
+C	JC69 (flat) FT	alpha=+0.170	spearman_rho_vs_fitness	0.34851306029568785			13300.0
+C	JC69 (flat) FT	alpha=+0.180	spearman_rho_vs_fitness	0.3434953070173715			13300.0
+C	JC69 (flat) FT	alpha=+0.190	spearman_rho_vs_fitness	0.3390629573824677			13300.0
+C	JC69 (flat) FT	alpha=+0.200	spearman_rho_vs_fitness	0.3344326983726058			13300.0
+C	JC69 (flat) FT	alpha=+0.210	spearman_rho_vs_fitness	0.3299461731369476			13300.0
+C	JC69 (flat) FT	alpha=+0.220	spearman_rho_vs_fitness	0.32552337717862934			13300.0
+C	JC69 (flat) FT	alpha=+0.230	spearman_rho_vs_fitness	0.32105795886653454			13300.0
+C	JC69 (flat) FT	alpha=+0.240	spearman_rho_vs_fitness	0.31672403159279644			13300.0
+C	JC69 (flat) FT	alpha=+0.250	spearman_rho_vs_fitness	0.3123923022305375			13300.0
+C	JC69 (flat) FT	alpha=+0.260	spearman_rho_vs_fitness	0.3082368604815115			13300.0
+C	JC69 (flat) FT	alpha=+0.270	spearman_rho_vs_fitness	0.3038860527117835			13300.0
+C	JC69 (flat) FT	alpha=+0.280	spearman_rho_vs_fitness	0.299905173637636			13300.0
+C	JC69 (flat) FT	alpha=+0.290	spearman_rho_vs_fitness	0.29587273368403605			13300.0
+C	JC69 (flat) FT	alpha=+0.300	spearman_rho_vs_fitness	0.2920273016042444			13300.0
+C	JC69 (flat) FT	alpha=+0.310	spearman_rho_vs_fitness	0.28823906652740716			13300.0
+C	JC69 (flat) FT	alpha=+0.320	spearman_rho_vs_fitness	0.284549537013264			13300.0
+C	JC69 (flat) FT	alpha=+0.330	spearman_rho_vs_fitness	0.28082909058658617			13300.0
+C	JC69 (flat) FT	alpha=+0.340	spearman_rho_vs_fitness	0.27720689580594055			13300.0
+C	JC69 (flat) FT	alpha=+0.350	spearman_rho_vs_fitness	0.2738301143303709			13300.0
+C	JC69 (flat) FT	alpha=+0.360	spearman_rho_vs_fitness	0.27022617826001144			13300.0
+C	JC69 (flat) FT	alpha=+0.370	spearman_rho_vs_fitness	0.26694172703704816			13300.0
+C	JC69 (flat) FT	alpha=+0.380	spearman_rho_vs_fitness	0.2637324313791569			13300.0
+C	JC69 (flat) FT	alpha=+0.390	spearman_rho_vs_fitness	0.2605841237944695			13300.0
+C	JC69 (flat) FT	alpha=+0.400	spearman_rho_vs_fitness	0.25747976110280046			13300.0
+C	JC69 (flat) FT	alpha=+0.410	spearman_rho_vs_fitness	0.2545619602364665			13300.0
+C	JC69 (flat) FT	alpha=+0.420	spearman_rho_vs_fitness	0.25166258762079835			13300.0
+C	JC69 (flat) FT	alpha=+0.430	spearman_rho_vs_fitness	0.248821364153603			13300.0
+C	JC69 (flat) FT	alpha=+0.440	spearman_rho_vs_fitness	0.2460725224506455			13300.0
+C	JC69 (flat) FT	alpha=+0.450	spearman_rho_vs_fitness	0.24326510762250544			13300.0
+C	JC69 (flat) FT	alpha=+0.460	spearman_rho_vs_fitness	0.24070575015112533			13300.0
+C	JC69 (flat) FT	alpha=+0.470	spearman_rho_vs_fitness	0.23819438335749654			13300.0
+C	JC69 (flat) FT	alpha=+0.480	spearman_rho_vs_fitness	0.2357276300428277			13300.0
+C	JC69 (flat) FT	alpha=+0.490	spearman_rho_vs_fitness	0.23331795883306986			13300.0
+C	JC69 (flat) FT	alpha=+0.500	spearman_rho_vs_fitness	0.23100677374077438			13300.0
+C	JC69 (flat) FT	optimum	optimal_alpha	-0.15999999999999998			13300.0
+C	Human FT	alpha=-0.500	spearman_rho_vs_fitness	0.16067051590081535			13300.0
+C	Human FT	alpha=-0.490	spearman_rho_vs_fitness	0.16270691664219597			13300.0
+C	Human FT	alpha=-0.480	spearman_rho_vs_fitness	0.1649294731464526			13300.0
+C	Human FT	alpha=-0.470	spearman_rho_vs_fitness	0.16734342009079772			13300.0
+C	Human FT	alpha=-0.460	spearman_rho_vs_fitness	0.1699777917926885			13300.0
+C	Human FT	alpha=-0.450	spearman_rho_vs_fitness	0.17281862800816916			13300.0
+C	Human FT	alpha=-0.440	spearman_rho_vs_fitness	0.1758829270163734			13300.0
+C	Human FT	alpha=-0.430	spearman_rho_vs_fitness	0.17920274338587702			13300.0
+C	Human FT	alpha=-0.420	spearman_rho_vs_fitness	0.1827571982818162			13300.0
+C	Human FT	alpha=-0.410	spearman_rho_vs_fitness	0.1865576610829327			13300.0
+C	Human FT	alpha=-0.400	spearman_rho_vs_fitness	0.190636996733889			13300.0
+C	Human FT	alpha=-0.390	spearman_rho_vs_fitness	0.19501638917713238			13300.0
+C	Human FT	alpha=-0.380	spearman_rho_vs_fitness	0.19971763544946006			13300.0
+C	Human FT	alpha=-0.370	spearman_rho_vs_fitness	0.20470310310824705			13300.0
+C	Human FT	alpha=-0.360	spearman_rho_vs_fitness	0.20998429392434823			13300.0
+C	Human FT	alpha=-0.350	spearman_rho_vs_fitness	0.21555868059058797			13300.0
+C	Human FT	alpha=-0.340	spearman_rho_vs_fitness	0.22144976841067174			13300.0
+C	Human FT	alpha=-0.330	spearman_rho_vs_fitness	0.22764399886804532			13300.0
+C	Human FT	alpha=-0.320	spearman_rho_vs_fitness	0.23415546222855604			13300.0
+C	Human FT	alpha=-0.310	spearman_rho_vs_fitness	0.24098705800997708			13300.0
+C	Human FT	alpha=-0.300	spearman_rho_vs_fitness	0.24813772111877908			13300.0
+C	Human FT	alpha=-0.290	spearman_rho_vs_fitness	0.25561276446428116			13300.0
+C	Human FT	alpha=-0.280	spearman_rho_vs_fitness	0.2633378209692007			13300.0
+C	Human FT	alpha=-0.270	spearman_rho_vs_fitness	0.27127455832455666			13300.0
+C	Human FT	alpha=-0.260	spearman_rho_vs_fitness	0.27947148428628205			13300.0
+C	Human FT	alpha=-0.250	spearman_rho_vs_fitness	0.28790372408341003			13300.0
+C	Human FT	alpha=-0.240	spearman_rho_vs_fitness	0.29640872710494226			13300.0
+C	Human FT	alpha=-0.230	spearman_rho_vs_fitness	0.30505308009453014			13300.0
+C	Human FT	alpha=-0.220	spearman_rho_vs_fitness	0.31381421034631657			13300.0
+C	Human FT	alpha=-0.210	spearman_rho_vs_fitness	0.32255386627540394			13300.0
+C	Human FT	alpha=-0.200	spearman_rho_vs_fitness	0.331181364356151			13300.0
+C	Human FT	alpha=-0.190	spearman_rho_vs_fitness	0.33953957594962			13300.0
+C	Human FT	alpha=-0.180	spearman_rho_vs_fitness	0.34762628860934014			13300.0
+C	Human FT	alpha=-0.170	spearman_rho_vs_fitness	0.35540748351294055			13300.0
+C	Human FT	alpha=-0.160	spearman_rho_vs_fitness	0.3626744221278636			13300.0
+C	Human FT	alpha=-0.150	spearman_rho_vs_fitness	0.3693591125863054			13300.0
+C	Human FT	alpha=-0.140	spearman_rho_vs_fitness	0.37527053124366194			13300.0
+C	Human FT	alpha=-0.130	spearman_rho_vs_fitness	0.38035266670488443			13300.0
+C	Human FT	alpha=-0.120	spearman_rho_vs_fitness	0.38432999357131215			13300.0
+C	Human FT	alpha=-0.110	spearman_rho_vs_fitness	0.3873417868190845			13300.0
+C	Human FT	alpha=-0.100	spearman_rho_vs_fitness	0.38907896020664584			13300.0
+C	Human FT	alpha=-0.090	spearman_rho_vs_fitness	0.3895966320674392			13300.0
+C	Human FT	alpha=-0.080	spearman_rho_vs_fitness	0.3888424961746278			13300.0
+C	Human FT	alpha=-0.070	spearman_rho_vs_fitness	0.3868322913201395			13300.0
+C	Human FT	alpha=-0.060	spearman_rho_vs_fitness	0.38346676588780787			13300.0
+C	Human FT	alpha=-0.050	spearman_rho_vs_fitness	0.3789735492298618			13300.0
+C	Human FT	alpha=-0.040	spearman_rho_vs_fitness	0.373433360679494			13300.0
+C	Human FT	alpha=-0.030	spearman_rho_vs_fitness	0.3668261833812906			13300.0
+C	Human FT	alpha=-0.020	spearman_rho_vs_fitness	0.3594882124842869			13300.0
+C	Human FT	alpha=-0.010	spearman_rho_vs_fitness	0.35135940490279033			13300.0
+C	Human FT	alpha=+0.000	spearman_rho_vs_fitness	0.3419194070389881			13300.0
+C	Human FT	alpha=+0.010	spearman_rho_vs_fitness	0.3335324692317086			13300.0
+C	Human FT	alpha=+0.020	spearman_rho_vs_fitness	0.32428651284161986			13300.0
+C	Human FT	alpha=+0.030	spearman_rho_vs_fitness	0.31484755033408807			13300.0
+C	Human FT	alpha=+0.040	spearman_rho_vs_fitness	0.3054246756742957			13300.0
+C	Human FT	alpha=+0.050	spearman_rho_vs_fitness	0.29611775612052516			13300.0
+C	Human FT	alpha=+0.060	spearman_rho_vs_fitness	0.2868554865607364			13300.0
+C	Human FT	alpha=+0.070	spearman_rho_vs_fitness	0.2779821485143304			13300.0
+C	Human FT	alpha=+0.080	spearman_rho_vs_fitness	0.26935561635656935			13300.0
+C	Human FT	alpha=+0.090	spearman_rho_vs_fitness	0.26108084665823694			13300.0
+C	Human FT	alpha=+0.100	spearman_rho_vs_fitness	0.25313788359194583			13300.0
+C	Human FT	alpha=+0.110	spearman_rho_vs_fitness	0.24553271995663514			13300.0
+C	Human FT	alpha=+0.120	spearman_rho_vs_fitness	0.2382604530008006			13300.0
+C	Human FT	alpha=+0.130	spearman_rho_vs_fitness	0.23151632901787683			13300.0
+C	Human FT	alpha=+0.140	spearman_rho_vs_fitness	0.22505648358192398			13300.0
+C	Human FT	alpha=+0.150	spearman_rho_vs_fitness	0.21894169617481			13300.0
+C	Human FT	alpha=+0.160	spearman_rho_vs_fitness	0.21322446021761127			13300.0
+C	Human FT	alpha=+0.170	spearman_rho_vs_fitness	0.2077943254039214			13300.0
+C	Human FT	alpha=+0.180	spearman_rho_vs_fitness	0.20267770017121245			13300.0
+C	Human FT	alpha=+0.190	spearman_rho_vs_fitness	0.19792542583103664			13300.0
+C	Human FT	alpha=+0.200	spearman_rho_vs_fitness	0.19346258397363925			13300.0
+C	Human FT	alpha=+0.210	spearman_rho_vs_fitness	0.18931426855482003			13300.0
+C	Human FT	alpha=+0.220	spearman_rho_vs_fitness	0.1854108211480726			13300.0
+C	Human FT	alpha=+0.230	spearman_rho_vs_fitness	0.18179123865948257			13300.0
+C	Human FT	alpha=+0.240	spearman_rho_vs_fitness	0.1783255674486014			13300.0
+C	Human FT	alpha=+0.250	spearman_rho_vs_fitness	0.17516112663588954			13300.0
+C	Human FT	alpha=+0.260	spearman_rho_vs_fitness	0.17220281161109777			13300.0
+C	Human FT	alpha=+0.270	spearman_rho_vs_fitness	0.16940038158686013			13300.0
+C	Human FT	alpha=+0.280	spearman_rho_vs_fitness	0.1668771880713241			13300.0
+C	Human FT	alpha=+0.290	spearman_rho_vs_fitness	0.16448778480965676			13300.0
+C	Human FT	alpha=+0.300	spearman_rho_vs_fitness	0.16223904514254364			13300.0
+C	Human FT	alpha=+0.310	spearman_rho_vs_fitness	0.16018026123017634			13300.0
+C	Human FT	alpha=+0.320	spearman_rho_vs_fitness	0.15827348542893088			13300.0
+C	Human FT	alpha=+0.330	spearman_rho_vs_fitness	0.15646444437603318			13300.0
+C	Human FT	alpha=+0.340	spearman_rho_vs_fitness	0.154805459493186			13300.0
+C	Human FT	alpha=+0.350	spearman_rho_vs_fitness	0.15326857924878948			13300.0
+C	Human FT	alpha=+0.360	spearman_rho_vs_fitness	0.15185135460624272			13300.0
+C	Human FT	alpha=+0.370	spearman_rho_vs_fitness	0.15047963912600318			13300.0
+C	Human FT	alpha=+0.380	spearman_rho_vs_fitness	0.14926984428383053			13300.0
+C	Human FT	alpha=+0.390	spearman_rho_vs_fitness	0.14810478916376474			13300.0
+C	Human FT	alpha=+0.400	spearman_rho_vs_fitness	0.14699710031775434			13300.0
+C	Human FT	alpha=+0.410	spearman_rho_vs_fitness	0.1459967038144961			13300.0
+C	Human FT	alpha=+0.420	spearman_rho_vs_fitness	0.14504595422050703			13300.0
+C	Human FT	alpha=+0.430	spearman_rho_vs_fitness	0.14416722944849203			13300.0
+C	Human FT	alpha=+0.440	spearman_rho_vs_fitness	0.14332226603834006			13300.0
+C	Human FT	alpha=+0.450	spearman_rho_vs_fitness	0.14252841282820788			13300.0
+C	Human FT	alpha=+0.460	spearman_rho_vs_fitness	0.14181213651685623			13300.0
+C	Human FT	alpha=+0.470	spearman_rho_vs_fitness	0.1411064782831947			13300.0
+C	Human FT	alpha=+0.480	spearman_rho_vs_fitness	0.1404196392269647			13300.0
+C	Human FT	alpha=+0.490	spearman_rho_vs_fitness	0.13979545421378176			13300.0
+C	Human FT	alpha=+0.500	spearman_rho_vs_fitness	0.13920438920891606			13300.0
+C	Human FT	optimum	optimal_alpha	-0.08999999999999997			13300.0
+C	SC2 FT	alpha=-0.500	spearman_rho_vs_fitness	0.18680828585564446			13300.0
+C	SC2 FT	alpha=-0.490	spearman_rho_vs_fitness	0.1904747393747738			13300.0
+C	SC2 FT	alpha=-0.480	spearman_rho_vs_fitness	0.19430963439318558			13300.0
+C	SC2 FT	alpha=-0.470	spearman_rho_vs_fitness	0.19825473197806368			13300.0
+C	SC2 FT	alpha=-0.460	spearman_rho_vs_fitness	0.20237360393052503			13300.0
+C	SC2 FT	alpha=-0.450	spearman_rho_vs_fitness	0.20666154104052756			13300.0
+C	SC2 FT	alpha=-0.440	spearman_rho_vs_fitness	0.21112323509802056			13300.0
+C	SC2 FT	alpha=-0.430	spearman_rho_vs_fitness	0.21578318940610128			13300.0
+C	SC2 FT	alpha=-0.420	spearman_rho_vs_fitness	0.22058120985069182			13300.0
+C	SC2 FT	alpha=-0.410	spearman_rho_vs_fitness	0.22558662722029219			13300.0
+C	SC2 FT	alpha=-0.400	spearman_rho_vs_fitness	0.23073538936367896			13300.0
+C	SC2 FT	alpha=-0.390	spearman_rho_vs_fitness	0.2360608236021797			13300.0
+C	SC2 FT	alpha=-0.380	spearman_rho_vs_fitness	0.241548180177253			13300.0
+C	SC2 FT	alpha=-0.370	spearman_rho_vs_fitness	0.24714307766355334			13300.0
+C	SC2 FT	alpha=-0.360	spearman_rho_vs_fitness	0.2528850428167299			13300.0
+C	SC2 FT	alpha=-0.350	spearman_rho_vs_fitness	0.2587639135530276			13300.0
+C	SC2 FT	alpha=-0.340	spearman_rho_vs_fitness	0.264713897895747			13300.0
+C	SC2 FT	alpha=-0.330	spearman_rho_vs_fitness	0.2706738140290094			13300.0
+C	SC2 FT	alpha=-0.320	spearman_rho_vs_fitness	0.2768301796286908			13300.0
+C	SC2 FT	alpha=-0.310	spearman_rho_vs_fitness	0.28299913285956607			13300.0
+C	SC2 FT	alpha=-0.300	spearman_rho_vs_fitness	0.2891801393565171			13300.0
+C	SC2 FT	alpha=-0.290	spearman_rho_vs_fitness	0.29540938452859206			13300.0
+C	SC2 FT	alpha=-0.280	spearman_rho_vs_fitness	0.3015615960412823			13300.0
+C	SC2 FT	alpha=-0.270	spearman_rho_vs_fitness	0.3076410211659074			13300.0
+C	SC2 FT	alpha=-0.260	spearman_rho_vs_fitness	0.3136231415021535			13300.0
+C	SC2 FT	alpha=-0.250	spearman_rho_vs_fitness	0.31949280461421353			13300.0
+C	SC2 FT	alpha=-0.240	spearman_rho_vs_fitness	0.32521664010841916			13300.0
+C	SC2 FT	alpha=-0.230	spearman_rho_vs_fitness	0.3306415113226943			13300.0
+C	SC2 FT	alpha=-0.220	spearman_rho_vs_fitness	0.33576300995564856			13300.0
+C	SC2 FT	alpha=-0.210	spearman_rho_vs_fitness	0.3405618623568824			13300.0
+C	SC2 FT	alpha=-0.200	spearman_rho_vs_fitness	0.34499506627434023			13300.0
+C	SC2 FT	alpha=-0.190	spearman_rho_vs_fitness	0.3489278063999142			13300.0
+C	SC2 FT	alpha=-0.180	spearman_rho_vs_fitness	0.3524565954034084			13300.0
+C	SC2 FT	alpha=-0.170	spearman_rho_vs_fitness	0.35537019190187685			13300.0
+C	SC2 FT	alpha=-0.160	spearman_rho_vs_fitness	0.35766268682349533			13300.0
+C	SC2 FT	alpha=-0.150	spearman_rho_vs_fitness	0.3593027243268001			13300.0
+C	SC2 FT	alpha=-0.140	spearman_rho_vs_fitness	0.36028203408737725			13300.0
+C	SC2 FT	alpha=-0.130	spearman_rho_vs_fitness	0.3605086238385274			13300.0
+C	SC2 FT	alpha=-0.120	spearman_rho_vs_fitness	0.35988275000255837			13300.0
+C	SC2 FT	alpha=-0.110	spearman_rho_vs_fitness	0.3585335737906364			13300.0
+C	SC2 FT	alpha=-0.100	spearman_rho_vs_fitness	0.3564099497068596			13300.0
+C	SC2 FT	alpha=-0.090	spearman_rho_vs_fitness	0.35360374422455815			13300.0
+C	SC2 FT	alpha=-0.080	spearman_rho_vs_fitness	0.3499938348972827			13300.0
+C	SC2 FT	alpha=-0.070	spearman_rho_vs_fitness	0.34575597758600063			13300.0
+C	SC2 FT	alpha=-0.060	spearman_rho_vs_fitness	0.3409558682542045			13300.0
+C	SC2 FT	alpha=-0.050	spearman_rho_vs_fitness	0.3355003907507021			13300.0
+C	SC2 FT	alpha=-0.040	spearman_rho_vs_fitness	0.3296364710435199			13300.0
+C	SC2 FT	alpha=-0.030	spearman_rho_vs_fitness	0.3234728545810104			13300.0
+C	SC2 FT	alpha=-0.020	spearman_rho_vs_fitness	0.31704174710513017			13300.0
+C	SC2 FT	alpha=-0.010	spearman_rho_vs_fitness	0.3103830466145073			13300.0
+C	SC2 FT	alpha=+0.000	spearman_rho_vs_fitness	0.3029177345904633			13300.0
+C	SC2 FT	alpha=+0.010	spearman_rho_vs_fitness	0.29667200791923154			13300.0
+C	SC2 FT	alpha=+0.020	spearman_rho_vs_fitness	0.28978024384190687			13300.0
+C	SC2 FT	alpha=+0.030	spearman_rho_vs_fitness	0.2829274524180623			13300.0
+C	SC2 FT	alpha=+0.040	spearman_rho_vs_fitness	0.27620865503091335			13300.0
+C	SC2 FT	alpha=+0.050	spearman_rho_vs_fitness	0.26954887945987255			13300.0
+C	SC2 FT	alpha=+0.060	spearman_rho_vs_fitness	0.26303558589793014			13300.0
+C	SC2 FT	alpha=+0.070	spearman_rho_vs_fitness	0.25670798814271745			13300.0
+C	SC2 FT	alpha=+0.080	spearman_rho_vs_fitness	0.2506190228349038			13300.0
+C	SC2 FT	alpha=+0.090	spearman_rho_vs_fitness	0.24463425482210333			13300.0
+C	SC2 FT	alpha=+0.100	spearman_rho_vs_fitness	0.23888631516004957			13300.0
+C	SC2 FT	alpha=+0.110	spearman_rho_vs_fitness	0.23337104934748049			13300.0
+C	SC2 FT	alpha=+0.120	spearman_rho_vs_fitness	0.22804322565933463			13300.0
+C	SC2 FT	alpha=+0.130	spearman_rho_vs_fitness	0.22292477714347408			13300.0
+C	SC2 FT	alpha=+0.140	spearman_rho_vs_fitness	0.21803371819390072			13300.0
+C	SC2 FT	alpha=+0.150	spearman_rho_vs_fitness	0.21328541056908323			13300.0
+C	SC2 FT	alpha=+0.160	spearman_rho_vs_fitness	0.20876498283867084			13300.0
+C	SC2 FT	alpha=+0.170	spearman_rho_vs_fitness	0.20445448449219872			13300.0
+C	SC2 FT	alpha=+0.180	spearman_rho_vs_fitness	0.20027978437080599			13300.0
+C	SC2 FT	alpha=+0.190	spearman_rho_vs_fitness	0.19634049076017526			13300.0
+C	SC2 FT	alpha=+0.200	spearman_rho_vs_fitness	0.19255839640391698			13300.0
+C	SC2 FT	alpha=+0.210	spearman_rho_vs_fitness	0.1889386175924468			13300.0
+C	SC2 FT	alpha=+0.220	spearman_rho_vs_fitness	0.18545741567803872			13300.0
+C	SC2 FT	alpha=+0.230	spearman_rho_vs_fitness	0.18214229015168523			13300.0
+C	SC2 FT	alpha=+0.240	spearman_rho_vs_fitness	0.1789786915222914			13300.0
+C	SC2 FT	alpha=+0.250	spearman_rho_vs_fitness	0.1759508941658274			13300.0
+C	SC2 FT	alpha=+0.260	spearman_rho_vs_fitness	0.17303976273328583			13300.0
+C	SC2 FT	alpha=+0.270	spearman_rho_vs_fitness	0.17025916832343527			13300.0
+C	SC2 FT	alpha=+0.280	spearman_rho_vs_fitness	0.16761450332347336			13300.0
+C	SC2 FT	alpha=+0.290	spearman_rho_vs_fitness	0.16507398677006346			13300.0
+C	SC2 FT	alpha=+0.300	spearman_rho_vs_fitness	0.16268085732784668			13300.0
+C	SC2 FT	alpha=+0.310	spearman_rho_vs_fitness	0.160373011839429			13300.0
+C	SC2 FT	alpha=+0.320	spearman_rho_vs_fitness	0.15814338596155203			13300.0
+C	SC2 FT	alpha=+0.330	spearman_rho_vs_fitness	0.15602030285643292			13300.0
+C	SC2 FT	alpha=+0.340	spearman_rho_vs_fitness	0.15402250480098098			13300.0
+C	SC2 FT	alpha=+0.350	spearman_rho_vs_fitness	0.15210191536928344			13300.0
+C	SC2 FT	alpha=+0.360	spearman_rho_vs_fitness	0.15024881356664363			13300.0
+C	SC2 FT	alpha=+0.370	spearman_rho_vs_fitness	0.1484847314207418			13300.0
+C	SC2 FT	alpha=+0.380	spearman_rho_vs_fitness	0.1467820201136684			13300.0
+C	SC2 FT	alpha=+0.390	spearman_rho_vs_fitness	0.14516637416683553			13300.0
+C	SC2 FT	alpha=+0.400	spearman_rho_vs_fitness	0.1436247115640354			13300.0
+C	SC2 FT	alpha=+0.410	spearman_rho_vs_fitness	0.1421045314125212			13300.0
+C	SC2 FT	alpha=+0.420	spearman_rho_vs_fitness	0.1406775491951995			13300.0
+C	SC2 FT	alpha=+0.430	spearman_rho_vs_fitness	0.13929052179376444			13300.0
+C	SC2 FT	alpha=+0.440	spearman_rho_vs_fitness	0.13794988403720015			13300.0
+C	SC2 FT	alpha=+0.450	spearman_rho_vs_fitness	0.1366673430741355			13300.0
+C	SC2 FT	alpha=+0.460	spearman_rho_vs_fitness	0.13542188411782335			13300.0
+C	SC2 FT	alpha=+0.470	spearman_rho_vs_fitness	0.13420462360450483			13300.0
+C	SC2 FT	alpha=+0.480	spearman_rho_vs_fitness	0.13305459442561274			13300.0
+C	SC2 FT	alpha=+0.490	spearman_rho_vs_fitness	0.13195393283085216			13300.0
+C	SC2 FT	alpha=+0.500	spearman_rho_vs_fitness	0.1308897089864427			13300.0
+C	SC2 FT	optimum	optimal_alpha	-0.13			13300.0
+C	Influenza H3N2 FT	alpha=-0.500	spearman_rho_vs_fitness	0.2534109280130359			13300.0
+C	Influenza H3N2 FT	alpha=-0.490	spearman_rho_vs_fitness	0.25751985634751895			13300.0
+C	Influenza H3N2 FT	alpha=-0.480	spearman_rho_vs_fitness	0.2616386975699543			13300.0
+C	Influenza H3N2 FT	alpha=-0.470	spearman_rho_vs_fitness	0.2658050889433038			13300.0
+C	Influenza H3N2 FT	alpha=-0.460	spearman_rho_vs_fitness	0.2700143266992701			13300.0
+C	Influenza H3N2 FT	alpha=-0.450	spearman_rho_vs_fitness	0.27425726076176643			13300.0
+C	Influenza H3N2 FT	alpha=-0.440	spearman_rho_vs_fitness	0.27856031365051653			13300.0
+C	Influenza H3N2 FT	alpha=-0.430	spearman_rho_vs_fitness	0.28286918175505177			13300.0
+C	Influenza H3N2 FT	alpha=-0.420	spearman_rho_vs_fitness	0.2871525983524635			13300.0
+C	Influenza H3N2 FT	alpha=-0.410	spearman_rho_vs_fitness	0.29139181602888276			13300.0
+C	Influenza H3N2 FT	alpha=-0.400	spearman_rho_vs_fitness	0.29556867480366533			13300.0
+C	Influenza H3N2 FT	alpha=-0.390	spearman_rho_vs_fitness	0.29978911139190695			13300.0
+C	Influenza H3N2 FT	alpha=-0.380	spearman_rho_vs_fitness	0.3039181085402558			13300.0
+C	Influenza H3N2 FT	alpha=-0.370	spearman_rho_vs_fitness	0.30796892983099267			13300.0
+C	Influenza H3N2 FT	alpha=-0.360	spearman_rho_vs_fitness	0.3119516681320769			13300.0
+C	Influenza H3N2 FT	alpha=-0.350	spearman_rho_vs_fitness	0.3158065929844187			13300.0
+C	Influenza H3N2 FT	alpha=-0.340	spearman_rho_vs_fitness	0.3195204703462136			13300.0
+C	Influenza H3N2 FT	alpha=-0.330	spearman_rho_vs_fitness	0.323113749305413			13300.0
+C	Influenza H3N2 FT	alpha=-0.320	spearman_rho_vs_fitness	0.3265444576916783			13300.0
+C	Influenza H3N2 FT	alpha=-0.310	spearman_rho_vs_fitness	0.3297424541658373			13300.0
+C	Influenza H3N2 FT	alpha=-0.300	spearman_rho_vs_fitness	0.33269870967217924			13300.0
+C	Influenza H3N2 FT	alpha=-0.290	spearman_rho_vs_fitness	0.3354576471339086			13300.0
+C	Influenza H3N2 FT	alpha=-0.280	spearman_rho_vs_fitness	0.3379191179939045			13300.0
+C	Influenza H3N2 FT	alpha=-0.270	spearman_rho_vs_fitness	0.3401084388726748			13300.0
+C	Influenza H3N2 FT	alpha=-0.260	spearman_rho_vs_fitness	0.34200946179105446			13300.0
+C	Influenza H3N2 FT	alpha=-0.250	spearman_rho_vs_fitness	0.34349322116548947			13300.0
+C	Influenza H3N2 FT	alpha=-0.240	spearman_rho_vs_fitness	0.34467300566784786			13300.0
+C	Influenza H3N2 FT	alpha=-0.230	spearman_rho_vs_fitness	0.3454377129322363			13300.0
+C	Influenza H3N2 FT	alpha=-0.220	spearman_rho_vs_fitness	0.3458719662538827			13300.0
+C	Influenza H3N2 FT	alpha=-0.210	spearman_rho_vs_fitness	0.34578743545943613			13300.0
+C	Influenza H3N2 FT	alpha=-0.200	spearman_rho_vs_fitness	0.34531792907506836			13300.0
+C	Influenza H3N2 FT	alpha=-0.190	spearman_rho_vs_fitness	0.34447054322157744			13300.0
+C	Influenza H3N2 FT	alpha=-0.180	spearman_rho_vs_fitness	0.3431024952375704			13300.0
+C	Influenza H3N2 FT	alpha=-0.170	spearman_rho_vs_fitness	0.34136515460001127			13300.0
+C	Influenza H3N2 FT	alpha=-0.160	spearman_rho_vs_fitness	0.33928362401173384			13300.0
+C	Influenza H3N2 FT	alpha=-0.150	spearman_rho_vs_fitness	0.336752248941248			13300.0
+C	Influenza H3N2 FT	alpha=-0.140	spearman_rho_vs_fitness	0.3338612780599113			13300.0
+C	Influenza H3N2 FT	alpha=-0.130	spearman_rho_vs_fitness	0.33055378947026437			13300.0
+C	Influenza H3N2 FT	alpha=-0.120	spearman_rho_vs_fitness	0.32702006820142115			13300.0
+C	Influenza H3N2 FT	alpha=-0.110	spearman_rho_vs_fitness	0.3231341379808256			13300.0
+C	Influenza H3N2 FT	alpha=-0.100	spearman_rho_vs_fitness	0.3189592934445854			13300.0
+C	Influenza H3N2 FT	alpha=-0.090	spearman_rho_vs_fitness	0.3146368369012987			13300.0
+C	Influenza H3N2 FT	alpha=-0.080	spearman_rho_vs_fitness	0.31002020104939987			13300.0
+C	Influenza H3N2 FT	alpha=-0.070	spearman_rho_vs_fitness	0.3052991670521029			13300.0
+C	Influenza H3N2 FT	alpha=-0.060	spearman_rho_vs_fitness	0.3004074874418169			13300.0
+C	Influenza H3N2 FT	alpha=-0.050	spearman_rho_vs_fitness	0.29537794372015985			13300.0
+C	Influenza H3N2 FT	alpha=-0.040	spearman_rho_vs_fitness	0.290328106948658			13300.0
+C	Influenza H3N2 FT	alpha=-0.030	spearman_rho_vs_fitness	0.2851792201097203			13300.0
+C	Influenza H3N2 FT	alpha=-0.020	spearman_rho_vs_fitness	0.2800685778075879			13300.0
+C	Influenza H3N2 FT	alpha=-0.010	spearman_rho_vs_fitness	0.274893065346683			13300.0
+C	Influenza H3N2 FT	alpha=+0.000	spearman_rho_vs_fitness	0.26885229681939365			13300.0
+C	Influenza H3N2 FT	alpha=+0.010	spearman_rho_vs_fitness	0.2645614126184914			13300.0
+C	Influenza H3N2 FT	alpha=+0.020	spearman_rho_vs_fitness	0.2595072582265476			13300.0
+C	Influenza H3N2 FT	alpha=+0.030	spearman_rho_vs_fitness	0.2545245041668157			13300.0
+C	Influenza H3N2 FT	alpha=+0.040	spearman_rho_vs_fitness	0.24959307658020202			13300.0
+C	Influenza H3N2 FT	alpha=+0.050	spearman_rho_vs_fitness	0.244780275043392			13300.0
+C	Influenza H3N2 FT	alpha=+0.060	spearman_rho_vs_fitness	0.24006999364643425			13300.0
+C	Influenza H3N2 FT	alpha=+0.070	spearman_rho_vs_fitness	0.23547188312071596			13300.0
+C	Influenza H3N2 FT	alpha=+0.080	spearman_rho_vs_fitness	0.23098525459877434			13300.0
+C	Influenza H3N2 FT	alpha=+0.090	spearman_rho_vs_fitness	0.22653920922040346			13300.0
+C	Influenza H3N2 FT	alpha=+0.100	spearman_rho_vs_fitness	0.22226063234613233			13300.0
+C	Influenza H3N2 FT	alpha=+0.110	spearman_rho_vs_fitness	0.2181350797303967			13300.0
+C	Influenza H3N2 FT	alpha=+0.120	spearman_rho_vs_fitness	0.21405276925621894			13300.0
+C	Influenza H3N2 FT	alpha=+0.130	spearman_rho_vs_fitness	0.21017234743051869			13300.0
+C	Influenza H3N2 FT	alpha=+0.140	spearman_rho_vs_fitness	0.20634033488263104			13300.0
+C	Influenza H3N2 FT	alpha=+0.150	spearman_rho_vs_fitness	0.20262825741855656			13300.0
+C	Influenza H3N2 FT	alpha=+0.160	spearman_rho_vs_fitness	0.19902502583986342			13300.0
+C	Influenza H3N2 FT	alpha=+0.170	spearman_rho_vs_fitness	0.1954983132037154			13300.0
+C	Influenza H3N2 FT	alpha=+0.180	spearman_rho_vs_fitness	0.19209350040821904			13300.0
+C	Influenza H3N2 FT	alpha=+0.190	spearman_rho_vs_fitness	0.18879659447905614			13300.0
+C	Influenza H3N2 FT	alpha=+0.200	spearman_rho_vs_fitness	0.1855638817574105			13300.0
+C	Influenza H3N2 FT	alpha=+0.210	spearman_rho_vs_fitness	0.182535222048653			13300.0
+C	Influenza H3N2 FT	alpha=+0.220	spearman_rho_vs_fitness	0.17954191641074776			13300.0
+C	Influenza H3N2 FT	alpha=+0.230	spearman_rho_vs_fitness	0.1766794636682432			13300.0
+C	Influenza H3N2 FT	alpha=+0.240	spearman_rho_vs_fitness	0.1738309853466371			13300.0
+C	Influenza H3N2 FT	alpha=+0.250	spearman_rho_vs_fitness	0.17113448188498748			13300.0
+C	Influenza H3N2 FT	alpha=+0.260	spearman_rho_vs_fitness	0.1685234048981744			13300.0
+C	Influenza H3N2 FT	alpha=+0.270	spearman_rho_vs_fitness	0.16594840090207366			13300.0
+C	Influenza H3N2 FT	alpha=+0.280	spearman_rho_vs_fitness	0.16348753080890832			13300.0
+C	Influenza H3N2 FT	alpha=+0.290	spearman_rho_vs_fitness	0.16108135619100597			13300.0
+C	Influenza H3N2 FT	alpha=+0.300	spearman_rho_vs_fitness	0.15873849564147727			13300.0
+C	Influenza H3N2 FT	alpha=+0.310	spearman_rho_vs_fitness	0.15648799952781817			13300.0
+C	Influenza H3N2 FT	alpha=+0.320	spearman_rho_vs_fitness	0.1543026419198879			13300.0
+C	Influenza H3N2 FT	alpha=+0.330	spearman_rho_vs_fitness	0.15219235772117973			13300.0
+C	Influenza H3N2 FT	alpha=+0.340	spearman_rho_vs_fitness	0.15013312296965736			13300.0
+C	Influenza H3N2 FT	alpha=+0.350	spearman_rho_vs_fitness	0.14815769158241293			13300.0
+C	Influenza H3N2 FT	alpha=+0.360	spearman_rho_vs_fitness	0.14626341858748945			13300.0
+C	Influenza H3N2 FT	alpha=+0.370	spearman_rho_vs_fitness	0.1444032361370708			13300.0
+C	Influenza H3N2 FT	alpha=+0.380	spearman_rho_vs_fitness	0.14259821808702117			13300.0
+C	Influenza H3N2 FT	alpha=+0.390	spearman_rho_vs_fitness	0.14085097694821078			13300.0
+C	Influenza H3N2 FT	alpha=+0.400	spearman_rho_vs_fitness	0.13913311641592999			13300.0
+C	Influenza H3N2 FT	alpha=+0.410	spearman_rho_vs_fitness	0.1374958898681498			13300.0
+C	Influenza H3N2 FT	alpha=+0.420	spearman_rho_vs_fitness	0.13589299749761055			13300.0
+C	Influenza H3N2 FT	alpha=+0.430	spearman_rho_vs_fitness	0.13436867751002543			13300.0
+C	Influenza H3N2 FT	alpha=+0.440	spearman_rho_vs_fitness	0.13283287101746968			13300.0
+C	Influenza H3N2 FT	alpha=+0.450	spearman_rho_vs_fitness	0.1313717625514068			13300.0
+C	Influenza H3N2 FT	alpha=+0.460	spearman_rho_vs_fitness	0.12994076279375288			13300.0
+C	Influenza H3N2 FT	alpha=+0.470	spearman_rho_vs_fitness	0.1285832537676055			13300.0
+C	Influenza H3N2 FT	alpha=+0.480	spearman_rho_vs_fitness	0.12722560860611118			13300.0
+C	Influenza H3N2 FT	alpha=+0.490	spearman_rho_vs_fitness	0.12593462201988687			13300.0
+C	Influenza H3N2 FT	alpha=+0.500	spearman_rho_vs_fitness	0.12466331811742742			13300.0
+C	Influenza H3N2 FT	optimum	optimal_alpha	-0.21999999999999997			13300.0
+D	Base	Flat	spearman_rho_1nt_band	0.14641976630821416			4174.0
+D	Base	Human	spearman_rho_1nt_band	0.18930298539383703			4174.0
+D	Base	SC2	spearman_rho_1nt_band	0.22372014093463743			4174.0
+D	Base	H3N2	spearman_rho_1nt_band	0.04859018673537604			4174.0
+D	Flat FT	Flat	spearman_rho_1nt_band	0.03185633043362447			4174.0
+D	Flat FT	Human	spearman_rho_1nt_band	0.01997453412569192			4174.0
+D	Flat FT	SC2	spearman_rho_1nt_band	0.04364887017076367			4174.0
+D	Flat FT	H3N2	spearman_rho_1nt_band	-0.007238081738286459			4174.0
+D	Human FT	Flat	spearman_rho_1nt_band	0.0038270904135569465			4174.0
+D	Human FT	Human	spearman_rho_1nt_band	0.1089030491148439			4174.0
+D	Human FT	SC2	spearman_rho_1nt_band	0.09603234781312012			4174.0
+D	Human FT	H3N2	spearman_rho_1nt_band	0.04621516572707925			4174.0
+D	SC2 FT	Flat	spearman_rho_1nt_band	0.07119694514788134			4174.0
+D	SC2 FT	Human	spearman_rho_1nt_band	0.13167799332781233			4174.0
+D	SC2 FT	SC2	spearman_rho_1nt_band	0.16181672318472498			4174.0
+D	SC2 FT	H3N2	spearman_rho_1nt_band	0.04932535178827645			4174.0
+D	H3N2 FT	Flat	spearman_rho_1nt_band	0.07477382843389561			4174.0
+D	H3N2 FT	Human	spearman_rho_1nt_band	0.1284265329309581			4174.0
+D	H3N2 FT	SC2	spearman_rho_1nt_band	0.12660255935107656			4174.0
+D	H3N2 FT	H3N2	spearman_rho_1nt_band	0.14506665870970312			4174.0
+E	Flat FT	Flat	interaction_rho_1nt_band	0.041388987261856636			4174.0
+E	Flat FT	Human	interaction_rho_1nt_band	-0.022324787813662886			4174.0
+E	Flat FT	SC2	interaction_rho_1nt_band	-0.008430049523685895			4174.0
+E	Flat FT	H3N2	interaction_rho_1nt_band	-0.0106341499245078			4174.0
+E	Human FT	Flat	interaction_rho_1nt_band	-0.028324252777412545			4174.0
+E	Human FT	Human	interaction_rho_1nt_band	0.024919727156287444			4174.0
+E	Human FT	SC2	interaction_rho_1nt_band	0.0022694280994688953			4174.0
+E	Human FT	H3N2	interaction_rho_1nt_band	0.0011350975216562753			4174.0
+E	SC2 FT	Flat	interaction_rho_1nt_band	-0.0007142381381118751			4174.0
+E	SC2 FT	Human	interaction_rho_1nt_band	0.00793483127423214			4174.0
+E	SC2 FT	SC2	interaction_rho_1nt_band	0.02829396337605003			4174.0
+E	SC2 FT	H3N2	interaction_rho_1nt_band	-0.03551455651217027			4174.0
+E	H3N2 FT	Flat	interaction_rho_1nt_band	-0.01235049634633216			4174.0
+E	H3N2 FT	Human	interaction_rho_1nt_band	-0.010529770616856643			4174.0
+E	H3N2 FT	SC2	interaction_rho_1nt_band	-0.022133341951832947			4174.0
+E	H3N2 FT	H3N2	interaction_rho_1nt_band	0.04501360891502185			4174.0
+E	matched diagonal	24 matchings	matched_diagonal_sum	0.13961628670921594			4174.0
+E	matched diagonal	24 matchings	exact_permutation_p	0.041666666666666664			4174.0

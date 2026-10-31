@@ -1,0 +1,5 @@
+scoring	model_name	model_label	best_alpha	rho_best	rho_alpha0	boundary	weak_signal	interpretable	n	n_sites
+published	ESM-2 650M base	Base (ESM-2)	-0.05	0.4194378312954055	0.4172036640580344	False	False	True	9234	504
+published	HA-80 fine-tuned	Fine-tuned (HA-80)	-0.17	0.32324540569073457	0.2897265411305349	False	False	True	9234	504
+masked	ESM-2 650M base	Base (ESM-2)	-0.06	0.4306374150811634	0.4271097389390066	False	False	True	9234	504
+masked	HA-80 fine-tuned	Fine-tuned (HA-80)	-0.21	0.40175137354365875	0.3508835166420617	False	False	True	9234	504

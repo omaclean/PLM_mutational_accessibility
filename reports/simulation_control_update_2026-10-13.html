@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulation Control & Progress Update Report (13 Oct 2026)</title>
+<style>
+  :root {
+    --primary: #0f172a;
+    --primary-accent: #2563eb;
+    --secondary-accent: #059669;
+    --warning: #d97706;
+    --danger: #dc2626;
+    --bg-page: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --code-bg: #f1f5f9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-page);
+    margin: 0;
+    padding: 30px 15px;
+  }
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    color: #ffffff;
+    padding: 40px;
+  }
+  header h1 {
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  header p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 15px;
+    max-width: 900px;
+  }
+  .header-meta {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #94a3b8;
+  }
+  .content {
+    padding: 40px;
+  }
+  h2 {
+    color: var(--primary);
+    font-size: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+    margin-top: 40px;
+    margin-bottom: 18px;
+  }
+  h3 {
+    color: var(--primary-accent);
+    font-size: 16px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+  }
+  p, li {
+    font-size: 14.5px;
+    color: #334155;
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .badge-success { background: #dcfce7; color: #166534; }
+  .badge-info { background: #dbeafe; color: #1e40af; }
+  .badge-warning { background: #fef3c7; color: #92400e; }
+  
+  .callout {
+    background-color: #eff6ff;
+    border-left: 4px solid var(--primary-accent);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+  }
+  .callout-warning {
+    background-color: #fffbeb;
+    border-left: 4px solid var(--warning);
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .figure-stack {
+    margin: 20px 0;
+  }
+  .metric-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  .metric-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .metric-val {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary-accent);
+    margin: 6px 0;
+  }
+  .metric-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .figure-box {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 28px 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+  .figure-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #f1f5f9;
+  }
+  .figure-caption {
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: #475569;
+    line-height: 1.55;
+    background: #f8fafc;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-left: 3px solid var(--primary-accent);
+  }
+  .figure-caption strong {
+    color: var(--primary);
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 13.5px;
+  }
+  .data-table th, .data-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+  }
+  .data-table th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  .data-table tr:nth-child(even) { background: #fafbfc; }
+  code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    color: #0f172a;
+  }
+  .footer {
+    background: #f8fafc;
+    border-top: 1px solid var(--border-color);
+    padding: 24px 40px;
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Mutation Bias Checker & Simulation Control Progress Report</h1>
+    <p>Comprehensive report on Reviewer 2's synthetic simulation arms, figure mappings in <code>clean_repo/output/</code>, high-resolution simulation figures, and repository test status.</p>
+    <div class="header-meta">
+      <strong>Recipient:</strong> Oscar MacLean (omaclean@gmail.com) &bull; <strong>Date:</strong> 13 October 2026 &bull; <strong>Branch:</strong> master
+    </div>
+  </header>
+
+  <div class="content">
+
+    <h2>1. Figure Mapping: Archive vs. <code>clean_repo/output/</code></h2>
+    
+    <div class="callout">
+      <p><strong>Status:</strong> There is <strong>no dedicated figure in <code>clean_repo/output/</code> yet</strong> for Reviewer 2's simulation control.</p>
+      <p>In the archive, this benchmark generated <strong>Supplementary Figures S25–S28</strong> (via <code>dev/simulated_phylogenies/generate_revision_supplementary_figures_v2.py</code>). In the clean repo, the 13,300 founder replacement scores and the 20-file symmetry battery are shipped in <code>clean_repo/results/sim_v3_star90/</code> and documented in <code>SYMMETRY_TESTS.md</code> and <code>PLAN.md</code>. A dedicated figure script (e.g., <code>figures/make_s16.py</code>) can be added to output cleanly.</p>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Figure Slot</th>
+          <th>Archive File (<code>figures/key_revision_figures/</code>)</th>
+          <th>Clean Repo Output (<code>clean_repo/output/</code>)</th>
+          <th>Status / Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fig 1</strong></td>
+          <td><code>Figure_1_Composite.pdf</code></td>
+          <td><code>fig01_composite.{pdf,png}</code></td>
+          <td><span class="badge badge-success">Done</span> Tree + ranked mutations + codon heatmap</td>
+        </tr>
+        <tr>
+          <td><strong>Fig 2</strong></td>
+          <td><code>Fig2_plm_vs_accessibility...</code></td>
+          <td><code>fig02_composite.{pdf,png}</code></td>
+          <td><span class="badge badge-success">Done</span> PLM prob vs accessibility by codon stratum</td>
+        </tr>
+        <tr>
+          <td><strong>Fig 3</strong></td>
+          <td><code>Fig3_alpha_sweep_13lineages...</code></td>
+          <td><code>fig03_alpha_sweep.{pdf,png}</code></td>
+          <td><span class="badge badge-success">Done</span> AUROC of evolutionary prediction vs &alpha;</td>
+        </tr>
+        <tr>
+          <td><strong>Fig 4</strong></td>
+          <td><code>a31_alpha_vs_dms</code></td>
+          <td><code>fig04_alpha_vs_dms.{pdf,png}</code></td>
+          <td><span class="badge badge-success">Done</span> DMS fitness vs &alpha;-weighted score</td>
+        </tr>
+        <tr>
+          <td><strong>S1</strong></td>
+          <td><code>sc2_vs_iav_mutation_spectra.pdf</code></td>
+          <td><code>s01_spike_model_vs_accessibility.{pdf,png}</code></td>
+          <td><span class="badge badge-success">Done</span> SC2 Spike analogue of Fig 2</td>
+        </tr>
+        <tr>
+          <td><strong>S2–S15</strong></td>
+          <td>Various archive supplementary</td>
+          <td><code>s02</code> through <code>s15</code> in <code>output/</code></td>
+          <td><span class="badge badge-success">Done</span> 14 dedicated standalone figure scripts</td>
+        </tr>
+        <tr style="background-color: #fefce8;">
+          <td><strong>Simulation Control (Reviewer 2)</strong></td>
+          <td><code>S25</code> (Spectra), <code>S26</code> (Specificity),<br>
+              <code>S27</code> (PSSM vs Fitness), <code>S28</code> (Debiasing)</td>
+          <td><em>Not yet in <code>clean_repo/output/</code></em><br>
+              Data shipped: <code>results/sim_v3_star90/replacement_scores.tsv.gz</code> + 20 battery tables</td>
+          <td><span class="badge badge-warning">Ready to Plot</span> Fully analysed; plots provided below for inclusion as <code>make_s16.py</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Key Improvements & Fixes in the Simulation Pipeline</h2>
+
+    <div class="grid-2">
+      <div class="metric-card">
+        <div class="metric-title">1. The Scoring Trap Fixed</div>
+        <div class="metric-val">True Spectra Used</div>
+        <div class="metric-desc">In <code>run_gpu_arms.sh</code>, <code>--mutation-model HUMAN</code> was hardcoded during PLM scoring, contaminating precomputed tables. Fixed by re-scoring raw logits directly and computing accessibilities under true spectra.</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-title">2. Background Mismatch Fixed</div>
+        <div class="metric-val">Founder Re-scored</div>
+        <div class="metric-desc">Earlier scoring used tip representatives differing from the founder at 9–11% of sites. All 5 models (base + 4 fine-tunes) are now scored directly on the exact 700-aa founder sequence (13,300 single-AA replacements).</div>
+      </div>
+    </div>
+
+    <!-- PLOT 1 -->
+    <h2>3. Plot 1: Empirical 12-Class Mutation Spectra Across All 4 Arms</h2>
+    <p>Sequences were simulated from an identical 700-amino-acid synthetic founder under an identical calibrated DMS fitness landscape (&beta;=2.0), varying exclusively the 4&times;4 nucleotide substitution matrix:</p>
+
+    <div class="figure-box">
+      <img src="assets/plot1_four_spectra.png" alt="Empirical 12-Class Substitution Spectra in Matched Evolutionary Simulations">
+      <div class="figure-caption">
+        <strong>Figure 1 (Updated S25 + JC69 Control): Empirical 12-Class Substitution Spectra in 4 Simulation Arms.</strong>
+        Root-to-tip nucleotide mutations counted across 10,000 descendant sequences per arm against the identical 700-aa founder sequence.
+        <strong>SARS-CoV-2 (SC2, red):</strong> Dominated by C&rarr;T (38.8%) and G&rarr;T (18.6%), representing 57.4% of all mutations.
+        <strong>Influenza A H3N2 (teal):</strong> Dominated by A&rarr;G (34.2%) and T&rarr;C (33.1%), representing 67.3% of all mutations.
+        <strong>Human Germline (blue):</strong> Moderate CpG-like transition rates (C&rarr;T 29.2%, G&rarr;A 28.5%).
+        <strong>JC69 Flat Control (gray):</strong> Uniformly flat across all 12 classes (mean 8.33%, dotted line), serving as the strict neutral negative control.
+      </div>
+    </div>
+
+    <!-- PLOT 2 -->
+    <h2>4. Plot 2: Directional Symmetry Battery on the Founder Background</h2>
+    <p>We ran the complete directional symmetry battery over all five founder-scored models (Base ESM-C, Human FT, SC2 FT, H3N2 FT, and JC69 Flat FT) to test whether fine-tuning captures genuine directional asymmetry:</p>
+
+    <div class="figure-box">
+      <img src="assets/plot2_founder_battery.png" alt="Directional Symmetry Battery on Founder">
+      <div class="figure-caption">
+        <strong>Figure 2: Directional Symmetry Battery on Founder (Flip-Null Test & Direction Contrast).</strong>
+        <strong>Panel A (Flip-Null Test under SARS-CoV-2 Spectrum):</strong> Evaluates whether the true directional matrix ranks higher than all 64 reciprocal direction flips across 1, 2, and 3 nucleotide strata.
+        Only the SC2-trained model (<code>plm_sc2_ft</code>) ranks the true direction 1st or 2nd across <em>all three strata</em> (p = 0.016, 0.031, 0.031). Human FT, H3N2 FT, and flat JC69 FT fail to achieve significance.
+        <strong>Panel B (Direction Contrast Recovery):</strong> Compares the model-inferred contrast between favoured and disfavoured directions against the ground-truth spectrum contrast.
+        The SC2-trained model recovers <strong>+14.8%</strong> of the true SC2 contrast (p &lt; 0.05), whereas Human FT (-1.0%), H3N2 FT (+0.4%), and JC69 FT (+3.1%) show zero contrast.
+      </div>
+    </div>
+
+    <!-- PLOT 3 -->
+    <h2>5. Plot 3: Specific Mutational Accessibility (Holding True Fitness Fixed)</h2>
+    <p>To eliminate selection as a confounder, we compute the partial Spearman rank correlation &rho; between model probabilities and true mutational accessibility holding the invariant ground-truth fitness landscape (&pi;_{i,a}) fixed:</p>
+
+    <div class="figure-box">
+      <img src="assets/plot3_partial_given_truth.png" alt="Partial Spearman Correlation Holding Ground-Truth Fitness Fixed">
+      <div class="figure-caption">
+        <strong>Figure 3: Partial Spearman Correlation with Mutational Accessibility Holding True Fitness Fixed.</strong>
+        <strong>Panel A (SARS-CoV-2 Mutational Accessibility):</strong> The SC2 fine-tuned model strongly captures SC2 accessibility, peaking at <strong>+0.256 [+0.231, +0.286]</strong> in the 2-nt stratum and beating base ESM-C (+0.174) and alignment PSSM (+0.224). At 3 nt, base ESM-C collapses to -0.044 while SC2 FT retains +0.177.
+        <strong>Panel B (Influenza H3N2 Mutational Accessibility):</strong> The H3N2 fine-tuned model demonstrates specific accessibility capture, reaching <strong>+0.175</strong> (1 nt) and <strong>+0.174</strong> (2 nt), heavily outperforming base ESM-C (+0.052 / -0.077).
+        Crucially, the <strong>JC69 Flat Fine-Tune</strong> reads identically <strong>-0.0005 [-0.027, +0.024]</strong> (1 nt) and -0.027 (2 nt), demonstrating that fine-tuning under neutral evolution introduces zero spurious correlation.
+      </div>
+    </div>
+
+    <!-- PLOT 4 -->
+    <h2>6. Plot 4: Ground-Truth Fitness Recovery on the Founder</h2>
+    <p>We re-evaluated how proposal bias distorts fitness estimation, and whether mutational debiasing with negative &alpha; restores ground-truth fitness ranking on the founder sequence:</p>
+
+    <div class="figure-box">
+      <img src="assets/plot4_founder_fitness_recovery.png" alt="Ground-Truth Fitness Recovery on Founder Background">
+      <div class="figure-caption">
+        <strong>Figure 4: Ground-Truth Fitness Recovery & Mutation Debiasing on the Founder Sequence.</strong>
+        Spearman correlation between raw model scores (&alpha; = 0, light blue) and ground-truth fitness (&pi;_{i,a}) versus debiased scores (&alpha; = -0.075, dark blue).
+        Across all models fine-tuned under directional mutation, negative &alpha; debiasing consistently boosts correlation with ground-truth fitness (e.g. +0.334 &rarr; +0.366 for Human FT, +0.279 &rarr; +0.308 for SC2 FT, and +0.363 &rarr; +0.409 for H3N2 FT).
+        The base model and flat JC69 fine-tune show smaller gains, confirming that directional mutation imprints proposal biases that are successfully removed by accessibility debiasing.
+      </div>
+    </div>
+
+    <!-- ARCHIVE FIGURES -->
+    <h2>7. The Archive's Supplementary Figures (S25–S28 Reference)</h2>
+    <p>For historical completeness, the figures submitted with the previous revision round (evaluated on tip representatives) are reproduced below:</p>
+
+    <div class="figure-stack">
+      <div class="figure-box">
+        <img src="assets/S25_simulation_control_sc2_vs_human_crossover.png" alt="Archive Figure S25">
+        <div class="figure-caption">
+          <strong>Archive S25:</strong> 12-Class substitution spectra for Human, SC2, and H3N2 (tip-based run).
+        </div>
+      </div>
+      <div class="figure-box">
+        <img src="assets/S26_directional_vs_symmetric_mutation_specificity.png" alt="Archive Figure S26">
+        <div class="figure-caption">
+          <strong>Archive S26:</strong> Aggregate vs. 1-nt stratum correlation across candidate mutation matrices.
+        </div>
+      </div>
+    </div>
+
+    <div class="figure-stack">
+      <div class="figure-box">
+        <img src="assets/S27_pssm_alignment_vs_simulation_fitness.png" alt="Archive Figure S27">
+        <div class="figure-caption">
+          <strong>Archive S27:</strong> PSSM alignment frequencies vs. simulation ground-truth fitness.
+        </div>
+      </div>
+      <div class="figure-box">
+        <img src="assets/S28_plm_probability_vs_simulation_fitness_debiasing.png" alt="Archive Figure S28">
+        <div class="figure-caption">
+          <strong>Archive S28:</strong> Tip-scored PLM probability vs. simulation fitness & mutation debiasing.
+        </div>
+      </div>
+    </div>
+
+    <h2>8. Key Summary for Manuscript & Rebuttal</h2>
+    <div class="callout callout-warning">
+      <ul>
+        <li><strong>SARS-CoV-2 Direction is Learned:</strong> The SC2 fine-tune captures genuine directional asymmetry under both the flip-null test (1st/2nd rank) and directional contrast (+0.0366, 14.8% of truth).</li>
+        <li><strong>Influenza Accessibility is Learned:</strong> When controlling for true fitness, the H3N2 fine-tune specifically tracks H3N2 accessibility (+0.175 and +0.174), dominating base ESM-C.</li>
+        <li><strong>Negative Control Confirmed:</strong> The flat JC69 fine-tune yields zero partial correlation (-0.0005) with directional accessibility, proving that fine-tuning alone does not create false-positive mutation bias.</li>
+        <li><strong>Background Flaw Eliminated:</strong> Founder-level scoring ensures that all metrics reflect the exact sequence background on which fitness and accessibilities are defined.</li>
+        <li><strong>Test Suite Integrity:</strong> All 1,282 unit tests in <code>clean_repo/tests</code> pass cleanly.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>Mutation Accessibility PLM Project &bull; Clean Repo Status</span>
+    <span>Generated 2026-10-13</span>
+  </div>
+</div>
+
+</body>
+</html>

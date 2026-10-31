@@ -1,0 +1,83 @@
+model	label	display_label	group	length	n_sites	mean_p_wt	top1	composition_baseline
+ESM-2 650M base	IAV polymerase PB1	Influenza A polymerase PB1	Influenza viruses	757	757	0.823776	0.866579	0.0577664
+ESM-C 600M base	IAV polymerase PB1	Influenza A polymerase PB1	Influenza viruses	757	757	0.0919286	0.161162	0.0577664
+ESM-2 650M base	IAV haemagglutinin HA	Influenza A haemagglutinin HA	Influenza viruses	566	566	0.553985	0.637809	0.0579605
+ESM-C 600M base	IAV haemagglutinin HA	Influenza A haemagglutinin HA	Influenza viruses	566	566	0.0840298	0.144876	0.0579605
+ESM-2 650M base	IAV polymerase PB2	Influenza A polymerase PB2	Influenza viruses	759	759	0.44942	0.474308	0.0605245
+ESM-C 600M base	IAV polymerase PB2	Influenza A polymerase PB2	Influenza viruses	759	759	0.0749733	0.114625	0.0605245
+ESM-2 650M base	IAV neuraminidase NA	Influenza A neuraminidase NA	Influenza viruses	469	469	0.249906	0.345416	0.0603243
+ESM-C 600M base	IAV neuraminidase NA	Influenza A neuraminidase NA	Influenza viruses	469	469	0.0777641	0.127932	0.0603243
+ESM-2 650M base	IBV haemagglutinin	Influenza B haemagglutinin	Influenza viruses	574	574	0.186399	0.280488	0.0621775
+ESM-C 600M base	IBV haemagglutinin	Influenza B haemagglutinin	Influenza viruses	574	574	0.0782289	0.142857	0.0621775
+ESM-2 650M base	ICV haemagglutinin HEF	Influenza C haemagglutinin HEF	Influenza viruses	639	639	0.0922035	0.156495	0.0601267
+ESM-C 600M base	ICV haemagglutinin HEF	Influenza C haemagglutinin HEF	Influenza viruses	639	639	0.0888938	0.143975	0.0601267
+ESM-2 650M base	IAV matrix M2	Influenza A matrix M2	Influenza viruses	97	97	0.087757	0.14433	0.0664258
+ESM-C 600M base	IAV matrix M2	Influenza A matrix M2	Influenza viruses	97	97	0.0853268	0.164948	0.0664258
+ESM-2 650M base	IAV matrix M1	Influenza A matrix M1	Influenza viruses	252	252	0.0825802	0.170635	0.0654132
+ESM-C 600M base	IAV matrix M1	Influenza A matrix M1	Influenza viruses	252	252	0.0844935	0.146825	0.0654132
+ESM-2 650M base	IAV NS1	Influenza A NS1	Influenza viruses	237	237	0.0787129	0.160338	0.0635048
+ESM-C 600M base	IAV NS1	Influenza A NS1	Influenza viruses	237	237	0.0778323	0.151899	0.0635048
+ESM-2 650M base	IAV nucleoprotein NP	Influenza A nucleoprotein NP	Influenza viruses	498	498	0.0754118	0.108434	0.0608942
+ESM-C 600M base	IAV nucleoprotein NP	Influenza A nucleoprotein NP	Influenza viruses	498	498	0.0724403	0.100402	0.0608942
+ESM-2 650M base	IAV polymerase PA	Influenza A polymerase PA	Influenza viruses	716	716	0.0684557	0.134078	0.0601183
+ESM-C 600M base	IAV polymerase PA	Influenza A polymerase PA	Influenza viruses	716	716	0.0660084	0.115922	0.0601183
+ESM-2 650M base	SARS-CoV-2 nucleoprotein	SARS-CoV-2 nucleoprotein	Coronaviruses	419	419	0.319602	0.400955	0.0683238
+ESM-C 600M base	SARS-CoV-2 nucleoprotein	SARS-CoV-2 nucleoprotein	Coronaviruses	419	419	0.120081	0.195704	0.0683238
+ESM-2 650M base	HCoV-229E spike	HCoV-229E spike	Coronaviruses	1173	1173	0.288036	0.388747	0.0644416
+ESM-C 600M base	HCoV-229E spike	HCoV-229E spike	Coronaviruses	1173	1173	0.106863	0.193521	0.0644416
+ESM-2 650M base	HCoV-OC43 spike	HCoV-OC43 spike	Coronaviruses	1353	1353	0.20163	0.274205	0.0606951
+ESM-C 600M base	HCoV-OC43 spike	HCoV-OC43 spike	Coronaviruses	1353	1353	0.087909	0.152254	0.0606951
+ESM-2 650M base	SARS-CoV-2 spike	SARS-CoV-2 spike	Coronaviruses	1273	1273	0.190175	0.27337	0.0596614
+ESM-C 600M base	SARS-CoV-2 spike	SARS-CoV-2 spike	Coronaviruses	1273	1273	0.0960189	0.162608	0.0596614
+ESM-2 650M base	MERS-CoV spike	MERS-CoV spike	Coronaviruses	1353	1353	0.17444	0.237251	0.0605607
+ESM-C 600M base	MERS-CoV spike	MERS-CoV spike	Coronaviruses	1353	1353	0.0868247	0.136733	0.0605607
+ESM-2 650M base	HIV-1 envelope gp160	HIV-1 envelope gp160	Other viruses	856	856	0.125393	0.196262	0.0591427
+ESM-C 600M base	HIV-1 envelope gp160	HIV-1 envelope gp160	Other viruses	856	856	0.823023	0.886682	0.0591427
+ESM-2 650M base	HTLV-1 gp62	HTLV-1 gp62	Other viruses	488	488	0.201203	0.309426	0.0722
+ESM-C 600M base	HTLV-1 gp62	HTLV-1 gp62	Other viruses	488	488	0.146944	0.235656	0.0722
+ESM-2 650M base	parvovirus B19 VP2	parvovirus B19 VP2	Other viruses	781	781	0.231517	0.322663	0.0605268
+ESM-C 600M base	parvovirus B19 VP2	parvovirus B19 VP2	Other viruses	781	781	0.103117	0.175416	0.0605268
+ESM-2 650M base	HSV-1 glycoprotein B	HSV-1 glycoprotein B	Other viruses	904	904	0.238146	0.352876	0.0615847
+ESM-C 600M base	HSV-1 glycoprotein B	HSV-1 glycoprotein B	Other viruses	904	904	0.0937446	0.162611	0.0615847
+ESM-2 650M base	RSV fusion F	RSV fusion F	Other viruses	574	574	0.168697	0.263066	0.0679564
+ESM-C 600M base	RSV fusion F	RSV fusion F	Other viruses	574	574	0.131949	0.210801	0.0679564
+ESM-2 650M base	Ebola glycoprotein	Ebola glycoprotein	Other viruses	676	676	0.16058	0.244083	0.0613336
+ESM-C 600M base	Ebola glycoprotein	Ebola glycoprotein	Other viruses	676	676	0.112857	0.195266	0.0613336
+ESM-2 650M base	rabies glycoprotein G	rabies glycoprotein G	Other viruses	524	524	0.170103	0.278626	0.0600562
+ESM-C 600M base	rabies glycoprotein G	rabies glycoprotein G	Other viruses	524	524	0.0784981	0.156489	0.0600562
+ESM-2 650M base	mumps HN	mumps HN	Other viruses	582	582	0.132399	0.214777	0.0637569
+ESM-C 600M base	mumps HN	mumps HN	Other viruses	582	582	0.0889164	0.156357	0.0637569
+ESM-2 650M base	VZV glycoprotein E	VZV glycoprotein E	Other viruses	623	623	0.119461	0.17175	0.0574989
+ESM-C 600M base	VZV glycoprotein E	VZV glycoprotein E	Other viruses	623	623	0.0939538	0.163724	0.0574989
+ESM-2 650M base	Nipah glycoprotein G	Nipah glycoprotein G	Other viruses	602	602	0.0997392	0.171096	0.0610148
+ESM-C 600M base	Nipah glycoprotein G	Nipah glycoprotein G	Other viruses	602	602	0.0883642	0.156146	0.0610148
+ESM-2 650M base	HBV surface antigen	HBV surface antigen	Other viruses	400	400	0.0871182	0.17	0.0702125
+ESM-C 600M base	HBV surface antigen	HBV surface antigen	Other viruses	400	400	0.0907325	0.1675	0.0702125
+ESM-2 650M base	rotavirus VP7	rotavirus VP7	Other viruses	326	326	0.0738094	0.113497	0.0637209
+ESM-C 600M base	rotavirus VP7	rotavirus VP7	Other viruses	326	326	0.0757743	0.138037	0.0637209
+ESM-2 650M base	adenovirus hexon	adenovirus hexon	Other viruses	923	923	0.0705788	0.0975081	0.059924
+ESM-C 600M base	adenovirus hexon	adenovirus hexon	Other viruses	923	923	0.0785529	0.115926	0.059924
+ESM-2 650M base	Lassa glycoprotein	Lassa glycoprotein	Other viruses	490	490	0.0751209	0.140816	0.0596835
+ESM-C 600M base	Lassa glycoprotein	Lassa glycoprotein	Other viruses	490	490	0.0714603	0.128571	0.0596835
+ESM-2 650M base	HPV major capsid L1	HPV major capsid L1	Other viruses	502	502	0.0697831	0.111554	0.0581181
+ESM-C 600M base	HPV major capsid L1	HPV major capsid L1	Other viruses	502	502	0.0687349	0.10757	0.0581181
+ESM-2 650M base	measles haemagglutinin	measles haemagglutinin	Other viruses	617	617	0.0684453	0.115073	0.0596419
+ESM-C 600M base	measles haemagglutinin	measles haemagglutinin	Other viruses	617	617	0.0656843	0.113452	0.0596419
+ESM-2 650M base	yeast ADH1	yeast ADH1	Eukaryotes	348	348	0.592963	0.698276	0.068338
+ESM-C 600M base	yeast ADH1	yeast ADH1	Eukaryotes	348	348	0.559047	0.706897	0.068338
+ESM-2 650M base	human p53	human p53	Eukaryotes	393	393	0.304302	0.414758	0.063924
+ESM-C 600M base	human p53	human p53	Eukaryotes	393	393	0.437225	0.544529	0.063924
+ESM-2 650M base	jellyfish GFP	jellyfish GFP	Eukaryotes	238	238	0.0708475	0.10084	0.0612245
+ESM-C 600M base	jellyfish GFP	jellyfish GFP	Eukaryotes	238	238	0.0705519	0.121849	0.0612245
+ESM-2 650M base	M. tuberculosis KatG	M. tuberculosis KatG	Bacteria	740	740	0.519123	0.606757	0.0641928
+ESM-C 600M base	M. tuberculosis KatG	M. tuberculosis KatG	Bacteria	740	740	0.612257	0.712162	0.0641928
+ESM-2 650M base	E. coli OmpA	E. coli OmpA	Bacteria	346	346	0.532962	0.635838	0.0648702
+ESM-C 600M base	E. coli OmpA	E. coli OmpA	Bacteria	346	346	0.555955	0.676301	0.0648702
+ESM-2 650M base	Taq polymerase	Taq polymerase	Bacteria	832	832	0.501985	0.608173	0.0776714
+ESM-C 600M base	Taq polymerase	Taq polymerase	Bacteria	832	832	0.524154	0.632212	0.0776714
+ESM-2 650M base	phage lambda CI	phage lambda CI	Phages	237	237	0.411612	0.518987	0.0630419
+ESM-C 600M base	phage lambda CI	phage lambda CI	Phages	237	237	0.521525	0.637131	0.0630419
+ESM-2 650M base	phage T7 RNA pol	phage T7 RNA pol	Phages	883	883	0.412706	0.514156	0.060451
+ESM-C 600M base	phage T7 RNA pol	phage T7 RNA pol	Phages	883	883	0.322562	0.422424	0.060451
+ESM-2 650M base	phage T4 capsid gp23	phage T4 capsid gp23	Phages	521	521	0.215406	0.322457	0.0670975
+ESM-C 600M base	phage T4 capsid gp23	phage T4 capsid gp23	Phages	521	521	0.315654	0.410749	0.0670975

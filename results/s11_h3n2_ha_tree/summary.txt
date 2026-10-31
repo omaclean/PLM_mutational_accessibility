@@ -1,0 +1,15 @@
+target tips in tree: 224731 (not in tree: 0)
+main clade node_1: 224731 tips, 100.0% in the clade-defining set; walk starts at node_14; 0 target tips outside it are excluded
+reference record DQ864721: 1659 bases, coding region 1..1659 (553 codons), checked against 1630 VCF sites
+long comparison: baseline KY348531 (walk from node_14) against 44965 newest internal nodes; per node on average 79.2 amino-acid differences, of which 65.2 need 1 nucleotide change, 12.0 need 2 and 2.1 need 3 (fewest changes from the start codon); 2869 distinct (site, new amino acid) changes in all
+branches walked: 294578; scored: 50094; skipped terminal: 224731; skipped for too many changes: 1166; skipped with no changes: 18587
+ancestral mutations applied, not scored: 55
+mutation records outside the coding region (scored branches): 0
+mutation records in skipped codons (scored branches): 833
+
+codons changed on scored branches, by number of positions differing from the parent codon (1 / 2 / 3):
+  synonymous : [50856, 15, 1]
+  amino acid changing : [29751, 264, 13]
+  amino acid changing where a shorter route existed from the parent codon: 2 nt where 1 would do 124; 3 nt where 1 would do 0; 3 nt where 2 would do 7
+  dropped (stop) 14; dropped (ambiguous) 0; reverted 0
+codon columns: 553; columns with an amino-acid change: 517

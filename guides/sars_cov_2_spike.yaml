@@ -1,0 +1,36 @@
+name: sars_cov_2_spike
+description: >
+  Five SARS-CoV-2 spike lineages scored by ESM-C 600M, base and fine-tuned on spike, for S1:
+  Figure 2's question asked of a second virus. The fine-tune is
+  my_SC2_finetunes/magma_ESMC_600M_99_95perc (esmc_weights.pt), not the ESM-2 spike fine-tune.
+  Its training corpus is not only SARS-CoV-2: it includes neighbouring sarbecovirus spikes, so
+  the model label says "sarbecovirus spikes" rather than "SARS-CoV-2 spike". The scored lineages
+  are still SARS-CoV-2. The exact corpus composition is not recorded anywhere in this repo and
+  should be, before release.
+virus: SARS-CoV-2 spike
+reference: Wuhan-Hu-1
+
+results_dir: results/sars_cov_2_spike
+
+models:
+  - {key: ESMC_600M_base, label: Base model (ESM-C), role: base}
+  - {key: ESMC_600M_SC2ft, label: Fine-tuned on sarbecovirus spikes, role: finetune}
+
+# The nucleotide sequences are the archive's spike coding sequences, written out by
+# tools/export_s01.py. Their origin (database and accession) is not recorded in the archive, so
+# none is claimed here.
+lineages:
+  - {id: Wuhan-Hu-1_Reference, root: data/roots/sars_cov_2_spike/Wuhan-Hu-1_Reference.nt.fa, root_type: unverified}
+  - {id: JN.1,     root: data/roots/sars_cov_2_spike/JN.1.nt.fa,     root_type: unverified}
+  - {id: XEC,      root: data/roots/sars_cov_2_spike/XEC.nt.fa,      root_type: unverified}
+  - {id: LP.8.1,   root: data/roots/sars_cov_2_spike/LP.8.1.nt.fa,   root_type: unverified}
+  - {id: NB.1.8.1, root: data/roots/sars_cov_2_spike/NB.1.8.1.nt.fa, root_type: unverified}
+
+notes: >
+  Models are ESM-C 600M, raw and fine-tuned (my_SC2_finetunes/magma_ESMC_600M_99_95perc,
+  esmc_weights.pt). Scored by tmp_explore/IAV_vs_SC2_criss_cross/score_esmc.py.
+  The five lineages are variants of one protein, 1,264 to 1,273 residues long, and share nearly
+  every site. Intervals therefore come from resampling sites, not lineages.
+
+tables:
+  replacement_scores: replacement_scores.tsv.gz

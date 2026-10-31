@@ -1,0 +1,11 @@
+panel	series	group	measure	value	n	lineage
+A	ESM2_650M_HA80_raw	all	spearman_r	0.275048	10754	J.2_int
+A	ESM2_650M_HA80_raw	all	pearson_r	0.0537958	10754	J.2_int
+A	ESM2_650M_HA80_raw	1	n_replacements	3334	3334	J.2_int
+A	ESM2_650M_HA80_raw	2	n_replacements	5487	5487	J.2_int
+A	ESM2_650M_HA80_raw	3	n_replacements	1933	1933	J.2_int
+B	ESM2_650M_HA80	all	spearman_r	0.654875	10754	J.2_int
+B	ESM2_650M_HA80	all	pearson_r	0.0454014	10754	J.2_int
+B	ESM2_650M_HA80	1	n_replacements	3334	3334	J.2_int
+B	ESM2_650M_HA80	2	n_replacements	5487	5487	J.2_int
+B	ESM2_650M_HA80	3	n_replacements	1933	1933	J.2_int

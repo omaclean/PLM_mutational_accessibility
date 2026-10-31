@@ -1,0 +1,53 @@
+{
+  "table": "dms_scores_masked.tsv.gz",
+  "rows": 67724,
+  "column": "log_plm_masked",
+  "arms": [
+    {
+      "dataset": "MA22",
+      "model_name": "ESM-2 650M base",
+      "profile_label": "ESM2_650M_base"
+    },
+    {
+      "dataset": "MA22",
+      "model_name": "HA-80 fine-tuned",
+      "profile_label": "ESM2_650M_HA80"
+    },
+    {
+      "dataset": "Perth09",
+      "model_name": "ESM-2 650M base",
+      "profile_label": "ESM2_650M_base"
+    },
+    {
+      "dataset": "Perth09",
+      "model_name": "HA-80 fine-tuned",
+      "profile_label": "ESM2_650M_HA80"
+    },
+    {
+      "dataset": "BA2",
+      "model_name": "ESM-C 600M base",
+      "profile_label": "ESMC_600M_base"
+    },
+    {
+      "dataset": "BA2",
+      "model_name": "SC2 fine-tuned",
+      "profile_label": "ESMC_600M_SC2ft"
+    },
+    {
+      "dataset": "XBB15",
+      "model_name": "ESM-C 600M base",
+      "profile_label": "ESMC_600M_base"
+    },
+    {
+      "dataset": "XBB15",
+      "model_name": "SC2 fine-tuned",
+      "profile_label": "ESMC_600M_SC2ft"
+    }
+  ],
+  "profiles_dir": "output/unmasked_check",
+  "unmasked_gate_max_abs_diff": 3.132302028019396e-05,
+  "unmasked_gate_tolerance": 0.0001,
+  "scoring": "one forward pass per site with that site replaced by the mask token; the probability is read at the masked position only, and log10 is taken to match the scale of dms_scores.log_plm",
+  "built_utc": "2026-10-20T11:50:37+00:00",
+  "built_by": "tools/build_masked_dms_scores.py"
+}

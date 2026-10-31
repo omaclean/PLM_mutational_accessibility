@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuscript fact-check</title>
+<style>
+  :root {
+    --bg:#ffffff; --fg:#1a1d21; --muted:#5b6470; --line:#e3e7ec; --card:#f7f9fb;
+    --crit:#b3261e; --mat:#b26a00; --min:#2f6f9f; --ok:#1e7a4d; --code:#f0f3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#14171a; --fg:#e8eaed; --muted:#9aa4b0; --line:#2a2f36; --card:#1b1f24;
+      --crit:#f2998f; --mat:#e8b464; --min:#8bc4e8; --ok:#79d3a3; --code:#1f242a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#14171a; --fg:#e8eaed; --muted:#9aa4b0; --line:#2a2f36; --card:#1b1f24;
+    --crit:#f2998f; --mat:#e8b464; --min:#8bc4e8; --ok:#79d3a3; --code:#1f242a;
+  }
+  * { box-sizing:border-box; }
+  body { background:var(--bg); color:var(--fg); margin:0; padding:0 16px 64px;
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  .wrap { max-width:900px; margin:0 auto; }
+  header { padding:40px 0 24px; border-bottom:2px solid var(--line); }
+  h1 { font-size:28px; line-height:1.25; margin:0 0 10px; letter-spacing:-0.01em; }
+  .sub { color:var(--muted); font-size:14px; }
+  .sub code { font-size:13px; }
+  h2 { font-size:20px; margin:44px 0 6px; letter-spacing:-0.01em; }
+  h2 .cnt { font-weight:400; color:var(--muted); font-size:15px; }
+  .lede { color:var(--muted); font-size:14px; margin:0 0 18px; }
+  code { background:var(--code); padding:1px 5px; border-radius:4px;
+    font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; word-break:break-word; }
+  .tiles { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0 4px; }
+  .tile { flex:1 1 150px; background:var(--card); border:1px solid var(--line);
+    border-radius:10px; padding:12px 14px; }
+  .tile .n { font-size:26px; font-weight:650; line-height:1.1; }
+  .tile .l { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-top:3px; }
+  .t-crit .n { color:var(--crit); } .t-mat .n { color:var(--mat); }
+  .t-min .n { color:var(--min); } .t-ok .n { color:var(--ok); }
+  .finding { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--line);
+    border-radius:10px; padding:14px 16px; margin:14px 0; }
+  .s-crit .finding { border-left-color:var(--crit); }
+  .s-mat .finding { border-left-color:var(--mat); }
+  .s-min .finding { border-left-color:var(--min); }
+  .fhead { display:flex; gap:10px; align-items:baseline; margin-bottom:9px; flex-wrap:wrap; }
+  .fid { font:12px ui-monospace,Menlo,monospace; background:var(--code);
+    padding:2px 7px; border-radius:20px; color:var(--muted); }
+  .fwhere { font-size:13px; color:var(--muted); }
+  table.cmp { width:100%; border-collapse:collapse; }
+  table.cmp th { text-align:left; vertical-align:top; width:92px; padding:5px 10px 5px 0;
+    font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); font-weight:600; }
+  table.cmp td { vertical-align:top; padding:5px 0; font-size:14.5px; }
+  td.repo { font-weight:500; }
+  td.ev, td.note { font-size:13.5px; color:var(--muted); }
+  table.grid { width:100%; border-collapse:collapse; margin-top:8px; font-size:14px; }
+  table.grid th { text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--muted); border-bottom:1px solid var(--line); padding:7px 10px 7px 0; }
+  table.grid td { border-bottom:1px solid var(--line); padding:8px 10px 8px 0; vertical-align:top; }
+  table.grid tr td:last-child { color:var(--muted); font-size:13.5px; }
+  footer { margin-top:52px; padding-top:18px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:13px; }
+</style></head>
+<body><div class="wrap">
+
+<header>
+  <h1>Manuscript fact-check: every number against the code</h1>
+  <p class="sub">
+    <code>PLM evolutionary prediction mutation bias MS (18).pdf</code> checked against <code>/home3/oml4h/Mut_acc_PLM_MS/clean_repo</code><br>
+    Generated 21 October 2026. Every figure in the repo ships a
+    <code>*_values.tsv</code> beside it, so each claim below is checked against the
+    numbers the figure was actually drawn from.
+  </p>
+</header>
+
+<div class="tiles">
+  <div class="tile t-crit"><div class="n">6</div><div class="l">Must fix</div></div>
+  <div class="tile t-mat"><div class="n">7</div><div class="l">Material</div></div>
+  <div class="tile t-min"><div class="n">12</div><div class="l">Minor / imprecise</div></div>
+  <div class="tile"><div class="n">11</div><div class="l">Placeholders</div></div>
+  <div class="tile t-ok"><div class="n">27</div><div class="l">Verified correct</div></div>
+</div>
+
+<section class="s-crit">
+<h2>Must fix <span class="cnt">&mdash; wrong numbers in the main text</span></h2>
+<p class="lede">The dominant pattern: Figure 1 and Figure 3A still carry
+<b>preprint values that the corrected 13-lineage re-analysis superseded</b>. The figures were
+regenerated; these sentences were not. <code>LINEAGE_DEFINITIONS.md</code> &sect;6.4 already
+anticipates this &mdash; &ldquo;The rank change should be stated in the response to reviewers.&rdquo;</p>
+
+    <div class="finding">
+      <div class="fhead"><span class="fid">F1-a</span><span class="fwhere">Results, Fig 1B</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>T328A &ldquo;probability of 1.79&times;10<sup>-5</sup> and a rank of 572 (out of 10,754)&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">Rank <b>578</b>; probability <b>~4.5&times;10<sup>-4</sup></b> (25&times; higher than stated)</td></tr>
+        <tr><th>Evidence</th><td class="ev">Rank read off the shipped panel's own point labels: <code>data/frozen_panels/fig1bc_ranked_mutations_finetuned_esm2_ha80.pdf</code> prints &ldquo;T328A (N=578)&rdquo;. Probability: <code>results/h3n2_13lineage/epistasis_focal_sites.tsv.gz</code> p_alt0 = 0.000452575; <code>LINEAGE_DEFINITIONS.md:133</code> gives p &asymp; 4.7&times;10<sup>-4</sup>.</td></tr>
+        <tr><th>Note</th><td class="note"><code>PREPRINT_AND_REVIEWS.md:61</code> records &ldquo;p = 1.79e-5, rank 572 of 10,754&rdquo; as the <i>preprint's</i> numbers. The figure was regenerated after the N145S fix and the text was not updated with it.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">F1-b</span><span class="fwhere">Results, Fig 1C</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;from the 258th most likely mutation (Q173R) to the 3296th (I160K)&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">Q173R = <b>250</b>; I160K = <b>3300</b></td></tr>
+        <tr><th>Evidence</th><td class="ev">Both printed in the shipped panel's labels: &ldquo;Q173R (N=250)&rdquo;, &ldquo;I160K (N=3300)&rdquo; in <code>data/frozen_panels/fig1bc_ranked_mutations_finetuned_esm2_ha80.pdf</code> (accessibility panel).</td></tr>
+        <tr><th>Note</th><td class="note">Same cause as F1-a: <code>PREPRINT_AND_REVIEWS.md:61</code> lists 3,296 / 258 as the preprint values.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">F1-c</span><span class="fwhere">Results, Fig 1B</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>HA2:S49N &ldquo;with a probability of 0.910 and a rank of 7&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">Rank 7 is correct. The probability is <b>not</b> 0.910 in any live source: 0.904 or 0.890</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>LINEAGE_DEFINITIONS.md:133</code> &rarr; p &asymp; 0.904 for <code>ESM2_650M_HA80</code>; <code>results/h3n2_13lineage/epistasis_focal_sites.tsv.gz</code> &rarr; p_alt0 = 0.889899.</td></tr>
+        <tr><th>Note</th><td class="note">0.910 is the preprint figure (<code>PREPRINT_AND_REVIEWS.md:61</code>). Pick whichever estimator the panel uses and quote that one.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">F3-a</span><span class="fwhere">Results, Fig 3A</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>fine-tuned Spearman &rho; &ldquo;shifted from 0.301 (alpha=0) to <b>0.311</b> (alpha=1)&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">&alpha;=0 is 0.3014 &#10003;, but &alpha;=1 is <b>0.3175</b>, not 0.311</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/fig03_alpha_sweep_values.tsv</code>, metric <code>mut_flat_global_spearman_r</code>, model <code>ESM2_650M_HA80</code>, alpha=1 &rarr; mean 0.317500.</td></tr>
+        <tr><th>Note</th><td class="note">0.311 is the preprint's five-lineage value (<code>PREPRINT_AND_REVIEWS.md:61</code>). The &alpha;=0 figure was updated to the 13-lineage run; the &alpha;=1 figure was not.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">F3-b</span><span class="fwhere">Results, Fig 3A</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;The mutation accessibility probabilities alone performed similarly with a Spearman&rsquo;s &rho; of <b>0.318</b>&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">Accessibility alone is <b>0.2885</b>. 0.3185 is a different quantity &mdash; the fine-tuned model's <i>peak</i> over the sweep, at &alpha;=0.58</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/fig03_alpha_sweep_values.tsv</code>: <code>Mutational_accessibility_alone</code> / <code>mut_flat_global_spearman_r</code> = 0.288522 (also the <code>baseline_mean</code> column on every row of that metric). Max over alpha for <code>ESM2_650M_HA80</code> = 0.318503 at alpha = 0.58.</td></tr>
+        <tr><th>Note</th><td class="note">Two numbers appear to have been transposed. The preprint said &ldquo;accessibility alone 0.289&rdquo;, which matches the repo. As written the sentence overstates the accessibility-only baseline by 0.03 and makes it beat the fine-tuned model at &alpha;=1.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">MTH-a</span><span class="fwhere">Methods, Diversity analysis</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>The 13 lineages were built with &ldquo;all of the lineage defining mutations and fewer than five additional amino acid replacements&rdquo; plus the &ldquo;more than two of the&hellip;next descendent lineage&rdquo; filter, giving 78,659 sequences</td></tr>
+        <tr><th>Repository</th><td class="repo">The counts are right, but that rule is <b>not</b> how the 13-lineage set was built</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>LINEAGE_VALIDITY.md:293-297</code>: that rule produced the <i>five</i>-lineage preprint counts (G.1 229, J 4,132, J.2.4 877, J.2 27,452, K 17,898). &ldquo;The thirteen-lineage set uses Nextstrain clades with a <b>nearest-root distance cut</b>, which is <b>not</b> the preprint's rule; the two have not been reconciled.&rdquo;</td></tr>
+        <tr><th>Note</th><td class="note">The 78,659 / 779 / 25,841 numbers are confirmed correct (<code>results/h3n2_13lineage/lineage_panel.tsv.gz</code>), so this is a methods-description error, not a data error. The Methods currently describe the wrong assignment procedure for the dataset actually reported.</td></tr>
+      </table>
+    </div>
+</section>
+
+<section class="s-mat">
+<h2>Material <span class="cnt">&mdash; wrong units, wrong scope, or unsupported</span></h2>
+
+    <div class="finding">
+      <div class="fhead"><span class="fid">F5-a</span><span class="fwhere">Results, Fig 5</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;this gave <b>928 and 1073</b> sites in each category respectively&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo"><b>929 and 1079</b> (total 2008)</td></tr>
+        <tr><th>Evidence</th><td class="ev">Summing <code>output/sI_codon_pair_tracking_values.tsv</code> over the 54 fine-tuned pairs gives one_step 929, multi_step 1079. Independently, <code>output/fig05_codon_learning_values.tsv</code> panel B states sites_one_step 929, sites_multi_step 1079, and the evaluated-site total 2008.</td></tr>
+        <tr><th>Note</th><td class="note">The stated pair (928+1073=2001) does not sum to the figure's own total of 2008.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">DIS-a</span><span class="fwhere">Discussion, branch counts</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;across 50,094 internal <b>branches</b>&hellip;only six <b>branches</b> show an amino acid replacement requiring three nucleotide changes&hellip;29,875 <b>branches</b>&hellip;one, and 147 requiring two&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">The three counts are correct but they are <b>codon changes</b>, not branches</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/sK_branch_codons_caption.md</code>: &ldquo;The 50,094 branches hold 50,872 synonymous and <b>30,028 amino-acid-changing codon changes</b>&rdquo;; 29,875+147+6 = 30,028. <code>output/sK_branch_codons_values.tsv</code> row unit = &ldquo;all changes, all branches&rdquo;.</td></tr>
+        <tr><th>Note</th><td class="note">A single branch can carry several codon changes, so the counts cannot be branch counts. 50,094 is the right denominator for branches but the wrong unit for the three numbers.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">SM-a</span><span class="fwhere">Results, DMS strata</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;The only significant differences across codon distances for DMS prediction were for <b>three</b> datasets, cell entry (both virus species) and preference ratio&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo"><b>Six</b> of nine panels are significant on the only stored across-stratum test</td></tr>
+        <tr><th>Evidence</th><td class="ev">Kruskal&ndash;Wallis on the measured phenotype, <code>phenotype_kw_p</code> in <code>output/sM_strata_summary_table.tsv</code>: A MA22 cell entry 2.7e-16; C MA22 pH stability 0.0426; D Perth09 preference ratio 8.9e-38; E BA.2 cell entry 6.0e-06; G XBB.1.5 cell entry 3.9e-05; H XBB.1.5 ACE2 binding 0.0020. Not significant: B sera escape 0.0576, F BA.2 ACE2 0.106, I XBB.1.5 sera escape 0.349.</td></tr>
+        <tr><th>Note</th><td class="note">pH stability and XBB.1.5 ACE2 binding are also significant, and cell entry is significant in three datasets, not &ldquo;both species&rdquo; as two. If the intended claim is about differences in <i>prediction</i> &rho; across strata rather than the phenotype, that reading does give three datasets &mdash; but then XBB.1.5 cell entry does not separate, so &ldquo;both virus species&rdquo; still fails. The sentence needs to say which quantity is tested.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">SN-a</span><span class="fwhere">Discussion, simulation control</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;a flat JC69 mutation spectrum leaving the <b>weakest</b> signal and H3N2&rsquo;s the <b>strongest</b>&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">No metric in the file supports both halves at once</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/sN_simulation_control_values.tsv</code> panel E own-arm diagonal: Flat <b>0.0414</b>, Human 0.0249, SC2 0.0283, H3N2 0.0450. H3N2 is strongest &#10003;, but Flat is <i>second strongest</i>; the weakest is Human. Panel D raw 1 nt &rho; on own arm: Flat 0.0319 (weakest &#10003;), Human 0.1089, SC2 <b>0.1618 (strongest)</b>, H3N2 0.1451 &mdash; here H3N2 is second.</td></tr>
+        <tr><th>Note</th><td class="note">&ldquo;Only minor gains&rdquo; is confirmed (panel E interactions 0.025&ndash;0.045, exact permutation p = 0.0417). The ordering claim needs re-stating against whichever panel is meant.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">TBL-a</span><span class="fwhere">Results, corpus leakage</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;all can be observed in the HA-80 training data (in at least 70 of the 8,099 sequences)&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">Numerically correct, but it quotes the column the repo says not to quote</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/sX_corpus_leakage_values.tsv</code>: corpus_sequences 8099 on all nine rows, minimum corpus_derived = 70 (HA1:T328A) &#10003;. But <code>figures/README.md:85</code>: &ldquo;Quote the <b>Share of subset</b> column, not <b>Share of corpus</b> &mdash; the corpus spans every HA subtype.&rdquo; In the human H3N2 subset T328A is present in <b>0</b> of 1,282 sequences.</td></tr>
+        <tr><th>Note</th><td class="note">So &ldquo;all nine are in the training data&rdquo; holds only across all subtypes; within the human H3N2 subset it is eight of nine. The caption for Table SX makes this distinction and the main text currently loses it.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">SC2-a</span><span class="fwhere">Methods, SARS-CoV-2 scaling</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>genome composition &ldquo;29.9% A, 18.4% C, 19.6% G, 32.1% U&rdquo; giving a scaling factor of 8.186&times;10<sup>-7</sup></td></tr>
+        <tr><th>Repository</th><td class="repo">Composition not recorded anywhere in the repo; the factor does not recompute exactly</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>data/spectra/sars_cov_2.csv</code> divided by 8.186e-7 returns clean De Maio Table 1 values, so that factor <i>is</i> the one applied. But recomputing from the manuscript's own composition and 1.3e-6 gives <b>8.176e-7</b> (0.12% low); the repo holds no SARS-CoV-2 whole genome to check the four percentages against (only the spike CDS).</td></tr>
+        <tr><th>Note</th><td class="note">Within the rounding of the shipped matrix, so consistent rather than wrong &mdash; but a reader cannot reproduce it from the stated numbers. Worth citing the accession the composition came from.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">VER-a</span><span class="fwhere">Methods, Phylogenetics</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>MMseqs2 <b>v15.6f452</b>; MAFFT <b>v7.453</b>; IQ-TREE v2.4.0 under <b>GTR+G+I</b>; treetime v0.10.0</td></tr>
+        <tr><th>Repository</th><td class="repo">Three of these have no record in the repo at all</td></tr>
+        <tr><th>Evidence</th><td class="ev">IQ-TREE v2.4.0, treetime v0.10.0 and the 0.988 identity threshold are recorded (<code>PREPRINT_AND_REVIEWS.md:94-95</code>). No hit anywhere in the repo for &ldquo;15.6f452&rdquo;, &ldquo;7.453&rdquo;, or &ldquo;GTR&rdquo;.</td></tr>
+        <tr><th>Note</th><td class="note"><code>PREPRINT_AND_REVIEWS.md:129</code> lists &ldquo;name the IQ-TREE model&rdquo; as an <i>open</i> reviewer request, so GTR+G+I looks newly written rather than read off a run log. Trace all three to the actual logs before submission.</td></tr>
+      </table>
+    </div>
+</section>
+
+<section class="s-min">
+<h2>Minor and imprecise <span class="cnt">&mdash; defensible but loose</span></h2>
+<p class="lede">None of these is a wrong number in the strict sense; each is a claim the
+repository's own values qualify.</p>
+
+    <div class="finding">
+      <div class="fhead"><span class="fid">DIM-a</span><span class="fwhere">Throughout</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;19&times;567AA&rdquo; replacement matrix; &ldquo;20 possible amino acids at 567 HA sites&rdquo;; &ldquo;20&times;567 amino acid matrix&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">The scored protein is <b>566</b> residues, with <b>19</b> non-reference amino acids</td></tr>
+        <tr><th>Evidence</th><td class="ev">19 &times; 567 = 10,773, but the manuscript's own &ldquo;out of 10,754&rdquo; = 19 &times; <b>566</b>. <code>LINEAGE_DEFINITIONS.md:24</code> &ldquo;566 translated codons&rdquo;; <code>RUNS.md:192</code> &ldquo;566-residue protein&rdquo;; every scored table has 10,754 rows per lineage. The roots are 1,701 nt = 567 codons <i>including the stop</i>.</td></tr>
+        <tr><th>Note</th><td class="note">Carried over from the preprint, which had the same internal clash.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">FIG-a</span><span class="fwhere">All supplementary citations</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;Figure SE5&rdquo;, &ldquo;SF6&rdquo;, &ldquo;SI9&rdquo;, &ldquo;SH8&rdquo;, &ldquo;SK11&rdquo;, &ldquo;SL12&rdquo;, &ldquo;SM13&rdquo;, &ldquo;SO15&rdquo;, &ldquo;SN14&rdquo;, &ldquo;SD4&rdquo;, &ldquo;SB2&rdquo;, &ldquo;SA1&rdquo;, &ldquo;SG7&rdquo;, &ldquo;SC3&rdquo;, &ldquo;SJ10&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">Letter+old-number hybrids; the canonical labels are letters alone</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>FIGURE_LABELS.md</code>: supplementary figures are &ldquo;Figure SA &hellip; Figure SO&rdquo;, and the digit column is the <i>old</i> 15 Oct draft numbering kept only for translation.</td></tr>
+        <tr><th>Note</th><td class="note">Good news: every digit is consistent with the old mapping (SE=S5, SF=S6, SI=S9, &hellip;), so this is purely a find-and-replace. Note the manuscript is also internally inconsistent &mdash; it uses both &ldquo;Figure SD&rdquo; and &ldquo;Figure SD4&rdquo;, and both &ldquo;Figure SM&rdquo; and &ldquo;Figure SM13&rdquo;.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">GRA-a</span><span class="fwhere">Results, Grantham control</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;The base ESM-2 model does not rank amino acid mutations which are more likely in the H3N2 regime closer together than Grantham&rsquo;s matrix alone does&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">On point estimates ESM-2 is <i>above</i> Grantham in all four comparisons</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/fig02d_strata_panel_values.tsv</code>: all 0.2750 vs 0.2658; nt1 0.0705 vs 0.0602; nt2 0.0705 vs 0.0564; nt3 &minus;0.0031 vs &minus;0.1314.</td></tr>
+        <tr><th>Note</th><td class="note">All CIs overlap, so &ldquo;no better than Grantham&rdquo; is defensible &mdash; but &ldquo;does not rank&hellip;closer together than&rdquo; reads as a directional claim the numbers run against.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">GRA-b</span><span class="fwhere">Results, partial correlation</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;the 3nt band, where the ESM-2 Spearman &rho; <b>dropped to 0</b>&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">It <i>rose</i>, from &minus;0.0031 to +0.0319</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/sD_partial_correlation_values.tsv</code>: ESM2 raw at stratum 3 = &minus;0.00315 unadjusted; +0.03189 [&minus;0.0239, 0.0844] after the Grantham adjustment.</td></tr>
+        <tr><th>Note</th><td class="note">&ldquo;Indistinguishable from zero&rdquo; is correct; &ldquo;dropped to&rdquo; is the wrong direction. The 5% / 25% retention figures either side of this are both exactly right (5.05% and 25.67%).</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">DMS-a</span><span class="fwhere">Results, DMS traits</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;the fine tuning reduces the Spearman &rho;&hellip;but it is raised in sera escape&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">It is raised in <b>two</b> traits &mdash; sera escape and pH stability</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/fig04_alpha_vs_dms_values.tsv</code> rho_alpha0, base &rarr; finetune: cell entry 0.4271&rarr;0.3509 (down); preference ratio 0.4574&rarr;0.2968 (down); sera escape 0.0824&rarr;0.1378 (up); <b>pH stability 0.1210&rarr;0.1384 (up)</b>.</td></tr>
+        <tr><th>Note</th><td class="note">pH stability is simply omitted from the sentence, which makes the mixed picture look more one-sided than it is.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">DMS-b</span><span class="fwhere">Results, SARS-CoV-2 DMS</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;with fine tuning improving predictions on <b>all</b> datasets&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">Signed improvement on 3 of 5; the two ACE2-binding sets get <i>more</i> anti-correlated</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/sL_dms_sc2_values.tsv</code> rho_alpha0: BA.2 cell entry 0.068&rarr;0.300; XBB.1.5 cell entry 0.075&rarr;0.325; XBB.1.5 sera escape 0.020&rarr;0.085; BA.2 ACE2 binding &minus;0.027&rarr;<b>&minus;0.171</b>; XBB.1.5 ACE2 binding &minus;0.015&rarr;<b>&minus;0.057</b>.</td></tr>
+        <tr><th>Note</th><td class="note"><code>output/sL_dms_sc2_caption.md</code> says binding &ldquo;runs the other way&hellip;a property of the assay&rdquo;, and the SL caption already makes this point &mdash; so &ldquo;improving&rdquo; in magnitude is fair if the text says so explicitly.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">DMS-c</span><span class="fwhere">Results, strata and alpha</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;negative alpha values improved fine tune prediction performance&hellip;within 1 and 2nt codon strata (with <b>no significant impact at nt=3</b>)&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">True for 6 of 7 datasets; MA22 sera escape <i>is</i> significant at 3 nt</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/sM_peak_alpha_by_stratum_values.tsv</code>, role=finetune: at 3 nt only one CI excludes zero &mdash; MA22 sera escape &minus;0.40 [&minus;0.841, &minus;0.18]. At 1 nt 6/7 exclude zero (exception MA22 pH stability), at 2 nt 6/7 (exception XBB.1.5 sera escape).</td></tr>
+        <tr><th>Note</th><td class="note">A &ldquo;6 of 7&rdquo; or &ldquo;with one exception&rdquo; qualifier fixes it.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">MSK-a</span><span class="fwhere">Results, masking</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;masking an amino acid did not meaningfully impact the mutational accessibility bias&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">True pooled and for the base model; the fine-tuned model at 3 nt moves by 0.064 (~46% relative)</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/sO_masked_marginals_values.tsv</code> panel E estimate_delta: all/base +0.0295, all/finetune &minus;0.0131, 3 nt finetune <b>&minus;0.0638</b> (0.1390 [0.094,0.182] &rarr; 0.0752 [0.025,0.125], outside the unmasked interval). <code>output/sO_masked_marginals_caption.md</code>: &ldquo;3 of 8 masked estimates fall outside the unmasked interval&rdquo;.</td></tr>
+        <tr><th>Note</th><td class="note">The headline is sound; the 3 nt fine-tuned cell is the exception and the supplementary caption already flags it.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">SE-a</span><span class="fwhere">Results, spectra panel</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;A panel of other mutation spectra from diverse species&hellip;which <b>all</b> had lower correlations to H3N2&rsquo;s spectrum than K80&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">True for every non-influenza spectrum; influenza H1N1 is far higher</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/sE_spectra_in_codon_space_values.tsv</code>, target influenza_h3n2: K80 0.7204 &gt; E. coli 0.6220 &gt; JC69 0.5286 &gt; Human 0.4824 &gt; Yeast 0.3772 &gt; SARS-CoV-2 0.2323. H1N1 = 0.9867.</td></tr>
+        <tr><th>Note</th><td class="note">&ldquo;Diverse species&rdquo; arguably excludes H1N1 already, but one clause saying so would stop the claim being read as absolute.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">F3C-a</span><span class="fwhere">Results, Fig 3C</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;incorporating mutational accessibility generally made performance worse, <b>especially for the fine-tuned model</b>&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">Directionally right, but the CIs overlap heavily</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/fig03_alpha_sweep_values.tsv</code>, winners_auroc, <code>ESM2_650M_HA80</code>: &alpha;=0 0.7394 [0.6997, 0.7791] vs &alpha;=1 0.7180 [0.6835, 0.7526].</td></tr>
+        <tr><th>Note</th><td class="note">By contrast the Fig 3B gains <i>are</i> clean &mdash; no CI overlap for either model &mdash; so &ldquo;significantly improves&rdquo; in the abstract is well supported. <code>output/fig03_alpha_sweep_caption.md</code> states the Fig 3C effect as &ldquo;essentially no additional predictive gain&rdquo;, which is the safer wording.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">F2C-a</span><span class="fwhere">Fig 2C provenance</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;Spearman correlation&hellip;across fine-tuning epochs on the HA-80 H3N2 data&rdquo;, presented beside the 13-lineage panels</td></tr>
+        <tr><th>Repository</th><td class="repo">Panel 2C is digitised from a frozen PNG and uses <b>3</b> lineages, not 13</td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>output/fig02c_epoch_panel_values.tsv</code>: every row's source is &ldquo;digitised from data/frozen_panels/fig2c_plm_epoch.png&rdquo;. <code>data/frozen_panels/README.md</code>: &ldquo;Frozen. No generator anywhere&hellip;Uses 3 lineages, not 13.&rdquo;</td></tr>
+        <tr><th>Note</th><td class="note">The claim it supports (&ldquo;plateauing after the second epoch&rdquo;) is correct: 0.274 &rarr; 0.622 &rarr; 0.643, flat after. But the differing lineage count and the lack of a generator should be stated somewhere.</td></tr>
+      </table>
+    </div>
+    <div class="finding">
+      <div class="fhead"><span class="fid">PLM-a</span><span class="fwhere">Introduction</span></div>
+      <table class="cmp">
+        <tr><th>Manuscript</th><td>&ldquo;the pseudo-probability of the top and bottom amino acid replacements have a probability scale difference of 10<sup>8</sup>&rdquo;</td></tr>
+        <tr><th>Repository</th><td class="repo">Holds for the fine-tuned model only; the base model's range is 1.1&times;10<sup>7</sup></td></tr>
+        <tr><th>Evidence</th><td class="ev"><code>results/h3n2_13lineage/replacement_scores_masked.tsv.gz</code>: <code>ESM2_650M_HA80</code> plm_prob max 0.999403 / min 5.635e-9 = 1.77e8. <code>ESM2_650M_HA80_raw</code> = 1.12e7.</td></tr>
+        <tr><th>Note</th><td class="note">Say which model. The companion 6.5&times;10<sup>11</sup> accessibility range checks out exactly (3.504e-4 / 5.407e-16 = 6.48e11 over non-synonymous cells).</td></tr>
+      </table>
+    </div>
+</section>
+
+<section>
+<h2>Unresolved placeholders <span class="cnt">&mdash; 11 in the submitted PDF</span></h2>
+<table class="grid"><tr><th>Marker</th><th>Where</th><th>Note</th></tr><tr><td>peak alpha ranges from <b>*</b></td><td>Results, DMS</td><td>Unfilled &mdash; the four fine-tuned optima are &minus;0.21, &minus;0.24, &minus;0.21, &minus;0.18 (<code>output/fig04_alpha_vs_dms_values.tsv</code> best_alpha).</td></tr><tr><td>at least <b>X*</b> codons in each easy and hard category</td><td>Results, Fig 5</td><td>Unfilled threshold.</td></tr><tr><td>Figure SE5<b>*</b>, SF6<b>*</b>, SI9<b>*</b>, SH8<b>*</b>, SC3<b>*</b>, SN14<b>*</b>, SM13<b>*</b></td><td>Throughout</td><td>Asterisks left on seven supplementary citations.</td></tr><tr><td>deposited in its own github repository here (<b>*+DOI</b>)</td><td>Methods, Analysis code</td><td>No repository URL or DOI.</td></tr><tr><td>code is available on github at <b>&lt;new link*&gt;</b></td><td>Methods, SC2 fine tuning</td><td>No URL.</td></tr><tr><td>&hellip;Mutational_accesibility_SC2.py <b>***</b></td><td>Methods, alpha sweep</td><td>Trailing marker; also note the filename is misspelt &ldquo;accesibility&rdquo; in the URL itself.</td></tr><tr><td>&ldquo;compared how the PLM rated identical amino acid replacements from those different starting positions&hellip; <b>**</b>&rdquo;</td><td>Methods, permutation analysis</td><td>Sentence trails off unfinished.</td></tr><tr><td>&ldquo;The training data consists of <b>**</b>&rdquo;</td><td>Supplementary methods, SC2 fine tuning</td><td>Sentence unfinished.</td></tr><tr><td>&ldquo;<b>*</b> homoplasy column needs updating with new tree&rdquo;</td><td>Table S1 caption</td><td>Editorial note left in the caption.</td></tr><tr><td>&ldquo;we found in <b>four</b> panels A, D and E&rdquo;</td><td>Figure SM13 caption</td><td>Says four, lists three. (And see SM-a: the stored test gives six.)</td></tr><tr><td>A numbered editorial block &mdash; &ldquo;<b>D. Broken References &amp; Missing Citations</b>&rdquo; &mdash; sits at the head of the reference list</td><td>References</td><td>A review note pasted into the manuscript body. It documents real problems (three papers alphabetised by webpage title, Dadonaite 2024 / Tan &amp; Rubenstein 2020 / Garcia-Moro 2022 / Xia 1996 cited but absent, Goldstein 2011 and Wang 2023 uncited) but must not ship.</td></tr></table>
+</section>
+
+<section>
+<h2>Verified correct <span class="cnt">&mdash; 27 checks passed</span></h2>
+<p class="lede">These match the repository exactly, to the precision quoted.</p>
+<table class="grid"><tr><th>Claim</th><th>Repository</th></tr><tr><td>5.05&times;10<sup>30</sup> nine-mutation sequences</td><td>C(567,9)&times;19<sup>9</sup> = 5.053e30</td></tr><tr><td>Nine J.2&rarr;K HA replacements, all single-nucleotide</td><td><code>LINEAGE_DEFINITIONS.md</code>; enforced by <code>tests/test_lineage_definitions.py</code></td></tr><tr><td>84.8% retained by compression; 43.6% under K80</td><td><code>output/sE_spectra_in_codon_space_values.tsv</code>: 84.8399 and 43.5853</td></tr><tr><td>Spearman 0.655 (HA-80) vs 0.275 (ESM-2)</td><td><code>output/fig02ab_scatter_panels_values.tsv</code>: 0.654875, 0.275048</td></tr><tr><td>Pearson 0.045 and 0.054</td><td>same file: 0.0454014 (fine-tuned), 0.0537958 (base)</td></tr><tr><td>ESM-C on SARS-CoV-2 spike: 0.300 &rarr; 0.679</td><td><code>output/sA_spike_model_vs_accessibility_values.tsv</code>: 0.299459, 0.679073</td></tr><tr><td>Strata &rho;: nt1 0.292 / 0.071, nt3 0.139 / &minus;0.003</td><td><code>output/fig02d_strata_panel_values.tsv</code>: 0.29183, 0.0705447, 0.138951, &minus;0.00314837</td></tr><tr><td>5% of HA-80's and 25% of ESM-2's correlation lost to the Grantham adjustment</td><td>5.05% and 25.67% from <code>output/sD_partial_correlation_values.tsv</code></td></tr><tr><td>Fig 3A: base ESM-2 0.205 rising to 0.304</td><td><code>output/fig03_alpha_sweep_values.tsv</code>: 0.205350, 0.303700</td></tr><tr><td>Fig 3B: 0.929 / 0.91 / 0.793, rising to 0.951 and 0.931</td><td>0.929400, 0.908900, 0.792700, 0.950800, 0.930500 &mdash; all five exact</td></tr><tr><td>Fig 3C: 0.739 vs 0.574; accessibility alone 0.524</td><td>0.739400, 0.574000, 0.524200 &mdash; all three exact</td></tr><tr><td>Fig 5A: Ser&rarr;Asn separated by 23 and 24 examples</td><td><code>output/fig05_codon_learning_values.tsv</code> panel A: 23, 24</td></tr><tr><td>78,659 sequences; 779 (G.1) to 25,841 (J.2)</td><td><code>results/h3n2_13lineage/lineage_panel.tsv.gz</code> sums to exactly 78,659; min 779, max 25,841</td></tr><tr><td>The 13 named lineages</td><td>exactly the set in <code>lineage_panel.tsv.gz</code></td></tr><tr><td>8,099 corpus sequences, latest 2015-02-27, minimum 70</td><td><code>output/sX_corpus_leakage_values.tsv</code></td></tr><tr><td>AAA&rarr;GAA is the square of AAA&rarr;GGA (3e-4, 9e-8)</td><td><code>output/fig01d_codon_accessibility_values.tsv</code>: 2.99882e-4 and 9e-8; 2.99882e-4&sup2; = 8.99e-8</td></tr><tr><td>6.5&times;10<sup>11</sup> accessibility range</td><td>3.504e-4 / 5.407e-16 = 6.48e11 over non-synonymous cells</td></tr><tr><td>Alpha swept &minus;1 to 1 in Figs 3 and 4</td><td>both value files span exactly &minus;1 to 1</td></tr><tr><td>Fine-tuning improves every evolutionary prediction task at &alpha;=0</td><td>0.301 vs 0.205; 0.929 vs 0.793; 0.739 vs 0.574</td></tr><tr><td>Base PLM &times; accessibility matches the fine-tuned model</td><td>Fig 3A 0.3037 vs 0.3014; Fig 3B 0.9305 vs 0.9294</td></tr><tr><td>All four IAV DMS fine-tuned optima are negative</td><td>&minus;0.21, &minus;0.24, &minus;0.21, &minus;0.18, all CIs excluding zero</td></tr><tr><td>Base ESM-2 beats the fine-tune at every alpha for preference ratio</td><td>positive gap at all 201 alphas; min +0.078</td></tr><tr><td>Symmetric H3N2 spectrum correlates better than the directional one</td><td><code>output/sF_spectrum_swap_values.tsv</code>: deltas &minus;0.011 (base) and &minus;0.017 (fine-tune), CIs excluding zero</td></tr><tr><td>Fig 2C plateaus after epoch 2</td><td>0.2737 &rarr; 0.6222 &rarr; 0.6433, flat thereafter</td></tr><tr><td>Nash&ndash;Sutcliffe naming of the compression statistic</td><td>matches <code>100&times;(1&minus;var(target&minus;predictor)/var(target))</code> in <code>tools/spectra_compare.py</code> &mdash; a fix on the preprint, which implied Pearson</td></tr><tr><td>HA-80: 99% identity clusters, February 2015 cut-off; GISAID to 12 Feb 2026</td><td><code>PREPRINT_AND_REVIEWS.md:68,88-90</code>; corpus_last_date 2015-02-27</td></tr><tr><td>Abstract's &ldquo;significantly improves&rdquo; binary prediction</td><td>Fig 3B CIs do not overlap for either model</td></tr></table>
+</section>
+
+<footer>
+  <p><b>Scope.</b> Every numeric claim in the abstract, introduction, results, discussion,
+  methods and supplementary captions was checked. Claims resting on external citations
+  (influenza mortality, the $29&nbsp;billion cost, ESM-2's own training-set clustering) are
+  outside the repository and were not checked against it.</p>
+  <p><b>One caveat on provenance.</b> Some method details &mdash; software versions, the
+  SARS-CoV-2 genome composition &mdash; exist in the repo only inside
+  <code>PREPRINT_AND_REVIEWS.md</code>, which is the repo's <i>record of the manuscript's own
+  text</i> rather than an independent derivation. Where an independent artefact existed it was
+  used instead (the De Maio round-trip through <code>data/spectra/sars_cov_2.csv</code>, the
+  2015-02-27 corpus date, the ranks printed in the figure PDF itself).</p>
+</footer>
+
+</div></body></html>

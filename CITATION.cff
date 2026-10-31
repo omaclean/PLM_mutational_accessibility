@@ -1,0 +1,57 @@
+cff-version: 1.2.0
+message: "If you use this software or its derived tables, please cite the paper below."
+title: "Protein language models learn underlying mutation biases alongside fitness landscapes: figure engine"
+abstract: >-
+  Code and derived tables that redraw every figure of MacLean et al., "Protein language
+  models learn underlying mutation biases alongside fitness landscapes". No model is run
+  from this repository; it reads the scored output of the upstream analysis.
+type: software
+license: MIT
+repository-code: "https://github.com/omaclean/PLM_mutational_accessibility"
+authors:
+  - family-names: MacLean
+    given-names: Oscar A.
+    email: oscar.maclean@glasgow.ac.uk
+    affiliation: "MRC-University of Glasgow Centre for Virus Research, School of Infection and Immunity, Glasgow, UK"
+  - family-names: Lamb
+    given-names: Kieran
+    affiliation: "MRC-University of Glasgow Centre for Virus Research, School of Infection and Immunity, Glasgow, UK"
+  - family-names: Lytras
+    given-names: Spyros
+    affiliation: "Antigen Evolution and Design Lab, Department of Structural Biology and Chemistry, Institut Pasteur, Paris, France"
+  - family-names: Mojsiejczuk
+    given-names: Laura
+    affiliation: "MRC-University of Glasgow Centre for Virus Research, School of Infection and Immunity, Glasgow, UK"
+  - family-names: Yuan
+    given-names: Ke
+    affiliation: "School of Cancer Sciences, University of Glasgow, Glasgow, UK"
+  - family-names: Hughes
+    given-names: Joseph
+    affiliation: "MRC-University of Glasgow Centre for Virus Research, School of Infection and Immunity, Glasgow, UK"
+  - family-names: Robertson
+    given-names: David L.
+    email: david.l.robertson@glasgow.ac.uk
+    affiliation: "MRC-University of Glasgow Centre for Virus Research, School of Infection and Immunity, Glasgow, UK"
+preferred-citation:
+  type: article
+  title: "Protein language models learn underlying mutation biases alongside fitness landscapes"
+  doi: "10.64898/2026.07.06.736753"
+  url: "https://doi.org/10.64898/2026.07.06.736753"
+  journal: "bioRxiv"
+  year: 2026
+  month: 7
+  authors:
+    - family-names: MacLean
+      given-names: Oscar A.
+    - family-names: Lamb
+      given-names: Kieran
+    - family-names: Lytras
+      given-names: Spyros
+    - family-names: Mojsiejczuk
+      given-names: Laura
+    - family-names: Yuan
+      given-names: Ke
+    - family-names: Hughes
+      given-names: Joseph
+    - family-names: Robertson
+      given-names: David L.

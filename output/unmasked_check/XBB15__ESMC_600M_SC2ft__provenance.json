@@ -1,0 +1,15 @@
+{
+  "dataset": "XBB15",
+  "reference_file": "/home3/oml4h/PLM_SARS-CoV-2/Sequences/SC2_lineage_references_spike_nt_no_gaps.fasta",
+  "reference_id": "XBB.1.5",
+  "protein_length": 1269,
+  "protein_md5": "974b721345d109827a3d7d627f6c72eb",
+  "model_label": "ESMC_600M_SC2ft",
+  "model_source": "/home3/oml4h/my_SC2_finetunes/magma_ESMC_600M_99_95perc",
+  "model_family": "ESM-C",
+  "unmasked_scoring": "single unmasked forward pass of the reference; softmax over the vocabulary. The originally published quantity.",
+  "masked_scoring": "one forward pass per site with that site replaced by the mask token; softmax over the vocabulary, read at the masked position only.",
+  "unmasked_cache_max_abs_diff": 2.9767608600295148e-08,
+  "built_utc": "2026-10-19T18:21:01+00:00",
+  "built_by": "dev/masked_dms/embed_masked_profile_esmc.py"
+}

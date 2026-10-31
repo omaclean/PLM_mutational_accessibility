@@ -1,0 +1,13 @@
+series	series_label	stratum	n_spectra	alt_higher	alt_lower	kind
+ESM2_650M_HA80_raw	Base model (ESM-2)	all	9	8	1	model
+ESM2_650M_HA80	Fine-tuned on influenza HA	all	9	5	2	model
+neg_grantham	Grantham similarity (control)	all	9	7	2	property
+ESM2_650M_HA80_raw	Base model (ESM-2)	1	9	7	1	model
+ESM2_650M_HA80	Fine-tuned on influenza HA	1	9	5	3	model
+neg_grantham	Grantham similarity (control)	1	9	5	2	property
+ESM2_650M_HA80_raw	Base model (ESM-2)	2	9	7	1	model
+ESM2_650M_HA80	Fine-tuned on influenza HA	2	9	5	2	model
+neg_grantham	Grantham similarity (control)	2	9	7	2	property
+ESM2_650M_HA80_raw	Base model (ESM-2)	3	9	7	1	model
+ESM2_650M_HA80	Fine-tuned on influenza HA	3	9	8	1	model
+neg_grantham	Grantham similarity (control)	3	9	7	1	property

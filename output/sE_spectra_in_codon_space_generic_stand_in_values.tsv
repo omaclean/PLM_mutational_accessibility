@@ -1,0 +1,8 @@
+key	mean_corr_to_others	min_corr_to_others	mean_retained_predicting_others	n_others	label	free_nt_parameters	is_focus
+ecoli	0.811849	0.612672	48.4017	6	E. coli	6	False
+k80_kappa2	0.792018	0.513872	46.1766	6	K80 (kappa=2)	1	False
+yeast	0.761331	0.377186	39.976	6	S. cerevisiae	6	False
+human	0.707837	0.482443	19.4025	6	Human	6	False
+jc69	0.68617	0.461528	34.6604	6	JC69 (flat)	0	False
+sars_cov_2	0.527629	0.232302	-65.6396	6	SARS-CoV-2	12	False
+influenza_h3n2	0.493817	0.232302	-47.9147	6	Influenza H3N2	12	True

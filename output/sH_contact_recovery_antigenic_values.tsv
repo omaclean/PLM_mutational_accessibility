@@ -1,0 +1,7 @@
+structure	stratum	n_residues	mean_delta	ci_lo	ci_hi	crosses_zero	auroc_finetune	auroc_base	table	comparison	difference	p_perm	n_a	n_b	n_boot	n_perm	gauge
+6WXB	antigenic	126	0.0320627	0.00672438	0.059251	False	0.822302	0.790245	group								zerosum
+6WXB	rest	185	0.0349443	0.0201384	0.0503674	False	0.69991	0.664965	group								zerosum
+7ZJ7	antigenic	125	0.0401712	0.015966	0.0656435	False	0.831572	0.791399	group								zerosum
+7ZJ7	rest	183	0.0343301	0.0171611	0.0523174	False	0.709621	0.675289	group								zerosum
+6WXB				-0.0329396	0.0302353				contrast	antigenic minus rest	-0.00288163	0.845215	126	185	2000	10000	zerosum
+7ZJ7				-0.0242651	0.038739				contrast	antigenic minus rest	0.00584115	0.705429	125	183	2000	10000	zerosum

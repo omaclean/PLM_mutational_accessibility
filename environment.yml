@@ -1,0 +1,23 @@
+# One interpreter draws every figure AND runs the tests.
+# requirements.txt is the pip equivalent of this file; keep the two in step.
+# Derived tables ship as gzipped TSV precisely so no parquet reader is needed here.
+# (tools/export_tables.py is the exception: it reads the exploration archive's
+#  parquet files, so run it from an env that also has pyarrow.)
+name: mutacc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - pyyaml
+  - biopython   # the standard genetic code, mutacc/accessibility.py
+  - pymupdf      # figures/panelise.py (composite assembly). Import matplotlib BEFORE
+                 #   it: PyMuPDF first pulls in the system libstdc++ and breaks Pillow.
+  - pillow       # figures/panelise.py crops raster panels
+  - fonttools    # optional: panelise.py subsets embedded fonts, and skips if absent
+  - threadpoolctl  # mutacc/linkfit.py holds BLAS to one thread; without it the fit is
+                   #   still correct, only slower and far less neighbourly
+  - pytest

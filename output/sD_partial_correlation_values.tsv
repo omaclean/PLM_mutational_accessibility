@@ -1,0 +1,41 @@
+measure	series	control	stratum	estimate	lo	hi	n_rows	lineage	n_lineages	guide
+plm_vs_access	ESM2_650M_HA80_raw		all	0.275048	0.256292	0.295906	10754	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80		all	0.654875	0.636782	0.675068	10754	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80_raw	neg_grantham	all	0.204441	0.184479	0.224329	10754	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80	neg_grantham	all	0.621794	0.603005	0.643121	10754	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80_raw		1	0.0705447	0.0412282	0.0980428	3334	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80		1	0.29183	0.261095	0.324017	3334	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80_raw	neg_grantham	1	0.0523335	0.0243894	0.0772355	3334	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80	neg_grantham	1	0.291389	0.263813	0.321803	3334	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80_raw		2	0.0704709	0.0453951	0.102607	5487	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80		2	0.24955	0.223303	0.275797	5487	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80_raw	neg_grantham	2	0.0586913	0.0301196	0.0897724	5487	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80	neg_grantham	2	0.243642	0.218869	0.270678	5487	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80_raw		3	-0.00314837	-0.0577331	0.0460479	1933	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80		3	0.138951	0.093765	0.182102	1933	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80_raw	neg_grantham	3	0.031889	-0.0239483	0.0844124	1933	J.2_int	1	h3n2_5lineage
+plm_vs_access	ESM2_650M_HA80	neg_grantham	3	0.184127	0.139196	0.223822	1933	J.2_int	1	h3n2_5lineage
+matched_rank	ESM2_650M_HA80_raw	neg_grantham	all	0.214451	0.196366	0.234562	10754	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80_raw		all	0.109119	0.101602	0.116489	10754	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80_raw	neg_grantham	all	0.0770634	0.0689713	0.0842922	10754	J.2_int	1	h3n2_5lineage
+matched_rank	ESM2_650M_HA80	neg_grantham	all	0.623873	0.605313	0.645738	10754	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80		all	0.238814	0.22728	0.25054	10754	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80	neg_grantham	all	0.210896	0.198418	0.221382	10754	J.2_int	1	h3n2_5lineage
+matched_rank	ESM2_650M_HA80_raw	neg_grantham	1	0.0427502	0.0126738	0.068937	3334	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80_raw		1	0.0557023	0.0137144	0.0899006	3334	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80_raw	neg_grantham	1	0.0143879	-0.0223981	0.0486833	3334	J.2_int	1	h3n2_5lineage
+matched_rank	ESM2_650M_HA80	neg_grantham	1	0.291786	0.264229	0.315446	3334	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80		1	0.334954	0.29535	0.373199	3334	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80	neg_grantham	1	0.330744	0.289928	0.371598	3334	J.2_int	1	h3n2_5lineage
+matched_rank	ESM2_650M_HA80_raw	neg_grantham	2	0.0490823	0.0149694	0.0849395	5487	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80_raw		2	0.0943102	0.0645285	0.124413	5487	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80_raw	neg_grantham	2	0.127095	0.0993675	0.157804	5487	J.2_int	1	h3n2_5lineage
+matched_rank	ESM2_650M_HA80	neg_grantham	2	0.246549	0.221388	0.273582	5487	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80		2	0.202922	0.175661	0.236417	5487	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80	neg_grantham	2	0.254815	0.230775	0.281804	5487	J.2_int	1	h3n2_5lineage
+matched_rank	ESM2_650M_HA80_raw	neg_grantham	3	0.0301772	-0.0303269	0.08228	1933	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80_raw		3	-0.13118	-0.168257	-0.102597	1933	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80_raw	neg_grantham	3	-0.0975887	-0.131209	-0.0713874	1933	J.2_int	1	h3n2_5lineage
+matched_rank	ESM2_650M_HA80	neg_grantham	3	0.166703	0.119751	0.210381	1933	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80		3	0.117297	0.0849977	0.146273	1933	J.2_int	1	h3n2_5lineage
+softmax_beta	ESM2_650M_HA80	neg_grantham	3	0.130975	0.103668	0.155549	1933	J.2_int	1	h3n2_5lineage

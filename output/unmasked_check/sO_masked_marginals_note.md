@@ -1,0 +1,1 @@
+Not a manuscript figure: the estimator check of Figure SO run again on the SARS-CoV-2 panels, which that figure does not draw. Solid lines are the masked marginals the main figures report, dashed the wild-type (unmasked) estimator.

@@ -1,0 +1,22 @@
+epoch	label	spearman_r	source
+0	raw	0.2737	digitised from data/frozen_panels/fig2c_plm_epoch.png
+1	1	0.6222	digitised from data/frozen_panels/fig2c_plm_epoch.png
+2	2	0.6433	digitised from data/frozen_panels/fig2c_plm_epoch.png
+3	3	0.6421	digitised from data/frozen_panels/fig2c_plm_epoch.png
+4	4	0.6421	digitised from data/frozen_panels/fig2c_plm_epoch.png
+5	5	0.6524	digitised from data/frozen_panels/fig2c_plm_epoch.png
+6	6	0.6344	digitised from data/frozen_panels/fig2c_plm_epoch.png
+7	7	0.6528	digitised from data/frozen_panels/fig2c_plm_epoch.png
+8	8	0.6378	digitised from data/frozen_panels/fig2c_plm_epoch.png
+9	9	0.6598	digitised from data/frozen_panels/fig2c_plm_epoch.png
+10	10	0.6542	digitised from data/frozen_panels/fig2c_plm_epoch.png
+11	11	0.6524	digitised from data/frozen_panels/fig2c_plm_epoch.png
+12	12	0.6421	digitised from data/frozen_panels/fig2c_plm_epoch.png
+13	13	0.6348	digitised from data/frozen_panels/fig2c_plm_epoch.png
+14	14	0.6481	digitised from data/frozen_panels/fig2c_plm_epoch.png
+15	15	0.6524	digitised from data/frozen_panels/fig2c_plm_epoch.png
+16	16	0.646	digitised from data/frozen_panels/fig2c_plm_epoch.png
+17	17	0.655	digitised from data/frozen_panels/fig2c_plm_epoch.png
+18	18	0.6512	digitised from data/frozen_panels/fig2c_plm_epoch.png
+19	19	0.6507	digitised from data/frozen_panels/fig2c_plm_epoch.png
+20	20	0.6507	digitised from data/frozen_panels/fig2c_plm_epoch.png

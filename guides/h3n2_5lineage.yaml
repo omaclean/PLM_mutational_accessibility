@@ -1,0 +1,50 @@
+name: h3n2_5lineage
+description: >
+  The five H3N2 lineages the first submission was drawn from. Still runnable, and kept
+  because Figure 2's within-stratum panel was first computed on this set. Its roots do
+  not describe themselves honestly (see notes), so treat it as a comparison set and not
+  as the reference analysis.
+virus: influenza A/H3N2 haemagglutinin (HA)
+reference: A/Darwin/6/2021
+
+# Same fine-tuning corpus as the thirteen-lineage set.
+corpus_cutoff: 2015-01-01
+
+results_dir: results/h3n2_5lineage
+
+models:
+  - {key: ESM2_650M_HA80_raw, label: Base model (ESM-2), role: base}
+  - {key: ESM2_650M_HA80, label: Fine-tuned on influenza HA, role: finetune}
+
+# root_type follows the 9 Oct audit (LINEAGE_VALIDITY.md section 4, Q3b). The headers of these
+# files carry GISAID tip accessions, but the sequences are inferred ancestors, and nothing in
+# the header says so. `tests/test_data_integrity.py` pins the resulting header defects.
+#   J.2_int, J.2.4  reconstruction, accession in header          -> reconstructed
+#   G.1, J_int      provenance not established                   -> unverified
+#   K               header names lineage J.2.4.1, not K, so it is not even clear which
+#                   lineage this file is a root of. Recorded as a reconstruction in the
+#                   audit notes, but the file's identity is unsettled -> unverified
+lineages:
+  - {id: G.1,     root: data/roots/h3n2_5lineage/G.1.nt.fa,     root_type: unverified}
+  - {id: J_int,   root: data/roots/h3n2_5lineage/J_int.nt.fa,   root_type: unverified}
+  - {id: J.2_int, root: data/roots/h3n2_5lineage/J.2_int.nt.fa, root_type: reconstructed}
+  - {id: J.2.4,   root: data/roots/h3n2_5lineage/J.2.4.nt.fa,   root_type: reconstructed}
+  - {id: K,       root: data/roots/h3n2_5lineage/K.nt.fa,       root_type: unverified}
+
+# The one lineage the single-lineage figures (2D, S4) analyse. The five share their sites and
+# agree far more closely than the site bootstrap is wide, so averaging them implied a
+# replication the data do not have; see mutacc.strata.primary_lineage. Named here rather than
+# derived, because it is a choice and belongs where a reader can see it.
+primary_lineage: J.2_int
+
+notes: >
+  K.nt.fa's header says J.2.4.1, not K. The original guide for this set pointed into the
+  exploration archive and could not run from this repository; the tables here were exported
+  from that run's output.
+
+tables:
+  replacement_scores: replacement_scores.tsv.gz
+  audit_within_replacement: audit_within_replacement.tsv.gz
+  audit_within_replacement_by_lineage: audit_within_replacement_by_lineage.tsv.gz
+  audit_persistence: audit_persistence.tsv.gz
+  audit_persistence_by_residue: audit_persistence_by_residue.tsv.gz

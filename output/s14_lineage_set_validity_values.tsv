@@ -1,0 +1,7 @@
+panel	series	group	measure	value	lo	hi	n	n_lineages	guide
+A	finetune	5 lineages	within-replacement AUROC	0.608819	0.573869	0.640813	54	5	h3n2_5lineage
+A	base	5 lineages	within-replacement AUROC	0.510574	0.483523	0.541418	54	5	h3n2_5lineage
+A	finetune	13 lineages	within-replacement AUROC	0.610353	0.576005	0.641463	54	13	h3n2_13lineage
+A	base	13 lineages	within-replacement AUROC	0.510454	0.485193	0.541531	54	13	h3n2_13lineage
+B	advantage	absent	AUROC fine-tuned minus base	0.142885	0.109399	0.178435	160	13	h3n2_13lineage
+B	advantage	present	AUROC fine-tuned minus base	0.181207	0.161875	0.199341	1555	13	h3n2_13lineage

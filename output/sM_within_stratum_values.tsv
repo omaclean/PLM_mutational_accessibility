@@ -1,0 +1,73 @@
+dataset	trait	model_name	stratum	n	n_sites	rho	ci_lo	ci_hi	n_boot	role
+MA22	MDCKSIAT1 cell entry	ESM-2 650M base	pooled	9234	504	0.42711	0.383841	0.467344	400	base
+MA22	MDCKSIAT1 cell entry	ESM-2 650M base	1	2907	504	0.46319	0.420854	0.509019	400	base
+MA22	MDCKSIAT1 cell entry	ESM-2 650M base	2	4701	503	0.428697	0.373154	0.477751	400	base
+MA22	MDCKSIAT1 cell entry	ESM-2 650M base	3	1626	492	0.350581	0.271329	0.427047	400	base
+MA22	MDCKSIAT1 cell entry	HA-80 fine-tuned	pooled	9234	504	0.350884	0.309116	0.393412	400	finetune
+MA22	MDCKSIAT1 cell entry	HA-80 fine-tuned	1	2907	504	0.462266	0.420062	0.503782	400	finetune
+MA22	MDCKSIAT1 cell entry	HA-80 fine-tuned	2	4701	503	0.380592	0.327379	0.424341	400	finetune
+MA22	MDCKSIAT1 cell entry	HA-80 fine-tuned	3	1626	492	0.312127	0.24493	0.383498	400	finetune
+MA22	sera escape	ESM-2 650M base	pooled	5635	473	0.0824277	0.0273042	0.136404	400	base
+MA22	sera escape	ESM-2 650M base	1	1954	456	0.0825434	0.026835	0.139471	400	base
+MA22	sera escape	ESM-2 650M base	2	2768	441	0.0574149	-0.00397939	0.120931	400	base
+MA22	sera escape	ESM-2 650M base	3	913	344	0.138246	0.0616446	0.211116	400	base
+MA22	sera escape	HA-80 fine-tuned	pooled	5635	473	0.137812	0.0961339	0.176559	400	finetune
+MA22	sera escape	HA-80 fine-tuned	1	1954	456	0.152001	0.0962291	0.203363	400	finetune
+MA22	sera escape	HA-80 fine-tuned	2	2768	441	0.144079	0.0922261	0.199184	400	finetune
+MA22	sera escape	HA-80 fine-tuned	3	913	344	0.243497	0.179598	0.309111	400	finetune
+MA22	pH stability	ESM-2 650M base	pooled	5472	469	0.121007	0.0639335	0.173438	400	base
+MA22	pH stability	ESM-2 650M base	1	1904	451	0.113364	0.0475907	0.182206	400	base
+MA22	pH stability	ESM-2 650M base	2	2685	435	0.107378	0.0340069	0.17735	400	base
+MA22	pH stability	ESM-2 650M base	3	883	332	0.13854	0.0548551	0.231841	400	base
+MA22	pH stability	HA-80 fine-tuned	pooled	5472	469	0.138381	0.0950953	0.184846	400	finetune
+MA22	pH stability	HA-80 fine-tuned	1	1904	451	0.147168	0.0916683	0.205441	400	finetune
+MA22	pH stability	HA-80 fine-tuned	2	2685	435	0.154106	0.0894776	0.216514	400	finetune
+MA22	pH stability	HA-80 fine-tuned	3	883	332	0.164939	0.0779962	0.244438	400	finetune
+Perth09	preference ratio	ESM-2 650M base	pooled	10754	566	0.457401	0.419808	0.497492	400	base
+Perth09	preference ratio	ESM-2 650M base	1	3358	566	0.473998	0.433972	0.50732	400	base
+Perth09	preference ratio	ESM-2 650M base	2	5482	566	0.461078	0.414487	0.503175	400	base
+Perth09	preference ratio	ESM-2 650M base	3	1914	566	0.372021	0.309599	0.429231	400	base
+Perth09	preference ratio	HA-80 fine-tuned	pooled	10754	566	0.296819	0.274268	0.322553	400	finetune
+Perth09	preference ratio	HA-80 fine-tuned	1	3358	566	0.43404	0.402487	0.467482	400	finetune
+Perth09	preference ratio	HA-80 fine-tuned	2	5482	566	0.279081	0.235086	0.320515	400	finetune
+Perth09	preference ratio	HA-80 fine-tuned	3	1914	566	0.214336	0.157558	0.269538	400	finetune
+BA2	spike mediated entry	ESM-C 600M base	pooled	7022	1240	0.0683121	0.0454216	0.0952161	400	base
+BA2	spike mediated entry	ESM-C 600M base	1	4602	1225	0.0595771	0.0251673	0.0906338	400	base
+BA2	spike mediated entry	ESM-C 600M base	2	1982	758	0.0537131	0.00525616	0.100017	400	base
+BA2	spike mediated entry	ESM-C 600M base	3	438	217	0.0417764	-0.0517967	0.140332	400	base
+BA2	spike mediated entry	SC2 fine-tuned	pooled	7022	1240	0.299524	0.268941	0.334234	400	finetune
+BA2	spike mediated entry	SC2 fine-tuned	1	4602	1225	0.38019	0.347553	0.413421	400	finetune
+BA2	spike mediated entry	SC2 fine-tuned	2	1982	758	0.287433	0.234539	0.348763	400	finetune
+BA2	spike mediated entry	SC2 fine-tuned	3	438	217	0.141004	0.0429557	0.255467	400	finetune
+BA2	ACE2 binding	ESM-C 600M base	pooled	6165	1196	-0.0265659	-0.0527689	-0.000387996	400	base
+BA2	ACE2 binding	ESM-C 600M base	1	4122	1166	-0.0321562	-0.061449	-0.00120939	400	base
+BA2	ACE2 binding	ESM-C 600M base	2	1662	610	0.0144251	-0.0317772	0.0557088	400	base
+BA2	ACE2 binding	ESM-C 600M base	3	381	186	-0.0642918	-0.15685	0.0380546	400	base
+BA2	ACE2 binding	SC2 fine-tuned	pooled	6165	1196	-0.171356	-0.20302	-0.138789	400	finetune
+BA2	ACE2 binding	SC2 fine-tuned	1	4122	1166	-0.191096	-0.224736	-0.156633	400	finetune
+BA2	ACE2 binding	SC2 fine-tuned	2	1662	610	-0.199833	-0.269433	-0.137106	400	finetune
+BA2	ACE2 binding	SC2 fine-tuned	3	381	186	-0.145791	-0.259209	-0.0159518	400	finetune
+XBB15	spike mediated entry	ESM-C 600M base	pooled	6793	1233	0.0745399	0.0488551	0.0999041	400	base
+XBB15	spike mediated entry	ESM-C 600M base	1	4501	1211	0.0707674	0.0379094	0.0976309	400	base
+XBB15	spike mediated entry	ESM-C 600M base	2	1898	753	0.0511642	0.00357339	0.0994097	400	base
+XBB15	spike mediated entry	ESM-C 600M base	3	394	214	0.0731245	-0.0295932	0.189788	400	base
+XBB15	spike mediated entry	SC2 fine-tuned	pooled	6793	1233	0.324608	0.291931	0.354273	400	finetune
+XBB15	spike mediated entry	SC2 fine-tuned	1	4501	1211	0.361711	0.330843	0.391185	400	finetune
+XBB15	spike mediated entry	SC2 fine-tuned	2	1898	753	0.341206	0.285423	0.393145	400	finetune
+XBB15	spike mediated entry	SC2 fine-tuned	3	394	214	0.405963	0.315265	0.49326	400	finetune
+XBB15	ACE2 binding	ESM-C 600M base	pooled	5891	1148	-0.0144606	-0.0411662	0.0108082	400	base
+XBB15	ACE2 binding	ESM-C 600M base	1	4005	1123	-0.0282503	-0.0594191	0.00080329	400	base
+XBB15	ACE2 binding	ESM-C 600M base	2	1556	618	-0.0116431	-0.0636566	0.0386568	400	base
+XBB15	ACE2 binding	ESM-C 600M base	3	330	173	-0.0587191	-0.16117	0.0302083	400	base
+XBB15	ACE2 binding	SC2 fine-tuned	pooled	5891	1148	-0.056474	-0.0968985	-0.0220777	400	finetune
+XBB15	ACE2 binding	SC2 fine-tuned	1	4005	1123	-0.0845641	-0.120695	-0.0429768	400	finetune
+XBB15	ACE2 binding	SC2 fine-tuned	2	1556	618	-0.135736	-0.208888	-0.0679382	400	finetune
+XBB15	ACE2 binding	SC2 fine-tuned	3	330	173	-0.12141	-0.235546	0.0116354	400	finetune
+XBB15	human sera escape	ESM-C 600M base	pooled	5502	1114	0.0198052	-0.00465928	0.0466992	400	base
+XBB15	human sera escape	ESM-C 600M base	1	3798	1086	0.0115159	-0.0185281	0.040815	400	base
+XBB15	human sera escape	ESM-C 600M base	2	1400	567	0.0109436	-0.0399772	0.0640319	400	base
+XBB15	human sera escape	ESM-C 600M base	3	304	160	0.10167	0.0022	0.192508	400	base
+XBB15	human sera escape	SC2 fine-tuned	pooled	5502	1114	0.0849745	0.0477969	0.11745	400	finetune
+XBB15	human sera escape	SC2 fine-tuned	1	3798	1086	0.0725573	0.0289728	0.111119	400	finetune
+XBB15	human sera escape	SC2 fine-tuned	2	1400	567	0.136082	0.0583654	0.205625	400	finetune
+XBB15	human sera escape	SC2 fine-tuned	3	304	160	0.166443	0.0343267	0.286897	400	finetune

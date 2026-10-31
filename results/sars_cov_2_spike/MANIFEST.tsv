@@ -1,0 +1,2 @@
+file	source	source_sha256_16	rows	columns	dropped	used_for
+replacement_scores.tsv.gz	tmp_explore/sc2/<lineage>.{nt,prot}.txt and esmc_matrices/<lineage>__<model>.csv	c16893d2d0289242	240616	10		S1: spike, model probability vs accessibility within codon-distance strata

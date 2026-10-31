@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-10-19T16:10:03+00:00",
+  "lineage": "E",
+  "run_dir": "/home3/oml4h/Mut_acc_PLM_MS/results/nextstrain_13lin_dense",
+  "tol": 1e-05,
+  "estimator": {
+    "masked": "one position masked per forward pass, <mask> token id 32",
+    "unmasked": "single forward pass over the intact sequence",
+    "softmax": "over the full 33-token vocabulary",
+    "renormalised_over_20": false
+  },
+  "versions": {
+    "python": "3.7.12",
+    "torch": "1.13.1+cu117",
+    "numpy": "1.21.6",
+    "pandas": "1.3.5"
+  },
+  "gpu": "Tesla V100S-PCIE-32GB",
+  "models": {
+    "ESM2_650M_HA80_raw": {
+      "base_model": "esm2_t33_650M_UR50D",
+      "checkpoint_dir": null,
+      "loader": "fair-esm",
+      "published_profile": "/home3/oml4h/Mut_acc_PLM_MS/results/nextstrain_13lin_dense/plm_cache/E_ESM2_650M_HA80_raw_plm_probability_profile.csv",
+      "published_profile_sha256": "2aaaa615eb2c98ff439747ce5c31797817ac6a3af45da4f0a244b37dfa45f63d",
+      "sequence_length": 566,
+      "sequence_sha256": "4962b70ea033cb7e3e9400a371d3d288eb15ac511f67f7f9e8942eff589cacde",
+      "gate_max_abs_diff": 8.672475814819336e-06,
+      "gate_passed": true,
+      "masked_col_sum_min": 0.9995838535269286,
+      "unmasked_col_sum_min": 0.999818945696461
+    },
+    "ESM2_650M_HA80": {
+      "base_model": "esm2_t33_650M_UR50D",
+      "checkpoint_dir": "/home3/oml4h/hugging_face_downloads/model_weights_topublish/ESM2-HA80",
+      "loader": "huggingface",
+      "published_profile": "/home3/oml4h/Mut_acc_PLM_MS/results/nextstrain_13lin_dense/plm_cache/E_ESM2_650M_HA80_plm_probability_profile.csv",
+      "published_profile_sha256": "e1b3d1ec2be3e4c4d7f9d17b1128159d187bc982efe859df40efc9d402f4843c",
+      "sequence_length": 566,
+      "sequence_sha256": "4962b70ea033cb7e3e9400a371d3d288eb15ac511f67f7f9e8942eff589cacde",
+      "gate_max_abs_diff": 5.662441253662109e-07,
+      "gate_passed": true,
+      "masked_col_sum_min": 0.9996580648541027,
+      "unmasked_col_sum_min": 0.9999172316959175,
+      "checkpoint_safetensors_sha256": "25533517f1a4bdceba5a0f95f1e02094c0cced576076e7a2b371fd10ba887bf3"
+    }
+  }
+}

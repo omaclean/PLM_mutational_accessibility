@@ -1,0 +1,201 @@
+model	model_label	model_role	lineage	is_primary	group	n	n_sites	statistic	scale	plm_transform	mut_transform	value	r_squared	ci_lo	ci_hi	n_boot	level
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	all	10754	566	pearson_r	raw	identity	identity	0.0459886	0.00211495	0.0262427	0.0688182	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	all	10754	566	pearson_r	log10_plm	log10	identity	0.163155	0.0266196	0.148023	0.178896	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	all	10754	566	pearson_r	log10_mut	identity	log10	0.0785137	0.0061644	0.0625242	0.0933963	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	all	10754	566	pearson_r	log10_both	log10	log10	0.281754	0.0793854	0.263581	0.300867	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	all	10754	566	spearman_r	rank	rank	rank	0.273302	0.0746938	0.254447	0.294069	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	1	3340	566	pearson_r	raw	identity	identity	0.00736481	5.42404e-05	-0.0201274	0.0401315	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	1	3340	566	pearson_r	log10_plm	log10	identity	0.0638368	0.00407514	0.0380983	0.0905695	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	1	3340	566	pearson_r	log10_mut	identity	log10	0.0126957	0.000161181	-0.0261276	0.0475398	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	1	3340	566	pearson_r	log10_both	log10	log10	0.0937469	0.00878848	0.0674144	0.122591	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	1	3340	566	spearman_r	rank	rank	rank	0.0688715	0.00474329	0.0423326	0.097989	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	2	5477	566	pearson_r	raw	identity	identity	0.0256704	0.000658969	-0.0171881	0.0799836	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	2	5477	566	pearson_r	log10_plm	log10	identity	0.0362803	0.00131626	0.0112931	0.060446	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	2	5477	566	pearson_r	log10_mut	identity	log10	0.0243019	0.000590581	-0.00666245	0.0563984	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	2	5477	566	pearson_r	log10_both	log10	log10	0.0751345	0.00564519	0.0462484	0.103582	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	2	5477	566	spearman_r	rank	rank	rank	0.0701919	0.0049269	0.0413062	0.0997746	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	3	1937	566	pearson_r	raw	identity	identity	-0.0313312	0.000981641	-0.0415022	-0.0229419	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	3	1937	566	pearson_r	log10_plm	log10	identity	-0.0534838	0.00286052	-0.0896995	-0.0158489	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	3	1937	566	pearson_r	log10_mut	identity	log10	-0.0178516	0.000318679	-0.0549647	0.0148398	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	3	1937	566	pearson_r	log10_both	log10	log10	-0.00400513	1.60411e-05	-0.0624676	0.0503622	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	G.1	False	3	1937	566	spearman_r	rank	rank	rank	3.59885e-05	1.29517e-09	-0.0604034	0.0563424	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	all	10754	566	pearson_r	raw	identity	identity	0.0544933	0.00296952	0.0313381	0.0829097	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	all	10754	566	pearson_r	log10_plm	log10	identity	0.165334	0.0273353	0.150324	0.18124	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	all	10754	566	pearson_r	log10_mut	identity	log10	0.0784945	0.00616139	0.0626172	0.094414	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	all	10754	566	pearson_r	log10_both	log10	log10	0.283543	0.0803969	0.26552	0.302445	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	all	10754	566	spearman_r	rank	rank	rank	0.275666	0.0759919	0.256234	0.296411	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	1	3334	566	pearson_r	raw	identity	identity	0.0153173	0.000234619	-0.0155359	0.0495345	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	1	3334	566	pearson_r	log10_plm	log10	identity	0.0659435	0.00434854	0.041327	0.0929362	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	1	3334	566	pearson_r	log10_mut	identity	log10	0.0158298	0.000250581	-0.0233905	0.0528961	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	1	3334	566	pearson_r	log10_both	log10	log10	0.0954533	0.00911134	0.0705528	0.124182	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	1	3334	566	spearman_r	rank	rank	rank	0.0713945	0.00509718	0.044608	0.099994	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	2	5486	566	pearson_r	raw	identity	identity	-0.0102769	0.000105615	-0.0229259	0.00540477	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	2	5486	566	pearson_r	log10_plm	log10	identity	0.0331557	0.0010993	0.00944301	0.0568159	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	2	5486	566	pearson_r	log10_mut	identity	log10	0.00649093	4.21322e-05	-0.0175565	0.0311559	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	2	5486	566	pearson_r	log10_both	log10	log10	0.0745043	0.0055509	0.0459629	0.103467	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	2	5486	566	spearman_r	rank	rank	rank	0.0704887	0.00496865	0.0421127	0.0998028	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	3	1934	566	pearson_r	raw	identity	identity	-0.0314286	0.00098776	-0.0420574	-0.0236028	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	3	1934	566	pearson_r	log10_plm	log10	identity	-0.0557263	0.00310542	-0.0927626	-0.021889	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	3	1934	566	pearson_r	log10_mut	identity	log10	-0.0200661	0.000402647	-0.0573839	0.00977925	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	3	1934	566	pearson_r	log10_both	log10	log10	-0.00730395	5.33476e-05	-0.0664792	0.0458521	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J_int	False	3	1934	566	spearman_r	rank	rank	rank	-0.00350251	1.22676e-05	-0.0633698	0.0504843	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	all	10754	566	pearson_r	raw	identity	identity	0.0537958	0.00289399	0.0302162	0.0821799	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	all	10754	566	pearson_r	log10_plm	log10	identity	0.164509	0.0270631	0.149517	0.180299	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	all	10754	566	pearson_r	log10_mut	identity	log10	0.0773661	0.00598552	0.0611477	0.0932435	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	all	10754	566	pearson_r	log10_both	log10	log10	0.283078	0.0801332	0.264712	0.302116	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	all	10754	566	spearman_r	rank	rank	rank	0.275048	0.0756515	0.255761	0.295533	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	1	3334	566	pearson_r	raw	identity	identity	0.0157005	0.000246506	-0.0149616	0.0504685	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	1	3334	566	pearson_r	log10_plm	log10	identity	0.0654202	0.0042798	0.0413427	0.092242	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	1	3334	566	pearson_r	log10_mut	identity	log10	0.0149544	0.000223634	-0.023951	0.0519489	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	1	3334	566	pearson_r	log10_both	log10	log10	0.094641	0.00895691	0.0696719	0.123199	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	1	3334	566	spearman_r	rank	rank	rank	0.0705447	0.00497656	0.0438558	0.0994467	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	2	5487	566	pearson_r	raw	identity	identity	-0.00892316	7.96228e-05	-0.0217516	0.00735506	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	2	5487	566	pearson_r	log10_plm	log10	identity	0.0329017	0.00108252	0.00908266	0.0562487	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	2	5487	566	pearson_r	log10_mut	identity	log10	0.00757579	5.73925e-05	-0.0162287	0.0319856	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	2	5487	566	pearson_r	log10_both	log10	log10	0.0746224	0.0055685	0.0469455	0.103618	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	2	5487	566	spearman_r	rank	rank	rank	0.0704709	0.00496615	0.0421449	0.0996592	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	3	1933	566	pearson_r	raw	identity	identity	-0.0314492	0.000989051	-0.0420378	-0.0238057	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	3	1933	566	pearson_r	log10_plm	log10	identity	-0.0556524	0.00309719	-0.0915687	-0.0211911	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	3	1933	566	pearson_r	log10_mut	identity	log10	-0.0207109	0.000428943	-0.057893	0.00883646	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	3	1933	566	pearson_r	log10_both	log10	log10	-0.00731087	5.34488e-05	-0.0667412	0.0462276	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2_int	True	3	1933	566	spearman_r	rank	rank	rank	-0.00314837	9.91221e-06	-0.0633686	0.0503295	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	all	10754	566	pearson_r	raw	identity	identity	0.052021	0.00270618	0.0299968	0.0796041	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	all	10754	566	pearson_r	log10_plm	log10	identity	0.164177	0.0269542	0.149575	0.180036	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	all	10754	566	pearson_r	log10_mut	identity	log10	0.07756	0.00601556	0.0618323	0.093222	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	all	10754	566	pearson_r	log10_both	log10	log10	0.28214	0.079603	0.264487	0.300995	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	all	10754	566	spearman_r	rank	rank	rank	0.27401	0.0750813	0.255207	0.294486	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	1	3334	566	pearson_r	raw	identity	identity	0.0117365	0.000137746	-0.0164324	0.0465607	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	1	3334	566	pearson_r	log10_plm	log10	identity	0.0650186	0.00422742	0.0407228	0.0917476	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	1	3334	566	pearson_r	log10_mut	identity	log10	0.0124793	0.000155734	-0.0244142	0.0489593	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	1	3334	566	pearson_r	log10_both	log10	log10	0.0944902	0.0089284	0.0696046	0.123163	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	1	3334	566	spearman_r	rank	rank	rank	0.0706973	0.00499811	0.0434437	0.100399	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	2	5486	566	pearson_r	raw	identity	identity	-0.0126436	0.000159862	-0.023636	0.000492311	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	2	5486	566	pearson_r	log10_plm	log10	identity	0.0306168	0.000937386	0.00710713	0.0538775	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	2	5486	566	pearson_r	log10_mut	identity	log10	0.00595237	3.54307e-05	-0.0179316	0.0302871	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	2	5486	566	pearson_r	log10_both	log10	log10	0.0740019	0.00547628	0.0461076	0.102528	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	2	5486	566	spearman_r	rank	rank	rank	0.0701235	0.0049173	0.0422013	0.0991685	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	3	1934	566	pearson_r	raw	identity	identity	-0.0191266	0.000365827	-0.0398865	0.0152352	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	3	1934	566	pearson_r	log10_plm	log10	identity	-0.0526796	0.00277514	-0.0883186	-0.0191195	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	3	1934	566	pearson_r	log10_mut	identity	log10	-0.0109197	0.00011924	-0.0499704	0.0323172	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	3	1934	566	pearson_r	log10_both	log10	log10	-0.00470561	2.21428e-05	-0.0644278	0.0508975	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	J.2.4	False	3	1934	566	spearman_r	rank	rank	rank	-0.00144958	2.10128e-06	-0.0606761	0.0536843	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	all	10754	566	pearson_r	raw	identity	identity	0.0512936	0.00263103	0.0295328	0.0786689	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	all	10754	566	pearson_r	log10_plm	log10	identity	0.164101	0.026929	0.149468	0.179771	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	all	10754	566	pearson_r	log10_mut	identity	log10	0.074186	0.00550356	0.0586577	0.090166	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	all	10754	566	pearson_r	log10_both	log10	log10	0.281655	0.0793296	0.264059	0.301305	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	all	10754	566	spearman_r	rank	rank	rank	0.273947	0.0750467	0.254578	0.295122	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	1	3335	566	pearson_r	raw	identity	identity	0.0133948	0.000179421	-0.0150512	0.0476482	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	1	3335	566	pearson_r	log10_plm	log10	identity	0.0647738	0.00419564	0.0398865	0.0923324	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	1	3335	566	pearson_r	log10_mut	identity	log10	0.0151935	0.000230842	-0.0200052	0.0509413	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	1	3335	566	pearson_r	log10_both	log10	log10	0.0944902	0.00892839	0.0689241	0.123648	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	1	3335	566	spearman_r	rank	rank	rank	0.0708253	0.00501622	0.0441733	0.100228	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	2	5487	566	pearson_r	raw	identity	identity	-0.0125808	0.000158276	-0.0233812	0.00051037	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	2	5487	566	pearson_r	log10_plm	log10	identity	0.029342	0.000860954	0.00633586	0.0523177	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	2	5487	566	pearson_r	log10_mut	identity	log10	0.00757795	5.74253e-05	-0.0151422	0.0311673	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	2	5487	566	pearson_r	log10_both	log10	log10	0.0729619	0.00532343	0.0453923	0.101334	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	2	5487	566	spearman_r	rank	rank	rank	0.0690548	0.00476857	0.0404487	0.0977131	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	3	1932	566	pearson_r	raw	identity	identity	-0.0172522	0.000297638	-0.0410693	0.0253806	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	3	1932	566	pearson_r	log10_plm	log10	identity	-0.0542476	0.0029428	-0.0901259	-0.0213755	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	3	1932	566	pearson_r	log10_mut	identity	log10	-0.0110137	0.000121303	-0.0520224	0.0337965	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	3	1932	566	pearson_r	log10_both	log10	log10	-0.00387595	1.5023e-05	-0.0612709	0.0504682	1000	0.95
+ESM2_650M_HA80_raw	Base model (ESM-2)	base	K	False	3	1932	566	spearman_r	rank	rank	rank	0.000612696	3.75396e-07	-0.0588757	0.0567551	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	all	10754	566	pearson_r	raw	identity	identity	0.0412533	0.00170183	0.0165035	0.0713791	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	all	10754	566	pearson_r	log10_plm	log10	identity	0.422597	0.178588	0.406641	0.44067	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	all	10754	566	pearson_r	log10_mut	identity	log10	0.0540115	0.00291725	0.0417333	0.0654087	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	all	10754	566	pearson_r	log10_both	log10	log10	0.641068	0.410968	0.621964	0.662048	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	all	10754	566	spearman_r	rank	rank	rank	0.663923	0.440794	0.645554	0.682858	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	1	3340	566	pearson_r	raw	identity	identity	0.00994859	9.89745e-05	-0.0207236	0.0450679	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	1	3340	566	pearson_r	log10_plm	log10	identity	0.266921	0.0712471	0.238575	0.296017	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	1	3340	566	pearson_r	log10_mut	identity	log10	0.0113689	0.000129251	-0.0243278	0.0494133	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	1	3340	566	pearson_r	log10_both	log10	log10	0.288822	0.0834183	0.261008	0.317978	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	1	3340	566	spearman_r	rank	rank	rank	0.29385	0.086348	0.262398	0.324939	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	2	5477	566	pearson_r	raw	identity	identity	0.0328935	0.00108198	-0.00513349	0.102152	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	2	5477	566	pearson_r	log10_plm	log10	identity	0.150545	0.0226637	0.128278	0.173824	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	2	5477	566	pearson_r	log10_mut	identity	log10	0.0242857	0.000589797	0.00499777	0.0585014	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	2	5477	566	pearson_r	log10_both	log10	log10	0.235657	0.0555343	0.210302	0.26243	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	2	5477	566	spearman_r	rank	rank	rank	0.245924	0.0604787	0.219954	0.273435	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	3	1937	566	pearson_r	raw	identity	identity	-0.00394653	1.55751e-05	-0.0120768	0.0114949	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	3	1937	566	pearson_r	log10_plm	log10	identity	0.0431236	0.00185965	0.00168994	0.0860552	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	3	1937	566	pearson_r	log10_mut	identity	log10	0.0237709	0.000565056	0.00663507	0.0542515	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	3	1937	566	pearson_r	log10_both	log10	log10	0.132087	0.0174469	0.0853596	0.177264	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	G.1	False	3	1937	566	spearman_r	rank	rank	rank	0.144441	0.0208633	0.0977278	0.19013	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	all	10754	566	pearson_r	raw	identity	identity	0.0460824	0.00212359	0.0238734	0.0751313	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	all	10754	566	pearson_r	log10_plm	log10	identity	0.420567	0.176876	0.403281	0.438132	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	all	10754	566	pearson_r	log10_mut	identity	log10	0.0630906	0.00398043	0.0493768	0.0750719	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	all	10754	566	pearson_r	log10_both	log10	log10	0.63366	0.401525	0.61399	0.654961	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	all	10754	566	spearman_r	rank	rank	rank	0.659682	0.43518	0.640827	0.678549	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	1	3334	566	pearson_r	raw	identity	identity	0.00604069	3.649e-05	-0.0199091	0.0401285	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	1	3334	566	pearson_r	log10_plm	log10	identity	0.270739	0.0732997	0.244792	0.297763	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	1	3334	566	pearson_r	log10_mut	identity	log10	0.0058828	3.46074e-05	-0.0297771	0.0455241	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	1	3334	566	pearson_r	log10_both	log10	log10	0.290286	0.0842661	0.262078	0.320461	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	1	3334	566	spearman_r	rank	rank	rank	0.298704	0.089224	0.267196	0.329233	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	2	5486	566	pearson_r	raw	identity	identity	0.00345288	1.19223e-05	-0.00492234	0.0866087	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	2	5486	566	pearson_r	log10_plm	log10	identity	0.158594	0.0251521	0.136126	0.182084	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	2	5486	566	pearson_r	log10_mut	identity	log10	0.00932248	8.69086e-05	0.00449514	0.0707912	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	2	5486	566	pearson_r	log10_both	log10	log10	0.240256	0.0577228	0.213942	0.268267	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	2	5486	566	spearman_r	rank	rank	rank	0.251513	0.0632589	0.225163	0.278798	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	3	1934	566	pearson_r	raw	identity	identity	-0.00653359	4.26878e-05	-0.0166857	0.0125989	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	3	1934	566	pearson_r	log10_plm	log10	identity	0.0336175	0.00113014	-0.00572656	0.0764672	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	3	1934	566	pearson_r	log10_mut	identity	log10	0.0166672	0.000277797	0.000807118	0.0535859	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	3	1934	566	pearson_r	log10_both	log10	log10	0.120082	0.0144197	0.0710601	0.171457	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J_int	False	3	1934	566	spearman_r	rank	rank	rank	0.134023	0.0179623	0.0847425	0.182079	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	all	10754	566	pearson_r	raw	identity	identity	0.0454014	0.00206128	0.0231585	0.074441	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	all	10754	566	pearson_r	log10_plm	log10	identity	0.415139	0.17234	0.397545	0.43383	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	all	10754	566	pearson_r	log10_mut	identity	log10	0.0649175	0.00421428	0.051867	0.0772871	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	all	10754	566	pearson_r	log10_both	log10	log10	0.626834	0.392921	0.607485	0.648548	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	all	10754	566	spearman_r	rank	rank	rank	0.654875	0.428861	0.637345	0.673896	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	1	3334	566	pearson_r	raw	identity	identity	0.00402302	1.61847e-05	-0.021691	0.0366324	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	1	3334	566	pearson_r	log10_plm	log10	identity	0.264703	0.0700674	0.238758	0.292814	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	1	3334	566	pearson_r	log10_mut	identity	log10	0.00618038	3.81971e-05	-0.0291753	0.0449832	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	1	3334	566	pearson_r	log10_both	log10	log10	0.285539	0.0815324	0.257603	0.315372	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	1	3334	566	spearman_r	rank	rank	rank	0.29183	0.0851648	0.260416	0.322533	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	2	5487	566	pearson_r	raw	identity	identity	0.00256423	6.57525e-06	-0.00457284	0.0483164	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	2	5487	566	pearson_r	log10_plm	log10	identity	0.15529	0.024115	0.132105	0.179129	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	2	5487	566	pearson_r	log10_mut	identity	log10	0.0117542	0.000138162	0.00610746	0.0589407	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	2	5487	566	pearson_r	log10_both	log10	log10	0.238238	0.0567575	0.211804	0.266445	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	2	5487	566	spearman_r	rank	rank	rank	0.24955	0.0622753	0.223402	0.276743	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	3	1933	566	pearson_r	raw	identity	identity	-0.0061576	3.79161e-05	-0.0159078	0.0145919	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	3	1933	566	pearson_r	log10_plm	log10	identity	0.040576	0.00164642	-0.00441328	0.085156	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	3	1933	566	pearson_r	log10_mut	identity	log10	0.0162051	0.000262607	-0.00114701	0.0607756	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	3	1933	566	pearson_r	log10_both	log10	log10	0.125139	0.0156597	0.0755233	0.177738	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2_int	True	3	1933	566	spearman_r	rank	rank	rank	0.138951	0.0193073	0.0914043	0.187366	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	all	10754	566	pearson_r	raw	identity	identity	0.0443848	0.00197001	0.0234292	0.0723836	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	all	10754	566	pearson_r	log10_plm	log10	identity	0.410323	0.168365	0.392392	0.429458	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	all	10754	566	pearson_r	log10_mut	identity	log10	0.0670811	0.00449987	0.054097	0.0790702	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	all	10754	566	pearson_r	log10_both	log10	log10	0.618408	0.382428	0.598909	0.640484	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	all	10754	566	spearman_r	rank	rank	rank	0.648481	0.420527	0.629595	0.668302	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	1	3334	566	pearson_r	raw	identity	identity	0.00113074	1.27858e-06	-0.0235881	0.0343731	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	1	3334	566	pearson_r	log10_plm	log10	identity	0.259512	0.0673463	0.232443	0.287848	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	1	3334	566	pearson_r	log10_mut	identity	log10	0.00572288	3.27514e-05	-0.0281289	0.0440488	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	1	3334	566	pearson_r	log10_both	log10	log10	0.281093	0.0790131	0.252427	0.311009	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	1	3334	566	spearman_r	rank	rank	rank	0.287763	0.0828076	0.255317	0.318503	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	2	5486	566	pearson_r	raw	identity	identity	0.00389661	1.51836e-05	-0.00426038	0.043384	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	2	5486	566	pearson_r	log10_plm	log10	identity	0.15206	0.0231222	0.129327	0.176323	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	2	5486	566	pearson_r	log10_mut	identity	log10	0.015408	0.000237406	0.00771348	0.058467	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	2	5486	566	pearson_r	log10_both	log10	log10	0.236125	0.0557548	0.20957	0.263684	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	2	5486	566	spearman_r	rank	rank	rank	0.247083	0.0610501	0.220513	0.274442	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	3	1934	566	pearson_r	raw	identity	identity	-0.000207297	4.29722e-08	-0.0132373	0.0483817	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	3	1934	566	pearson_r	log10_plm	log10	identity	0.0468385	0.00219384	0.00285055	0.0914202	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	3	1934	566	pearson_r	log10_mut	identity	log10	0.0173999	0.000302755	0.00127084	0.0781298	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	3	1934	566	pearson_r	log10_both	log10	log10	0.128964	0.0166317	0.078295	0.1815	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	J.2.4	False	3	1934	566	spearman_r	rank	rank	rank	0.141564	0.0200403	0.0947414	0.191092	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	all	10754	566	pearson_r	raw	identity	identity	0.0378385	0.00143175	0.0177621	0.0640746	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	all	10754	566	pearson_r	log10_plm	log10	identity	0.397812	0.158254	0.378565	0.418281	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	all	10754	566	pearson_r	log10_mut	identity	log10	0.064536	0.0041649	0.0523259	0.0756357	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	all	10754	566	pearson_r	log10_both	log10	log10	0.602892	0.363478	0.580762	0.626357	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	all	10754	566	spearman_r	rank	rank	rank	0.633649	0.401511	0.614923	0.654797	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	1	3335	566	pearson_r	raw	identity	identity	-0.00490236	2.40331e-05	-0.0278806	0.0273996	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	1	3335	566	pearson_r	log10_plm	log10	identity	0.241743	0.0584395	0.215166	0.270776	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	1	3335	566	pearson_r	log10_mut	identity	log10	0.00584411	3.41537e-05	-0.0276012	0.0431163	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	1	3335	566	pearson_r	log10_both	log10	log10	0.266769	0.0711659	0.238616	0.294626	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	1	3335	566	spearman_r	rank	rank	rank	0.269207	0.0724722	0.238023	0.299729	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	2	5487	566	pearson_r	raw	identity	identity	-6.64624e-05	4.41725e-09	-0.00788813	0.0290915	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	2	5487	566	pearson_r	log10_plm	log10	identity	0.138494	0.0191806	0.115113	0.162944	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	2	5487	566	pearson_r	log10_mut	identity	log10	0.00994905	9.89835e-05	-0.00108583	0.0428469	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	2	5487	566	pearson_r	log10_both	log10	log10	0.22172	0.04916	0.194891	0.249606	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	2	5487	566	spearman_r	rank	rank	rank	0.231674	0.0536729	0.20528	0.259386	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	3	1932	566	pearson_r	raw	identity	identity	-0.0099753	9.95065e-05	-0.0209511	0.0377324	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	3	1932	566	pearson_r	log10_plm	log10	identity	0.0288549	0.000832607	-0.0117198	0.0753628	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	3	1932	566	pearson_r	log10_mut	identity	log10	-0.00210048	4.412e-06	-0.0146052	0.0405214	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	3	1932	566	pearson_r	log10_both	log10	log10	0.117566	0.0138219	0.066942	0.168455	1000	0.95
+ESM2_650M_HA80	Fine-tuned on influenza HA	finetune	K	False	3	1932	566	spearman_r	rank	rank	rank	0.139424	0.019439	0.0905143	0.187857	1000	0.95

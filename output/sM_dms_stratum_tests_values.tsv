@@ -1,0 +1,37 @@
+dataset	trait	panel_label	binding	test	group_a	group_b	n_a	n_b	statistic	p_value	p_holm	stars	flagged_groups
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	False	kruskal	1|2|3		9234	0	71.7291	2.65596e-16	2.65596e-16	***	1
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	False	mannwhitney	1	2	2907	4701	7.50754e+06	4.25088e-13	1.15506e-12	***	1
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	False	mannwhitney	1	3	2907	1626	2.67023e+06	3.8502e-13	1.15506e-12	***	1
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	False	mannwhitney	2	3	4701	1626	3.94491e+06	0.0527155	0.0527155		1
+MA22	sera escape	MA22 sera escape	False	kruskal	1|2|3		5635	0	5.70976	0.0575628	0.0575628		
+MA22	sera escape	MA22 sera escape	False	mannwhitney	1	2	1954	2768	2.80616e+06	0.0273159			
+MA22	sera escape	MA22 sera escape	False	mannwhitney	1	3	1954	913	928534	0.0768525			
+MA22	sera escape	MA22 sera escape	False	mannwhitney	2	3	2768	913	1.2702e+06	0.812367			
+MA22	pH stability	MA22 pH stability	False	kruskal	1|2|3		5472	0	6.31055	0.0426266	0.0426266	*	
+MA22	pH stability	MA22 pH stability	False	mannwhitney	1	2	1904	2685	2.63373e+06	0.0792596	0.158519		
+MA22	pH stability	MA22 pH stability	False	mannwhitney	1	3	1904	883	888035	0.016428	0.049284	*	
+MA22	pH stability	MA22 pH stability	False	mannwhitney	2	3	2685	883	1.21476e+06	0.269323	0.269323		
+Perth09	preference ratio	Perth09 preference ratio	False	kruskal	1|2|3		10754	0	170.619	8.92234e-38	8.92234e-38	***	1
+Perth09	preference ratio	Perth09 preference ratio	False	mannwhitney	1	2	3358	5482	1.06247e+07	3.22954e-34	9.68862e-34	***	1
+Perth09	preference ratio	Perth09 preference ratio	False	mannwhitney	1	3	3358	1914	3.74125e+06	3.1234e-23	6.24679e-23	***	1
+Perth09	preference ratio	Perth09 preference ratio	False	mannwhitney	2	3	5482	1914	5.26455e+06	0.820273	0.820273		1
+BA2	spike mediated entry	BA.2 cell entry	False	kruskal	1|2|3		7022	0	24.0395	6.02395e-06	6.02395e-06	***	
+BA2	spike mediated entry	BA.2 cell entry	False	mannwhitney	1	2	4602	1982	4.89208e+06	2.79121e-06	8.37364e-06	***	
+BA2	spike mediated entry	BA.2 cell entry	False	mannwhitney	1	3	4602	438	1.07128e+06	0.0292315	0.0584631		
+BA2	spike mediated entry	BA.2 cell entry	False	mannwhitney	2	3	1982	438	429462	0.728407	0.728407		
+BA2	ACE2 binding	BA.2 ACE2 binding	True	kruskal	1|2|3		6165	0	4.49295	0.105771	0.105771		
+BA2	ACE2 binding	BA.2 ACE2 binding	True	mannwhitney	1	2	4122	1662	3.3124e+06	0.0492971			
+BA2	ACE2 binding	BA.2 ACE2 binding	True	mannwhitney	1	3	4122	381	758806	0.276244			
+BA2	ACE2 binding	BA.2 ACE2 binding	True	mannwhitney	2	3	1662	381	316126	0.962829			
+XBB15	spike mediated entry	XBB.1.5 cell entry	False	kruskal	1|2|3		6793	0	20.3036	3.90063e-05	3.90063e-05	***	1
+XBB15	spike mediated entry	XBB.1.5 cell entry	False	mannwhitney	1	2	4501	1898	4.55165e+06	3.30744e-05	9.92231e-05	***	1
+XBB15	spike mediated entry	XBB.1.5 cell entry	False	mannwhitney	1	3	4501	394	950590	0.0175359	0.0350718	*	1
+XBB15	spike mediated entry	XBB.1.5 cell entry	False	mannwhitney	2	3	1898	394	375466	0.896202	0.896202		1
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	True	kruskal	1|2|3		5891	0	12.38	0.00204986	0.00204986	**	
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	True	mannwhitney	1	2	4005	1556	3.28396e+06	0.0017647	0.00529409	**	
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	True	mannwhitney	1	3	4005	330	705484	0.0409949	0.0819899		
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	True	mannwhitney	2	3	1556	330	261144	0.624059	0.624059		
+XBB15	human sera escape	XBB.1.5 sera escape	False	kruskal	1|2|3		5502	0	2.10561	0.348958	0.348958		
+XBB15	human sera escape	XBB.1.5 sera escape	False	mannwhitney	1	2	3798	1400	2.67102e+06	0.79583			
+XBB15	human sera escape	XBB.1.5 sera escape	False	mannwhitney	1	3	3798	304	606532	0.141185			
+XBB15	human sera escape	XBB.1.5 sera escape	False	mannwhitney	2	3	1400	304	221956	0.239077			

@@ -1,0 +1,21 @@
+panel	panel_label	model_label	model_role	scoring	best_alpha	rho_best	rho_alpha0	interpretable	n	n_sites
+A-E	BA.2 cell entry	Base (ESM-C)	base	published	0.02	0.0997575	0.0980051	True	7022	1240
+A-E	BA.2 cell entry	Fine-tuned (SC2)	finetune	published	-0.19	0.350706	0.286234	True	7022	1240
+A-E	BA.2 ACE2 binding	Base (ESM-C)	base	published	0.04	-0.0359348	-0.0340923	False	6165	1196
+A-E	BA.2 ACE2 binding	Fine-tuned (SC2)	finetune	published	-0.18	-0.203856	-0.164807	True	6165	1196
+A-E	XBB.1.5 cell entry	Base (ESM-C)	base	published	0.01	0.105034	0.103864	True	6793	1233
+A-E	XBB.1.5 cell entry	Fine-tuned (SC2)	finetune	published	-0.17	0.345994	0.291698	True	6793	1233
+A-E	XBB.1.5 ACE2 binding	Base (ESM-C)	base	published	-1	-0.0610558	-0.0151871	False	5891	1148
+A-E	XBB.1.5 ACE2 binding	Fine-tuned (SC2)	finetune	published	-0.33	-0.115107	-0.0442057	False	5891	1148
+A-E	XBB.1.5 sera escape	Base (ESM-C)	base	published	0	0.0334554	0.0334554	False	5502	1114
+A-E	XBB.1.5 sera escape	Fine-tuned (SC2)	finetune	published	-0.13	0.091614	0.0744435	True	5502	1114
+A-E	BA.2 cell entry	Base (ESM-C)	base	masked	0.04	0.0752888	0.0683121	True	7022	1240
+A-E	BA.2 cell entry	Fine-tuned (SC2)	finetune	masked	-0.19	0.363464	0.299524	True	7022	1240
+A-E	BA.2 ACE2 binding	Base (ESM-C)	base	masked	0.05	-0.032332	-0.0265659	False	6165	1196
+A-E	BA.2 ACE2 binding	Fine-tuned (SC2)	finetune	masked	-0.18	-0.204752	-0.171356	True	6165	1196
+A-E	XBB.1.5 cell entry	Base (ESM-C)	base	masked	0.03	0.0795504	0.0745399	True	6793	1233
+A-E	XBB.1.5 cell entry	Fine-tuned (SC2)	finetune	masked	-0.16	0.378079	0.324608	True	6793	1233
+A-E	XBB.1.5 ACE2 binding	Base (ESM-C)	base	masked	-1	-0.0629108	-0.0144606	False	5891	1148
+A-E	XBB.1.5 ACE2 binding	Fine-tuned (SC2)	finetune	masked	-0.32	-0.124313	-0.056474	True	5891	1148
+A-E	XBB.1.5 sera escape	Base (ESM-C)	base	masked	0	0.0198052	0.0198052	False	5502	1114
+A-E	XBB.1.5 sera escape	Fine-tuned (SC2)	finetune	masked	-0.13	0.100048	0.0849745	True	5502	1114

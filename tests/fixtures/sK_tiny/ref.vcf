@@ -1,0 +1,25 @@
+##fileformat=VCFv4.2
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+SYNTHETIC_ref	1	x	A	T	.	.	.
+SYNTHETIC_ref	2	x	T	T	.	.	.
+SYNTHETIC_ref	3	x	G	T	.	.	.
+SYNTHETIC_ref	4	x	G	T	.	.	.
+SYNTHETIC_ref	5	x	C	T	.	.	.
+SYNTHETIC_ref	6	x	T	T	.	.	.
+SYNTHETIC_ref	7	x	A	T	.	.	.
+SYNTHETIC_ref	8	x	A	T	.	.	.
+SYNTHETIC_ref	9	x	A	T	.	.	.
+SYNTHETIC_ref	10	x	C	T	.	.	.
+SYNTHETIC_ref	11	x	T	T	.	.	.
+SYNTHETIC_ref	12	x	G	T	.	.	.
+SYNTHETIC_ref	13	x	T	T	.	.	.
+SYNTHETIC_ref	14	x	C	T	.	.	.
+SYNTHETIC_ref	15	x	T	T	.	.	.
+SYNTHETIC_ref	16	x	G	T	.	.	.
+SYNTHETIC_ref	17	x	G	T	.	.	.
+SYNTHETIC_ref	18	x	A	T	.	.	.
+SYNTHETIC_ref	19	x	T	T	.	.	.
+SYNTHETIC_ref	20	x	T	T	.	.	.
+SYNTHETIC_ref	21	x	T	T	.	.	.
+SYNTHETIC_ref	22	x	C	T	.	.	.
+SYNTHETIC_ref	25	x	A	T	.	.	.

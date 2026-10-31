@@ -1,0 +1,211 @@
+# Manuscript numbering for the figure set: the one place a figure's number lives.
+#
+# Scripts, output filenames and tests name a figure by its content *stem*
+# (``sH_contact_recovery``). This file says what the manuscript calls that stem
+# ("Figure SH"). A re-order then edits this file instead of ~20 scripts, ~80
+# output files, 50 test files and five documents.
+#
+# SUPPLEMENTARY LABELS ARE LETTERS, main-text labels are digits (20 Oct 2026).
+# A supplementary figure is "Figure SA" .. "Figure SO" and a supplementary table
+# is "Table SZ". The letter is a *name*, not a position: the draft cites the
+# supplement in an order that is still moving, and a letter can be cited,
+# re-ordered and renumbered in the manuscript at the end without every caption,
+# document and test following it around. The manuscript's final S1..SN numbering
+# is applied once, at submission, by walking the citations in order of first
+# mention; until then nothing outside this file carries a supplementary digit.
+# See FIGURE_LABELS.md for the letter -> content map a reader needs.
+#
+# PROVISIONAL. The ordering below is the draft's as of 15 Oct 2026; the draft is
+# not finished and figures are still likely to move or be dropped. That is the
+# point of the file: nothing outside it should have to change when they do.
+#
+# NOTE the stems are still numbered after their *old* slots (``s13_...`` is
+# Figure SH). Stage 3 of the renumbering replaces the stems with content names;
+# until then the leading number in a stem means nothing and only ``label`` does.
+#
+# Per entry:
+#   label    what the manuscript calls it, or omitted for a stem that is a panel
+#            or a supporting table rather than a numbered figure of its own.
+#   parent   for a panel / supporting stem, the stem it belongs to.
+#   retired  the code is kept but the figure has no manuscript slot.
+#   note     why, where that is not obvious.
+#
+# Supplementary figure letters run A..O with no gaps, so a dropped figure still
+# has to be noticed. Supplementary *tables* take their own letters and are not
+# held to a run: Z is deliberately parked at the end of the alphabet so the one
+# shipped table does not move every time a figure is added. The draft's full
+# table ordering has not been supplied, and two shipped tables are both labelled
+# S16 (see docs/notes/extended_red_team_tests.md A1); the rest join this file when that is
+# settled.
+
+main:
+  fig01_composite:
+    label: Figure 1
+  fig01bc_ranked_mutations:
+    parent: fig01_composite
+    note: >
+      panels B and C. Generated since 23 Oct 2026 by figures/make_fig01bc.py from the values
+      tools/export_fig01bc_values.py writes; previously the cropped halves of a frozen render
+      whose panel C ranks were all drawn from inside accessibility tie blocks
+  fig01b_ranked_model:
+    parent: fig01_composite
+    note: panel B, drawn by make_fig01bc.py and panelised in guides/composites/fig01.yaml
+  fig01c_ranked_accessibility:
+    parent: fig01_composite
+    note: panel C, see fig01b_ranked_model
+  fig01bc_correlation_stats:
+    parent: fig01_composite
+    note: >
+      supporting table, new 23 Oct 2026: the correlation of model probability with
+      mutational accessibility for both models, on raw, semi-log and log-log
+      probabilities and on ranks, written by tools/export_fig01bc_correlations.py. Answers which scale a
+      quoted coefficient was taken on -- Figure 2A/B print the raw-scale one.
+  fig01d_codon_accessibility:
+    parent: fig01_composite
+    note: panel D, drawn separately and panelised in guides/composites/fig01.yaml
+  fig02_composite:
+    label: Figure 2
+  fig02ab_scatter_panels:
+    parent: fig02_composite
+    note: panels A and B, drawn separately (fig02a_/fig02b_scatter_panel) and panelised in guides/composites/fig02.yaml
+  fig02a_scatter_panel:
+    parent: fig02_composite
+    note: panel A, see fig02ab_scatter_panels
+  fig02b_scatter_panel:
+    parent: fig02_composite
+    note: panel B, see fig02ab_scatter_panels
+  fig02c_epoch_panel:
+    parent: fig02_composite
+    note: panel C, drawn separately from digitised values and panelised in guides/composites/fig02.yaml
+  fig02d_strata_panel:
+    parent: fig02_composite
+    note: panel D, drawn separately and panelised in guides/composites/fig02.yaml
+  fig02_model_vs_accessibility:
+    retired: true
+    note: superseded by the fig02 composite; retired to dev/retired_figures/
+  fig03_alpha_sweep:
+    label: Figure 3
+  fig04_alpha_vs_dms:
+    label: Figure 4
+  fig05_codon_learning:
+    label: Figure 5
+
+supplementary:
+  sA_spike_model_vs_accessibility:
+    label: Figure SA
+  sB_ranking_metrics:
+    label: Figure SB
+  sB_accessibility_only_by_lineage:
+    parent: sB_ranking_metrics
+    note: supporting per-lineage table of the accessibility-only ranking
+  sC_viral_panel_recovery:
+    label: Figure SC
+  sD_partial_correlation:
+    label: Figure SD
+  sE_spectra_in_codon_space:
+    label: Figure SE
+  sF_spectrum_swap:
+    label: Figure SF
+  sF_spectrum_delta:
+    retired: true
+    note: the swap figure's delta variant; retired to dev/retired_figures/
+  sG_epistasis_null:
+    label: Figure SG
+  sH_contact_recovery:
+    label: Figure SH
+    note: moves 13 -> H (was S8 under the old digits)
+  sI_codon_pair_tracking:
+    label: Figure SI
+  sJ_dms_concordance:
+    label: Figure SJ
+  sK_branch_codons:
+    label: Figure SK
+  sL_dms_sc2:
+    label: Figure SL
+    note: moves 18 -> L; swaps with sM_within_stratum
+  sM_within_stratum:
+    label: Figure SM
+    note: moves 12 -> M; swaps with sL_dms_sc2
+  sM_peak_alpha_by_stratum:
+    parent: sM_within_stratum
+    note: supporting table of per-stratum peak alpha, no figure of its own
+  sM_paired_difference:
+    parent: sM_within_stratum
+    note: supporting table of the within-stratum paired difference
+  sM_dms_stratum_tests:
+    parent: sM_within_stratum
+    note: >-
+      supporting table of the Kruskal-Wallis and Mann-Whitney tests across nucleotide-step
+      strata, one row per assay and comparison; the source of the caption's "significant in
+      six of the nine panels". No figure of its own.
+  sM_dms_fitness_by_stratum:
+    parent: sM_within_stratum
+    note: >-
+      supporting table of the mean phenotype z-score in each nucleotide-step stratum, drawn
+      as the purple overlay on the panels. No figure of its own.
+  sN_simulation_control:
+    label: Figure SN
+    note: moves 16 -> N
+  sZ_lineage_panel:
+    label: Table SZ
+    note: >-
+      new 15 Oct 2026, and a *table* rather than a figure since 19 Oct 2026. The lineage set
+      has never been described in the manuscript: the methods still carry the five-lineage
+      counts and no sampling dates at all. It was always a table drawn as a figure --
+      make_sZ_lineage_panel.py renders rows of text, not a chart -- so the draft now carries
+      it as Table SZ, and the figure slot it vacated went to sO_masked_marginals. Gained two
+      origin columns on 21 Oct 2026 -- how many of each lineage's replacements arose more than
+      once on the segment 4 UShER tree -- and lost the Dated column to make room for them.
+  sO_masked_marginals:
+    label: Figure SO
+    note: >-
+      new 19 Oct 2026. The wild-type-marginal / masked-marginal check for Figure 4 and
+      Figure 2D. Takes the last figure slot, which sZ_lineage_panel vacated when that
+      became Table SZ.
+      The stem carries no number on purpose: stage 3 of the renumbering replaces numbered
+      stems with content names, and a new stem should not be born needing that fix.
+  sP_alpha_curves:
+    label: Figure SP
+    note: >-
+      new 22 Oct 2026, for transparency behind Figure SM: that figure reduces each deep
+      mutational scanning arm to one optimum and counts the negative ones, and this one
+      draws the curves those optima came from, so the count can be read against them.
+      Added after an audit found the count's denominators moving between strata (13, 12,
+      13, 13) because arms were being dropped per stratum. Two rules changed with it and
+      are visible here: receptor-binding assays are excluded outright rather than given
+      their own sign rule, and an optimum at the end of the swept range is kept rather
+      than discarded. Extends the supplementary run to A..P with no gap.
+      The stem carries no number on purpose, as for sO_masked_marginals.
+  sX_corpus_leakage:
+    label: Table SX
+    note: >-
+      new 20 Oct 2026, answering the reviewer's lines 423 to 425: whether the nine
+      subclade K replacements, and the interacting pairs of Figure SG, occur in the
+      pre-2015 HA-80 fine-tuning corpus. Written by
+      tools/export_sX_corpus_leakage.py from the public corpus FASTA.
+      **The draft cites this as Supplementary Table 2.** It is lettered here like
+      every other supplementary stem, because the digit is applied at submission by
+      walking the citations; the letter is what keeps that renumbering a one-file
+      edit. X rather than the next free letter so the stem and the label agree.
+  sW_loo_alpha_selection:
+    label: Table SW
+    note: >-
+      new 21 Oct 2026, answering Reviewer 2's "alpha is chosen on the data it is
+      scored on": the accessibility weight selected on twelve lineages and scored on
+      the thirteenth, thirteen folds, both scoring arms. Written by
+      tools/export_sW_loo_alpha.py from the shipped per-lineage sweeps. W rather than
+      the next free letter so the stem and the label agree, as for SX and SY.
+  sY_dms_alpha_optima:
+    label: Table SY
+    note: >-
+      the per-panel alpha optima behind Figure 4 and Figure SL, written by
+      tools/export_sY_dms_alpha_optima.py. Lettered 20 Oct 2026, which closes
+      docs/notes/extended_red_team_tests.md A1: this table and table_sN_simulation_control were both
+      labelled S16, and the duplicate table_s15_dms_alpha_optima.tsv and its hand-written
+      caption (which called the same table S15) are gone. Y rather than Z so that the one
+      table that was already lettered did not have to move.
+  s14_lineage_set_validity:
+    retired: true
+    note: >-
+      dropped from the numbered set 15 Oct 2026. Code and tests stay; the findings
+      it draws remain in LINEAGE_VALIDITY.md section 4.

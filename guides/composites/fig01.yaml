@@ -1,0 +1,84 @@
+# Panel D is generated: run `python figures/make_fig01d.py` before panelising.
+# Figure 1 composite: tree (A), ranked mutations (B, C), codon -> amino-acid heatmap (D).
+# Stacked in one column at the MBE double-column width.
+#
+#   python figures/panelise.py --layout guides/composites/fig01.yaml --out output/
+#
+# Provenance of this layout (from results/Lytras_OG/plots/per_model/ESM2_650M_HA80/
+# panelise.ipynb.ipynb, cell 5): fig_keys ['1A', '1B&C', '1D'], one column, panel
+# letters A, B, C (B and C both inside 1B&C), and D for 1D.
+# What the notebook did NOT do right, and this layout fixes: letters were typed
+# coordinates (e.g. ("C", 950, 45)); here they derive from each panel's rectangle.
+#
+# The published results/final_figures/panelstrim/Figure_1_Composite.* is NOT what
+# the notebook's cell 5 describes: its middle panel is the codon heatmap, not the
+# ranked-mutation plots (the heatmap appears twice), and B/C/D sit on top of plot
+# titles. results/final_figures/panels/Figure_1_Composite.* has the intended
+# content (tree, ranked mutations, heatmap). This layout follows the intended one.
+name: fig01_composite
+width: double
+letters: [A, B, C, D]
+# The composite has to sit on an A4 page, and at the default header spacing it came out
+# 909.9 pt tall against A4's 841.9. These are the no-content lever: they pull the titles
+# and taglines in towards their panels. Worth about 11 pt over the page's two headers.
+# See dev/fig01a_readability/mock_a4.py for the full height budget.
+letter_margin_pt: 3.0
+title_pt: 8.0
+tagline_pt: 7.0
+header_gap_pt: 2.0
+panels:
+  # The tree carries no title of its own, so nothing is cropped: the header is drawn
+  # above it and the row grows by that much. Its legend is scaled x2.5 against the
+  # labels' x1.65 (tools/enlarge_tree_labels.py --legend-k), which the labels cap.
+  - key: 1A
+    file: data/frozen_panels/fig1a_clade_tree_large_labels.pdf
+    title: H3N2 HA phylogeny
+    tagline: the five lineages compared, with the replacements that define them
+    # The tree's top-left corner is empty page -- the K fan is top-*right*, and the
+    # leftmost mutation labels start below half height. So the header is drawn over
+    # that corner instead of in a band above the panel, and the band's ~23 pt comes
+    # off the page for nothing. This is the only header on the page that can do it;
+    # B, C and D all have artwork in their top-left.
+    header_inset: true
+    # Panel A is 46% of the page, so it is the only crop big enough to help: 4.18 pt of
+    # page per 1%. This is NOT trimming whitespace. Measured on the rendered panel, ink
+    # starts 0.4% from the top edge and the top 5% band is 86% pink, because the top 40%
+    # of the panel IS the K clade -- so the crop is spending K, by agreement, to buy
+    # page height that is not taken out of the figure's width or resolution.
+    # 9% is what lands the page on A4 at full width: it costs about 22% of K's vertical
+    # extent and leaves 4 pt spare. Raising it further is not free height, it is more K.
+    # The remaining slack is at the *bottom*, where rows 55-90% are near-pure grey
+    # "Other" -- but the legend and scale bar sit in it. See dev/fig01a_readability/.
+    crop_top_frac: 0.09
+  # Recomputed by figures/make_fig01bc.py from output/fig01bc_ranked_mutations_values.tsv.
+  #
+  # CHANGED 21 Oct 2026: panel 1B uses the fine-tuned model (ESM2_650M_HA80) as described
+  # in the manuscript text (HA2:S49N highest at rank 7, T328A lowest at rank 578), rather
+  # than the un-fine-tuned base model (ESM2_650M_HA80_raw).
+  #
+  # CHANGED 23 Oct 2026: both panels are now generated rather than placed as the cropped
+  # halves of data/frozen_panels/fig1bc_ranked_mutations_finetuned_esm2_ha80.pdf. That
+  # render was drawn with an unstable sort, and accessibility ties run about thirty deep,
+  # so all nine of panel C's baked-in ranks were a draw from inside a tie block rather
+  # than the block's own rank -- Q173R read 250 against a competition rank of 241, I160K
+  # 3300 against 3294, and the tied S144N and HA2:S49N were split 13 places apart. The
+  # frozen file is kept for provenance only; see figures/make_fig01bc.py. Generating the
+  # panels also drops the title-band and gutter crops, which existed only to cut one wide
+  # file in two, and lets B and C share the panel box with D.
+  - key: 1B
+    file: build/panels/fig01b_ranked_model.pdf
+    title: Ranked model probabilities
+    tagline: every replacement, ordered; the nine tracked ones marked
+  - key: 1C
+    file: build/panels/fig01c_ranked_accessibility.pdf
+    title: Ranked mutational accessibility
+    tagline: the same replacements under the nucleotide spectrum
+  # Recomputed by figures/make_fig01d.py. The frozen heatmap it replaces drew a quantity
+  # spanning fifteen orders of magnitude on a linear scale, so almost every cell came out
+  # the same dark colour, and its tick labels fell to about 4 pt once scaled to the page.
+  - key: 1D
+    file: build/panels/fig01d_codon_accessibility.pdf
+rows:
+  - [1A]
+  - [1B, 1C]
+  - [1D]

@@ -1,0 +1,81 @@
+# Figure 2 composite: PLM probability against mutation probability for the raw
+# model (A) and the fine-tuned model (B), with the per-epoch correlation (C) and the
+# within-codon-distance comparison against accessibility (D).
+#
+#   A and B are drawn by figures/make_fig02ab.py (build/panels/fig02a_scatter_panel.pdf and
+#   fig02b_scatter_panel.pdf) on one lineage, with density contours so the bulk of the points
+#   can be seen. They replace the frozen scatters data/frozen_panels/fig2a_*, fig2b_*, which
+#   pooled all five lineages (their printed Spearman 0.274 and 0.652 are the pooled values).
+#   C is drawn by figures/make_fig02c.py (build/panels/fig02c_epoch_panel.pdf) from values read back off
+#   the published raster (tools/digitise_epoch_curve.py); the raster itself is no longer placed.
+#   All four generated panels share one native size, axes box and label sizes (mutacc.style
+#   PANEL_*) and are saved uncropped, so their axes and text line up in the composite.
+#   D is drawn by figures/make_fig02d.py (build/panels/fig02d_strata_panel.pdf), a simpler
+#   redraw of the old panel A of fig02_model_vs_accessibility. Run both first.
+#
+#   python figures/panelise.py --layout guides/composites/fig02.yaml --out output/
+#
+# RECONSTRUCTION STATUS (history of the frozen A and B; both are now regenerated, see above;
+# the page geometry recovered below is still what the layout follows). The saved notebook (panelise.ipynb.ipynb) does not contain
+# the call that built results/final_figures/panels2/Figure_2_Composite_Asymmetric.*.
+# Its figure_list points 2A and 2B at the blue scatter plm_vs_mut_prob_scatter.pdf,
+# whereas the Asymmetric figure shows the scatter coloured by Mut_num. Nothing was
+# invented; the layout below is read back from the published PDF's own page
+# structure (its content streams), which does record the geometry:
+#
+#   Recovered exactly from the published PDF
+#   - Page 847.0 x 1148.4 pt; row 1 is two panels, each 423.5 pt wide (exactly half),
+#     letters A and B; row 2 is one panel centred, 508.2 pt wide (= 0.6 of the page),
+#     letter C. Panels abut with no gap. (Fractions here: 0.5 + 0.5, then 0.6.)
+#   - Panel contents: A and B are plm_vs_mut_prob_scatter_by_mutation_distance.pdf
+#     for the raw model (ESM2_650M) and the fine-tuned model (ESM2_650M_HA80);
+#     the page text matches those files ("Spearman (x, y)=0.274" and "=0.652").
+#     C is plot_PLM_epoch.png (1440 x 1125 px).
+#
+#   Not recoverable, so not claimed
+#   - The script or cell that made it (notebook cells give only the 1B&C and 3 calls).
+#   - The scatter files were regenerated on 21 Sep; the published figure used an
+#     earlier render whose pages were 351.4 pt tall (these are 348.2 pt), so the
+#     rebuilt figure differs by about 1% in height and may differ in point cloud.
+#   - Letter size and position: the original used 33 pt Liberation Sans Bold at a
+#     10 pt offset. Here letters follow the house rule (see panelise.py), so they
+#     are smaller and the font differs. This is intended, not a defect.
+#   - The page is also rescaled to the double-column width (510 pt), not 847 pt.
+#
+# The frozen 2C image has its title truncated at "mutation rows/linea" in the source
+# image itself. That is no longer inherited: the title is cropped off and redrawn below.
+# HEADERS. The four panels arrived with three different title styles -- two centred
+# two-line titles baked into the frozen scatter PDFs, one centred two-line title in the
+# frozen 2C raster that is truncated mid-word ("mutation rows/linea") in the source image
+# itself, and panel 2D's house title. 2C and the 1D heatmap have no generator
+# (data/frozen_panels/README.md), so they cannot be redrawn. Each panel's own title is
+# therefore cropped off here and a house-style header is drawn by panelise.py instead.
+# crop_top_frac is measured from the panel's own pixels: the first row of plot content
+# is at y=55 of 532 in the scatters and y=293 of 1500 in 2C, which also drops 2C's
+# floating one-entry legend box. 2D draws no title of its own.
+#
+# The lineage is deliberately not named in these taglines. It comes from the guide's
+# primary_lineage, and repeating it here would let the two drift apart silently.
+name: fig02_composite
+width: double
+letters: [A, B, C, D]
+panels:
+  - key: 2A
+    file: build/panels/fig02a_scatter_panel.pdf
+    title: Base model vs mutational accessibility
+    tagline: Spearman r = 0.275; Pearson r = 0.054
+  - key: 2B
+    file: build/panels/fig02b_scatter_panel.pdf
+    title: Fine-tuned model vs mutational accessibility
+    tagline: Spearman r = 0.655; Pearson r = 0.045
+  - key: 2C
+    file: build/panels/fig02c_epoch_panel.pdf
+    title: Correlation with accessibility across training epochs
+    tagline: base model, then each epoch of fine-tuning
+  - key: 2D
+    file: build/panels/fig02d_strata_panel.pdf
+    title: Model vs accessibility by codon distance
+    tagline: one lineage; arrows show adjustment for Grantham
+rows:
+  - [2A, 2B]
+  - [2C, 2D]

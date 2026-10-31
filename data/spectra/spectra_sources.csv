@@ -1,0 +1,9 @@
+key,label,kind,free_nt_parameters,citation,doi,organism_group,manuscript_role
+influenza_h3n2,Influenza H3N2,virus,12,"Pauly MD, Procario MC, Lauring AS (2017) eLife 6:e26437",10.7554/eLife.26437,influenza,focus
+influenza_h1n1,Influenza H1N1,virus,12,"Pauly MD, Procario MC, Lauring AS (2017) eLife 6:e26437",10.7554/eLife.26437,influenza,
+sars_cov_2,SARS-CoV-2,virus,12,"De Maio N, Walker CR, Turakhia Y, Lanfear R, Corbett-Detig R, Goldman N (2021) Genome Biol Evol 13:evab087",10.1093/gbe/evab087,,
+ecoli,E. coli,cellular,6,"Lee H, Popodi E, Tang H, Foster PL (2012) PNAS 109:E2774-E2783",10.1073/pnas.1210309109,,
+yeast,S. cerevisiae,cellular,6,"Zhu YO, Siegal ML, Hall DW, Petrov DA (2014) PNAS 111:E2310-E2319",10.1073/pnas.1323011111,,
+human,Human,cellular,6,"Francioli LC, et al. (2015) Genome Research 25:526-535",10.1101/gr.185041.114,,
+k80_kappa2,K80 (kappa=2),analytic,1,Kimura M (1980) J Mol Evol 16:111-120,10.1007/BF01731581,,comparator
+jc69,JC69 (flat),analytic,0,"Jukes TH, Cantor CR (1969) in Mammalian Protein Metabolism, pp 21-132",10.1016/B978-1-4832-3211-9.50009-7,,

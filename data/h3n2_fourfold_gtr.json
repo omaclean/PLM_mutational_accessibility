@@ -1,0 +1,21 @@
+{
+  "species": "h3n2_clean_fourfold",
+  "source": "fourfold-degenerate-sites",
+  "exchangeabilities": {
+    "A-C": 0.989887791440953,
+    "A-G": 5.762252085988596,
+    "A-T": 0.46586344878788355,
+    "C-G": 0.15252095227932713,
+    "C-T": 4.8651391438132485,
+    "G-T": 1.0
+  },
+  "base_frequencies": {
+    "A": 0.3902107175409278,
+    "C": 0.16370635189884644,
+    "G": 0.17443154222689228,
+    "T": 0.27165138833333347
+  },
+  "realised_ti_tv": 3.7027296274158186,
+  "n_substitutions": 23603,
+  "n_branches_scanned": 52190
+}

@@ -1,0 +1,37 @@
+dataset	trait	panel_label	stratum	n	n_sites	difference	ci_lo	ci_hi	n_boot	binding
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	pooled	9234	504	-0.0762262	-0.123555	-0.0341593	400	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	1	2907	504	-0.000924288	-0.0506792	0.058212	400	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	2	4701	503	-0.0481056	-0.104433	0.00816577	400	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	3	1626	492	-0.0384535	-0.117752	0.0375925	400	False
+MA22	sera escape	MA22 sera escape	pooled	5635	473	0.0553847	0.00906579	0.102253	400	False
+MA22	sera escape	MA22 sera escape	1	1954	456	0.0694572	0.00733005	0.130634	400	False
+MA22	sera escape	MA22 sera escape	2	2768	441	0.086664	0.0196057	0.146295	400	False
+MA22	sera escape	MA22 sera escape	3	913	344	0.105251	0.0351683	0.190974	400	False
+MA22	pH stability	MA22 pH stability	pooled	5472	469	0.0173744	-0.0512179	0.0851784	400	False
+MA22	pH stability	MA22 pH stability	1	1904	451	0.0338044	-0.0438809	0.0958888	400	False
+MA22	pH stability	MA22 pH stability	2	2685	435	0.0467285	-0.0375249	0.124562	400	False
+MA22	pH stability	MA22 pH stability	3	883	332	0.0263998	-0.0687773	0.108337	400	False
+Perth09	preference ratio	Perth09 preference ratio	pooled	10754	566	-0.160582	-0.199758	-0.118824	400	False
+Perth09	preference ratio	Perth09 preference ratio	1	3358	566	-0.0399577	-0.0827226	0.000388004	400	False
+Perth09	preference ratio	Perth09 preference ratio	2	5482	566	-0.181997	-0.244295	-0.126761	400	False
+Perth09	preference ratio	Perth09 preference ratio	3	1914	566	-0.157684	-0.229149	-0.0775161	400	False
+BA2	spike mediated entry	BA.2 cell entry	pooled	7022	1240	0.231212	0.194118	0.268054	400	False
+BA2	spike mediated entry	BA.2 cell entry	1	4602	1225	0.320613	0.280191	0.362832	400	False
+BA2	spike mediated entry	BA.2 cell entry	2	1982	758	0.23372	0.165867	0.303762	400	False
+BA2	spike mediated entry	BA.2 cell entry	3	438	217	0.099228	-0.030201	0.215646	400	False
+BA2	ACE2 binding	BA.2 ACE2 binding	pooled	6165	1196	-0.14479	-0.18226	-0.109416	400	True
+BA2	ACE2 binding	BA.2 ACE2 binding	1	4122	1166	-0.15894	-0.199828	-0.121408	400	True
+BA2	ACE2 binding	BA.2 ACE2 binding	2	1662	610	-0.214258	-0.287496	-0.133765	400	True
+BA2	ACE2 binding	BA.2 ACE2 binding	3	381	186	-0.0814994	-0.223682	0.0459301	400	True
+XBB15	spike mediated entry	XBB.1.5 cell entry	pooled	6793	1233	0.250068	0.21397	0.288474	400	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	1	4501	1211	0.290944	0.244631	0.339942	400	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	2	1898	753	0.290042	0.213667	0.365564	400	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	3	394	214	0.332839	0.221097	0.445049	400	False
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	pooled	5891	1148	-0.0420134	-0.0850003	-0.0034907	400	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	1	4005	1123	-0.0563138	-0.108464	-0.00867203	400	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	2	1556	618	-0.124093	-0.203087	-0.0353351	400	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	3	330	173	-0.062691	-0.208537	0.0805383	400	True
+XBB15	human sera escape	XBB.1.5 sera escape	pooled	5502	1114	0.0651693	0.0253884	0.103275	400	False
+XBB15	human sera escape	XBB.1.5 sera escape	1	3798	1086	0.0610413	0.0170137	0.107944	400	False
+XBB15	human sera escape	XBB.1.5 sera escape	2	1400	567	0.125139	0.0360005	0.21072	400	False
+XBB15	human sera escape	XBB.1.5 sera escape	3	304	160	0.0647728	-0.0641166	0.212697	400	False

@@ -1,0 +1,37 @@
+dataset	trait	group	mean_z	sem_z
+MA22	MDCKSIAT1 cell entry	pooled	1.60053e-16	0.0104065
+MA22	MDCKSIAT1 cell entry	1	0.133256	0.0181456
+MA22	MDCKSIAT1 cell entry	2	-0.0487941	0.0146292
+MA22	MDCKSIAT1 cell entry	3	-0.0971677	0.0249344
+MA22	sera escape	pooled	-1.26095e-17	0.0133215
+MA22	sera escape	1	0.0308366	0.0228912
+MA22	sera escape	2	-0.0187367	0.0185978
+MA22	sera escape	3	-0.00919125	0.0343111
+MA22	pH stability	pooled	-2.07761e-17	0.0135185
+MA22	pH stability	1	0.0687083	0.0213123
+MA22	pH stability	2	-0.0192398	0.0196416
+MA22	pH stability	3	-0.089651	0.0362936
+Perth09	preference ratio	pooled	2.6429e-17	0.00964306
+Perth09	preference ratio	1	0.179469	0.0168902
+Perth09	preference ratio	2	-0.0795127	0.0136082
+Perth09	preference ratio	3	-0.0871306	0.0222563
+BA2	spike mediated entry	pooled	3.64277e-17	0.0119335
+BA2	spike mediated entry	1	0.0324884	0.0146116
+BA2	spike mediated entry	2	-0.0684378	0.022989
+BA2	spike mediated entry	3	-0.0316617	0.0462169
+BA2	ACE2 binding	pooled	1.84407e-17	0.012736
+BA2	ACE2 binding	1	-0.0114928	0.014453
+BA2	ACE2 binding	2	0.0174422	0.0282176
+BA2	ACE2 binding	3	0.0482534	0.0534353
+XBB15	spike mediated entry	pooled	-1.67359e-17	0.012133
+XBB15	spike mediated entry	1	0.0328659	0.0143718
+XBB15	spike mediated entry	2	-0.0737494	0.0246336
+XBB15	spike mediated entry	3	-0.0201855	0.0512144
+XBB15	ACE2 binding	pooled	2.17107e-17	0.0130288
+XBB15	ACE2 binding	1	0.0402069	0.0145335
+XBB15	ACE2 binding	2	-0.0708977	0.0298818
+XBB15	ACE2 binding	3	-0.153673	0.0541254
+XBB15	human sera escape	pooled	5.16571e-18	0.0134815
+XBB15	human sera escape	1	0.0214908	0.0141126
+XBB15	human sera escape	2	-0.0305105	0.0330631
+XBB15	human sera escape	3	-0.127985	0.0719521

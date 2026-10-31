@@ -1,0 +1,65 @@
+target	predictor	retained_compressed	retained_uncompressed	corr	target_label	predictor_label	is_focus_target	target_order	predictor_order
+influenza_h3n2	influenza_h3n2	84.8399	100	1	Influenza H3N2	Influenza H3N2	True	0	0
+influenza_h3n2	influenza_h1n1	82.7208	97.3602	0.986713	Influenza H3N2	Influenza H1N1	True	0	1
+influenza_h3n2	k80_kappa2	43.5853	50.9504	0.720434	Influenza H3N2	K80 (kappa=2)	True	0	2
+influenza_h3n2	ecoli	33.5913	38.5451	0.62198	Influenza H3N2	E. coli	True	0	3
+influenza_h3n2	jc69	23.4142	27.0709	0.528554	Influenza H3N2	JC69 (flat)	True	0	4
+influenza_h3n2	human	10.6023	7.32245	0.482443	Influenza H3N2	Human	True	0	5
+influenza_h3n2	yeast	4.07643	2.70223	0.377186	Influenza H3N2	S. cerevisiae	True	0	6
+influenza_h3n2	sars_cov_2	-60.8016	-82.6397	0.232302	Influenza H3N2	SARS-CoV-2	True	0	7
+influenza_h1n1	influenza_h3n2	82.6432	97.2856	0.986713	Influenza H1N1	Influenza H3N2	False	1	0
+influenza_h1n1	influenza_h1n1	84.8302	100	1	Influenza H1N1	Influenza H1N1	False	1	1
+influenza_h1n1	k80_kappa2	44.7148	51.192	0.721055	Influenza H1N1	K80 (kappa=2)	False	1	2
+influenza_h1n1	ecoli	32.3047	35.5589	0.600239	Influenza H1N1	E. coli	False	1	3
+influenza_h1n1	jc69	26.9916	30.4381	0.556613	Influenza H1N1	JC69 (flat)	False	1	4
+influenza_h1n1	human	4.61156	-2.11925	0.435271	Influenza H1N1	Human	False	1	5
+influenza_h1n1	yeast	2.61937	-1.00355	0.356463	Influenza H1N1	S. cerevisiae	False	1	6
+influenza_h1n1	sars_cov_2	-66.9748	-90.3303	0.21302	Influenza H1N1	SARS-CoV-2	False	1	7
+k80_kappa2	influenza_h3n2	-28.2462	-26.4325	0.720434	K80 (kappa=2)	Influenza H3N2	False	2	0
+k80_kappa2	influenza_h1n1	-22.2447	-22.3481	0.721055	K80 (kappa=2)	Influenza H1N1	False	2	1
+k80_kappa2	k80_kappa2	75.6049	100	1	K80 (kappa=2)	K80 (kappa=2)	False	2	2
+k80_kappa2	ecoli	68.6155	90.8174	0.958275	K80 (kappa=2)	E. coli	False	2	3
+k80_kappa2	jc69	65.0403	86.2904	0.931317	K80 (kappa=2)	JC69 (flat)	False	2	4
+k80_kappa2	human	17.0325	19.1602	0.775574	K80 (kappa=2)	Human	False	2	5
+k80_kappa2	yeast	48.7525	63.8202	0.852638	K80 (kappa=2)	S. cerevisiae	False	2	6
+k80_kappa2	sars_cov_2	-111.77	-160.052	0.513872	K80 (kappa=2)	SARS-CoV-2	False	2	7
+ecoli	influenza_h3n2	-42.8481	-41.2881	0.62198	E. coli	Influenza H3N2	False	3	0
+ecoli	influenza_h1n1	-42.0685	-44.077	0.600239	E. coli	Influenza H1N1	False	3	1
+ecoli	k80_kappa2	64.1612	91.8098	0.958275	E. coli	K80 (kappa=2)	False	3	2
+ecoli	ecoli	70.2909	100	1	E. coli	E. coli	False	3	3
+ecoli	jc69	48.2432	70.0922	0.843095	E. coli	JC69 (flat)	False	3	4
+ecoli	human	44.1692	62.4283	0.902003	E. coli	Human	False	3	5
+ecoli	yeast	59.7668	84.7031	0.93307	E. coli	S. cerevisiae	False	3	6
+ecoli	sars_cov_2	-65.4762	-97.5414	0.612672	E. coli	SARS-CoV-2	False	3	7
+jc69	influenza_h3n2	-79.9339	-88.7374	0.528554	JC69 (flat)	Influenza H3N2	False	4	0
+jc69	influenza_h1n1	-66.2252	-75.0696	0.556613	JC69 (flat)	Influenza H1N1	False	4	1
+jc69	k80_kappa2	65.8374	86.2355	0.931317	JC69 (flat)	K80 (kappa=2)	False	4	2
+jc69	ecoli	51.0889	66.334	0.843095	JC69 (flat)	E. coli	False	4	3
+jc69	jc69	76.5272	100	1	JC69 (flat)	JC69 (flat)	False	4	4
+jc69	human	-26.9722	-41.0795	0.564539	JC69 (flat)	Human	False	4	5
+jc69	yeast	39.4314	48.7758	0.787989	JC69 (flat)	S. cerevisiae	False	4	6
+jc69	sars_cov_2	-128.167	-180.793	0.461528	JC69 (flat)	SARS-CoV-2	False	4	7
+human	influenza_h3n2	-22.0545	-19.1745	0.482443	Human	Influenza H3N2	False	5	0
+human	influenza_h1n1	-26.2594	-27.7023	0.435271	Human	Influenza H1N1	False	5	1
+human	k80_kappa2	39.3266	59.6716	0.775574	Human	K80 (kappa=2)	False	5	2
+human	ecoli	53.0979	78.9854	0.902003	Human	E. coli	False	5	3
+human	jc69	18.414	29.9004	0.564539	Human	JC69 (flat)	False	5	4
+human	human	67.3471	100	1	Human	Human	False	5	5
+human	yeast	53.0441	79.7635	0.897083	Human	S. cerevisiae	False	5	6
+human	sars_cov_2	-5.60236	-10.1739	0.625382	Human	SARS-CoV-2	False	5	7
+yeast	influenza_h3n2	-81.447	-89.4382	0.377186	S. cerevisiae	Influenza H3N2	False	6	0
+yeast	influenza_h1n1	-79.4169	-91.2422	0.356463	S. cerevisiae	Influenza H1N1	False	6	1
+yeast	k80_kappa2	47.4737	72.672	0.852638	S. cerevisiae	K80 (kappa=2)	False	6	2
+yeast	ecoli	58.3248	87.0455	0.93307	S. cerevisiae	E. coli	False	6	3
+yeast	jc69	40.3072	61.4626	0.787989	S. cerevisiae	JC69 (flat)	False	6	4
+yeast	human	45.2485	69.3598	0.897083	S. cerevisiae	Human	False	6	5
+yeast	yeast	67.0925	100	1	S. cerevisiae	S. cerevisiae	False	6	6
+yeast	sars_cov_2	-22.0209	-31.577	0.720019	S. cerevisiae	SARS-CoV-2	False	6	7
+sars_cov_2	influenza_h3n2	-32.9584	-33.2891	0.232302	SARS-CoV-2	Influenza H3N2	False	7	0
+sars_cov_2	influenza_h1n1	-33.971	-35.0796	0.21302	SARS-CoV-2	Influenza H1N1	False	7	1
+sars_cov_2	k80_kappa2	16.675	26.3733	0.513872	SARS-CoV-2	K80 (kappa=2)	False	7	2
+sars_cov_2	ecoli	25.6916	37.2941	0.612672	SARS-CoV-2	E. coli	False	7	3
+sars_cov_2	jc69	12.5435	20.8177	0.461528	SARS-CoV-2	JC69 (flat)	False	7	4
+sars_cov_2	human	26.3345	37.4727	0.625382	SARS-CoV-2	Human	False	7	5
+sars_cov_2	yeast	34.785	50.6809	0.720019	SARS-CoV-2	S. cerevisiae	False	7	6
+sars_cov_2	sars_cov_2	68.5577	100	1	SARS-CoV-2	SARS-CoV-2	False	7	7

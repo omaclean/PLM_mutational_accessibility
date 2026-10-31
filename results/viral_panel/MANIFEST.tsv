@@ -1,0 +1,3 @@
+file	source	source_sha256_16	rows	columns	dropped	used_for
+viral_panel_sites.tsv.gz	tmp_explore/IAV_vs_SC2_criss_cross/viral_panel_allsites_<model>.tsv.gz + tmp_explore/cellular_phage_panel/cellular_panel_allsites_<model>.tsv.gz	11e86df1709780e9,760609c5c9253a82,d0775ac3cee71a00,4058d0e5a213cb55	51082	8		S3: probability given to every masked residue, per model
+viral_panel_summary.tsv.gz	derived from viral_panel_sites.tsv.gz and the panel table		82	13		S3: headline numbers per model and protein

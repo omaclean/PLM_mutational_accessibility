@@ -1,69 +1,103 @@
-# Mutational accessibility and protein language models: figures
+# Mutational accessibility and protein language models — figure engine
 
+Code and derived tables that redraw every figure of **"Protein language models learn
+underlying mutation biases alongside fitness landscapes"** (MacLean, Lamb, Lytras,
+Mojsiejczuk, Yuan, Hughes & Robertson), bioRxiv
+[10.64898/2026.07.06.736753](https://doi.org/10.64898/2026.07.06.736753), under revision at
+*Molecular Biology and Evolution*.
 
-Code to redraw the figures of *Protein language models learn underlying mutation biases
-alongside fitness landscapes* (MacLean et al.) from the derived tables the analysis produced.
+Protein language models score amino acid replacements as pseudo-probabilities. Because they
+are trained on natural sequences, those scores conflate structural constraint with
+**nucleotide mutation bias** — how easy a replacement is to reach through the genetic code.
+This repository holds the analysis that separates the two, and the code that draws it.
 
-The repository is a **figure engine**. Every figure script takes a *guide file* naming the
-lineages, models and tables of one analysis run, and draws what it finds. Nothing in
-`figures/` names a lineage, a model, a virus or a count; a test enforces that.
+## What this repository is, and is not
 
-## Set up
+**It is a figure engine.** Every figure script takes a *guide file* naming the lineages,
+models and tables of one analysis run, and draws what it finds. Nothing in `figures/` should
+name a lineage, a model, a virus or a count, and `tests/test_figure_rules.py` enforces that —
+with one known exception, recorded under [Known gaps](#known-gaps).
+
+**No model runs here.** Scoring the protein language models needed GPUs and sequence data
+that cannot be redistributed. What ships is their *output* — the scored tables under
+`results/` — together with everything needed to turn those tables into the published
+figures. How the tables were made is recorded in [`RUNS.md`](RUNS.md); reproducing them is a
+separate, much heavier job.
+
+So a reader can check **every number, every statistic and every figure in the paper** from
+this repository alone, on a laptop, with no GPU and no network. A reader cannot re-score the
+models from here.
+
+## Quick start
 
 ```bash
+git clone https://github.com/omaclean/PLM_mutational_accessibility
+cd PLM_mutational_accessibility
+
 conda env create -f environment.yml && conda activate mutacc
-pytest            # about two minutes; no GPU, no network
+# or: python -m pip install -r requirements.txt
+
+pytest                        # the full suite; a few minutes, no GPU, no network
+python tools/build_figures.py # redraw everything and check it against the shipped figures
 ```
 
 One environment draws every figure and runs every test. Tables ship as gzipped TSV so that
-no parquet reader is needed.
+no parquet reader is needed. Python 3.12; the dependencies are numpy, pandas, scipy,
+matplotlib, PyYAML, biopython, Pillow and PyMuPDF, and nothing else.
 
-## Rebuild every figure
+## How to validate this work
+
+`tools/build_figures.py` is the check. It rebuilds every figure into a scratch directory and
+**compares the result with the shipped `output/`**: every `_values.tsv` and every
+`_caption.md` must match — values to one unit in the sixth significant digit, captions as
+text — because every bootstrap in the repository is seeded. A difference means a shipped
+figure no longer matches the code that claims to draw it, and the exit status says so.
 
 ```bash
-python tools/build_figures.py                 # build into build/figures/, then compare with output/
-python tools/build_figures.py --list          # the steps, in dependency order
-python tools/build_figures.py --only sE fig02   # a subset, plus whatever it needs
-python tools/build_figures.py --out output    # overwrite the shipped figures (review with git diff)
+python tools/build_figures.py                  # build and compare; non-zero exit on any drift
+python tools/build_figures.py --list           # the steps, in dependency order
+python tools/build_figures.py --only sE fig02  # a subset, plus whatever it needs
+python tools/build_figures.py --out output     # overwrite the shipped figures; review with git diff
 ```
 
-One command, no GPU, no network, no archive: every step reads the derived tables in
-`results/` and the frozen panels in `data/`. The scoring runs that made those tables are
-recorded in `RUNS.md` and are not repeated here. Steps run four at a time on one BLAS thread
-each (`--jobs`). The default build goes to a scratch directory and is **compared** with the
-shipped `output/`: every `_values.tsv` and `_caption.md` must match (values to one unit in the
-sixth significant digit, captions as text), because every bootstrap is seeded. A difference
-means a shipped figure no longer matches the code that claims to draw it, and the exit status
-says so. PDFs and PNGs are not compared, since they embed fonts and dates. The slowest
-step is S12 (about 9 minutes on one core); the rest finish in a few minutes together.
+Steps run four at a time on one BLAS thread each (`--jobs`). The slowest is S12, about nine
+minutes on one core; the rest finish in a few minutes together. PDFs and PNGs are not
+compared, since they embed fonts and build dates — the `_values.tsv` beside each figure is
+the artefact to diff, and it holds exactly the numbers plotted.
 
-The composites (Figures 1 and 2) place the panels *this build* made, not the shipped ones.
-Retired figures are skipped unless `--include-retired`. Which figure each step draws, and the
-guide it reads, are in `tools/build_figures.py`; `tests/test_build_figures.py` fails if a figure
-script is added without a step, or a step claims a figure that is not shipped.
+The composites (Figures 1 and 2) place the panels *this* build made, not the shipped ones.
+Retired figures are skipped unless `--include-retired`.
 
-## Reproduce a single figure
+Three further checks are worth knowing about:
 
-Each command writes `output/<stem>.pdf` and `.png` (same stem), plus `<stem>_values.tsv`
-(the numbers plotted) and `<stem>_caption.md`.
+* `pytest` covers the library, every figure script, the guide files and the input data. It
+  also checks the prose: `tests/test_document_numbers.py` fails if a document in this
+  repository asserts a figure number that contradicts
+  `guides/manuscript/figure_numbers.yaml`, and `tests/test_build_figures.py` fails if a
+  figure script exists without a build step, or a step claims a figure that is not shipped.
+* `tests/test_figure_rules.py` enforces that no figure script names a lineage, a model or a
+  virus, and that none writes a colour literal. It currently fails on one script; see
+  [Known gaps](#known-gaps).
+* Each `results/<run>/` directory carries a `MANIFEST` recording what produced its tables.
+
+## What each figure comes from
+
+Each command writes `output/<stem>.pdf` and `.png`, plus `<stem>_values.tsv` (the numbers
+plotted) and `<stem>_caption.md`.
 
 The exception is a script that draws one cell of a composite — `make_fig01bc.py`,
-`make_fig01d.py`, `make_fig02ab.py`, `make_fig02c.py`, `make_fig02d.py`. Its PDF and PNG are intermediates:
-`panelise.py` places them in the composite and nothing reads them again, so they go to the
-gitignored `build/panels/` (`--panels-out` overrides it) and `tools/build_figures.py` deletes
-them once both composites are built. `output/` therefore holds finished figures only. Their
-`_values.tsv` and `_caption.md` do stay in `output/` with every other figure's: those are the
-record a rebuild is checked against, not an intermediate.
+`make_fig01d.py`, `make_fig02ab.py`, `make_fig02c.py`, `make_fig02d.py`. Its PDF and PNG are
+intermediates: `panelise.py` places them in the composite and nothing reads them again, so
+they go to the gitignored `build/panels/` (`--panels-out` overrides it) and
+`tools/build_figures.py` deletes them once both composites are built. `output/` therefore
+holds finished figures only. Their `_values.tsv` and `_caption.md` do stay in `output/` with
+every other figure's: those are the record a rebuild is checked against, not an intermediate.
 
-> ⚠️ **Supplementary numbers in this table are stale (15 Oct 2026), and the supplement
-> is lettered now (20 Oct 2026).** Against the manuscript draft: contact recovery is
-> **Figure SH**, the SARS-CoV-2 DMS sweeps **SL**, the within-stratum figure **SM**, the
-> simulation control **SN**, the masking check **SO**, the lineage panel **Table SZ**; the
-> lineage-set validity figure is dropped. Letters are names, not positions — the final
-> S1…SN digits are assigned at submission from the order of first citation. Full mapping:
-> [`FIGURE_LABELS.md`](FIGURE_LABELS.md); staged stem fix:
-> [`extended_red_team_tests.md`](extended_red_team_tests.md) §A1b. Trust the command and
-> the description, not the number in the table.
+> **On the supplementary numbers in this table.** The supplement is lettered, not numbered
+> (since 20 Oct 2026), and the S-numbers below are stale as of 15 Oct 2026. Letters are
+> names, not positions — the final digits are assigned at submission from the order of first
+> citation. Trust the command and the description, not the number. Full mapping:
+> [`FIGURE_LABELS.md`](FIGURE_LABELS.md).
 
 | Figure | Command | Reads |
 |---|---|---|
@@ -99,45 +133,66 @@ record a rebuild is checked against, not an intermediate.
 
 S5 takes no guide: it is a property of the mutation matrices and the genetic code, with
 no lineage set and no protein model. It reads `results/spectra_codon_space/`, which
-`tools/export_spectra.py` builds from `data/spectra/` without needing the exploration archive.
-Figure 5 evaluates on the primary lineage reference sequence (`J.2_int`, matching Figure 2D and S4)
-to eliminate cross-lineage pseudo-replication across closely related variants sharing >98% sequence identity.
+`tools/export_spectra.py` builds from `data/spectra/`. Figure 5 evaluates on the primary
+lineage reference sequence (`J.2_int`, matching Figure 2D and S4) to eliminate cross-lineage
+pseudo-replication across closely related variants sharing >98% sequence identity.
 
-`figures/README.md` has the longer table with caveats; `DATA.md` says which table feeds which
-figure and where it came from.
+[`figures/README.md`](figures/README.md) has the longer table with caveats;
+[`DATA.md`](DATA.md) says which table feeds which figure and where it came from.
+
+## Layout
+
+```
+guides/        one YAML per analysis run (and composites/ for panel layouts)
+mutacc/        library: style, guide loader, metrics, io
+figures/       one script per figure, plus panelise.py
+tools/         build_figures.py (rebuild everything), bridges and analysis runners
+data/          lineage roots, nucleotide mutation spectra, reference genomes, frozen panels
+results/       derived tables (gzipped TSV) with a MANIFEST per run
+output/        the shipped figures, and the values tables a rebuild is checked against
+tests/         code and input-data tests
+docs/notes/    working notes: the plan, the red-team audits, progress logs
+```
+
+### Where to read next
+
+| Document | What it answers |
+|---|---|
+| [`DATA.md`](DATA.md) | What every derived table is, how many rows it has, and where it came from |
+| [`RUNS.md`](RUNS.md) | How the upstream scoring runs were done — models, checkpoints, commands |
+| [`DB_SOURCING.md`](DB_SOURCING.md) | The sequence database behind the analysis, and its known defects |
+| [`LINEAGE_DEFINITIONS.md`](LINEAGE_DEFINITIONS.md) | The H3N2 J.2 → K transition and its nine clade-defining replacements |
+| [`LINEAGE_VALIDITY.md`](LINEAGE_VALIDITY.md) | Whether the lineage sets are independent, and what the fine-tuning corpus already contained |
+| [`SYMMETRY_TESTS.md`](SYMMETRY_TESTS.md) | The symmetric-versus-directional battery and what it found |
+| [`PREPRINT_AND_REVIEWS.md`](PREPRINT_AND_REVIEWS.md) | Figure-by-figure mapping from the preprint, and the reviewers' requests |
+| [`FIGURE_LABELS.md`](FIGURE_LABELS.md) | Supplementary figure letters → content, and why they are letters |
+| [`LICENSE-DATA.md`](LICENSE-DATA.md) | What may be reused, and the inputs that are not ours to license |
+| `docs/notes/` | Working notes, kept for transparency. Not needed to validate anything. |
 
 ## Relation to the preprint
 
-The bioRxiv preprint (July 2026) is not what these figures reproduce. Its Fig 2 is two scatters
-and an epoch curve, its Fig 3 is a five-lineage sweep, and its Fig 4 is the epistasis scan. The
-within-stratum, comparator, direction, thirteen-lineage and DMS figures here are **revision-stage**
-work answering the MBE reviews. `PREPRINT_AND_REVIEWS.md` has the figure-by-figure mapping and the
-reviewers' requests; `SYMMETRY_TESTS.md` covers the symmetric-versus-directional tests: what S04
-got wrong, the direction-specific tests, and the finding that the SARS-CoV-2 fine-tune learned its
-virus's direction while the influenza models show no evidence.
+The bioRxiv preprint (July 2026) is **not** what these figures reproduce. Its Fig 2 is two
+scatters and an epoch curve, its Fig 3 a five-lineage sweep, its Fig 4 the epistasis scan.
+The within-stratum, comparator, direction, thirteen-lineage and DMS figures here are
+**revision-stage** work answering the MBE reviews.
+[`PREPRINT_AND_REVIEWS.md`](PREPRINT_AND_REVIEWS.md) has the figure-by-figure mapping.
 
 ## Which models, which checkpoints
 
 The SARS-CoV-2 fine-tune used everywhere in this repository is **ESM-C 600M**, checkpoint
-`my_SC2_finetunes/magma_ESMC_600M_99_95perc/esmc_weights.pt`, with raw ESM-C 600M as its base.
-The ESM-2 650M spike fine-tune (`magma_esm-2_650M_95perc`) is **not** the paper's model. S1 first
-drew it by mistake (12 Oct 2026), and also showed an ESM-2 influenza fine-tune on spike; both are
-gone, and `tests/test_sA_spike.py` pins S1 to the ESM-C pair. The other SARS-CoV-2 uses (Fig 4, S10,
-S12, the SARS-CoV-2 symmetry tests) were checked the same day and already use ESM-C. The
-influenza models are ESM-2 650M, base and fine-tuned on HA-80.
+`my_SC2_finetunes/magma_ESMC_600M_99_95perc/esmc_weights.pt`, with raw ESM-C 600M as its
+base. The influenza models are **ESM-2 650M**, base and fine-tuned on HA-80.
 
-## What is not here yet
-
-Every planned figure now exists. Two were finished late; status and run times are in
-`S3_S12_PROGRESS.md`.
-
-* **S3**: two untuned models (ESM-2 650M, ESM-C 600M) on a panel of viral proteins, every position
-  hidden in turn. Scoring needs a GPU; the scores and the sequences ship (`results/viral_panel/`,
-  `data/viral_panel/`).
-* **S11**: real tables from the 22 Sep 2026 H3N2 HA tree ship in `results/s11_h3n2_ha_tree/`. They must be
-  re-made on the 2 Oct tree once a `.pb` exists for it.
+The ESM-2 650M spike fine-tune (`magma_esm-2_650M_95perc`) is **not** the paper's model. S1
+first drew it by mistake (12 Oct 2026), and also showed an ESM-2 influenza fine-tune on
+spike; both are gone, and `tests/test_sA_spike.py` pins S1 to the ESM-C pair. The other
+SARS-CoV-2 uses (Fig 4, S10, S12, the symmetry tests) were checked the same day and already
+use ESM-C.
 
 ## Things to know before quoting a number
+
+This section is the honest part of the repository. Each item is a conclusion that would be
+easy to overstate, with the reason not to.
 
 * **The across-lineage bands are not generalisation intervals.** The thirteen lineages are
   disjoint sets of sequences but share most of their sites, so a band over lineages
@@ -146,26 +201,43 @@ Every planned figure now exists. Two were finished late; status and run times ar
   and C on the thirteen-lineage run. Each panel's title states its own count.
 * **BLOSUM62 is not a biochemistry control.** Empirical substitution matrices already contain
   mutational accessibility. Grantham distance is the control; BLOSUM62 is a comparator.
-* **Some panels cannot be regenerated.** The Fig 1A tree and 1D heatmap and the Fig 2C epoch
-  plot have no generator; they are frozen files in `data/frozen_panels/`.
-* **The five-lineage roots are not what their headers say.** `guides/h3n2_5lineage.yaml` records
-  this and `tests/test_data_integrity.py` pins it. Do not quote five-lineage numbers without
-  resolving it.
-* **Do not quote "fine-tuning is better in N protein regions" from the archive's S13 intervals.**
-  Those intervals resample contact *pairs*, but one residue sits in many pairs, so they are too
-  narrow. Resampling residues instead widens them about 2.2x, and almost no region then clearly
-  separates base from fine-tuned. S13 draws the residue-resampled interval.
+* **Some panels cannot be regenerated.** The Fig 1A tree, the Fig 1D heatmap and the Fig 2C
+  epoch plot have no generator; they are frozen files in `data/frozen_panels/`, and this
+  repository holds the only copies.
+* **The five-lineage roots are not what their headers say.** `guides/h3n2_5lineage.yaml`
+  records this and `tests/test_data_integrity.py` pins it. Do not quote five-lineage numbers
+  without resolving it.
+* **Do not quote "fine-tuning is better in N protein regions" from the archive's S13
+  intervals.** Those intervals resample contact *pairs*, but one residue sits in many pairs,
+  so they are too narrow. Resampling residues instead widens them about 2.2x, and almost no
+  region then clearly separates base from fine-tuned. S13 draws the residue-resampled
+  interval.
 * **The antigenic result is a null and says so.** Fine-tuning is not specialised to known
   antigenic sites: the gain there is about the gain elsewhere in the same domain, and neither
-  structure's difference excludes zero (p = 0.85 and 0.71). This was figure S8; since it is a
-  null it is now panel D of Figure SH, with the five published sites pooled into one class and only the
-  zero-sum gauge drawn. Splitting by site asked five uncorrected questions and one site
-  came out ahead in both structures, which is what five looks produce; do not quote it.
-* **Neither influenza model shows evidence of having learned influenza's mutational direction.**
-  The SARS-CoV-2 fine-tune did learn its own virus's direction. `SYMMETRY_TESTS.md` has the
-  battery and the numbers; S04's headline "symmetric beats directional" ordering is reproduced by
-  controls containing no nucleotide information at all, so it does not support the reading the
-  archive gave it.
+  structure's difference excludes zero (p = 0.85 and 0.71). Since it is a null it is now
+  panel D of Figure SH, with the five published sites pooled into one class and only the
+  zero-sum gauge drawn. Splitting by site asked five uncorrected questions and one site came
+  out ahead in both structures, which is what five looks produce; do not quote it.
+* **Neither influenza model shows evidence of having learned influenza's mutational
+  direction.** The SARS-CoV-2 fine-tune did learn its own virus's direction.
+  [`SYMMETRY_TESTS.md`](SYMMETRY_TESTS.md) has the battery and the numbers; S04's headline
+  "symmetric beats directional" ordering is reproduced by controls containing no nucleotide
+  information at all, so it does not support the reading the archive gave it.
+
+### A correction worth knowing about
+
+Figures 1B/C once carried a tenth replacement, `N145S`, on the J.2 → K path. It does not
+exist. The panel had diffed a *stored* results table's `ref_aa` against a *live* reference
+FASTA; the `J.2_int` root was corrected at precursor codon 161 (`aat` → `agt`) on 15 Jun 2026
+and the May tables were never rebuilt, so a stale J.2 was compared against a current K.
+Nothing warned. The transition is **nine** replacements: `K2N`, `T135K`, `S144N`, `N158D`,
+`I160K`, `Q173R`, `K189R`, `T328A`, `HA2:S49N`.
+
+The shipped `output/fig01_composite.pdf` carries exactly those nine. The 2 Jul 2026 render is
+kept as `data/frozen_panels/fig1bc_ranked_mutations.pdf` **for provenance only — do not place
+it.** The standing risk it exposed: re-plotting an old table against newer roots can silently
+invent or erase replacements. Full account in [`LINEAGE_DEFINITIONS.md`](LINEAGE_DEFINITIONS.md)
+section 6.
 
 ## Colour plan
 
@@ -230,16 +302,37 @@ residues against the rest of the domain take the first two category colours, not
 green, because every point there is already a fine-tuned-minus-base difference and the model
 pair would be misread.
 
-## Layout
+## Known gaps
 
-```
-guides/        one YAML per analysis run (and composites/ for panel layouts)
-mutacc/        library: style, guide loader, metrics, io
-figures/       one script per figure, plus panelise.py
-tools/         build_figures.py (rebuild everything), bridges and analysis runners: export_*.py, enlarge_tree_labels.py, run_symmetry_*.py
-data/          lineage roots, nucleotide mutation spectra, reference genomes, frozen panels
-results/       derived tables (gzipped TSV) with a MANIFEST per run
-tests/         code and input-data tests
-RUNS.md        how the upstream tables were made
-FIGURE_LABELS.md  supplementary figure letters -> content, and why they are letters
-```
+* **S3** (recovery of a hidden amino acid across viral proteins) needs a GPU to re-score.
+  The scores and the sequences ship: `results/viral_panel/`, `data/viral_panel/`.
+* **S11** ships real tables from the 22 Sep 2026 H3N2 HA tree in
+  `results/s11_h3n2_ha_tree/`. They must be re-made on the 2 Oct tree once a `.pb` exists
+  for it.
+
+Status and run times for both: `docs/notes/S3_S11_PROGRESS.md`.
+
+* **`make_sK_branch_codons.py` breaks the engine's own rule, and its test says so.**
+  `tests/test_figure_rules.py::test_no_literals_in_figure_scripts[make_sK_branch_codons.py]`
+  fails. S11 is the one figure that can be run without a guide — the command in the table
+  above passes its tables directly — so the script carries the model keys
+  (`ESM2_650M_HA80_raw`, `ESM2_650M_HA80`) and the legend label `HA80 fine-tune` as a
+  hard-coded fallback, and overrides the guide's own label even when a guide is given. The
+  figure it draws is correct; what is wrong is that the script knows which virus it is
+  looking at. Fixing it changes S11's legend text, so it is deferred rather than done
+  quietly before submission.
+
+## Licence and citation
+
+Code is [MIT](LICENSE). Derived tables and figures are
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Some inputs are not ours to
+license — in particular the GISAID-derived sequence alignments, which are **not
+redistributed here**. See [`LICENSE-DATA.md`](LICENSE-DATA.md).
+
+To cite, see [`CITATION.cff`](CITATION.cff), or cite the preprint directly:
+
+> MacLean OA, Lamb K, Lytras S, Mojsiejczuk L, Yuan K, Hughes J, Robertson DL (2026).
+> Protein language models learn underlying mutation biases alongside fitness landscapes.
+> *bioRxiv* [10.64898/2026.07.06.736753](https://doi.org/10.64898/2026.07.06.736753).
+
+Questions: [oscar.maclean@glasgow.ac.uk](mailto:oscar.maclean@glasgow.ac.uk).

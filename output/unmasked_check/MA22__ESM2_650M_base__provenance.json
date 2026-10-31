@@ -1,0 +1,13 @@
+{
+  "dataset": "MA22",
+  "reference_file": "/home3/oml4h/PLM_SARS-CoV-2/Sequences/Mass_DMS_2022_prot.fa",
+  "protein_length": 504,
+  "protein_md5": "d81c42392192a7fcef740a256e18a19a",
+  "model_label": "ESM2_650M_base",
+  "model_source": "facebook/esm2_t33_650M_UR50D",
+  "unmasked_scoring": "single unmasked forward pass of the reference; softmax over the vocabulary. The published quantity.",
+  "masked_scoring": "one forward pass per site with that site replaced by <mask>; softmax over the vocabulary, read at the masked position only.",
+  "unmasked_cache_max_abs_diff": 9.771398773228412e-06,
+  "built_utc": "2026-10-19T15:40:54+00:00",
+  "built_by": "dev/masked_dms/embed_masked_profile.py"
+}

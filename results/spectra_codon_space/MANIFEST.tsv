@@ -1,0 +1,4 @@
+file	source	source_sha256_16	rows	columns	dropped	used_for
+spectra_generic_stand_in.tsv.gz	computed by tools/export_spectra.py from data/spectra	a97de69ad1cb34cc	7	8		S4: mean agreement of each spectrum with all the others, against its number of free nucleotide parameters; the non-exclusivity test
+spectra_pairwise.tsv.gz	computed by tools/export_spectra.py from data/spectra	a97de69ad1cb34cc	64	8		S6: every spectrum against every other in codon space, as percent of variance retained (compressed and uncompressed) and Pearson r
+spectra_sources.tsv.gz	computed by tools/export_spectra.py from data/spectra	a97de69ad1cb34cc	8	11		S4 and S6: display label, kind, free nucleotide parameters and citation per spectrum, so the figures name nothing themselves

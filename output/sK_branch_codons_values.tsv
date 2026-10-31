@@ -1,0 +1,10 @@
+provenance	panel	row	unit	total	need_1	need_2	need_3	share_1	expected_1	share_2	expected_2	share_3	expected_3	bin	branches	nonsyn	multi	exp_nonsyn	exp_multi	label	share_multi	chance_multi	lo	hi	possible	drawn
+tables as read	table	one branch	all changes, all branches	30028	29875	147	6	0.994905		0.00489543		0.000199814														
+tables as read	table	oldest node to newest	pooled over nodes	3563404	2930886	537399	95119	0.822496		0.150811		0.0266933														
+tables as read	table	null	every amino acid from every codon	10754	3334	5486	1934	0.310024		0.510136		0.17984														
+tables as read	table	plm base	Base model (ESM-2); J.2, masked, one change per site	566				0.643712	364.3	0.308492	174.6	0.0477954	27.1													
+tables as read	table	plm finetune	HA80 fine-tune; J.2, masked, one change per site	566				0.876779	496.3	0.117383	66.4	0.00583804	3.3													
+tables as read	chart													1	33648	12813	0	12419	0	1	0	0	0	0.000299731	False	True
+tables as read	chart													2	9311	6878	46	6876.03	11.4579	2	0.00668799	0.00166635	0.00501805	0.00890868	True	True
+tables as read	chart													3	3508	3750	48	3887.53	12.9452	3	0.0128	0.00332993	0.00966814	0.016929	True	True
+tables as read	chart													4	3627	6587	183	7123.51	56.2281	4+	0.027782	0.00789332	0.0240799	0.0320346	True	True

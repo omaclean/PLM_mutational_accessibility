@@ -1,0 +1,53 @@
+panel	measure	x_axis	virus	species	system	metric_category	sample_1	sample_2	filter_mode	x	x_plotted	y	y_no_floor	censored
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Wuhan-Hu-1	Delta	keep_synonymous(legacy)	2	2.07671	0.955755		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Wuhan-Hu-1	Delta	keep_synonymous(legacy)	2	1.98289	0.904375		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Wuhan-Hu-1	Beta	keep_synonymous(legacy)	3	3.15061	0.916588		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Wuhan-Hu-1	Beta	keep_synonymous(legacy)	3	3.08289	0.917851		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Wuhan-Hu-1	E484K	keep_synonymous(legacy)	1	0.943185	0.962211		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Wuhan-Hu-1	E484K	keep_synonymous(legacy)	1	1.06659	0.924413		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Wuhan-Hu-1	N501Y	keep_synonymous(legacy)	1	1.03656	0.934911		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Wuhan-Hu-1	N501Y	keep_synonymous(legacy)	1	1.04005	0.931215		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Delta	Beta	keep_synonymous(legacy)	5	4.73968	0.911351		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Delta	Beta	keep_synonymous(legacy)	5	4.96527	0.897371		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Delta	E484K	keep_synonymous(legacy)	3	2.94574	0.948276		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Delta	E484K	keep_synonymous(legacy)	3	3.17924	0.897567		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Delta	N501Y	keep_synonymous(legacy)	3	3.06042	0.928308		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Delta	N501Y	keep_synonymous(legacy)	3	3.13556	0.898758		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Beta	E484K	keep_synonymous(legacy)	2	1.98416	0.931651		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Beta	E484K	keep_synonymous(legacy)	2	1.92363	0.935649		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Beta	N501Y	keep_synonymous(legacy)	2	2.01528	0.952672		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Beta	N501Y	keep_synonymous(legacy)	2	1.87787	0.938237		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	E484K	N501Y	keep_synonymous(legacy)	2	2.09174	0.934676		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	E484K	N501Y	keep_synonymous(legacy)	2	2.03687	0.934283		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Full Spike Pseudovirus	Cell Entry / Viral Fitness	Omicron BA.2	Omicron XBB.1.5	drop_synonymous	14	14.5059	0.731816		False
+A	spearman_rho	aa_distance	SARS-CoV-2	SARS-CoV-2	Full Spike Pseudovirus	ACE2 Binding	Omicron BA.2	Omicron XBB.1.5	drop_synonymous	14	13.7149	0.391024		False
+A	spearman_rho	aa_distance	Influenza A (H3N2)	Influenza A	HA Entry vs Growth Preference	Cell Entry / Viral Fitness	A/Perth/16/2009	A/Massachusetts/18/2022	drop_synonymous	39	41.57	0.633593		False
+A	spearman_rho	aa_distance	Influenza A (cross-subtype)	Influenza A	HA Cross-Subtype Entry	Cell Entry / Viral Fitness	H3N2 A/Massachusetts/18/2022	H5N1 A/American wigeon/South Carolina/2021	upstream (effect_std<2, times_seen>=2, n_selections>=2, clip at -5)	287	302.796	0.530473	0.338887	True
+A	spearman_rho	aa_distance	Influenza A (cross-subtype)	Influenza A	HA Cross-Subtype Entry	Cell Entry / Viral Fitness	H3N2 A/Massachusetts/18/2022	H7N9 A/Anhui/1/2013	upstream (effect_std<2, times_seen>=2, n_selections>=2, clip at -5)	254	263.899	0.615027		False
+A	spearman_rho	aa_distance	Influenza A (cross-subtype)	Influenza A	HA Cross-Subtype Entry	Cell Entry / Viral Fitness	H5N1 A/American wigeon/South Carolina/2021	H7N9 A/Anhui/1/2013	upstream (effect_std<2, times_seen>=2, n_selections>=2, clip at -5)	271	259.415	0.549374	0.338647	True
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Wuhan-Hu-1	Delta	keep_synonymous(legacy)	0.995025	1.03319	0.955755		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Wuhan-Hu-1	Delta	keep_synonymous(legacy)	0.995025	0.98651	0.904375		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Wuhan-Hu-1	Beta	keep_synonymous(legacy)	1.49254	1.56747	0.916588		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Wuhan-Hu-1	Beta	keep_synonymous(legacy)	1.49254	1.53378	0.917851		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Wuhan-Hu-1	E484K	keep_synonymous(legacy)	0.497512	0.469246	0.962211		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Wuhan-Hu-1	E484K	keep_synonymous(legacy)	0.497512	0.53064	0.924413		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Wuhan-Hu-1	N501Y	keep_synonymous(legacy)	0.497512	0.515701	0.934911		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Wuhan-Hu-1	N501Y	keep_synonymous(legacy)	0.497512	0.517437	0.931215		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Delta	Beta	keep_synonymous(legacy)	2.48756	2.35805	0.911351		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Delta	Beta	keep_synonymous(legacy)	2.48756	2.47028	0.897371		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Delta	E484K	keep_synonymous(legacy)	1.49254	1.46554	0.948276		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Delta	E484K	keep_synonymous(legacy)	1.49254	1.58171	0.897567		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Delta	N501Y	keep_synonymous(legacy)	1.49254	1.5226	0.928308		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Delta	N501Y	keep_synonymous(legacy)	1.49254	1.55998	0.898758		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Beta	E484K	keep_synonymous(legacy)	0.995025	0.987142	0.931651		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Beta	E484K	keep_synonymous(legacy)	0.995025	0.957028	0.935649		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	Beta	N501Y	keep_synonymous(legacy)	0.995025	1.00263	0.952672		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	Beta	N501Y	keep_synonymous(legacy)	0.995025	0.934263	0.938237		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	ACE2 Binding	E484K	N501Y	keep_synonymous(legacy)	0.995025	1.04067	0.934676		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Spike RBD Yeast Display	Expression / Stability	E484K	N501Y	keep_synonymous(legacy)	0.995025	1.01337	0.934283		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Full Spike Pseudovirus	Cell Entry / Viral Fitness	Omicron BA.2	Omicron XBB.1.5	drop_synonymous	1.10236	1.14219	0.731816		False
+B	spearman_rho	pct_divergence	SARS-CoV-2	SARS-CoV-2	Full Spike Pseudovirus	ACE2 Binding	Omicron BA.2	Omicron XBB.1.5	drop_synonymous	1.10236	1.07991	0.391024		False
+B	spearman_rho	pct_divergence	Influenza A (H3N2)	Influenza A	HA Entry vs Growth Preference	Cell Entry / Viral Fitness	A/Perth/16/2009	A/Massachusetts/18/2022	drop_synonymous	7.7381	8.24802	0.633593		False
+B	spearman_rho	pct_divergence	Influenza A (cross-subtype)	Influenza A	HA Cross-Subtype Entry	Cell Entry / Viral Fitness	H3N2 A/Massachusetts/18/2022	H5N1 A/American wigeon/South Carolina/2021	upstream (effect_std<2, times_seen>=2, n_selections>=2, clip at -5)	56.9444	60.0785	0.530473	0.338887	True
+B	spearman_rho	pct_divergence	Influenza A (cross-subtype)	Influenza A	HA Cross-Subtype Entry	Cell Entry / Viral Fitness	H3N2 A/Massachusetts/18/2022	H7N9 A/Anhui/1/2013	upstream (effect_std<2, times_seen>=2, n_selections>=2, clip at -5)	50.3968	52.361	0.615027		False
+B	spearman_rho	pct_divergence	Influenza A (cross-subtype)	Influenza A	HA Cross-Subtype Entry	Cell Entry / Viral Fitness	H5N1 A/American wigeon/South Carolina/2021	H7N9 A/Anhui/1/2013	upstream (effect_std<2, times_seen>=2, n_selections>=2, clip at -5)	53.7698	51.4711	0.549374	0.338647	True

@@ -1,0 +1,73 @@
+dataset	trait	panel_label	model_name	role	group	n	n_sites	sd_log_acc	peak_alpha	peak_alpha_ci_lo	peak_alpha_ci_hi	scaled_weight	rho_alpha0	rho_peak	gain	boundary	weak_signal	interpretable	max_abs_rho	has_signal	readable	n_boot	binding
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	ESM-2 650M base	base	pooled	9234	504	3.12832	-0.06	-0.08	-0.04	-0.187699	0.42711	0.430637	0.00352768	False	False	True	0.430637	True	True	200	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	ESM-2 650M base	base	1	2907	504	0.521568	-0.14	-0.26	0.04	-0.0730196	0.46319	0.463937	0.000746827	False	False	True	0.463937	True	True	200	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	ESM-2 650M base	base	2	4701	503	0.733047	0.02	-0.08	0.16	0.0146609	0.428697	0.42878	8.22249e-05	False	False	True	0.42878	True	True	200	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	ESM-2 650M base	base	3	1626	492	0.829893	0.34	0.06	0.6205	0.282164	0.350581	0.357446	0.00686507	False	False	True	0.357446	True	True	200	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	HA-80 fine-tuned	finetune	pooled	9234	504	3.12832	-0.21	-0.22	-0.18	-0.656947	0.350884	0.401751	0.0508679	False	False	True	0.401751	True	True	200	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	HA-80 fine-tuned	finetune	1	2907	504	0.521568	-0.55	-0.64	-0.44	-0.286863	0.462266	0.48577	0.0235047	False	False	True	0.48577	True	True	200	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	HA-80 fine-tuned	finetune	2	4701	503	0.733047	-0.23	-0.32	-0.14	-0.168601	0.380592	0.38675	0.00615857	False	False	True	0.38675	True	True	200	False
+MA22	MDCKSIAT1 cell entry	MA22 cell entry	HA-80 fine-tuned	finetune	3	1626	492	0.829893	0.11	-0.1005	0.3	0.0912882	0.312127	0.313899	0.00177172	False	False	True	0.313899	True	True	200	False
+MA22	sera escape	MA22 sera escape	ESM-2 650M base	base	pooled	5635	473	3.11765	-0.04	-0.18	0.18	-0.124706	0.0824277	0.0830501	0.000622371	False	False	True	0.0830501	True	True	200	False
+MA22	sera escape	MA22 sera escape	ESM-2 650M base	base	1	1954	456	0.51687	-0.92	-1	0.227	-0.475521	0.0825434	0.089807	0.00726352	False	False	True	0.089807	True	True	200	False
+MA22	sera escape	MA22 sera escape	ESM-2 650M base	base	2	2768	441	0.707967	-0.67	-1	0.08	-0.474338	0.0574149	0.0647136	0.00729869	False	False	True	0.0647136	True	True	200	False
+MA22	sera escape	MA22 sera escape	ESM-2 650M base	base	3	913	344	0.812354	-0.38	-1	0.22	-0.308695	0.138246	0.144389	0.006143	False	False	True	0.144389	True	True	200	False
+MA22	sera escape	MA22 sera escape	HA-80 fine-tuned	finetune	pooled	5635	473	3.11765	-0.24	-0.28	-0.2	-0.748235	0.137812	0.172958	0.0351459	False	False	True	0.172958	True	True	200	False
+MA22	sera escape	MA22 sera escape	HA-80 fine-tuned	finetune	1	1954	456	0.51687	-0.7	-0.98	-0.3395	-0.361809	0.152001	0.168711	0.0167108	False	False	True	0.168711	True	True	200	False
+MA22	sera escape	MA22 sera escape	HA-80 fine-tuned	finetune	2	2768	441	0.707967	-0.61	-0.96	-0.3	-0.43186	0.144079	0.161989	0.0179105	False	False	True	0.161989	True	True	200	False
+MA22	sera escape	MA22 sera escape	HA-80 fine-tuned	finetune	3	913	344	0.812354	-0.4	-0.8405	-0.18	-0.324942	0.243497	0.261277	0.0177805	False	False	True	0.261277	True	True	200	False
+MA22	pH stability	MA22 pH stability	ESM-2 650M base	base	pooled	5472	469	3.11778	-0.03	-0.12	0.1005	-0.0935334	0.121007	0.121563	0.000556511	False	False	True	0.121563	True	True	200	False
+MA22	pH stability	MA22 pH stability	ESM-2 650M base	base	1	1904	451	0.51742	-0.16	-1	1	-0.0827872	0.113364	0.114567	0.00120374	False	False	True	0.114567	True	True	200	False
+MA22	pH stability	MA22 pH stability	ESM-2 650M base	base	2	2685	435	0.707238	-0.22	-0.862	0.5405	-0.155592	0.107378	0.108258	0.000879556	False	False	True	0.108258	True	True	200	False
+MA22	pH stability	MA22 pH stability	ESM-2 650M base	base	3	883	332	0.813861	0.08	-0.8805	0.98	0.0651089	0.13854	0.138677	0.000137192	False	False	True	0.138677	True	True	200	False
+MA22	pH stability	MA22 pH stability	HA-80 fine-tuned	finetune	pooled	5472	469	3.11778	-0.21	-0.26	-0.14	-0.654734	0.138381	0.160634	0.0222531	False	False	True	0.160634	True	True	200	False
+MA22	pH stability	MA22 pH stability	HA-80 fine-tuned	finetune	1	1904	451	0.51742	-0.62	-0.98	0.041	-0.3208	0.147168	0.156218	0.00905024	False	False	True	0.156218	True	True	200	False
+MA22	pH stability	MA22 pH stability	HA-80 fine-tuned	finetune	2	2685	435	0.707238	-0.46	-0.88	-0.06	-0.32533	0.154106	0.163173	0.00906618	False	False	True	0.163173	True	True	200	False
+MA22	pH stability	MA22 pH stability	HA-80 fine-tuned	finetune	3	883	332	0.813861	-0.21	-0.5605	0.3	-0.170911	0.164939	0.169915	0.00497554	False	False	True	0.169915	True	True	200	False
+Perth09	preference ratio	Perth09 preference ratio	ESM-2 650M base	base	pooled	10754	566	3.14412	-0.04	-0.06	-0.02	-0.125765	0.457401	0.459615	0.00221447	False	False	True	0.459615	True	True	200	False
+Perth09	preference ratio	Perth09 preference ratio	ESM-2 650M base	base	1	3358	566	0.526548	-0.02	-0.1205	0.1205	-0.010531	0.473998	0.474028	2.98867e-05	False	False	True	0.474028	True	True	200	False
+Perth09	preference ratio	Perth09 preference ratio	ESM-2 650M base	base	2	5482	566	0.748741	-0.1	-0.2005	0	-0.0748741	0.461078	0.461718	0.000640545	False	False	True	0.461718	True	True	200	False
+Perth09	preference ratio	Perth09 preference ratio	ESM-2 650M base	base	3	1914	566	0.828819	0.12	-0.06	0.4	0.0994583	0.372021	0.372687	0.000666521	False	False	True	0.372687	True	True	200	False
+Perth09	preference ratio	Perth09 preference ratio	HA-80 fine-tuned	finetune	pooled	10754	566	3.14412	-0.18	-0.2	-0.16	-0.565941	0.296819	0.338103	0.0412848	False	False	True	0.338103	True	True	200	False
+Perth09	preference ratio	Perth09 preference ratio	HA-80 fine-tuned	finetune	1	3358	566	0.526548	-0.4	-0.48	-0.32	-0.210619	0.43404	0.455673	0.0216327	False	False	True	0.455673	True	True	200	False
+Perth09	preference ratio	Perth09 preference ratio	HA-80 fine-tuned	finetune	2	5482	566	0.748741	-0.23	-0.34	-0.12	-0.17221	0.279081	0.286907	0.00782615	False	False	True	0.286907	True	True	200	False
+Perth09	preference ratio	Perth09 preference ratio	HA-80 fine-tuned	finetune	3	1914	566	0.828819	-0.05	-0.2805	0.1405	-0.041441	0.214336	0.214915	0.000578931	False	False	True	0.214915	True	True	200	False
+BA2	spike mediated entry	BA.2 cell entry	ESM-C 600M base	base	pooled	7022	1240	4.21593	0.04	0	0.1	0.168637	0.0683121	0.0752888	0.0069767	False	False	True	0.0752888	True	True	200	False
+BA2	spike mediated entry	BA.2 cell entry	ESM-C 600M base	base	1	4602	1225	0.631427	-1	-1	-0.68	-0.631427	0.0595771	0.150379	0.0908019	True	False	False	0.150379	True	True	200	False
+BA2	spike mediated entry	BA.2 cell entry	ESM-C 600M base	base	2	1982	758	0.932574	-0.62	-1	0.04	-0.578196	0.0537131	0.0724792	0.0187661	False	False	True	0.0724792	True	True	200	False
+BA2	spike mediated entry	BA.2 cell entry	ESM-C 600M base	base	3	438	217	0.961399	-0.96	-1	0.387	-0.922943	0.0417764	0.0835364	0.0417599	False	True	False	0.0835364	True	True	200	False
+BA2	spike mediated entry	BA.2 cell entry	SC2 fine-tuned	finetune	pooled	7022	1240	4.21593	-0.19	-0.22	-0.16	-0.801027	0.299524	0.363464	0.0639404	False	False	True	0.363464	True	True	200	False
+BA2	spike mediated entry	BA.2 cell entry	SC2 fine-tuned	finetune	1	4602	1225	0.631427	-0.81	-0.8805	-0.72	-0.511456	0.38019	0.462254	0.0820637	False	False	True	0.462254	True	True	200	False
+BA2	spike mediated entry	BA.2 cell entry	SC2 fine-tuned	finetune	2	1982	758	0.932574	-0.55	-0.78	-0.32	-0.512916	0.287433	0.323057	0.0356238	False	False	True	0.323057	True	True	200	False
+BA2	spike mediated entry	BA.2 cell entry	SC2 fine-tuned	finetune	3	438	217	0.961399	-1	-1	0.121	-0.961399	0.141004	0.162199	0.021195	True	False	False	0.162199	True	True	200	False
+BA2	ACE2 binding	BA.2 ACE2 binding	ESM-C 600M base	base	pooled	6165	1196	4.20022	1			4.20022	-0.0265659	-0.00362998	0.0229359	True	True	False	0.032332	False	False	0	True
+BA2	ACE2 binding	BA.2 ACE2 binding	ESM-C 600M base	base	1	4122	1166	0.633977	1			0.633977	-0.0321562	0.0433034	0.0754596	True	True	False	0.083539	True	False	0	True
+BA2	ACE2 binding	BA.2 ACE2 binding	ESM-C 600M base	base	2	1662	610	0.938551	-0.05			-0.0469275	0.0144251	0.0148911	0.000466027	False	True	False	0.0148911	False	False	0	True
+BA2	ACE2 binding	BA.2 ACE2 binding	ESM-C 600M base	base	3	381	186	0.99085	-1			-0.99085	-0.0642918	-0.00414574	0.060146	True	False	False	0.0863587	True	False	0	True
+BA2	ACE2 binding	BA.2 ACE2 binding	SC2 fine-tuned	finetune	pooled	6165	1196	4.20022	1			4.20022	-0.171356	-0.0790904	0.0922651	True	False	False	0.204752	True	False	0	True
+BA2	ACE2 binding	BA.2 ACE2 binding	SC2 fine-tuned	finetune	1	4122	1166	0.633977	1			0.633977	-0.191096	-0.103195	0.0879017	True	False	False	0.237684	True	False	0	True
+BA2	ACE2 binding	BA.2 ACE2 binding	SC2 fine-tuned	finetune	2	1662	610	0.938551	1			0.938551	-0.199833	-0.137193	0.0626399	True	False	False	0.211075	True	False	0	True
+BA2	ACE2 binding	BA.2 ACE2 binding	SC2 fine-tuned	finetune	3	381	186	0.99085	-1			-0.99085	-0.145791	-0.116508	0.0292828	True	False	False	0.148166	True	False	0	True
+XBB15	spike mediated entry	XBB.1.5 cell entry	ESM-C 600M base	base	pooled	6793	1233	4.1568	0.03	0	0.1	0.124704	0.0745399	0.0795504	0.00501046	False	False	True	0.0795504	True	True	200	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	ESM-C 600M base	base	1	4501	1211	0.636135	-0.92	-1	-0.5	-0.585244	0.0707674	0.132025	0.0612573	False	False	True	0.132025	True	True	200	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	ESM-C 600M base	base	2	1898	753	0.917064	-0.58	-1	0.02	-0.531897	0.0511642	0.0810014	0.0298372	False	False	True	0.0810014	True	True	200	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	ESM-C 600M base	base	3	394	214	0.987572	0.12	-1	0.98	0.118509	0.0731245	0.0777662	0.00464173	False	False	True	0.0777662	True	True	200	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	SC2 fine-tuned	finetune	pooled	6793	1233	4.1568	-0.16	-0.18	-0.14	-0.665088	0.324608	0.378079	0.0534712	False	False	True	0.378079	True	True	200	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	SC2 fine-tuned	finetune	1	4501	1211	0.636135	-0.76	-0.86	-0.66	-0.483463	0.361711	0.42049	0.0587785	False	False	True	0.42049	True	True	200	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	SC2 fine-tuned	finetune	2	1898	753	0.917064	-0.49	-0.66	-0.279	-0.449362	0.341206	0.367854	0.0266475	False	False	True	0.367854	True	True	200	False
+XBB15	spike mediated entry	XBB.1.5 cell entry	SC2 fine-tuned	finetune	3	394	214	0.987572	-0.23	-0.5805	0.12	-0.227142	0.405963	0.411662	0.00569897	False	False	True	0.411662	True	True	200	False
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	ESM-C 600M base	base	pooled	5891	1148	4.10666	1			4.10666	-0.0144606	0.0501519	0.0646125	True	True	False	0.0629108	True	False	0	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	ESM-C 600M base	base	1	4005	1123	0.641955	1			0.641955	-0.0282503	0.0281964	0.0564467	True	True	False	0.0537928	True	False	0	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	ESM-C 600M base	base	2	1556	618	0.925412	1			0.925412	-0.0116431	0.00807261	0.0197157	True	True	False	0.0239492	False	False	0	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	ESM-C 600M base	base	3	330	173	1.00152	-0.97			-0.97147	-0.0587191	0.0271145	0.0858336	False	False	True	0.0996845	True	False	0	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	SC2 fine-tuned	finetune	pooled	5891	1148	4.10666	1			4.10666	-0.056474	0.012169	0.068643	True	False	False	0.124313	True	False	0	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	SC2 fine-tuned	finetune	1	4005	1123	0.641955	1			0.641955	-0.0845641	-0.0383994	0.0461647	True	False	False	0.10911	True	False	0	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	SC2 fine-tuned	finetune	2	1556	618	0.925412	1			0.925412	-0.135736	-0.0992225	0.0365132	True	False	False	0.139507	True	False	0	True
+XBB15	ACE2 binding	XBB.1.5 ACE2 binding	SC2 fine-tuned	finetune	3	330	173	1.00152	-1			-1.00152	-0.12141	-0.0754998	0.0459102	True	False	False	0.132368	True	False	0	True
+XBB15	human sera escape	XBB.1.5 sera escape	ESM-C 600M base	base	pooled	5502	1114	4.07259	0	-1	0.2035	0	0.0198052	0.0198052	0	False	True	False	0.0198052	False	False	200	False
+XBB15	human sera escape	XBB.1.5 sera escape	ESM-C 600M base	base	1	3798	1086	0.641777	-1	-1	-0.1	-0.641777	0.0115159	0.0358968	0.0243809	True	True	False	0.0358968	False	True	200	False
+XBB15	human sera escape	XBB.1.5 sera escape	ESM-C 600M base	base	2	1400	567	0.926527	0.02	-1	1	0.0185305	0.0109436	0.0111043	0.000160714	False	True	False	0.0111043	False	False	200	False
+XBB15	human sera escape	XBB.1.5 sera escape	ESM-C 600M base	base	3	304	160	1.00166	0.37	-0.3	0.96	0.370612	0.10167	0.135589	0.0339184	False	False	True	0.135589	True	True	200	False
+XBB15	human sera escape	XBB.1.5 sera escape	SC2 fine-tuned	finetune	pooled	5502	1114	4.07259	-0.13	-0.28	-0.06	-0.529436	0.0849745	0.100048	0.0150737	False	False	True	0.100048	True	True	200	False
+XBB15	human sera escape	XBB.1.5 sera escape	SC2 fine-tuned	finetune	1	3798	1086	0.641777	-0.82	-1	-0.2	-0.526258	0.0725573	0.0872825	0.0147252	False	False	True	0.0872825	True	True	200	False
+XBB15	human sera escape	XBB.1.5 sera escape	SC2 fine-tuned	finetune	2	1400	567	0.926527	-0.31	-1	0.4425	-0.287223	0.136082	0.139361	0.00327857	False	False	True	0.139361	True	True	200	False
+XBB15	human sera escape	XBB.1.5 sera escape	SC2 fine-tuned	finetune	3	304	160	1.00166	0.07	-1	0.9805	0.0701159	0.166443	0.168262	0.00181867	False	False	True	0.168262	True	True	200	False

@@ -1,0 +1,15 @@
+{
+  "dataset": "BA2",
+  "reference_file": "/home3/oml4h/PLM_SARS-CoV-2/Sequences/SC2_lineage_references_spike_nt_no_gaps.fasta",
+  "reference_id": "BA.2",
+  "protein_length": 1270,
+  "protein_md5": "1a245b971a369682019146020806b64a",
+  "model_label": "ESMC_600M_base",
+  "model_source": "esmc_600m",
+  "model_family": "ESM-C",
+  "unmasked_scoring": "single unmasked forward pass of the reference; softmax over the vocabulary. The originally published quantity.",
+  "masked_scoring": "one forward pass per site with that site replaced by the mask token; softmax over the vocabulary, read at the masked position only.",
+  "unmasked_cache_max_abs_diff": 7.293128967411633e-08,
+  "built_utc": "2026-10-19T18:04:33+00:00",
+  "built_by": "dev/masked_dms/embed_masked_profile_esmc.py"
+}

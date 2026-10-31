@@ -1,0 +1,82 @@
+# ---------------------------------------------------------------------------
+# This repository is the figure engine: the code that redraws the manuscript's
+# figures, plus the derived tables it reads. The rule throughout is to ignore
+# whatever a script in here can rebuild, and to keep whatever it cannot.
+#
+# These rules were written when this tree was a subdirectory of the analysis
+# repository, and several paths still carried that `clean_repo/` prefix after it
+# was split out. A prefixed rule matches nothing here, which silently dropped
+# results/ and two FASTAs from every clone. Paths below are relative to this
+# repository root; keep them that way.
+# ---------------------------------------------------------------------------
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+
+# Test, coverage and run artefacts
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+.suite_logs/
+*.log
+slurm-*.out
+
+# Editor and assistant scratch trees, ad-hoc throwaways
+.gemini/
+.claude/
+delme*
+test_label.png
+test_custom_labels.png
+.DS_Store
+
+# ---------------------------------------------------------------------------
+# Sequence data.
+#
+# GISAID-derived alignments must not be redistributed, so FASTA is ignored
+# wholesale and the two small curated files the code opens by name are let back
+# in one directory at a time. Both exceptions together come to 33 KB.
+#
+# Without them `git add` on those files silently succeeds and does nothing, and
+# a fresh clone fails the tests that open NC_045512.2.fasta and the sK fixture
+# alignment directly. Keep each path narrow, and keep what lands in them small.
+#
+# Note `*.fa` is deliberately NOT ignored: the per-lineage root sequences in
+# data/roots/ use that extension and are inputs every figure needs.
+# ---------------------------------------------------------------------------
+*.fasta
+!data/reference_genomes/*.fasta
+!tests/fixtures/**/*.fasta
+
+# Model weights and optimiser state, anywhere. No model is run from this
+# repository, only its scored output; a checkpoint here is a mistake.
+# (~180 GB of ESM-C checkpoints were once staged by a broad `git add` in the
+# analysis repository, writing 137 GB of blobs into .git/objects.)
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+
+# The exploration tree, kept out of the published repository. Its write-ups
+# record dead ends and superseded runs, and nothing under results/ or output/
+# depends on it.
+dev/
+
+# tools/build_figures.py builds here by default and compares the result with the
+# shipped output/. It also holds every build's intermediates: build/panels/, the
+# composite panels panelise.py places, and the per-step logs.
+build/
+
+# NOT ignored, deliberately:
+#
+#   results/  the derived tables every figure reads, about 26 MB. Ignoring these
+#             leaves a fresh clone with nothing to draw from, and
+#             tests/test_build_figures.py fails if a shipped input is ignored.
+#   output/   the shipped figures, and the _values.tsv and _caption.md files a
+#             rebuild is checked against.
+#   figures/, data/  several panels cannot be regenerated from this repository
+#             at all -- the Fig 1A tree, the Fig 1D heatmap and the Fig 2C epoch
+#             plot have no generator. These are the only copies.
