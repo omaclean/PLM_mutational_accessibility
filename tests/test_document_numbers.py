@@ -68,7 +68,7 @@ DOCS = (
 
 #: Documents that deliberately discuss the *old* numbering: the plan that
 #: describes the move, and the log of what moved.
-EXEMPT = {"docs/notes/extended_red_team_tests.md", "docs/notes/PLAN.md", "RUNS.md", "PREPRINT_AND_REVIEWS.md"}
+EXEMPT = {"docs/notes/extended_red_team_tests.md", "docs/notes/PLAN.md", "RUNS.md"}
 
 #: A row of the script table: "| `make_sH_contact_recovery.py` | SH | ..." -- the script
 #: in the first column and what the README calls its figure in the second.

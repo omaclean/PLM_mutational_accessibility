@@ -11,7 +11,7 @@ hand-typed coordinates.
 What the layout file controls
 -----------------------------
 Everything comes from the layout YAML (see ``guides/composites/``). Paths are
-relative to the repository root. The page is ``width`` wide (the MBE double
+relative to the repository root. The page is ``width`` wide (the standard double
 column by default); each row spans that width and its height follows from the
 panels' own aspect ratios, so nothing is stretched. PDF panels stay vector.
 

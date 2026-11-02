@@ -5,7 +5,7 @@
     python tools/export_sW_loo_alpha.py <repo> <out_dir>    # how tools/build_figures.py calls it
 
 Answers Reviewer 2's "alpha is chosen on the data it is scored on"
-(``PREPRINT_AND_REVIEWS.md``, Reviewer 2, uncertainty row), for both halves of the manuscript
+(Reviewer 2, uncertainty row), for both halves of the manuscript
 that select a weight. One file, two kinds of row, told apart by ``scope``:
 
 * **Figure 3, the lineage sweeps** (``scope`` ``fold`` and ``mean``). Figure 3 picks the weight

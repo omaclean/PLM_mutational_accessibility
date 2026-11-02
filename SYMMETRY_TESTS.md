@@ -6,7 +6,7 @@ yet (section 8). Code is in `mutacc/accessibility.py` and `mutacc/symmetry.py` w
 in `results/`.
 
 Context: Reviewer 2 wrote that "perhaps the PLM encodes non-reversible information, which would support
-the paper's title directly" (`PREPRINT_AND_REVIEWS.md`). This is that test.
+the paper's title directly". This is that test.
 
 ## 1. The puzzle, and the short answer
 

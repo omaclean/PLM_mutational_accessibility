@@ -1,6 +1,6 @@
 # Panel D is generated: run `python figures/make_fig01d.py` before panelising.
 # Figure 1 composite: tree (A), ranked mutations (B, C), codon -> amino-acid heatmap (D).
-# Stacked in one column at the MBE double-column width.
+# Stacked in one column at double-column width.
 #
 #   python figures/panelise.py --layout guides/composites/fig01.yaml --out output/
 #

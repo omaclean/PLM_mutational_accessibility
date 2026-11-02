@@ -10,9 +10,8 @@ document holds the *scientific* questions that the engine must stay neutral abou
 `dev/lineage_validity/report.html`. Three follow-ups still open.
 **Opened:** 2026-10-08.
 
-**Reference methodology:** (full summary of the preprint and the reviews: [`PREPRINT_AND_REVIEWS.md`](PREPRINT_AND_REVIEWS.md))
-`MS_stuff/2026.07.06.736753v1.full.pdf` — the preprint of
-this manuscript (MacLean, Lamb, Lytras, Mojsiejczuk, Yuan, Hughes & Robertson,
+**Reference methodology:**
+The preprint of this manuscript (MacLean, Lamb, Lytras, Mojsiejczuk, Yuan, Hughes & Robertson,
 bioRxiv `10.64898/2026.07.06.736753`, posted 9 July 2026). Anything done here must be
 standardised against the methods already published there, not invented afresh.
 
@@ -287,7 +286,7 @@ Two further problems in that set:
 header carries an accession while the guide calls it reconstructed. This is
 exactly the kind of thing §2 of this document is for.
 
-### Preprint methods, recorded 9 Oct 2026 (from `MS_stuff/`; see `PREPRINT_AND_REVIEWS.md`)
+### Preprint methods, recorded 9 Oct 2026
 
 * Lineage assignment: a sequence belongs to a lineage if it has all the lineage-defining mutations and
   **fewer than five additional amino-acid replacements** from the lineage root; sequences with more than two of

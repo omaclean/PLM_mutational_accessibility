@@ -6,7 +6,7 @@ Figure 4 sweeps the weight alpha over a grid, marks the alpha at which each curv
 correlation with a measured phenotype is largest, and quotes that alpha in the panel. The
 alpha is read off the same replacements the correlation is reported on, which is the DMS
 half of Reviewer 2's objection: "the alpha parameter is selected on the same data used to
-report performance" (``PREPRINT_AND_REVIEWS.md``, Reviewer 2, uncertainty row).
+report performance" (Reviewer 2, uncertainty row).
 
 The band already drawn on those panels does not answer it. ``dms_sweep.site_bootstrap_band``
 resamples sites at a **fixed** alpha and reports how precisely rho is known at each weight --

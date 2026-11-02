@@ -6,7 +6,7 @@ Figure 3 sweeps the weight alpha, averages each curve over the lineages, and rea
 result off the peak of that average. The peak and the number reported at it come from the
 same thirteen lineages, so whatever part of the peak is a property of *these* lineages
 rather than of the weighting is counted as a gain. Reviewer 2 put it in one sentence:
-"alpha is chosen on the data it is scored on" (``PREPRINT_AND_REVIEWS.md``, Reviewer 2,
+"alpha is chosen on the data it is scored on" (Reviewer 2,
 uncertainty row).
 
 The interval already beside that figure does not answer it. ``metrics.bootstrap_mean_ci``
@@ -58,7 +58,7 @@ would treat the thirteen lineages as independent replicates. They are not: their
 proteins are 96.6 to 99.7% identical, their per-lineage score vectors correlate at 0.985
 and above, residual outcome co-occurrence between lineages is about 0.391, and the
 effective number of independent lineages is between 1.01 and 1.12 -- one, not thirteen
-(``PREPRINT_AND_REVIEWS.md``, "The lineages are not independent"). Any such p-value is
+("The lineages are not independent"). Any such p-value is
 anti-conservative by roughly that factor. A sign test has a second problem on top: 13 of 13
 is its floor of 2 / 2^13 whatever the effect size, so it would report the fold count and
 call it evidence. The effect size, its interval and the fold count are reported instead,

@@ -39,8 +39,8 @@ the progress log as work lands; do not keep a second plan anywhere else.
 
 ### Read this first: preprint vs revision
 
-`PREPRINT_AND_REVIEWS.md` records, from the two PDFs in `MS_stuff/`, what the bioRxiv preprint
-contains and what each MBE reviewer asked (decision 3 Sep 2026, revision due about 2 Nov 2026).
+The working notes record what the bioRxiv preprint
+contains and what each reviewer asked (decision 3 Sep 2026, revision due about 2 Nov 2026).
 **Several figures this plan calls "published" are not in the preprint.** The preprint's Fig 2 is
 the two scatters plus the epoch curve; its Fig 3 is a **five**-lineage sweep (Spearman, PR-AUC,
 Pearson). Within-stratum correlations, BLOSUM62/Grantham comparators, the direction analysis, the
@@ -898,7 +898,7 @@ is where that verification currently fails.
    `root_type`. See [`LINEAGE_VALIDITY.md`](../../LINEAGE_VALIDITY.md) §4 Q3b.
 19. 🔴 **"Symmetric beats directional" (S4 (withdrawn)) is not evidence about the model.** Controls with no nucleotide content show the same ordering (real data) or the opposite sign (simulation). Do not use S4 (withdrawn)'s titles or the 9Octy README's executive summary. See `SYMMETRY_TESTS.md`.
 20. 🔴 **Simulation scoring used a tip, not the founder.** 76, 71, 63 and 42 of 700 residues differ for the human, SARS-CoV-2, H3N2 and branching-ladder arms. Accessibility and the landscape come from the founder. Re-score on the founder before quoting S28 numbers; the GPU queue does this.
-21. ⚠️ **Influenza and SARS-CoV-2 differ on learned direction.** The preprint's title claim ("learn underlying mutation biases") has direction-specific support for SARS-CoV-2 only. Reviewer 2 asked for exactly this test (`PREPRINT_AND_REVIEWS.md`).
+21. ⚠️ **Influenza and SARS-CoV-2 differ on learned direction.** The preprint's title claim ("learn underlying mutation biases") has direction-specific support for SARS-CoV-2 only. Reviewer 2 asked for exactly this test.
 22. ⚠️ **The preprint transposes two PR-AUC values** (accessibility alone 0.235, base ESM-2 0.130). The sentence built on them is reversed.
 18. ✅ **Solved by design 9 Oct: tables ship as gzipped TSV.** *Original note:* **Only one interpreter on this machine can read the parquets.**
    `/home3/oml4h/miniconda3/envs/PRESCOTT/bin/python` is the sole env with both
@@ -957,7 +957,7 @@ is where that verification currently fails.
 | | **Fig 4 and S10 ported** (DMS). Every curve recomputed and agrees with the archive to 1e-6. ACE2-binding panels are labelled as binding, not fitness. |
 | | **Fig 1 / Fig 2 composites packaged** (`panelise.py`). The published `panelstrim` Figure 1 is defective (heatmap twice, letters on titles); rebuilt from the intended `panels` version. The notebook never contained the Figure 2 composite call; layout read back from the PDF. Tree labels enlarged x1.65 by `tools/enlarge_tree_labels.py`, which refuses any scale that causes an overlap. |
 | | **S2 ported.** AUROC recomputed from per-replacement scores agrees with the shipped sweep table to 8e-7. **S12 ported** with a paired site-bootstrap test: the fine-tuned-minus-base difference excludes zero in 14 of 21 fitness cells, more than the old "only some assays" reading from overlapping intervals. Closes risk 10. |
-| 2026-10-09 | **Read the preprint and the MBE decision** (`MS_stuff/`): `PREPRINT_AND_REVIEWS.md`. Corrections: the strata, BLOSUM62/Grantham and direction analyses are revision-stage, not in the preprint (my earlier "published Fig 2b" remarks were wrong); the preprint's Fig 3B has two PR-AUC values transposed; revision due about 2 Nov 2026. Demo layout-proof files deleted. |
+| 2026-10-09 | **Read the preprint and the editorial decision**: Corrections: the strata, BLOSUM62/Grantham and direction analyses are revision-stage, not in the preprint (my earlier "published Fig 2b" remarks were wrong); the preprint's Fig 3B has two PR-AUC values transposed; revision due about 2 Nov 2026. Demo layout-proof files deleted. |
 | | **S4 (withdrawn) audited** (`9Octy/generate_9octy_expansion.py`, reads `a34`): arithmetic correct (recomputed to 5e-6) and identical to `a35`'s reversible condition, but the headline interpretation is unsupported. No-nucleotide controls (BLOSUM62, Grantham, hydropathy, volume) show the same "symmetric beats directional" ordering by the same amount; in simulation the sign flips for the same controls. |
 | | **Symmetry battery built** (`mutacc/accessibility.py`, `mutacc/symmetry.py`, 3 runners, planted-truth tests). Orientation, spectrum-shuffle, direction-flip null, direction contrast, planted-signal calibration, tie robustness. Accessibility reproduces the pipeline's `mut_prob` to 1e-9 (real) and 6e-16 (simulation). Two bugs found by the data and pinned by tests. |
 | | **Result:** no evidence that either influenza model learned influenza's direction (flip pct 0.6 to 0.9; contrast 5% of truth, CI includes 0). **SARS-CoV-2 fine-tune did learn its own direction**, specific to SARS-CoV-2 (flip pct 0.016 to 0.062 in every stratum on BA.2 and XBB.1.5; 36 to 38% of truth; no preference for influenza's). Fig 2 panel C pair-specific direction is about half genetic-code geometry (flat spectrum gives 0.18 of the 0.35). |

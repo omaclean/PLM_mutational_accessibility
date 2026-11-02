@@ -1,6 +1,6 @@
 # Extended red team: a plan to confirm the tests test what they claim
 
-**Opened:** 2026-10-15. **Target:** before the MBE resubmission (~2 Nov 2026).
+**Opened:** 2026-10-15. **Target:** before resubmission (~2 Nov 2026).
 
 This is the next pass after the 15 Oct pre-resubmission audit. That audit asked *"is the
 code right?"* and found three defects (`tests/test_known_defects.py`). This pass asks a

@@ -227,7 +227,6 @@ docs/notes/    working notes: the plan, the red-team audits, progress logs
 | [`LINEAGE_DEFINITIONS.md`](LINEAGE_DEFINITIONS.md) | The H3N2 J.2 → K transition and its nine clade-defining replacements |
 | [`LINEAGE_VALIDITY.md`](LINEAGE_VALIDITY.md) | Whether the lineage sets are independent, and what the fine-tuning corpus already contained |
 | [`SYMMETRY_TESTS.md`](SYMMETRY_TESTS.md) | The symmetric-versus-directional battery and what it found |
-| [`PREPRINT_AND_REVIEWS.md`](PREPRINT_AND_REVIEWS.md) | Figure-by-figure mapping from the preprint, and the reviewers' requests |
 | [`FIGURE_LABELS.md`](FIGURE_LABELS.md) | Supplementary figure letters → content, and why they are letters |
 | [`LICENSE-DATA.md`](LICENSE-DATA.md) | What may be reused, and the inputs that are not ours to license |
 | `docs/notes/` | Working notes, kept for transparency. Not needed to validate anything. |
@@ -237,8 +236,7 @@ docs/notes/    working notes: the plan, the red-team audits, progress logs
 The bioRxiv preprint (July 2026) is **not** what these figures reproduce. Its Fig 2 is two
 scatters and an epoch curve, its Fig 3 a five-lineage sweep, its Fig 4 the epistasis scan.
 The within-stratum, comparator, direction, thirteen-lineage and DMS figures here are
-**revision-stage** work answering the MBE reviews.
-[`PREPRINT_AND_REVIEWS.md`](PREPRINT_AND_REVIEWS.md) has the figure-by-figure mapping.
+**revision-stage** work answering reviewer comments.
 
 ## Which models, which checkpoints
 

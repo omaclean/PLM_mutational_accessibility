@@ -412,7 +412,7 @@ def test_column_widths_match_mbe():
 
 
 def test_save_figure_writes_both_vector_and_raster(tmp_path):
-    """MBE wants vector; review wants raster. Neither may drift from the other."""
+    """Vector for submission; raster for review. Neither may drift from the other."""
     fig = style.figure()
     fig.add_subplot(111).plot([0, 1], [0, 1], color=style.BASE)
     written = style.save_figure(fig, tmp_path / "demo")

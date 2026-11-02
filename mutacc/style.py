@@ -167,7 +167,7 @@ def colours_for_categories(names) -> dict[str, str]:
 
 
 # ---------------------------------------------------------------------------
-# Geometry. MBE column widths.
+# Geometry. Standard journal column widths.
 # ---------------------------------------------------------------------------
 
 WIDTH_SINGLE = 3.46   # inches (88 mm)
@@ -527,7 +527,7 @@ def save_figure(fig: Figure, path: str | Path, *, close: bool = True,
                 suffixes: tuple[str, ...] = (".pdf", ".png")) -> list[Path]:
     """Save a figure as PDF and PNG with the same stem.
 
-    MBE wants vector for submission and a raster is wanted for review, so both
+    Vector is preferred for submission and a raster is wanted for review, so both
     are always written and neither can drift from the other. ``rasterise_figures.sh``
     used to back-fill PNGs from PDFs but skipped any PDF whose script had already
     written its own PNG, so a figure's final resolution depended on which path

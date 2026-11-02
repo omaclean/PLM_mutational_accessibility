@@ -34,6 +34,28 @@ test_custom_labels.png
 .DS_Store
 
 # ---------------------------------------------------------------------------
+# Manuscript drafts, reviews, decision letters, and personal correspondence.
+# These must remain confidential and never be committed to git.
+# ---------------------------------------------------------------------------
+.ms_stuff/
+MS_stuff
+MS_stuff/
+ms_stuff/
+.ms/
+*Email*
+*Outlook*
+*review*.txt
+*review*.pdf
+*Review*.pdf
+*review*.doc*
+*Review*.doc*
+*response*to*reviewers*
+*736753*
+reviews.txt
+reviews/
+PREPRINT_AND_REVIEWS.md
+
+# ---------------------------------------------------------------------------
 # Sequence data.
 #
 # GISAID-derived alignments must not be redistributed, so FASTA is ignored
