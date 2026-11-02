@@ -3,8 +3,7 @@
 Code and derived tables that redraw every figure of **"Protein language models learn
 underlying mutation biases alongside fitness landscapes"** (MacLean, Lamb, Lytras,
 Mojsiejczuk, Yuan, Hughes & Robertson), bioRxiv
-[10.64898/2026.07.06.736753](https://www.biorxiv.org/content/10.64898/2026.07.06.736753), under revision at
-*Molecular Biology and Evolution*.
+[10.64898/2026.07.06.736753](https://www.biorxiv.org/content/10.64898/2026.07.06.736753) .
 
 Protein language models score amino acid replacements as pseudo-probabilities. Because they
 are trained on natural sequences, those scores conflate structural constraint with
