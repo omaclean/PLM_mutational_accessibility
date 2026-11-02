@@ -348,7 +348,7 @@ def draw_panel_c(ax, scores_df: pd.DataFrame, model_specs: list[dict], alphas: n
     style.reference_line(ax, 0.0, label="alpha = 0", axis="x", label_side="below",
                          color=style.INK_MUTED, zorder=2, **style.ALPHA_ZERO_RULE)
     ax.set_xlabel(r"Mutational accessibility weight $\alpha$")
-    ax.set_ylabel("Spearman rho vs fitness")
+    ax.set_ylabel("Spearman ρ vs fitness")
     ax.set_xlim(-0.52, 0.52)
     ax.set_ylim(0.0, 0.68)
     style.panel_title(ax, r"Fitness estimation across accessibility weight $\alpha$",
@@ -820,7 +820,7 @@ def draw(data: dict):
     mat_all = compute_cross_correlation_matrix(scores_df, model_specs, spectrum_specs)
     draw_heatmap(ax_b, mat_all,
                  f"{plm} vs mutation spectra (full matrix)",
-                 f"Spearman rho across all replacements (N={len(scores_df):,})")
+                 f"Spearman ρ across all replacements (N={len(scores_df):,})")
 
     # Panel D: Cross-correlation heatmap (1-nt band only)
     df_1nt = scores_df[scores_df["nt_steps"] == 1]
@@ -830,7 +830,7 @@ def draw(data: dict):
     # Spearman rho as B, just on the single-nucleotide band.
     draw_heatmap(ax_d, mat_1nt,
                  f"{plm} vs mutation spectra (N=1 band)",
-                 f"Spearman rho, codon distance held at 1 nt (N={len(df_1nt):,})")
+                 f"Spearman ρ, codon distance held at 1 nt (N={len(df_1nt):,})")
 
     # Panel E: the specificity term, with the rows and columns of D taken out
     interaction = compute_interaction_matrix(df_1nt, model_specs, spectrum_specs)

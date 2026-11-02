@@ -211,7 +211,7 @@ def draw(table, pairs, summaries, guide: Guide, guide_asym: Guide):
     panel_strata(ax_a, table, guide)
     style.finalise_axes(
         ax_a, xlabel="Minimum nucleotide changes needed to make the replacement",
-        ylabel="Correlation with mutational\naccessibility (Spearman r)",
+        ylabel="Correlation with mutational\naccessibility (Spearman ρ)",
         title=f"Model vs mutational accessibility, with codon distance held fixed ({n_a} lineages)")
 
     panel_direction(ax_b, pairs, summaries, guide_asym)
@@ -222,7 +222,7 @@ def draw(table, pairs, summaries, guide: Guide, guide_asym: Guide):
 
     panel_specific(ax_c, summaries, guide_asym)
     style.finalise_axes(
-        ax_c, ylabel="Correlation between model and\nmutation directions (Spearman r)",
+        ax_c, ylabel="Correlation between model and\nmutation directions (Spearman ρ)",
         title=f"Pair-specific direction ({n_b} lineages)")
     for ax, dx in ((ax_a, -0.075), (ax_b, -0.13), (ax_c, -0.2)):
         style.panel_letter(ax, "ABC"[[ax_a, ax_b, ax_c].index(ax)], dx=dx)

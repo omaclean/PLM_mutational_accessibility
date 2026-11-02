@@ -76,7 +76,7 @@ main:
     note: panel B, see fig02ab_scatter_panels
   fig02c_epoch_panel:
     parent: fig02_composite
-    note: panel C, drawn separately from digitised values and panelised in guides/composites/fig02.yaml
+    note: panel C, drawn separately from the per-epoch fine-tuning values and panelised in guides/composites/fig02.yaml
   fig02d_strata_panel:
     parent: fig02_composite
     note: panel D, drawn separately and panelised in guides/composites/fig02.yaml

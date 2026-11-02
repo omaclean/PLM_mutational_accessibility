@@ -118,7 +118,7 @@ PANELS = [
     ("pauroc_std", "Partial AUROC", "AUROC for false positive\nrates ≤ {cap}", "Partial AUROC",
      (0.5, "chance = 0.5", "right")),
     ("nonzero_spearman", "Spearman, observed only", "rank correlation across\nnon-zero frequencies only",
-     "Spearman correlation", (0.0, "no relationship = 0", "right")),
+     "Spearman ρ", (0.0, "no relationship = 0", "right")),
     ("logfreq_pearson", "Pearson on log frequency", "the same correlation as a linear\none, on the logged frequency",
      "Pearson correlation", (0.0, "no relationship = 0", "right")),
     ("winners_auroc", "Picking the winners", "top {top} by frequency against\nthe rest of the observed ones",

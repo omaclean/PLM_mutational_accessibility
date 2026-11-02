@@ -198,7 +198,7 @@ def _plot(table: pd.DataFrame, value: str, lo: str, hi: str, *, zero_label: str,
 
 def draw_swap(table: pd.DataFrame):
     return _plot(table, "estimate", "lo", "hi", zero_label="no correlation = 0",
-                 xlabel="Spearman correlation with accessibility", height=7.2)
+                 xlabel="Spearman ρ with accessibility", height=7.2)
 
 
 def summarise(table: pd.DataFrame) -> pd.DataFrame:

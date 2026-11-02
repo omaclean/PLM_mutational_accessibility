@@ -208,6 +208,14 @@ def use_house_style() -> None:
         "figure.facecolor": SURFACE,
         "axes.facecolor": SURFACE,
 
+        # Embed TrueType, not matplotlib's default Type 3. A Type 3 subset carries no
+        # ToUnicode map, so a non-Latin-1 glyph renders correctly but extracts as nothing:
+        # the Greek rho in the correlation labels vanished from the PDF text layer, which
+        # is what the composite's own text-layer tests read. Type 42 also keeps the text
+        # searchable and copyable in the submitted PDF.
+        "pdf.fonttype": 42,
+        "ps.fonttype": 42,
+
         "font.family": "sans-serif",
         "font.sans-serif": ["DejaVu Sans", "Helvetica", "Arial"],
         "font.size": 8,

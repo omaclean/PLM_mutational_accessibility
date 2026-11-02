@@ -54,6 +54,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
+from matplotlib.ticker import FuncFormatter, MultipleLocator
 
 from mutacc import style
 from mutacc.dms_sweep import (
@@ -335,13 +336,66 @@ SHOWN_BELOW_FLOOR_GAIN = 1.5
 #: heading lines.
 PANEL_SUBHEADING_PAD_PT = 3.0
 
+#: Type sizes for this figure. It is a 2x2 grid at double-column width, so its text can sit
+#: well above the house defaults (8 pt labels, 7 pt ticks) and still have room; at the
+#: defaults the panels read as mostly white space with small print in them.
+SUPLABEL_PT = 10.0
+#: The y label carries the statistic, so it is set a little larger than the x label.
+SUPYLABEL_PT = 10.5
+PANEL_TITLE_PT = 9.0
+CITATION_PT = 7.5
+DIRECT_LABEL_PT = 7.5
+TICK_PT = 9.0
+LEGEND_PT = 8.5
+
+#: Legend entries per row. A single row of all of them runs past the figure's 180 mm width,
+#: and savefig's tight box then grows the saved figure to hold the overflow -- which scales
+#: the panels down by the same proportion the moment the figure is placed at column width.
+#: Wrapping keeps the saved page at the width the panels were laid out for.
+LEGEND_COLUMNS = 3
+
+#: Legend handle length, in font-size units. The alpha = 0 rule is dashed on a 11.2 pt period
+#: (style.ALPHA_ZERO_RULE, scaled by its line width), so the default 1.4 handle is barely one
+#: dash and the entry reads as a stray stroke rather than as the dashed line it stands for.
+#: This fits two whole periods. Lengthening the handle keeps the key honest: the swatch is
+#: the same line as the one on the panels, where re-dashing it just for the legend would not.
+LEGEND_HANDLE_LEN = 2.6
+
 #: What the citation line occupies, title baseline to subheading baseline. The title and the
-#: panel letter are both raised by this much so that they share the upper line.
-CITATION_LINE_PT = 9.0
+#: panel letter are both raised by this much so that they share the upper line. It tracks
+#: the title size: at 9 pt type a 9 pt line sets the citation on the title's descenders.
+CITATION_LINE_PT = 11.0
 
 #: Points of room above the axes for the panel title. The panel letter is placed with the same
 #: value, which puts it on the title's own baseline instead of floating in the white above it.
 PANEL_HEADING_PAD_PT = PANEL_SUBHEADING_PAD_PT + CITATION_LINE_PT
+
+
+def _tick_text(value: float, places: int) -> str:
+    """Fixed-decimal tick text carrying matplotlib's own minus sign (U+2212), not a hyphen."""
+    return f"{value:.{places}f}".replace("-", "−")
+
+
+def _half_step_label(value: float, _pos) -> str:
+    """Label the 0.5 steps of the alpha axis to one decimal, blank the 0.25 ones between."""
+    return _tick_text(value, 1) if abs(value * 2 - round(value * 2)) < 1e-9 else ""
+
+
+#: Candidate y tick steps, coarsest first. The y axis is labelled to one decimal place, so
+#: every step is a multiple of 0.1: a finer ladder would print two ticks with the same text.
+Y_TICK_STEPS = (1.0, 0.5, 0.2, 0.1)
+
+#: Roughly how many labelled y ticks a panel should carry.
+Y_TICK_TARGET = 4
+
+
+def _y_tick_step(lo: float, hi: float) -> float:
+    """The coarsest step that still puts about ``Y_TICK_TARGET`` labelled ticks on the axis."""
+    span = hi - lo
+    for step in Y_TICK_STEPS:
+        if span / step >= Y_TICK_TARGET - 1:
+            return step
+    return Y_TICK_STEPS[-1]
 
 
 def _shown_below_floor(g: pd.DataFrame) -> bool:
@@ -353,6 +407,67 @@ def _shown_below_floor(g: pd.DataFrame) -> bool:
     if bool(g["interpretable"].iloc[0]) or bool(g["boundary"].iloc[0]):
         return False
     return abs(float(g["rho_best"].iloc[0])) >= SHOWN_BELOW_FLOOR_GAIN * abs(float(g["rho_alpha0"].iloc[0]))
+
+
+#: Panel C's fine-tuned label, dropped this far in data units below the top of the panel.
+FIG4C_GREEN_DROP = 0.06
+
+#: The top of panel C's base label, in data units: under both curves, above the zero line.
+FIG4C_BLUE_TOP = 0.045
+
+#: The top of panel D's fine-tuned label, in data units. Its own curve is still descending
+#: through this part of the panel, so a label hung just under the curve at alpha = 0 runs
+#: into it further right; this clears the descent and leaves the label beside alpha = 0.
+FIG4D_GREEN_TOP = 0.17
+
+#: Panel letters whose "no relationship = 0" reads better under the zero line than over it.
+ZERO_LABEL_BELOW = {"C"}
+
+
+def _inset_top(ax, drop: float) -> float:
+    """Data y just under the top of the panel, then ``drop`` data units lower again."""
+    lo, hi = ax.get_ylim()
+    return hi - 0.02 * (hi - lo) - drop
+
+
+def _curve_point(g: pd.DataFrame, alpha_target: float) -> tuple[float, float]:
+    """The curve's own (alpha, rho) nearest ``alpha_target``, to hang a label off."""
+    alpha = g["alpha"].to_numpy()
+    i = int(np.argmin(np.abs(alpha - alpha_target)))
+    return float(alpha[i]), float(g["rho"].to_numpy()[i])
+
+
+#: First-choice label positions, keyed by (panel letter, model role). Every automatic
+#: candidate is anchored to a point on the curve, so the solver can only offer a label a seat
+#: beside its own line; it has no way to express "under both curves" or "the empty corner".
+#: Where a panel reads better with the label somewhere the curve does not go, name the spot
+#: here. Each entry takes the axes, because these are measured against the data rather than
+#: against the panel box. They are tried first and the automatic candidates still follow, so
+#: a corner that stops being empty loses to a clean automatic placement instead of stranding
+#: the label on top of the data. Keyed by letter, not by dataset: the script must not name
+#: the values in its own tables (tests/test_fig04.py), and a panel letter is the figure's
+#: own coordinate rather than something read out of the data.
+LABEL_CORNERS = {
+    # The fine-tuned label sat in the middle of the panel, in the gap between the two curves,
+    # which is where a reader is trying to look.
+    ("C", "finetune"): lambda ax, g: [
+        Candidate((0.015, _inset_top(ax, FIG4C_GREEN_DROP)), (0, 0), "left", "top",
+                  ("axes fraction", "data")),
+    ],
+    # The base label sat against the right edge, two thirds of the panel away from the dot
+    # whose weight it quotes. Bring it in towards alpha = 0 and tuck it under both curves, in
+    # the clear band between them and the zero line.
+    ("C", "base"): lambda ax, g: [
+        Candidate((0.55, FIG4C_BLUE_TOP), (0, 0), "left", "top", ("axes fraction", "data")),
+    ],
+    # The fine-tuned label sat out at the right edge, far from the dot whose weight it
+    # quotes. Bring it back beside alpha = 0 and hang it under its own curve, which is
+    # where this panel has room. Anchored to the curve, so it follows if the curve moves.
+    ("D", "finetune"): lambda ax, g: [
+        Candidate((0.52, FIG4D_GREEN_TOP), (0, 0), "left", "top", ("axes fraction", "data")),
+        Candidate(_curve_point(g, CLEAR_OF_ZERO_ALPHA), (3, -5), "left", "top"),
+    ],
+}
 
 
 def _arm_candidates(g: pd.DataFrame, above_first: bool) -> list[Candidate]:
@@ -383,11 +498,12 @@ def _arm_candidates(g: pd.DataFrame, above_first: bool) -> list[Candidate]:
     return out
 
 
-def _zero_candidates() -> list[Candidate]:
+def _zero_candidates(below_first: bool = False) -> list[Candidate]:
     coords = ("axes fraction", "data")
+    verticals = ((-2, "top"), (2, "bottom")) if below_first else ((2, "bottom"), (-2, "top"))
     return [Candidate((x, 0.0), (dx, dy), ha, va, coords)
             for x, dx, ha in ((1.0, -2, "right"), (0.0, 2, "left"))
-            for dy, va in ((2, "bottom"), (-2, "top"))]
+            for dy, va in verticals]
 
 
 def _style_panel(ax, group: pd.DataFrame) -> list[pd.DataFrame]:
@@ -414,10 +530,20 @@ def _style_panel(ax, group: pd.DataFrame) -> list[pd.DataFrame]:
     # alpha = 0 is the raw PLM score, the comparison every curve is read against, so the line
     # runs the full height of the panel and sits above the bands rather than behind them.
     ax.axvline(0.0, color=style.INK_MUTED, zorder=3.5, **style.ALPHA_ZERO_RULE)
-    ax.margins(y=0.22)
+    ax.margins(y=0.14)
     lo, hi = ax.get_ylim()
     ax.set_ylim(min(lo, -0.02 * (hi - lo)), max(hi, 0.02 * (hi - lo)))
     ax.set_xlim(group["alpha"].min(), group["alpha"].max())
+    # One decimal place on every panel, so the ladder reads the same across the figure. The
+    # step has to be a multiple of 0.1 to match: the 0.05 ladder the auto-locator chose for
+    # the two shallow panels would print "0.2" twice.
+    ax.yaxis.set_major_locator(MultipleLocator(_y_tick_step(*ax.get_ylim())))
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: _tick_text(v, 1)))
+    # Label every other gridline. At this figure's tick size the full 0.25 ladder runs its
+    # labels into each other, and blanking the odd ones leaves the gridlines exactly where
+    # they were -- thinning the locator instead would thin the grid with it.
+    ax.xaxis.set_major_locator(MultipleLocator(0.25))
+    ax.xaxis.set_major_formatter(FuncFormatter(_half_step_label))
     style.reference_line(ax, 0.0, ZERO_LABEL)
     return arms
 
@@ -433,7 +559,7 @@ def _role_legend_label(curves: pd.DataFrame, role: str) -> str:
     return ROLE_NAMES.get(role, role)
 
 
-def _label_panel(ax, arms: list[pd.DataFrame]) -> list[int]:
+def _label_panel(ax, arms: list[pd.DataFrame], letter: str) -> list[int]:
     """Direct labels (with the best weight, or "no optimum marked") and the zero-line label, placed clear of the rest.
 
     Returns the placement scores (0 = clean) so a test can assert nothing collided.
@@ -468,12 +594,15 @@ def _label_panel(ax, arms: list[pd.DataFrame]) -> list[int]:
         # the line they name, so the colour is the thing that ties them together; in ink
         # the reader has to match them by reading the legend instead. Both role colours
         # clear the 3:1 contrast floor against the surface (see mutacc/style.py).
-        _, s = place_label(ax, text, _arm_candidates(g, above_first=(k == 0)), obstacles=with_zero,
-                           placed=placed, fontsize=6,
+        corner = LABEL_CORNERS.get((letter, str(g["model_role"].iloc[0])))
+        first = corner(ax, g) if corner else []
+        _, s = place_label(ax, text, first + _arm_candidates(g, above_first=(k == 0)), obstacles=with_zero,
+                           placed=placed, fontsize=DIRECT_LABEL_PT,
                            color=style.colour_for_role(str(g["model_role"].iloc[0])),
                            linespacing=1.15)
         scores.append(s)
-    scores.append(place_existing(ax, zero_label, _zero_candidates(), obstacles=curve_pts, placed=placed))
+    scores.append(place_existing(ax, zero_label, _zero_candidates(letter in ZERO_LABEL_BELOW),
+                                 obstacles=curve_pts, placed=placed))
 
     return scores
 
@@ -496,7 +625,7 @@ def draw(curves: pd.DataFrame):
     panels = panel_order(curves)
     ncol = column_count(len(panels))
     nrow = int(np.ceil(len(panels) / ncol))
-    fig = style.figure(style.WIDTH_DOUBLE, 2.1 * nrow + 0.6)
+    fig = style.figure(style.WIDTH_DOUBLE, 2.85 * nrow + 0.5)
     axes = np.atleast_1d(fig.subplots(nrow, ncol, squeeze=False)).ravel()
     drawn, panel_arms = [], []
     for ax, (dataset, trait) in zip(axes, panels):
@@ -504,17 +633,20 @@ def draw(curves: pd.DataFrame):
         panel_arms.append(_style_panel(ax, group))
         first = group.iloc[0]
         # Two heading lines: what the panel measures, then where the measurements came from.
-        ax.set_title(panel_title(first), loc="left", fontsize=7.5, pad=PANEL_HEADING_PAD_PT)
+        ax.set_title(panel_title(first), loc="left", fontsize=PANEL_TITLE_PT, pad=PANEL_HEADING_PAD_PT)
         ax.annotate(panel_subheading(first), xy=(0, 1), xycoords="axes fraction",
                     xytext=(0, PANEL_SUBHEADING_PAD_PT), textcoords="offset points",
-                    ha="left", va="baseline", fontsize=6.5, color=style.INK_MUTED)
+                    ha="left", va="baseline", fontsize=CITATION_PT, color=style.INK_MUTED)
+        ax.tick_params(labelsize=TICK_PT)
         drawn.append(ax)
     for ax in axes[len(panels):]:
         ax.set_visible(False)
     style.panel_letters(drawn, pad_points=PANEL_HEADING_PAD_PT)
 
-    fig.supxlabel(style.ALPHA_SWEEP_XLABEL, fontsize=8)
-    fig.supylabel("Rank correlation with measured effect (Spearman ρ)", fontsize=8)
+    fig.supxlabel(style.ALPHA_SWEEP_XLABEL, fontsize=SUPLABEL_PT)
+    # The statistic is set bold so it reads first; mathtext is the only way to weight part of
+    # a label. It is checked for both rendering and PDF text extraction (tests/test_fig04.py).
+    fig.supylabel(r"$\mathbf{Spearman\ \rho}$, PLM vs DMS measured effect", fontsize=SUPYLABEL_PT)
 
     roles = list(dict.fromkeys(curves["model_role"]))
     handles = [Line2D([], [], color=style.colour_for_role(r), label=_role_legend_label(curves, r))
@@ -535,9 +667,11 @@ def draw(curves: pd.DataFrame):
                           **style.ALPHA_ZERO_RULE))
     if bool(curves["ci_lo"].notna().any()):
         handles.append(Patch(facecolor=style.NULL_GREY, alpha=0.3, linewidth=0, label="95% interval over DMS sites"))
-    style.legend_above(fig, handles=handles, ncol=len(handles), handlelength=1.4, columnspacing=1.2)
+    style.legend_above(fig, handles=handles, ncol=min(len(handles), LEGEND_COLUMNS),
+                       handlelength=LEGEND_HANDLE_LEN, columnspacing=1.2, fontsize=LEGEND_PT)
     fig.canvas.draw()                      # layout must be final before text is measured
-    scores = [s for ax, arms in zip(drawn, panel_arms) for s in _label_panel(ax, arms)]
+    scores = [s for i, (ax, arms) in enumerate(zip(drawn, panel_arms))
+              for s in _label_panel(ax, arms, chr(ord("A") + i))]
     fig.label_scores = scores              # 0 = placed clear of everything
     return fig
 

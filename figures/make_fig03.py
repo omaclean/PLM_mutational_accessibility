@@ -39,7 +39,7 @@ STEM = "fig03_alpha_sweep"
 #: in plain words what is being asked and is deliberately smaller.
 PANELS = [
     ("mut_flat_global_spearman_r", "Spearman correlation",
-     "PLM score vs observed frequency,\nall possible AA replacements", "Spearman r", (0.0, "no relationship = 0")),
+     "PLM score vs observed frequency,\nall possible AA replacements", "Spearman ρ", (0.0, "no relationship = 0")),
     ("site_logistic_auroc", "AUROC: all possible AAs",
      "Binary prediction: AA\nreplacement observed or not", "AUROC", (0.5, "chance = 0.5")),
     ("winners_auroc", "AUROC: top 5% circulating",

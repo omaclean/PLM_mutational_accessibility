@@ -1,4 +1,8 @@
-"""Recover the plotted values of the frozen Figure 2C epoch curve from its raster.
+"""PROVENANCE ONLY — Recover the plotted values of the frozen Figure 2C epoch curve from its raster.
+
+Figure 2C has been regenerated from a real per-epoch run (dev/fig02c_epoch_run/)
+evaluated on the primary lineage J.2_int across fine-tuning epochs. This tool is retired
+to provenance-only and retained for historical record and comparison against the published raster.
 
 Panel 2C was published as a picture: a mean Spearman correlation at "raw" and at each of 20
 fine-tuning epochs. The table behind it does not exist anywhere (every epoch table in the

@@ -37,8 +37,8 @@ the old repository root (`Mut_acc_PLM_MS/`).
 | `fig1d_codon_to_aa_heatmap.pdf` | **No longer used.** Replaced 14 Oct 2026 by `figures/make_fig01d.py`, which recomputes the matrix from `data/spectra/` with `mutacc.accessibility.codon_aa_table` and draws it on a log scale. Kept for comparison only. Fig 1D: H3N2 codon to amino-acid probability matrix (64 x 21) | **Frozen. Original not in this repo.** The notebook read it from a different repository (`.../Sequences/IAV_lineage_files/IAV_model_comparison_aa/codon_to_amino_acid_matrix_heatmap.pdf`) and no generator was found. This copy was cut out of the published composite, vector intact, with the panel letter removed. | `results/final_figures/panels/Figure_1_Composite.pdf` (bottom panel; letter streams blanked, clipped to y 1422.3-2133.5 pt) |
 | `fig2a_scatter_esm2_raw.pdf` | **No longer used** (replaced 16 Oct 2026 by `figures/make_fig02ab.py`; kept for comparison). Drew all five lineages pooled, which is why its printed Spearman is 0.274. Fig 2A: PLM against mutation probability, raw ESM2 650M, coloured by number of nucleotide changes | Regenerable by `scripts/run_mutational_accessibility.py` (line writing `plm_vs_mut_prob_scatter_by_mutation_distance`). Copied so the layout is self-contained. 21 Sep render. | `results/Lytras_OG/plots/per_model/ESM2_650M_HA80_raw/plm_vs_mut_prob_scatter_by_mutation_distance.pdf` |
 | `fig2b_scatter_esm2_ha80.pdf` | **No longer used**, as above (pooled, Spearman 0.652). Fig 2B: the same for the fine-tuned model (ESM2_650M_HA80) | As above. | `results/Lytras_OG/plots/per_model/ESM2_650M_HA80/plm_vs_mut_prob_scatter_by_mutation_distance.pdf` |
-| `fig2c_epoch_values.tsv` | The 21 values of Fig 2C (raw and epochs 1 to 20), read back off `fig2c_plm_epoch.png` | **Derived** by `tools/digitise_epoch_curve.py`, which is what `figures/make_fig02c.py` redraws the panel from. Good to a few 1e-4. Means over three lineages, as published. | derived from the row below |
-| `fig2c_plm_epoch.png` | Fig 2C: mean per-lineage Spearman correlation by training epoch | **No longer placed** (replaced 16 Oct 2026 by `figures/make_fig02c.py`, drawn from the values digitised from this file). **Frozen. No generator anywhere.** Raster (1440 x 1125 px). Its title is cut off in the image itself ("mutation rows/linea"). Uses 3 lineages, not 13. | `results/final_figures/plot_PLM_epoch.png` |
+| `fig2c_epoch_values.tsv` | Correlation values across fine-tuning epochs on primary lineage J.2_int | **Regenerated** from a real fine-tuning run on HA-80 (the run tree is not shipped; it is written up in `RUNS.md`, and the table's `source` column names a checkpoint per row), superseding the digitised table. Evaluated on J.2_int (unmasked forward pass), matching panels A, B, and D. | `dev/fig02c_epoch_run/` |
+| `fig2c_plm_epoch.png` | Fig 2C: legacy raster of mean per-lineage Spearman correlation by training epoch | **Kept for provenance only.** Replaced by `figures/make_fig02c.py` drawn from `fig2c_epoch_values.tsv`. Raster (1440 x 1125 px). | `results/final_figures/plot_PLM_epoch.png` |
 
 ## Flags
 
@@ -46,9 +46,12 @@ the old repository root (`Mut_acc_PLM_MS/`).
   accessions (the PDF has no text layer and the picture shows only mutation labels and
   clade names), but the tree structure is derived from GISAID data. Check the GISAID
   terms and acknowledgement requirements before redistributing this file.
-- Panel 2C and the 1D heatmap have no generator, so neither can be *rebuilt*. Their plot
-  areas keep their original fonts and colours and will not match the house style.
-- Their **titles** are a separate matter, and are now handled. `figures/panelise.py` takes
+- Only `fig1a_clade_tree*.pdf` has no generator and so cannot be *rebuilt*. Its plot area
+  keeps its original fonts and colours and will not match the house style. Panel 2C and the
+  1D heatmap were in the same position until October 2026; both now have generators
+  (`figures/make_fig02c.py`, `figures/make_fig01d.py`) and the copies here are provenance
+  only, as the rows above record.
+- Panel **titles** are a separate matter, and are now handled. `figures/panelise.py` takes
   `crop_top_frac` and `title`/`tagline` per panel, so a layout can cut a frozen panel's own
   title off and have a house-style header drawn in its place. Figure 2 does this for 2A, 2B
   and 2C, which is what finally fixed 2C's title being truncated mid-word in the source

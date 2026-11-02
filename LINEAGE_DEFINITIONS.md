@@ -32,7 +32,7 @@ In viral genomics, the term **Pangolin** refers to two distinct but connected co
 
 1. **SARS-CoV-2 Pangolin Nomenclature:**
    * Developed by Rambaut et al. (*Nature Microbiology* 2020), the **Phylogenetic Assignment of Named Global Outbreak LINeages (Pango / Pangolin)** system assigns hierarchical, dynamic labels to SARS-CoV-2 lineages (e.g., A, B, B.1.1.7, BA.1, JN.1, LP.8.1, XEC).
-   * In `clean_repo/data/roots/sars_cov_2_spike/`, Pangolin lineages are tracked directly (`LP.8.1`, `JN.1`, `XEC`, `NB.1.8.1`, `Wuhan-Hu-1`).
+   * In `data/roots/sars_cov_2_spike/`, Pangolin lineages are tracked directly (`LP.8.1`, `JN.1`, `XEC`, `NB.1.8.1`, `Wuhan-Hu-1`).
 
 2. **Influenza A/H3N2 "Pango-Style" Subclade Nomenclature:**
    * Historically, WHO and CDC classified influenza using clade designations based on phylogeny and antigenic characterization (e.g., `3C.2a`, `3C.2a1b.2a.2`).
@@ -203,7 +203,7 @@ response to reviewers alongside the corrected count of nine.
 
 ## 7. Automated Regression Tests
 
-The integrity of these definitions is enforced in `clean_repo/tests/test_lineage_definitions.py`:
+The integrity of these definitions is enforced in `tests/test_lineage_definitions.py`:
 * `test_j2_int_vs_k_exact_nine_mutations`: Asserts that `J.2_int` and `K` differ by exactly 9 amino acid substitutions (8 in HA1, 1 in HA2).
 * `test_site_145_is_identically_serine`: Asserts that codon 161 (mature 145) is `S` in both J.2 and K, and that no `N145S` mutation exists.
 * `test_j2_int_5lineage_and_13lineage_protein_identity`: Asserts 100% protein identity between the 5-lineage and 13-lineage J.2 roots.

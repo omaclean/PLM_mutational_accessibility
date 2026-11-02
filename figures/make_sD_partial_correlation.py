@@ -57,10 +57,10 @@ CONTROL = next(p[0] for p in PROPERTIES if p[0] == "neg_grantham")
 #: hollow). The role decides the colour: a series carrying no chemistry control
 #: wears the model's own colour, one that does wears the biochemistry colour.
 ROW_RANK = [
-    ("plm_vs_access", "", "Spearman r (no control)", None, "o", "-", False),
-    ("plm_vs_access", CONTROL, "Partial Spearman r, Grantham rank removed",
+    ("plm_vs_access", "", "Spearman ρ (no control)", None, "o", "-", False),
+    ("plm_vs_access", CONTROL, "Partial Spearman ρ, Grantham rank removed",
      PROPERTY_ROLE, "s", "-", False),
-    ("matched_rank", CONTROL, "Spearman r within Grantham bins (matched)",
+    ("matched_rank", CONTROL, "Spearman ρ within Grantham bins (matched)",
      PROPERTY_ROLE, "v", "--", True),
 ]
 ROW_FIT = [
@@ -124,7 +124,7 @@ def draw(table: pd.DataFrame, guide: Guide):
     # Every panel carries the model and the lineage, including the lower row. A supplementary
     # panel is quoted on its own often enough that it has to say what it is without the one
     # above it, and the row is told apart by its y-axis rather than by the title.
-    rows = [(ROW_RANK, "Correlation with mutational\naccessibility (Spearman r)"),
+    rows = [(ROW_RANK, "Correlation with mutational\naccessibility (Spearman ρ)"),
             (ROW_FIT, "Implicit exponent on\naccessibility (softmax fit)")]
     for r, (lines, ylabel) in enumerate(rows):
         sub = table[table["measure"].isin({m for m, *_ in lines})]

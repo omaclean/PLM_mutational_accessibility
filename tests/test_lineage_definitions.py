@@ -27,10 +27,17 @@ from mutacc.guide import REPO_ROOT, load_guide
 ROOTS_5 = REPO_ROOT / "data" / "roots" / "h3n2_5lineage"
 ROOTS_13 = REPO_ROOT / "data" / "roots" / "h3n2_13lineage"
 ROOTS_SC2 = REPO_ROOT / "data" / "roots" / "sars_cov_2_spike"
+#: The one copy. Three byte-identical duplicates (``lineage_definitions.md``, the misspelled
+#: ``lineage_definitons.md`` and ``lineage_definitions/README.md``) were removed on
+#: 2 Nov 2026: a reader could not tell which was canonical, and the first two differ from
+#: this one only in case, so a checkout on a case-insensitive filesystem collided. Every
+#: document and script that cites the definitions already pointed here.
 DOC_PRIMARY = REPO_ROOT / "LINEAGE_DEFINITIONS.md"
-DOC_ALIAS_DEF = REPO_ROOT / "lineage_definitions.md"
-DOC_ALIAS_TYPO = REPO_ROOT / "lineage_definitons.md"
-DOC_DIR_README = REPO_ROOT / "lineage_definitions" / "README.md"
+DOC_DUPLICATES = (
+    REPO_ROOT / "lineage_definitions.md",
+    REPO_ROOT / "lineage_definitons.md",
+    REPO_ROOT / "lineage_definitions" / "README.md",
+)
 
 # Canonical 9 clade-defining mutations between J.2_int and K
 # (precursor_codon_1based, mature_label, domain, domain_pos, j2_codon, k_codon, j2_aa, k_aa)
@@ -51,12 +58,14 @@ CANONICAL_9_MUTATIONS = [
 # Documentation & Symlink Integrity
 # ---------------------------------------------------------------------------
 
-def test_lineage_definitions_documentation_and_symlinks_exist():
-    """All requested files, aliases, and directory READMEs must exist."""
+def test_lineage_definitions_documentation_exists_exactly_once():
+    """One copy of the definitions, and no duplicate that could drift away from it."""
     assert DOC_PRIMARY.exists(), f"Missing primary doc: {DOC_PRIMARY}"
-    assert DOC_ALIAS_DEF.exists(), f"Missing alias: {DOC_ALIAS_DEF}"
-    assert DOC_ALIAS_TYPO.exists(), f"Missing alias: {DOC_ALIAS_TYPO}"
-    assert DOC_DIR_README.exists(), f"Missing folder readme: {DOC_DIR_README}"
+    for path in DOC_DUPLICATES:
+        assert not path.exists(), (
+            f"duplicate copy of the lineage definitions is back: {path}. "
+            f"There is one copy, {DOC_PRIMARY.name}; cite that."
+        )
 
     # Verify content mentions all 9 mutations and explains N145S
     content = DOC_PRIMARY.read_text()

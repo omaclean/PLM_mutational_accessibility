@@ -3,16 +3,23 @@
     python figures/make_fig02c.py
 
 Mean Spearman correlation between the model's probability and mutational accessibility at the
-raw model and after each of 20 fine-tuning epochs, drawn from
+raw model and after each fine-tuning epoch on the primary lineage (J.2_int), drawn from
 ``data/frozen_panels/fig2c_epoch_values.tsv``.
 
-**Where the numbers come from.** The panel was published as a picture with no table behind it
-(every epoch table in the repository holds only the raw and final model, and the run that made
-the 20-epoch series is gone). ``tools/digitise_epoch_curve.py`` reads the plotted values back
-off that picture, to a few 1e-4. They are means over three lineages, as published; the lineages
-are scored at the same sites, so they are pseudo-replicates and the mean is a smoothing of what
-one lineage would give, not an independent estimate. Redrawing from a fresh per-epoch run on the
-one lineage that panels A, B and D use would replace this table and nothing else.
+**Where the numbers come from.** Regenerated from a real fine-tuning run of
+``facebook/esm2_t33_650M_UR50D`` on the HA-80 corpus (Lytras et al., 2026, NAR Genomics and
+Bioinformatics, 8, lqag018), following the published methodology (80/20 train/val split,
+sequence length 566 aa, 15% masking, AdamW lr 5e-5, seed 13). Evaluated on the guide's
+primary lineage (``J.2_int``) using an unmasked forward pass, matching panels A, B, and D.
+This replaces the legacy 20-epoch curve that was digitised from a published raster.
+
+The run is *independent* of the ``ESM2_650M_HA80`` checkpoint panels A and B score: same
+recipe and corpus, fresh weights, so the two agree only to within run-to-run variation
+(``tests/test_make_fig02c.py`` pins that to 0.02). Epoch 0 is not re-scored here -- it is the
+raw model on ``J.2_int``, the same number panel A reports, and
+``tests/test_make_fig02c.py`` checks the two against each other. The training run itself is
+not shipped: it needs a GPU and the HA-80 corpus, and its checkpoints were not retained.
+``RUNS.md`` records the parameters.
 
 Drawn in the shared panel box (``style.PANEL_AXES``), at the shared size and label sizes, and
 saved uncropped, so its axes and text line up with panels A, B and D. The y title is panel D's
@@ -47,14 +54,13 @@ YLIM = (0.25, 0.68)
 #: panel is how little moves after epoch 1, so the plateau has to be readable to a hundredth;
 #: with the ticks automatic, the larger tick font quietly coarsened them to steps of 0.1.
 YTICK_STEP = 0.05
-XLIM = (-0.7, 20.7)
 MARKER_SIZE = 5.5
 LINE_WIDTH = 1.6
 COLUMNS = ["epoch", "label", "spearman_r", "source"]
 
 
 def load_values(path: Path = VALUES) -> pd.DataFrame:
-    """The digitised values, checked: raw then epochs 1 to 20 in order, correlations in [-1, 1]."""
+    """The epoch values, checked: raw then epochs 1 to N in order, correlations in [-1, 1]."""
     frame = pd.read_csv(path, sep="\t")
     missing = set(COLUMNS) - set(frame.columns)
     if missing:
@@ -82,10 +88,11 @@ def draw(frame: pd.DataFrame):
     ax = style.panel_axes(fig)
     ax.plot(frame["epoch"], frame["spearman_r"], color=colour, linewidth=LINE_WIDTH, marker="o",
             markersize=MARKER_SIZE, zorder=3)
-    ticks = tick_epochs(int(frame["epoch"].max()))
+    max_epoch = int(frame["epoch"].max())
+    ticks = tick_epochs(max_epoch)
     ax.set_xticks(ticks)
     ax.set_xticklabels(["raw" if e == 0 else str(e) for e in ticks])
-    ax.set_xlim(*XLIM)
+    ax.set_xlim(-0.7, max_epoch + 0.7)
     ax.set_ylim(*YLIM)
     ax.yaxis.set_major_locator(MultipleLocator(YTICK_STEP))
     ax.grid(True, linestyle="-", alpha=0.6)
@@ -99,18 +106,23 @@ def caption(frame: pd.DataFrame) -> str:
     raw, last = frame["spearman_r"].iloc[0], frame["spearman_r"].iloc[-1]
     first = frame["spearman_r"].iloc[1]
     plateau = frame["spearman_r"].iloc[2:]
+    max_ep = int(frame['epoch'].max())
     return f"""
     **Correlation with mutational accessibility across fine-tuning epochs.** Spearman rank
     correlation between the model's probability for each amino-acid replacement and its
     mutational accessibility, for the model as released ("raw", {raw:.3f}) and after each of
-    {int(frame['epoch'].max())} epochs of fine-tuning. It rises to {first:.3f} after the first
+    {max_ep} epochs of fine-tuning. It rises to {first:.3f} after the first
     epoch and then stays between {plateau.min():.3f} and {plateau.max():.3f} (epoch
     {int(frame['epoch'].iloc[-1])}: {last:.3f}): almost all of the change happens in the first epoch.
 
-    The values are means over three lineages and were read back from the published version of this
-    panel (to about 0.0005); the per-epoch table behind it no longer exists. The lineages are scored
-    at the same sites, so they are pseudo-replicates of one another and the mean stands in for what
-    a single lineage would give.
+    The values are from a per-epoch fine-tuning run of ESM-2 (650M) on the HA-80 corpus,
+    following the published methodology (seed 13, lr 5e-5, AdamW) and evaluated on the reference
+    lineage `J.2_int`, the same lineage panels A, B, and D use. It is an *independent* re-run,
+    not the `ESM2_650M_HA80` checkpoint that panels A and B score, so its plateau sits a little
+    below the value panel B reports for that checkpoint; the raw point at epoch 0 is panel A's
+    own value, the same released model on the same lineage. Training was stopped at {max_ep}
+    epochs, by which point the curve had been flat for {max_ep - 2}. This replaces the digitised
+    twenty-epoch three-lineage mean from the earlier exploration archive.
     """
 
 

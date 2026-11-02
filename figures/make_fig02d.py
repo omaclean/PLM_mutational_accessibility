@@ -39,7 +39,7 @@ CONTROL = ("neg_grantham", "Grantham similarity (control)")
 GROUP_LABELS = {ALL: "all", "1": "1", "2": "2", "3": "3"}
 OFFSET = {0: -0.24, 1: 0.0, 2: 0.24}
 #: Panel 2C's y-axis title is this same text (figures/make_fig02c.py imports it).
-YLABEL = "Spearman r with accessibility"
+YLABEL = "Spearman ρ with accessibility"
 GAP = 0.45     # extra space between "all replacements" and the codon-distance groups
 #: Legend text. Five entries name the two models, the before/after markers and the control, so
 #: this panel's legend carries the figure's whole key and is set larger than the tick labels.
@@ -122,7 +122,7 @@ def draw(table: pd.DataFrame, guide):
     ]
     legend_handles += [
         Line2D([], [], linestyle="none", marker="o", markerfacecolor="white",
-               markeredgecolor=style.INK_MUTED, markeredgewidth=1.2, label="before: Spearman r"),
+               markeredgecolor=style.INK_MUTED, markeredgewidth=1.2, label="before: Spearman ρ"),
         Line2D([], [], linestyle="none", marker="o", color=style.INK_MUTED, label="after: Grantham removed"),
         Line2D([], [], linestyle="none", marker="_", markersize=10, markeredgewidth=1.6,
                color=style.colour_for_role("biochemistry"), label=CONTROL[1]),

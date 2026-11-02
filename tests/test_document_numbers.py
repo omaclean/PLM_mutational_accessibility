@@ -132,6 +132,27 @@ def test_the_readme_figure_column_carries_no_supplementary_digit(line=None):
     assert not stray, f"figures/README.md still numbers these scripts' figures: {stray}"
 
 
+#: The root README's figure table: the first column names the figure, a later one holds the
+#: command. It had kept the 15 Oct 2026 draft's digits until 2 Nov 2026 -- and not even those
+#: consistently, since it called ``sM_within_stratum`` S12 where the map's old column says
+#: S13. Nothing checked it, because the test above is written for ``figures/README.md``'s
+#: script-first rows. A reader who follows a digit here lands on the wrong supplementary
+#: figure, which is the one mistake this numbering scheme exists to prevent.
+ROOT_README = (REPO_ROOT / "README.md").read_text()
+
+#: "| SH contact recovery ... | `python figures/make_sH_contact_recovery.py ...` | ... |"
+_ROOT_ROW = re.compile(r"^\|\s*([^|]*?)\s*\|\s*`python (?:figures|tools)/")
+
+
+def test_the_root_readme_figure_table_carries_no_supplementary_digit():
+    stray = [m.group(1) for m in (_ROOT_ROW.match(r) for r in ROOT_README.splitlines())
+             if m and re.search(r"\bS\d+\b", m.group(1))]
+    assert not stray, (
+        f"README.md still labels these rows with the old supplementary numbers: {stray}. "
+        f"The supplement is lettered; see FIGURE_LABELS.md."
+    )
+
+
 # ---------------------------------------------------------------------------
 # Published numbers in the prose, against the tables they come from
 # ---------------------------------------------------------------------------

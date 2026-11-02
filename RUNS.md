@@ -266,3 +266,16 @@ sampling depth falls from **Spearman 0.96 to 0.23 (p = 0.45)** and the rate flat
 alpha grid differs between lineages, or if the `*_constrained_fit` columns reappear.
 `tests/test_fig03.py` pins the lineage means at alpha = 0 to the values quoted in
 `LINEAGE_VALIDITY.md` (0.9195 fine-tuned, 0.7721 base).
+
+## Fine-tuning HA-80 for Figure 2C (1 Nov 2026)
+
+Figure 2C was regenerated from a real per-epoch fine-tuning run following the published methodology
+(Lytras et al., 2026, *NAR Genomics and Bioinformatics*, 8, lqag018):
+
+- **Model:** `facebook/esm2_t33_650M_UR50D` (33 layers, 650M parameters, `EsmForMaskedLM`).
+- **Data:** HA-80 (`~/PLM_entropy_play/IAV_HA_pLMs/evotuning/training_data/ncbiflu_HA_all_110424_noX_clu99_filt_HA-80.fas`, 8099 sequences).
+- **Split:** 80% train (6479 sequences) / 20% validation (1620 sequences), random split with seed 13.
+- **Parameters:** 10 epochs, sequence length 566 aa, 15% masking (`DataCollatorForLanguageModeling`), batch size 4, gradient accumulation steps 4 (effective batch 16), AdamW optimizer, learning rate 5e-5, seed 13.
+- **Evaluation / Scoring:** Evaluated at each epoch on the guide's primary lineage (`J.2_int`, `data/roots/h3n2_5lineage/J.2_int.nt.fa`), via an unmasked forward pass, computing Spearman rank correlation against `mut_prob` from `results/h3n2_5lineage/replacement_scores.tsv.gz`.
+- **Output:** `data/frozen_panels/fig2c_epoch_values.tsv`, rendered into `output/fig02c_epoch_panel.pdf` and composite `output/fig02_composite.pdf`.
+

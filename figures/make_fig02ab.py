@@ -124,7 +124,7 @@ def correlations(frame: pd.DataFrame) -> dict[str, float]:
 
 def subheader(stats: dict[str, float]) -> str:
     """The text the composite prints under a panel's title."""
-    return f"Spearman r = {stats['spearman_r']:.3f}; Pearson r = {stats['pearson_r']:.3f}"
+    return f"Spearman ρ = {stats['spearman_r']:.3f}; Pearson r = {stats['pearson_r']:.3f}"
 
 
 def draw(frame: pd.DataFrame, labels: str = "legend"):

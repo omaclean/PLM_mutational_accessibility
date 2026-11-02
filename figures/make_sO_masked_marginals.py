@@ -74,8 +74,8 @@ BAND_SCORING = "masked"
 
 ALPHA_LIMIT = 1.0
 ZERO_LABEL = "no relationship = 0"
-YLABEL_DMS = "Spearman $\\rho$ with measured effect"
-YLABEL_STRATA = "Spearman r with accessibility"
+YLABEL_DMS = "Spearman ρ with measured effect"
+YLABEL_STRATA = "Spearman ρ with accessibility"
 
 #: The main-text panel panel E mirrors. Not named ``..._STEM``: a constant with STEM in its
 #: name is read by test_output_provenance as a stem this script *writes*, and this one it

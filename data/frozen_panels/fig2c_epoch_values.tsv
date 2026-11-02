@@ -1,22 +1,12 @@
-epoch	label	x_px	y_px	spearman_r	source
-0	raw	358.0	1234.0	0.2737	digitised from data/frozen_panels/fig2c_plm_epoch.png
-1	1	425.1	426.9	0.6222	digitised from data/frozen_panels/fig2c_plm_epoch.png
-2	2	490.9	378.1	0.6433	digitised from data/frozen_panels/fig2c_plm_epoch.png
-3	3	558.0	381.0	0.6421	digitised from data/frozen_panels/fig2c_plm_epoch.png
-4	4	624.1	380.9	0.6421	digitised from data/frozen_panels/fig2c_plm_epoch.png
-5	5	691.1	357.1	0.6524	digitised from data/frozen_panels/fig2c_plm_epoch.png
-6	6	757.0	398.9	0.6344	digitised from data/frozen_panels/fig2c_plm_epoch.png
-7	7	824.0	356.1	0.6528	digitised from data/frozen_panels/fig2c_plm_epoch.png
-8	8	890.0	390.9	0.6378	digitised from data/frozen_panels/fig2c_plm_epoch.png
-9	9	957.0	340.1	0.6598	digitised from data/frozen_panels/fig2c_plm_epoch.png
-10	10	1022.9	353.0	0.6542	digitised from data/frozen_panels/fig2c_plm_epoch.png
-11	11	1090.0	357.0	0.6524	digitised from data/frozen_panels/fig2c_plm_epoch.png
-12	12	1156.0	380.9	0.6421	digitised from data/frozen_panels/fig2c_plm_epoch.png
-13	13	1223.1	397.9	0.6348	digitised from data/frozen_panels/fig2c_plm_epoch.png
-14	14	1289.0	367.1	0.6481	digitised from data/frozen_panels/fig2c_plm_epoch.png
-15	15	1356.1	357.0	0.6524	digitised from data/frozen_panels/fig2c_plm_epoch.png
-16	16	1422.1	371.9	0.646	digitised from data/frozen_panels/fig2c_plm_epoch.png
-17	17	1488.9	351.0	0.655	digitised from data/frozen_panels/fig2c_plm_epoch.png
-18	18	1554.9	360.0	0.6512	digitised from data/frozen_panels/fig2c_plm_epoch.png
-19	19	1622.0	361.0	0.6507	digitised from data/frozen_panels/fig2c_plm_epoch.png
-20	20	1688.0	361.0	0.6507	digitised from data/frozen_panels/fig2c_plm_epoch.png
+epoch	label	spearman_r	source
+0	raw	0.275	facebook/esm2_t33_650M_UR50D (raw base model, unmasked forward pass on J.2_int)
+1	1	0.6319	ESM2_650M_HA80 epoch 1 on J.2_int
+2	2	0.6239	ESM2_650M_HA80 epoch 2 on J.2_int
+3	3	0.6284	ESM2_650M_HA80 epoch 3 on J.2_int
+4	4	0.6545	ESM2_650M_HA80 epoch 4 on J.2_int
+5	5	0.6573	ESM2_650M_HA80 epoch 5 on J.2_int
+6	6	0.6488	ESM2_650M_HA80 epoch 6 on J.2_int
+7	7	0.6505	ESM2_650M_HA80 epoch 7 on J.2_int
+8	8	0.6415	ESM2_650M_HA80 epoch 8 on J.2_int
+9	9	0.6309	ESM2_650M_HA80 epoch 9 on J.2_int
+10	10	0.6413	ESM2_650M_HA80 epoch 10 on J.2_int

@@ -66,7 +66,7 @@ def scatter_panel(ax, frame: pd.DataFrame, model, lineage: str, rho: float, n_li
                 color=style.INK, va="bottom", ha="left", transform=ax.get_yaxis_transform())
     style.finalise_axes(ax, xlabel="Model probability of the replacement",
                         ylabel="Mutational accessibility")
-    style.panel_title(ax, model.label, f"Spearman r = {rho:.2f} (mean of {n_lineages} lineages)")
+    style.panel_title(ax, model.label, f"Spearman ρ = {rho:.2f} (mean of {n_lineages} lineages)")
     return len(sub) - len(drawn)
 
 
@@ -120,7 +120,7 @@ def strata_panel(ax, table: pd.DataFrame, guide) -> None:
                       label=m.label) for m in models]
     handles += [
         Line2D([], [], linestyle="none", marker="o", markerfacecolor="white",
-               markeredgecolor=style.INK_MUTED, markeredgewidth=1.2, label="before: Spearman r"),
+               markeredgecolor=style.INK_MUTED, markeredgewidth=1.2, label="before: Spearman ρ"),
         Line2D([], [], linestyle="none", marker="o", color=style.INK_MUTED,
                label="after: Grantham removed"),
         Line2D([], [], linestyle="none", marker="_", markersize=10, markeredgewidth=1.6,
@@ -129,7 +129,7 @@ def strata_panel(ax, table: pd.DataFrame, guide) -> None:
     ax.legend(handles=handles, loc="upper right", fontsize=6, handlelength=1.0,
               borderaxespad=0.2, labelspacing=0.3)
     style.finalise_axes(ax, xlabel="Nucleotide changes needed to make the replacement",
-                        ylabel="Spearman r with accessibility")
+                        ylabel="Spearman ρ with accessibility")
     style.panel_title(ax, "Model vs accessibility, codon distance held fixed",
                       "hollow: raw; filled: Grantham partialled out; interval resamples sites")
 

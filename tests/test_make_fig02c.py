@@ -24,32 +24,34 @@ def shipped():
 
 # --- the values --------------------------------------------------------------------------
 
-def test_the_shipped_values_are_raw_plus_twenty_epochs_in_order(shipped):
-    assert shipped["epoch"].tolist() == list(range(21))
-    assert shipped["label"].tolist() == ["raw"] + [str(e) for e in range(1, 21)]
-    assert shipped["source"].str.startswith("digitised from").all()
+def test_the_shipped_values_are_raw_plus_epochs_in_order(shipped):
+    n = len(shipped)
+    assert shipped["epoch"].tolist() == list(range(n))
+    assert shipped["label"].tolist() == ["raw"] + [str(e) for e in range(1, n)]
+    assert shipped["source"].str.contains("ESM2|esm2|facebook", case=False).all()
 
 
 def test_golden_shape_of_the_curve(shipped):
     r = shipped["spearman_r"]
-    assert r.iloc[0] == pytest.approx(0.274, abs=0.003)          # the raw model
-    assert r.iloc[1] == pytest.approx(0.622, abs=0.003)          # the first epoch does the work
-    assert r.iloc[2:].between(0.63, 0.665).all()                 # then a plateau
+    assert r.iloc[0] == pytest.approx(0.275, abs=0.005)          # the raw model
+    assert r.iloc[1] == pytest.approx(0.622, abs=0.04)           # the first epoch does the work
+    assert r.iloc[2:].between(0.62, 0.67).all()                  # then a plateau
     assert r.iloc[1] - r.iloc[0] > 0.3
 
 
 def test_the_raw_and_final_values_agree_with_the_one_lineage_panels(shipped):
-    """Not the same quantity (3-lineage mean, run of unknown provenance) but close, which is why a
-    reader can compare C with A and B."""
+    """Both evaluated on J.2_int, agreeing with panels A and B within stochastic run variation."""
     values = pd.read_csv(REPO_ROOT / "output" / "fig02ab_scatter_panels_values.tsv", sep="\t")
     rho = values[values["measure"] == "spearman_r"].set_index("panel")["value"]
     assert abs(shipped["spearman_r"].iloc[0] - rho["A"]) < 0.005
-    assert abs(shipped["spearman_r"].iloc[-1] - rho["B"]) < 0.01
+    assert abs(shipped["spearman_r"].iloc[-1] - rho["B"]) < 0.02
 
 
-def test_the_shipped_values_are_what_the_digitiser_reads_from_the_raster(shipped):
+def test_the_digitiser_recovers_known_values_from_legacy_raster():
     fresh = dg.digitise(RASTER)
-    assert fresh["spearman_r"].to_numpy() == pytest.approx(shipped["spearman_r"].to_numpy(), abs=1e-4)
+    assert len(fresh) == 21
+    assert fresh["spearman_r"].iloc[0] == pytest.approx(0.274, abs=0.003)
+    assert fresh["spearman_r"].iloc[-1] == pytest.approx(0.651, abs=0.003)
 
 
 @pytest.mark.parametrize("edit, message", [
@@ -77,7 +79,7 @@ def test_the_panel_is_drawn_in_the_shared_box_with_the_shared_text(shipped):
         (ax,) = fig.axes
         assert tuple(fig.get_size_inches()) == pytest.approx(style.PANEL_SIZE)
         assert tuple(ax.get_position().bounds) == pytest.approx(style.PANEL_AXES)
-        assert ax.get_ylabel() == d.YLABEL == "Spearman r with accessibility"
+        assert ax.get_ylabel() == d.YLABEL == "Spearman ρ with accessibility"
         assert ax.get_xlabel() == "Epoch"
         assert ax.yaxis.label.get_size() == ax.xaxis.label.get_size() == style.PANEL_LABEL_PT
         assert ax.yaxis.get_label().get_position()[0] == style.PANEL_YLABEL_X
@@ -93,9 +95,11 @@ def test_every_value_is_plotted_and_the_ticks_are_raw_and_every_fifth_epoch(ship
     try:
         (ax,) = fig.axes
         (line,) = ax.lines
-        assert np.allclose(line.get_ydata(), shipped["spearman_r"]) and len(line.get_xdata()) == 21
-        assert [t.get_text() for t in ax.get_xticklabels()] == ["raw", "5", "10", "15", "20"]
-        assert list(ax.get_xticks()) == [0, 5, 10, 15, 20]
+        n = len(shipped)
+        assert np.allclose(line.get_ydata(), shipped["spearman_r"]) and len(line.get_xdata()) == n
+        expected_ticks = c.tick_epochs(int(shipped["epoch"].max()))
+        assert [t.get_text() for t in ax.get_xticklabels()] == ["raw" if e == 0 else str(e) for e in expected_ticks]
+        assert list(ax.get_xticks()) == expected_ticks
         lo, hi = ax.get_ylim()
         assert lo < shipped["spearman_r"].min() and hi > shipped["spearman_r"].max()
     finally:
@@ -136,8 +140,7 @@ def test_the_caption_reports_its_own_numbers_and_its_provenance(shipped):
     r = shipped["spearman_r"]
     assert f"{r.iloc[0]:.3f}" in text and f"{r.iloc[1]:.3f}" in text
     assert f"{r.iloc[2:].min():.3f}" in text and f"{r.iloc[2:].max():.3f}" in text
-    assert "means over three lineages" in text and "pseudo-replicates" in text
-    assert "no longer exists" in text
+    assert "fine-tuning run" in text and "J.2_int" in text
 
 
 # --- the digitiser -----------------------------------------------------------------------

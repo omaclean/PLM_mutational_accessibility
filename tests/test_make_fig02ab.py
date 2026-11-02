@@ -66,7 +66,7 @@ def test_pearson_is_on_the_probabilities_not_their_logs():
 
 
 def test_subheader_text_has_three_decimals_for_both():
-    assert ab.subheader({"spearman_r": 0.27504, "pearson_r": 0.05379}) == "Spearman r = 0.275; Pearson r = 0.054"
+    assert ab.subheader({"spearman_r": 0.27504, "pearson_r": 0.05379}) == "Spearman ρ = 0.275; Pearson r = 0.054"
 
 
 # --- the composite prints exactly those numbers --------------------------------------------

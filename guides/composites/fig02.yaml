@@ -63,11 +63,11 @@ panels:
   - key: 2A
     file: build/panels/fig02a_scatter_panel.pdf
     title: Base model vs mutational accessibility
-    tagline: Spearman r = 0.275; Pearson r = 0.054
+    tagline: Spearman ρ = 0.275; Pearson r = 0.054
   - key: 2B
     file: build/panels/fig02b_scatter_panel.pdf
     title: Fine-tuned model vs mutational accessibility
-    tagline: Spearman r = 0.655; Pearson r = 0.045
+    tagline: Spearman ρ = 0.655; Pearson r = 0.045
   - key: 2C
     file: build/panels/fig02c_epoch_panel.pdf
     title: Correlation with accessibility across training epochs
@@ -75,7 +75,7 @@ panels:
   - key: 2D
     file: build/panels/fig02d_strata_panel.pdf
     title: Model vs accessibility by codon distance
-    tagline: one lineage; arrows show adjustment for Grantham
+    tagline: arrows show adjustment for Grantham
 rows:
   - [2A, 2B]
   - [2C, 2D]
