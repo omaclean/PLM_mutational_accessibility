@@ -1,276 +1,140 @@
-# One source: the influenza database
+# The sequence database behind the analysis
 
-> **Status: plan. Nothing here is implemented.** Opened 15 Oct 2026.
-> Tracked as [`docs/notes/PLAN.md`](docs/notes/PLAN.md) §5 Phase 7; risks 23–25; decision D10.
+Every sequence-derived number in this repository — collection dates, subtype, host,
+segment, the tip set a tree was pruned to — comes from one influenza sequence database.
+This document says which one, what it supplied, which of its defects reach the figures,
+and what a reader can and cannot rebuild from a clean checkout.
 
-Everything downstream of a sequence — collection dates, subtype, host, segment,
-clade label, the tip set a tree is pruned to — should come from one place:
+None of it is needed to redraw a figure. `tools/build_figures.py` reads only the shipped
+tables under `results/`, and no figure script opens a database. This is provenance for the
+tables those figures read.
 
-```
-/home3/oml4h/RABV-gTK/test_out/IAV_DB_genbank_n_gisaid_rebuild/db_build/iav-db.db
-```
+## 1. Where the sequences came from
 
-33,248,444,416 bytes, mtime 2026-10-15 13:45. Read-only, always.
+Sequences for influenza A were obtained from GenBank and GISAID EpiFlu using the Centre for
+Virus Research viral genome toolkit, **V-gTK**:
 
----
+* code — <https://github.com/centre-for-virus-research/V-gTK>
+* archived release — DOI [10.5281/zenodo.23504636](https://doi.org/10.5281/zenodo.23504636)
 
-## 1. Why now
+V-gTK downloads, curates and aligns the records and assembles them into a single SQLite
+database with per-sequence metadata, per-segment alignments and CDS feature coordinates.
+The build used throughout this repository is `IAV_DB_genbank_n_gisaid_rebuild`, a 33 GB
+file dated **15 October 2026**, holding 3,947,146 loaded sequences of which 3,908,177 pass
+quality control; segment 4 (HA), the only segment used here, contributes 572,005 passing
+and 1,302 failing.
 
-Three things are true at once:
+**The build stamp ships: [`data/db_build/`](data/db_build/).** `BUILD.tsv` carries the
+toolkit DOI and the file's identity — basename, 33,248,444,416 bytes, mtime
+2026-10-15 13:45 — and `db_summary_head.txt` carries the per-segment QC table above,
+verbatim from the build's own summary. That is the record against which a future rebuild
+can be compared, rather than silently replacing this one.
 
-1. **The database the repo names no longer exists.** `iav-db.rebuilt.db` is gone —
-   it was renamed into place as `iav-db.db` on 15 Oct. Three documents and one tool
-   still name the old file: [`docs/notes/PLAN.md`](docs/notes/PLAN.md) §3.2 and the 15 Oct progress entry,
-   [`docs/notes/S3_S11_PROGRESS.md`](docs/notes/S3_S11_PROGRESS.md) "Inputs", and the usage example in
-   `tools/h3_numbering_from_db.py`. **Nothing in the repo that reads the database
-   can currently run as documented.**
-2. **The per-sequence inputs that built S15 are not in this repo.** They were staged
-   in the *archive's* gitignored `dev/lineage_panel/`, and `clean_repo/dev/` holds
-   only `retired_figures/` and `spectrum_swap_anomaly/`. The lineage panel cannot be
-   rebuilt from a clean checkout today — which is the reviewer's reproducibility
-   complaint, in miniature.
-3. **Two documents disagree about which tree S11 used.**
-   `docs/notes/S3_S11_PROGRESS.md` describes `h3_seg4_tree.pb`, 67,879 tips, 22 Sep. The shipped
-   `results/s11_h3n2_ha_tree/MANIFEST.tsv` says `h3n2_1968.pb`, 224,731 tips, pruned
-   from the treepatch repair `usher.pb` of 24 Sep. The manifest is right and the
-   progress document is describing a superseded run. Nothing caught this because
-   no test compares a run log to a manifest.
+The database itself is **not redistributable**: it contains GISAID records, whose terms
+forbid it. [`LICENSE-DATA.md`](LICENSE-DATA.md) lists every input in that position.
 
-## 2. Inventory: where metadata comes from today
+Three properties of the file are worth stating, because they shape what the repository does
+with it rather than being incidental:
 
-| What | Current source | Ships? | Reproducible from a clean checkout? |
-|---|---|---|---|
-| Per-sequence collection dates (13 lineages) | `--dates` dump of `meta_data`, 573k records, staged in the *archive's* `dev/lineage_panel/` | no | **no — the file is not here** |
-| Lineage membership per accession | `--accessions`, built from the sub-alignments | no | **no** |
-| Per-lineage sequence counts, sites-vs-root | `panel_metadata.tsv` from the pipeline run | no | no (archive) |
-| S11 tip set: H3N2 only, dated, 1968 onward | baked into `h3n2_1968.pb`, pruned outside this repo | no | **no** |
-| S11 per-year tip counts (`year_counts`, 59 rows) | the same pruning step | derived table only | **no** |
-| UShER reference record `DQ864721` | `sequence_alignment` of `iav-db.rebuilt.db` | no | **no — DB renamed** |
-| H3 mature numbering | 300 sampled GenBank tips, `tools/h3_numbering_from_db.py --db iav-db.rebuilt.db` | derived table only | **no — DB renamed** |
-| Lineage root sequences | `data/roots/` | yes | yes |
-| Spectra | `data/spectra/` | yes | yes |
-| Viral panel | UniProt, `data/viral_panel/` | yes | yes |
+* **`meta_data` carries no index.** Indexes exist on `sequences(header)`,
+  `features(accession)` and `sequence_alignment(…)` only, so any query filtering on strain,
+  subtype or host is a full scan of a 33 GB row-store. Reads from this repository are
+  therefore single-row lookups on indexed keys, or one batched pass — never a scan per tool.
+* **The file is live.** It has a `-wal`/`-shm` pair and is written to by the upstream
+  pipeline. Every read is opened read-only.
+* **The `info` table is not a version stamp.** It reads `new db | 2026-08-26` on a file
+  rebuilt on 15 October. Nothing may branch on it; size and mtime are the identity, which is
+  why `BUILD.tsv` records those.
 
-The bottom three rows are fine and are out of scope. Everything above them is a
-different path to the same underlying facts, and no two of them were checked
-against each other.
+## 2. What the database supplied
 
-## 3. What the database holds
-
-Verified against the live schema, 15 Oct 2026.
-
-| Need | Table.column | Notes |
+| What it supplied | Table and column | Where it ends up |
 |---|---|---|
-| Collection date | `meta_data.collection_date` | plus `collection_day` / `collection_mon` / `collection_year`, and `collection_date_validated` |
-| Strain / accession | `strain`, `Parsed_strain`, `primary_accession`, `accession_version`, `Isolate_Id` | `Isolate_Id` is empty on GenBank rows |
-| Subtype | `serotype_validated` | also `nearest_reference_subtype` |
-| Segment | `segment_validated`, `segment_name`, `segment_declared`, `segment_submitted` | validated vs declared can disagree — that is the point of having both |
-| Host | `host_scientific_name`, `host_validated`, `host_taxa_id` | |
-| Clade | `Clade`, `Lineage` | **GISAID-only; empty in every GenBank row sampled — see D10** |
-| QC | `exclusion_status`, `exclusion`, `exclusion_criteria` | `0` = retained |
-| Provenance | `dataset_source` | `genbank` / GISAID |
-| Nucleotide sequence | `sequences.sequence` on `sequences.header` | indexed |
-| Aligned row | `sequence_alignment.alignment` on `(primary_accession, alignment_name, segment)` | unique index |
-| CDS coordinates | `features.cds_start_OG_seq`, `cds_end_OG_seq`, `product` | indexed on `accession` |
-| Trees | `trees.newick` | **newick only, no `.pb`** — see §6 |
+| Per-sequence collection dates, 13 lineages | `meta_data.collection_date`, with `collection_day` / `_mon` / `_year` | the thirteen-row `lineage_panel` aggregate (S15) |
+| Subtype, host, segment | `serotype_validated`, `host_scientific_name`, `segment_validated` / `segment_name` | the filters defining the H3N2 human HA set |
+| QC flag and provenance | `exclusion_status` (`0` = retained), `dataset_source` | which records enter a lineage at all |
+| UShER reference record `DQ864721` | `sequence_alignment.alignment` | the reference row the S11 codon tables are indexed against |
+| Mature H3 numbering | `sequence_alignment`, 300 sampled GenBank tips | `column_codons` in `results/s11_h3n2_ha_tree/`, 553 codons |
+| CDS coordinates | `features.cds_start_OG_seq`, `cds_end_OG_seq`, `product` | translation of nucleotide rows to protein |
 
-Scale, from `db_build/db_summary.txt` (generated 15 Oct 13:12, after curation):
-3,947,146 sequences loaded, 3,908,177 passing QC; segment 4 is 572,005 passed and
-1,302 failed.
+Two tools in this repository read it, both taking the path as an argument with **no
+default**, so neither depends on a path that exists on one machine:
 
-## 4. Three properties of this file that shape the design
-
-**(a) `meta_data` has no index.** Indexes exist only on `sequences(header)`,
-`features(accession)` and `sequence_alignment(…)`. Any `WHERE strain = …` or
-`WHERE serotype_validated = 'H3N2'` is a full scan of a 33 GB row-store. That is
-minutes of sustained I/O on a shared server, per query. We must not add an index:
-it is not our database and it is live.
-
-**(b) The file is being written to.** `iav-db.db-shm` and `iav-db.db-wal` are both
-present and the shm was touched at 18:05 today. Results could shift under a
-long-running analysis, and two stages of one run could see different data.
-
-**(c) `info` is not a version stamp.** `SELECT * FROM info` returns
-`new db | 2026-08-26 14:19:29`, but the file is dated 15 Oct and `db_summary.txt`
-says it was generated that day from `iav-db.rebuilt.db` after "part 1–3 curation".
-**Do not use `info.date` to decide whether the database has changed.** Use the file
-size, the mtime, and content hashes of the extracted rows.
-
-Together these mean: **one guarded extraction pass, then a local snapshot**, not
-live queries scattered through the figure code. "Query the database directly" is
-satisfied by having exactly one piece of code that touches it, with its output
-pinned, rather than by every tool opening the file.
-
-## 5. Proposed shape
-
-```
-mutacc/iavdb.py              the only module that opens the big file. Read-only URI,
-                             named queries, no SQL anywhere else in the repo.
-tools/export_db_snapshot.py  one pass -> dev/db_snapshot/
-dev/db_snapshot/seg4.sqlite  human H3N2 segment 4: accession, dates, host, clade,
-                             subtype, QC flag. Indexed. Gitignored.
-dev/db_snapshot/MANIFEST.json  source path, size, mtime, row counts, per-query
-                             SHA-256, extraction timestamp, tool version.
+```bash
+export IAV_DB=<your build>/db_build/iav-db.db
+python tools/h3_numbering_from_db.py --db "$IAV_DB" --ref-fasta … --tips … --out …
+python tools/export_lineage_panel.py --dates … --accessions … --panel-metadata … --out-dir …
 ```
 
-Rules:
+`h3_numbering_from_db.py` refuses to write unless the sampled consensus carries the
+conserved receptor-binding residues **Y98, W153, H183, Y195** at the numbers its counting
+gives them — the check that stops a silent off-by-one in every H3 site number downstream.
 
-- Every shipped table's `MANIFEST.tsv` row gains the snapshot hash, so any number
-  in the paper can be traced to one state of one file.
-- `mutacc/iavdb.py` refuses to open the database in anything but read-only URI mode.
-- The existing "no absolute paths" test (docs/notes/PLAN.md §5 Phase 6) must not be weakened:
-  the database path is configuration, read from an environment variable or a
-  command-line argument with no default pointing at `/home3`.
-- Nothing heavy without `nice -n 10 ionice -c3`; never more than 14 threads.
+## 3. Defects in the source metadata, and what they cost
 
-## 6. What the database cannot give us
+These are properties of the deposited records, not of the parsing here. They are stated
+because two of them visibly shape a published figure.
 
-Say these plainly rather than discovering them mid-migration.
+**Collection dates are not clean.** `tools/export_lineage_panel.py` handles three kinds of
+defect explicitly rather than silently:
 
-1. **No `.pb`.** The `trees` table holds newick strings only. S11 needs per-branch
-   mutations, which is a mutation-annotated tree. The 224,731-tip `h3n2_1968.pb`
-   therefore stays an external input. What *can* move into the database is
-   everything that defines its tip set — H3N2, dated, 1968 onward — so the pruning
-   becomes a reproducible query instead of a step someone remembers doing.
-2. **No protein sequences.** `sequences` is nucleotide. Translation via `features`
-   coordinates becomes our code, and needs its own tests (§7.5).
-3. **Possibly no clade labels.** See D10.
+* **mixed formats** — ISO (`2024-12-12`), `12-Dec-2024`, `2024-12`, and bare `2024`;
+* **partial dates** — counted, but excluded from first/last, since a bare year would
+  otherwise drag a lineage's first date back to 1 January;
+* **eight records dated a decade or more before their own lineage** — two in G.1.1, four in
+  J.2, two in J. The strain name carries the true year in all eight. Four land in 1905,
+  where the collection *year* has been read as an Excel 1900 day-serial: serial 2021 is
+  1905-07-13 and serial 2025 is 1905-07-17, which is exactly what `A/Lisboa/12/2021` and
+  `A/Baltimore/JH-1150/2025` carry. 277 records across the whole database share that
+  artefact. Of the remaining four, three are GISAID and one is GenBank (`PV150037`, dated
+  2012 but a J.2 sequence, with day, month, year and strain name all consistently wrong
+  upstream).
 
-## 7. Consistency tests at import
+**This is why `lineage_panel` carries both an absolute first/last and a 1st-to-99th
+percentile span, and why the caption says to quote the percentile span.** It needs no
+judgement call about which records to delete, and one bad date cannot move it.
+`n_outside_span` reports how many records fall outside it, so nothing is hidden.
 
-New file `tests/test_iavdb_import.py`. It runs against `dev/db_snapshot/`, not the
-33 GB source, so the suite stays at its current ~1.5 minutes; the two tests that
-must touch the source are marked `slow`. If the snapshot is absent the module
-skips, so a clean clone with no `/home3` access still runs the rest of the suite —
-the same convention the repo already uses for the archive-dependent tools.
+**Clade labels are GISAID-only.** `meta_data.Clade` and `Lineage` were populated on GISAID
+rows and empty in every GenBank row sampled, so the database cannot supply a clade label
+across the whole set. Lineage membership here comes from the sub-alignments, not from this
+column.
 
-**7.1 Provenance** *(slow)*
-- Source file exists, is readable, and its size and mtime match `MANIFEST.json`.
-  A mismatch **fails** with "snapshot is stale, re-extract" — this is the test that
-  stops us quietly analysing a database that was rebuilt under us, which is exactly
-  what happened between 8 and 15 Oct.
-- Every table and column `mutacc/iavdb.py` names is present. Catches a rename
-  upstream in RABV-gTK as an error rather than as a wrong number.
-- `info` is recorded but explicitly **not** trusted as a version (§4c). A test
-  asserts no code branches on it.
+**`segment_validated` and `segment_declared` can disagree**, which is the point of the
+database carrying both: the validated call is a BLAST result, the declared one is the
+submitter's. A mislabelled reference elsewhere in this project has already cost a stage
+re-run, so segment agreement is checked rather than assumed.
 
-**7.2 Row identity**
-- Every requested accession resolves to exactly one `meta_data` row and one
-  `sequences` row for its segment.
-- No duplicate `(accession, segment)`.
-- A requested accession that is missing fails loudly. The repo already has
-  `test_data_integrity.py` guarding silent empty joins; same failure mode, new source.
-- Snapshot row counts match `MANIFEST.json` and match `db_summary.txt`'s segment-4
-  figure (572,005 passing) to within a stated tolerance, or the difference is
-  explained by the filters.
+## 4. What ships, and what cannot
 
-**7.3 Filters hold**
-For every row in the snapshot: `segment_validated == 4` **and**
-`segment_name == 'HA'` agree; `serotype_validated == 'H3N2'`;
-`host_scientific_name == 'Homo sapiens'`; `exclusion_status == 0`;
-`dataset_source` is one of the known values and is kept per row.
+What ships is aggregate only. No accession, no per-sequence date, nothing that identifies
+a GISAID record:
 
-The segment agreement check is not pedantry — a mislabelled reference in this
-database has already cost a stage re-run elsewhere.
-
-**7.4 Dates** — the main reason for doing this
-- Every `collection_date` either parses or is flagged partial. **No silent
-  coercion**: a bare `2024` must stay visibly month-unknown, never become 1 January.
-- `collection_year == year(collection_date)` wherever both exist;
-  `collection_day` / `collection_mon` consistent with `collection_date`.
-- Date within 1968 … today; no future dates.
-- **The three defects `tools/export_lineage_panel.py` already documents become
-  tests, counted rather than described**: mixed formats (ISO, `12-Dec-2024`,
-  `2024-12`, bare `2024`); partial dates; and records dated long before their own
-  lineage, including the two 1905 rows that are a year read as a spreadsheet serial.
-  The test pins the *count* of each class. If the count moves, the database changed
-  and we are told, instead of a percentile span quietly shifting.
-- The percentile-span logic stays. It is the right answer to dirty dates and it
-  survives this migration unchanged.
-
-**7.5 CDS and translation**
-- A `features` row exists with an HA `product`; coordinates lie inside the
-  nucleotide sequence; CDS length is a multiple of 3; no internal stop codon.
-- Round-trip on a sample: nucleotide → CDS → translate, compared against a
-  known-good protein.
-
-**7.6 Determinism** *(slow)*
-- Two extractions against an unchanged database give a byte-identical snapshot and
-  identical manifest hashes. Needs an explicit `ORDER BY` on every query and a fixed
-  column order.
-
-**7.7 Cross-document agreement** — the test that would have caught §1.3
-- The tip count, tree file and date in every run log match the corresponding
-  `MANIFEST.tsv`. `tests/test_document_numbers.py` already checks numbers across
-  documents; extend it to the run logs rather than writing a second mechanism.
-
-**7.8 Migration gate**
-Every number the database currently feeds must come out the same, or be listed in
-advance in §9. Specifically: the thirteen `lineage_panel` rows (counts, first/last,
-percentile span, `n_outside_span`), the 78,659 total in
-[`LINEAGE_VALIDITY.md`](LINEAGE_VALIDITY.md), the H3 numbering map for all 553
-reference codons with landmarks Y98 / W153 / H183 / Y195 passing, and the
-`DQ864721` aligned row (1,659 bases, 553 codons).
-
-This gate is temporary and gets deleted once the snapshot is the only source.
-
-## 8. Bottom-to-top re-run
-
-The ordering matters: nothing re-runs until the baseline is frozen, and the GPU
-stages do not re-run at all unless a sequence changed.
-
-| Stage | What | Where |
+| Shipped | Rows | Built from |
 |---|---|---|
-| **0** | **Freeze the baseline.** Clean tree, record `git rev-parse HEAD`, run the full figure set and suite, copy `results/` + `output/` to `dev/baseline/2026-10-15/`, `sha256sum` everything. | clean_repo |
-| 1 | Build the snapshot and manifest. One pass, `nice -n 10 ionice -c3`. Report clade coverage (decides D10). | clean_repo |
-| 2 | Port `tools/h3_numbering_from_db.py` and `tools/export_lineage_panel.py` to `mutacc/iavdb.py`. Re-derive the numbering map and the thirteen-row panel. | clean_repo |
-| 3 | Re-derive the S11 tip set as a query; check it reproduces the 224,731 tips of `h3n2_1968.pb`. **The `.pb` itself is not rebuilt** (§6.1). | clean_repo |
-| 4 | Re-run every export in `tools/`, regenerating `MANIFEST.tsv` with snapshot hashes. | clean_repo |
-| 5 | Re-run the figure set and the suite. | clean_repo |
-| 6 | Compare against the baseline; write the result into §9 and the PLAN progress log. | clean_repo |
+| `results/h3n2_13lineage/lineage_panel.tsv.gz` | 13 | per-sequence accessions and dates, plus the pipeline's `panel_metadata.tsv` |
+| `results/s11_h3n2_ha_tree/column_codons.tsv.gz` | 553 | the `DQ864721` aligned row and 300 sampled GenBank tips |
+| `results/s11_h3n2_ha_tree/year_counts.tsv.gz` | 59 | collection years over the tree's tips |
 
-No GPU stage is in this list. Model scores do not depend on metadata, so if a
-score changes, something is wrong — that is itself a check (§9).
+Each names its source in its directory's `MANIFEST.tsv`.
 
-## 9. Confirming values do not change
+**Three things cannot be rebuilt from a clean checkout, and saying so is the honest
+position:**
 
-`tools/compare_baseline.py` takes two output directories and prints one pass/fail
-table, exiting non-zero on any FAIL.
+1. **The per-sequence inputs to `lineage_panel`** — accessions and collection dates for
+   78,659 sequences across thirteen lineages. They are GISAID identifiers and dates and
+   will never ship. The thirteen-row aggregate is the redistributable form.
+2. **The mutation-annotated tree.** S11 needs per-branch mutations, which means a `.pb`.
+   The database's `trees` table holds **newick strings only**, so `h3n2_1968.pb` —
+   224,731 tips, H3N2, dated, 1968 onward, pruned from the treepatch repair `usher.pb` of
+   24 September 2026 — is an external input. What the database *could* supply is everything
+   defining its tip set, which would make the pruning a reproducible query; that has not
+   been done.
+3. **Protein sequences.** `sequences` holds nucleotide only; translation via `features`
+   coordinates is this project's code.
 
-**Must be bit-identical.** Every shipped table not derived from the database:
-`replacement_scores`, `replacement_observed`, `alpha_sweep_by_lineage`, `dms_*`,
-`spectra_*`, `viral_panel_*`, the simulation tables. These never touched the
-database, so a single changed byte means the migration leaked somewhere it should
-not have. Compared by SHA-256.
-
-**Must be identical in value.** The database-derived tables: `lineage_panel`
-(13 rows), the H3 numbering map, `column_codons`, `baseline_codons`. Compared
-field by field, not by hash, because `MANIFEST.tsv` will legitimately gain a
-snapshot-hash column.
-
-**Figures.** The existing `*_values.tsv` beside every panel is the comparison
-surface — no image diffing. Each must match to the precision the suite already
-asserts (1e-12 on goldens; note risk 24 — no library version is pinned, so pin the
-environment before the baseline run or that tolerance is unenforceable).
-
-**Documented exceptions, written down now so they cannot be rationalised later:**
-
-1. `MANIFEST.tsv` gains a snapshot-hash column in every run. Expected.
-2. If the database has genuinely been re-curated since the 15 Oct rebuild, the
-   lineage panel's dates may move. This must be reported as *the database changed*,
-   with the before/after on all thirteen rows and the `n_outside_span` counts — not
-   folded silently into a re-run.
-3. If D10 resolves to Nextclade labels, each relabelled lineage is listed
-   individually with both labels.
-
-Anything else that moves is a defect until shown otherwise. The accepted
-comparison table gets pasted into the PLAN progress log as the record that the
-migration was verified.
-
-## 10. Rollback
-
-Each stage is its own commit. `dev/baseline/2026-10-15/SHA256SUMS` is the fallback:
-if the comparison fails and the cause is not quickly explicable, restore the
-baseline tables and diagnose from the snapshot rather than pushing on. The
-snapshot is small, so a failed migration leaves a diagnosable artefact behind
-instead of a 33 GB file that has since moved on.
+Consolidating all of the above onto one guarded extraction pass with a pinned local
+snapshot, consistency tests at import, and a bottom-to-top re-run confirming no value
+changes, is planned but **not implemented**. The specification is a working note:
+[`docs/notes/db_sourcing_plan.md`](docs/notes/db_sourcing_plan.md). Nothing in this
+document depends on it.

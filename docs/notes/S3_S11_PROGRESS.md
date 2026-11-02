@@ -50,7 +50,7 @@ Kept up to date as work lands. Times are server local time. Newest entries at th
 >
 > Both are tracked as [`docs/notes/PLAN.md`](PLAN.md) risks 23 and 25. The fix — a test that
 > compares a run log against the manifest beside the tables it describes, so this
-> cannot drift silently again — is [`DB_SOURCING.md`](../../DB_SOURCING.md) §7.7.
+> cannot drift silently again — is [`db_sourcing_plan.md`](db_sourcing_plan.md) §7.7.
 
 | Input | Source | Date of source |
 |---|---|---|

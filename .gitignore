@@ -60,6 +60,15 @@ test_custom_labels.png
 *.pt
 *.ckpt
 
+# The influenza sequence database is 33 GB and holds GISAID records, so no copy or
+# fragment of it belongs here. A zero-byte results/iav-db.db was committed by accident
+# on 31 Oct 2026 and shipped to reviewers looking like a broken database; this stops a
+# stray local copy or a shell redirect doing it again. Which build the derived tables
+# came from is recorded in data/db_build/, which is text and does ship.
+*.db
+*.db-wal
+*.db-shm
+
 # The exploration tree, kept out of the published repository. Its write-ups
 # record dead ends and superseded runs, and nothing under results/ or output/
 # depends on it.
@@ -77,6 +86,8 @@ build/
 #             tests/test_build_figures.py fails if a shipped input is ignored.
 #   output/   the shipped figures, and the _values.tsv and _caption.md files a
 #             rebuild is checked against.
-#   figures/, data/  several panels cannot be regenerated from this repository
-#             at all -- the Fig 1A tree, the Fig 1D heatmap and the Fig 2C epoch
-#             plot have no generator. These are the only copies.
+#   figures/, data/  the Fig 1A clade tree cannot be regenerated from this
+#             repository at all -- it was built from GISAID sequences that are
+#             not redistributable and has no generator. This is the only copy.
+#             (The Fig 1D heatmap and the Fig 2C epoch curve were in the same
+#             position until October 2026; both have generators now.)

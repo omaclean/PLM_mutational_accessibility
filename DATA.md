@@ -28,15 +28,16 @@
 > [`docs/notes/extended_red_team_tests.md`](docs/notes/extended_red_team_tests.md) §A1b. The table-to-content
 > pairings below are correct; only the numbers move.
 
-> 📋 **Metadata provenance is being consolidated (plan opened 15 Oct 2026).** Collection
-> dates, subtype, host, segment and the S11 tip set currently reach these tables by four
-> unrelated paths, and five of the nine metadata inputs cannot be reproduced from a clean
-> checkout. They are all moving to one source — the influenza database at
-> `…/IAV_DB_genbank_n_gisaid_rebuild/db_build/iav-db.db` — with consistency tests at import
-> and a bottom-to-top re-run that confirms no value changes. Inventory, design, tests and
-> the re-run plan: [`DB_SOURCING.md`](DB_SOURCING.md). Tracked as [`docs/notes/PLAN.md`](docs/notes/PLAN.md) §5
-> Phase 7. **Note for anyone reading a DB path in this repo today: `iav-db.rebuilt.db` no
-> longer exists** — it was renamed to `iav-db.db` on 15 Oct (PLAN risk 23).
+> 📋 **Where the sequence metadata came from.** Collection dates, subtype, host, segment and
+> the S11 tip set all come from one influenza database, assembled from GenBank and GISAID
+> with the V-gTK toolkit ([code](https://github.com/centre-for-virus-research/V-gTK),
+> DOI [10.5281/zenodo.23504636](https://doi.org/10.5281/zenodo.23504636)). The build's
+> identity and QC counts ship in [`data/db_build/`](data/db_build/); what it supplied, its
+> known date defects and what cannot be rebuilt from a clean checkout are in
+> [`DB_SOURCING.md`](DB_SOURCING.md). The database itself is 33 GB and holds GISAID records,
+> so it does not ship; the tables below are the redistributable aggregates. Consolidating
+> those inputs onto one extraction pass is planned, not done —
+> [`docs/notes/db_sourcing_plan.md`](docs/notes/db_sourcing_plan.md).
 
 Every table is gzipped TSV under `results/<run>/`, named in the run's guide, and traced to its
 source in that directory's `MANIFEST.tsv` (source path relative to the exploration archive, a
