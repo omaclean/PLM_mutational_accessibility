@@ -118,7 +118,7 @@ every other figure's: those are the record a rebuild is checked against, not an 
 | SF spectrum swap (two figures) | `python figures/make_sF_spectrum_swap.py --guide guides/h3n2_13lineage.yaml` | `spectrum_swap_strata`, `replacement_scores` |
 | SG epistasis against a null | `python figures/make_sG_epistasis_null.py --guide guides/h3n2_13lineage.yaml` | `epistasis_cells`, `epistasis_focal_sites`, `epistasis_null_draws` |
 | SJ DMS agreement vs distance | `python figures/make_sJ_dms_concordance.py --guide guides/h3n2_13lineage.yaml` | `dms_cross_lineage_pairs` |
-| SK nucleotides per codon per branch | `python figures/make_sK_branch_codons.py --branch-table results/s11_h3n2_ha_tree/branch_codons.tsv.gz --column-table results/s11_h3n2_ha_tree/column_codons.tsv.gz --long-range-nodes results/s11_h3n2_ha_tree/long_range_nodes.tsv.gz --baseline-codons results/s11_h3n2_ha_tree/baseline_codons.tsv.gz --year-table results/s11_h3n2_ha_tree/year_counts.tsv.gz --plm-null-scores results/h3n2_13lineage/replacement_scores_masked.tsv.gz --plm-null-guide guides/h3n2_13lineage.yaml --plm-null-lineage J.2` | real tables, 22 Sep tree |
+| SK nucleotides per codon per branch | `python figures/make_sK_branch_codons.py --branch-table results/s11_h3n2_ha_tree/branch_codons.tsv.gz --column-table results/s11_h3n2_ha_tree/column_codons.tsv.gz --long-range-nodes results/s11_h3n2_ha_tree/long_range_nodes.tsv.gz --baseline-codons results/s11_h3n2_ha_tree/baseline_codons.tsv.gz --year-table results/s11_h3n2_ha_tree/year_counts.tsv.gz --plm-null-scores results/h3n2_13lineage/replacement_scores_masked.tsv.gz --plm-null-guide guides/h3n2_13lineage.yaml --plm-null-lineage J.2` | real tables, the 224,731-tip tree of 24 Sep 2026 |
 | SC recovery of a hidden amino acid across viral proteins | `python figures/make_sC_viral_panel.py --results results/viral_panel` | untuned ESM-2 and ESM-C |
 | SM DMS within nucleotide-step strata | `python figures/make_sM_within_stratum.py --guide guides/h3n2_13lineage.yaml` | `dms_scores`, `dms_scores_masked`, `dms_within_stratum`, `dms_peak_summary` |
 | SH contact recovery by region, and at antigenic sites | `python figures/make_sH_contact_recovery.py --guide guides/h3n2_13lineage.yaml` | `contact_*`, `epistasis_focal_sites`, `antigenic_sites`, `antigenic_residue_accuracy` |
@@ -320,9 +320,12 @@ pair would be misread.
 
 * **SC** (recovery of a hidden amino acid across viral proteins) needs a GPU to re-score.
   The scores and the sequences ship: `results/viral_panel/`, `data/viral_panel/`.
-* **SK** ships real tables from the 22 Sep 2026 H3N2 HA tree in
-  `results/s11_h3n2_ha_tree/`. They must be re-made on the 2 Oct tree once a `.pb` exists
-  for it.
+* **SK** ships real tables from the H3N2 HA tree in `results/s11_h3n2_ha_tree/`:
+  `h3n2_1968.pb` — H3N2 only, dated, 1968 onward, **224,731 tips**, pruned from the
+  treepatch repair `usher.pb` of **24 Sep 2026**, as that directory's `MANIFEST.tsv` and
+  `summary.txt` both record. They must be re-made on the 2 Oct tree once a `.pb` exists for
+  it: the database's `trees` table holds newick only, with no per-branch mutations
+  ([`DB_SOURCING.md`](DB_SOURCING.md) §4).
 
 Status and run times for both: `docs/notes/S3_S11_PROGRESS.md`.
 
