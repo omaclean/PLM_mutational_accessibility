@@ -44,6 +44,7 @@ from mutacc.io import write_caption, write_values
 STEM = "sF_spectrum_swap"
 STEM_DELTA = "sF_spectrum_delta"
 TABLE = "spectrum_swap_strata"
+CONTROL_TABLE = "spectrum_swap_j2_control"
 #: The reference estimates are recomputed from the table's own mut_prob. The table merges accessibilities
 #: that are equal up to floating-point noise (see mutacc.spectrum_swap); the guide's column does not,
 #: so the two agree to about 1e-3, not to rounding.
@@ -61,7 +62,7 @@ SPREAD = 0.62
 MARKER_SIZE = 5.0
 #: Series that are not models. They get their own row rather than repeating on every spectrum.
 PROPERTY_SERIES = ("neg_grantham",)
-PROPERTY_ROW_LABEL = {"neg_grantham": "Grantham similarity (control)"}
+PROPERTY_ROW_LABEL = {"neg_grantham": "Grantham similarity (control vs spectra)"}
 #: Blank rows between the spectrum block and the control row.
 GAP_ROWS = 1.0
 
@@ -126,13 +127,16 @@ def _series_order(table: pd.DataFrame) -> list[str]:
     return list(dict.fromkeys(table["series"]))
 
 
-def _plot(table: pd.DataFrame, value: str, lo: str, hi: str, *, zero_label: str, xlabel: str, height: float):
-    """Spectrum rows for the models, then one separate row for the biochemistry control.
+def _plot(table: pd.DataFrame, value: str, lo: str, hi: str, *, zero_label: str, xlabel: str, height: float,
+          control_plm: pd.DataFrame | None = None):
+    """Spectrum rows for the models, then separate rows for the biochemistry controls.
 
     Grantham is not a model and takes no part in the comparison the spectrum rows make, so
-    repeating it on every row only crowded them. It gets a row of its own, below a gap: the
-    point is its value under the reference spectrum and the bar behind it is its full range
-    across the nine, because that range is wide enough that one number would misrepresent it.
+    repeating it on every row only crowded them. It gets its own rows below a gap:
+    1. "(control vs spectra)": its value under the reference spectrum (square) and the pale bar
+       behind it spanning its full range across the alternative spectra.
+    2. "(control vs PLMs)": each model's correlation against Grantham similarity on the primary
+       lineage (squares coloured by model, with 95% site-bootstrap intervals).
     """
     model_series = [s for s in _series_order(table) if s not in PROPERTY_SERIES]
     prop_series = [s for s in _series_order(table) if s in PROPERTY_SERIES]
@@ -140,11 +144,19 @@ def _plot(table: pd.DataFrame, value: str, lo: str, hi: str, *, zero_label: str,
     keys = conds["condition"].tolist()
     labels = [_wrap(l) for l in conds["label"]]
 
-    # Model rows run from the top; each property sits below them, after one blank row.
-    y = np.arange(len(keys))[::-1].astype(float) + len(prop_series) + GAP_ROWS
-    prop_y = {name: float(len(prop_series) - 1 - i) for i, name in enumerate(prop_series)}
+    has_plm_control = control_plm is not None and not control_plm.empty
+    n_ctrl = len(prop_series) + (1 if has_plm_control else 0)
+
+    # Model rows run from the top; each control sits below them, after one blank row.
+    y = np.arange(len(keys))[::-1].astype(float) + n_ctrl + GAP_ROWS
+    prop_y = {name: float(n_ctrl - 1 - i) for i, name in enumerate(prop_series)}
     all_labels = labels + [_wrap(PROPERTY_ROW_LABEL.get(n, n)) for n in prop_series]
     all_y = list(y) + [prop_y[n] for n in prop_series]
+
+    if has_plm_control:
+        plm_ctrl_y = 0.0
+        all_labels.append(_wrap("Grantham similarity (control vs PLMs)"))
+        all_y.append(plm_ctrl_y)
 
     strata = list(dict.fromkeys(table["stratum"]))
     fig = style.figure(style.WIDTH_DOUBLE, height)
@@ -170,7 +182,7 @@ def _plot(table: pd.DataFrame, value: str, lo: str, hi: str, *, zero_label: str,
         for name in prop_series:
             sub = here.loc[here["series"] == name].set_index("condition").reindex(keys)
             colour = style.colour_for_role(sub["role"].iloc[0])
-            marker, filled = SERIES_STYLE.get(name, ("o", True))
+            marker, filled = SERIES_STYLE.get(name, ("s", True))
             ref_key = conds.loc[conds["reference"], "condition"].iloc[0]
             row = sub.loc[ref_key]
             # The range this control covers across every spectrum, drawn behind its point.
@@ -181,6 +193,20 @@ def _plot(table: pd.DataFrame, value: str, lo: str, hi: str, *, zero_label: str,
                             markerfacecolor=colour if filled else style.SURFACE,
                             markersize=MARKER_SIZE, elinewidth=0.9, capsize=0, zorder=4)
             handles.setdefault(name, (h, sub["series_label"].iloc[0]))
+
+        if has_plm_control:
+            ctrl_here = control_plm.loc[control_plm["stratum"].astype(str) == str(st)]
+            for si, name in enumerate(model_series):
+                m_sub = ctrl_here.loc[ctrl_here["series"] == name]
+                if not m_sub.empty:
+                    m_row = m_sub.iloc[0]
+                    off = (si - (n_series - 1) / 2) * SPREAD / n_series
+                    colour = style.colour_for_role(m_row["role"]) if "role" in m_row else style.colour_for_role(here.loc[here["series"] == name, "role"].iloc[0])
+                    ax.errorbar([m_row[value]], [plm_ctrl_y + off],
+                                xerr=[[m_row[value] - m_row[lo]], [m_row[hi] - m_row[value]]],
+                                fmt="s", color=colour, ecolor=colour,
+                                markerfacecolor=colour,
+                                markersize=MARKER_SIZE, elinewidth=0.9, capsize=0, zorder=4)
 
         ax.set_yticks(all_y)
         ax.set_yticklabels(all_labels)
@@ -196,9 +222,10 @@ def _plot(table: pd.DataFrame, value: str, lo: str, hi: str, *, zero_label: str,
     return fig
 
 
-def draw_swap(table: pd.DataFrame):
+def draw_swap(table: pd.DataFrame, control_plm: pd.DataFrame | None = None):
+    h = 7.6 if control_plm is not None and not control_plm.empty else 7.2
     return _plot(table, "estimate", "lo", "hi", zero_label="no correlation = 0",
-                 xlabel="Spearman ρ with accessibility", height=7.2)
+                 xlabel="Spearman ρ with accessibility", height=h, control_plm=control_plm)
 
 
 def summarise(table: pd.DataFrame) -> pd.DataFrame:
@@ -211,11 +238,12 @@ def summarise(table: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def caption(table: pd.DataFrame, gap: float, n_boot: int) -> str:
+def caption(table: pd.DataFrame, gap: float, n_boot: int, primary_lineage: str = "") -> str:
     ref_label = table.loc[table["reference"], "label"].iloc[0]
     models = table.loc[table["kind"] == "model"]
     worst = models.loc[models.loc[models["stratum"].astype(str) == "1", "estimate"].idxmin(), "label"]
     n_alt = int(table["condition"].nunique() - 1)
+    ref_lin_text = f"the single reference lineage {primary_lineage}" if primary_lineage else "a single reference lineage"
     return f"""
     **How strongly each model's score tracks mutational accessibility,
     spectrum by spectrum.** Mutational accessibility of a replacement is the probability that
@@ -258,13 +286,19 @@ def caption(table: pd.DataFrame, gap: float, n_boot: int) -> str:
     them understates the uncertainty (`LINEAGE_VALIDITY.md` section 4, Q2). One draw is reused
     across every spectrum, series and stratum, so differences between rows are paired.
 
-    **The bottom row is the control.** Grantham similarity is not a model and holds no nucleotide
-    information, so it shows what the genetic code does by itself. It takes a row of its own
-    rather than repeating on all {n_alt + 1} spectrum rows. Its square is the value under the reference
-    spectrum, "{ref_label}", with the usual interval; the pale bar behind it spans
-    the lowest to the highest value the control reaches across all {n_alt + 1} spectra, because that
-    range is wide enough that a single number would misrepresent it. No star is placed on this
-    row: the stars mark each model's best spectrum, and the control is not a model.
+    **The bottom two rows are the biochemistry controls.** Grantham similarity is not a model and
+    holds no nucleotide information, so it shows what the genetic code does by itself. In the
+    "(control vs spectra)" row, Grantham similarity is correlated with mutational accessibility
+    computed under the reference spectrum, "{ref_label}" (pink square, with 95% site-bootstrap
+    interval); the pale bar behind it spans the lowest to the highest point estimate the control
+    reaches across all {n_alt + 1} spectra, because that range is wide enough that a single number
+    would misrepresent it (it is a range of point estimates across alternative spectra, not an
+    interval). In the "(control vs PLMs)" row below it, each model's score is correlated directly
+    against Grantham similarity (squares coloured by model, with 95% site-bootstrap intervals).
+    Because the lineages share their sites and sequence, they are pseudo-replicates for evaluating
+    amino-acid similarity; these values are therefore evaluated on {ref_lin_text} to avoid
+    cross-lineage pseudo-replication. No star is placed on either control row: the stars mark each
+    model's best spectrum, and the controls are not models.
 
     **Why "{worst}" scores lowest.** Its matrix is the closest to the
     reference of any in the panel by variance -- supplementary figure S5 puts the two at 83-85%
@@ -302,6 +336,34 @@ def caption(table: pd.DataFrame, gap: float, n_boot: int) -> str:
     """
 
 
+def load_control_plm(guide: Guide, results_dir: Path | None = None, scores: pd.DataFrame | None = None) -> pd.DataFrame | None:
+    path = (Path(results_dir) if results_dir is not None else guide.results_dir) / f"{CONTROL_TABLE}.tsv.gz"
+    if path.is_file():
+        return pd.read_csv(path, sep="\t")
+    if scores is not None and "lineage" in scores.columns:
+        from scipy.stats import spearmanr
+        target_lin = guide.primary_lineage
+        if target_lin is None:
+            available = set(scores["lineage"].unique())
+            target_lin = next((lin.id for lin in guide.lineages if lin.id in available), scores["lineage"].iloc[0])
+        sub_lin = scores[scores["lineage"] == target_lin]
+        strata = ["all", "1", "2", "3"]
+        rows = []
+        for m in guide.models:
+            sub_m = sub_lin[sub_lin["model"] == m.key]
+            if sub_m.empty:
+                continue
+            for st in strata:
+                sub = sub_m if st == "all" else sub_m[sub_m["nt_steps"] == int(st)]
+                if len(sub) == 0:
+                    continue
+                r = float(spearmanr(sub["plm_prob"], sub["neg_grantham"]).statistic)
+                rows.append({"series": m.key, "stratum": str(st), "estimate": r, "lo": r, "hi": r, "n_rows": len(sub), "n_boot": 0})
+        if rows:
+            return pd.DataFrame(rows)
+    return None
+
+
 def main(argv=None) -> int:
     args = parse_figure_args(__doc__.split("\n\n")[0], argv)
     guide: Guide = args.guide
@@ -316,10 +378,44 @@ def main(argv=None) -> int:
     summary = summarise(table)
     summary["kind"] = ["property" if s in set(table.loc[table["kind"] == "property", "series"]) else "model" for s in summary["series"]]
 
-    paths = style.save_figure(draw_swap(table), args.out / STEM)
-    write_values(table, args.out, STEM)
+    control_plm = load_control_plm(guide, args.results, scores)
+    if control_plm is not None:
+        if "role" not in control_plm.columns:
+            control_plm["role"] = [guide.model(s).role for s in control_plm["series"]]
+        if "series_label" not in control_plm.columns:
+            control_plm["series_label"] = [guide.model(s).label for s in control_plm["series"]]
+
+    full_table = table
+    if control_plm is not None:
+        ctrl_rows = []
+        for r in control_plm.itertuples():
+            ctrl_rows.append({
+                "condition": "grantham_plm",
+                "label": "Grantham similarity (control vs PLMs)",
+                "reference": False,
+                "series": r.series,
+                "kind": "control",
+                "stratum": str(r.stratum),
+                "estimate": r.estimate,
+                "lo": r.lo,
+                "hi": r.hi,
+                "delta": 0.0,
+                "delta_lo": 0.0,
+                "delta_hi": 0.0,
+                "n_rows": r.n_rows,
+                "n_boot": r.n_boot,
+                "series_label": r.series_label,
+                "role": r.role,
+            })
+        full_table = pd.concat([table, pd.DataFrame(ctrl_rows)], ignore_index=True)
+
+    paths = style.save_figure(draw_swap(table, control_plm), args.out / STEM)
+    write_values(full_table, args.out, STEM)
     write_values(summary, args.out, f"{STEM}_summary")
-    write_caption(caption(table, gap, int(table["n_boot"].iloc[0])), args.out, STEM)
+    write_caption(caption(table, gap, int(table["n_boot"].iloc[0]), primary_lineage=guide.primary_lineage or ""), args.out, STEM)
+    print(f"self-check: reference condition agrees with the guide's accessibility to {gap:.1e}")
+    print("wrote", ", ".join(p.name for p in paths))
+    return 0
     print(f"self-check: reference condition agrees with the guide's accessibility to {gap:.1e}")
     print("wrote", ", ".join(p.name for p in paths))
     return 0

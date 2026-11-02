@@ -20,6 +20,7 @@ Tables (``codon``), per set:
     codon_strand_c_per_aa         the correlation within each amino acid
 Tables (``sG``):
     spectrum_swap_strata          correlation with accessibility under each spectrum, with paired differences
+    spectrum_swap_j2_control      Grantham vs PLMs control on primary lineage J.2, site bootstrap
 """
 
 from __future__ import annotations
@@ -105,6 +106,28 @@ def codon_tables(guide: Guide, scores: pd.DataFrame, *, n_boot: int, n_perm: int
 # S6
 # ---------------------------------------------------------------------------
 
+def j2_plm_control_table(guide: Guide, scores: pd.DataFrame, *, n_boot: int = 300, seed: int = SEED) -> pd.DataFrame:
+    from scipy.stats import spearmanr
+    target_lin = guide.primary_lineage or "J.2"
+    j2 = scores[scores["lineage"] == target_lin]
+    rng = np.random.default_rng(seed)
+    strata = ["all", "1", "2", "3"]
+    rows = []
+    for model, d in j2.groupby("model"):
+        for label, sub in [("all", d)] + [(str(s), d[d.nt_steps == s]) for s in (1, 2, 3)]:
+            r = spearmanr(sub.plm_prob, sub.neg_grantham).statistic
+            sites = sub.position.unique()
+            groups = {p: g for p, g in sub.groupby("position")}
+            draws = []
+            for _ in range(n_boot):
+                pick = rng.choice(sites, size=len(sites), replace=True)
+                b = pd.concat([groups[p] for p in pick])
+                draws.append(spearmanr(b.plm_prob, b.neg_grantham).statistic)
+            lo, hi = np.nanpercentile(draws, [2.5, 97.5])
+            rows.append(dict(series=model, stratum=label, n_rows=len(sub), estimate=r, lo=lo, hi=hi, n_boot=n_boot))
+    return pd.DataFrame(rows)
+
+
 def s06_tables(guide: Guide, scores: pd.DataFrame, *, n_boot: int) -> dict[str, pd.DataFrame]:
     import json
     base, ft = _roles(guide)
@@ -131,7 +154,8 @@ def s06_tables(guide: Guide, scores: pd.DataFrame, *, n_boot: int) -> dict[str, 
     label = {**{m.key: m.label for m in guide.models}, **SERIES_LABEL}
     table["series_label"] = table["series"].map(label)
     table["role"] = [guide.model(s).role if k == "model" else "biochemistry" for s, k in zip(table["series"], table["kind"])]
-    return {"spectrum_swap_strata": table}
+    ctrl = j2_plm_control_table(guide, scores, n_boot=n_boot)
+    return {"spectrum_swap_strata": table, "spectrum_swap_j2_control": ctrl}
 
 
 # ---------------------------------------------------------------------------
@@ -164,6 +188,7 @@ USED = {
     "codon_strand_c_summary": "Codon-learning figure: within-residue correlation with codon persistence and its null",
     "codon_strand_c_per_aa": "Codon-learning figure: the within-residue correlation for each amino acid",
     "spectrum_swap_strata": "S6: correlation with accessibility under each spectrum, with paired differences",
+    "spectrum_swap_j2_control": "SF: Grantham vs PLMs control on primary lineage J.2, site bootstrap",
 }
 
 

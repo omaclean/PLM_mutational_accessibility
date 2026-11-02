@@ -254,6 +254,22 @@ def test_figure_draws_from_a_small_table(planted, tmp_path):
     assert not hasattr(sF, "draw_delta"), "the delta figure was dropped"
 
 
+def test_figure_draws_with_control_plm(planted, tmp_path):
+    t = table_for_figure(planted)
+    sF.validate(t)
+    from mutacc import style
+    ctrl = pd.DataFrame([
+        {"series": "base", "stratum": st, "estimate": 0.3, "lo": 0.25, "hi": 0.35, "n_rows": 100, "n_boot": 12, "role": "base", "series_label": "Base"}
+        for st in ("all", "1", "2", "3")
+    ] + [
+        {"series": "ft", "stratum": st, "estimate": 0.4, "lo": 0.35, "hi": 0.45, "n_rows": 100, "n_boot": 12, "role": "finetune", "series_label": "FT"}
+        for st in ("all", "1", "2", "3")
+    ])
+    fig = sF.draw_swap(t, control_plm=ctrl)
+    paths = style.save_figure(fig, tmp_path / "b")
+    assert all(p.stat().st_size > 5_000 for p in paths)
+
+
 # ---------------------------------------------------------------------------
 # Shipped table
 # ---------------------------------------------------------------------------

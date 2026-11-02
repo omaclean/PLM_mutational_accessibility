@@ -42,14 +42,20 @@ the spread between them understates the uncertainty (`LINEAGE_VALIDITY.md` secti
 One draw is reused across every spectrum, series and stratum, so differences between rows
 are paired.
 
-**The bottom row is the control.** Grantham similarity is not a model and holds no
-nucleotide information, so it shows what the genetic code does by itself. It takes a row
-of its own rather than repeating on all 10 spectrum rows. Its square is the value under
-the reference spectrum, "Influenza H3N2 (Pauly et al.)", with the usual interval; the pale
-bar behind it spans the lowest to the highest value the control reaches across all 10
-spectra, because that range is wide enough that a single number would misrepresent it. No
-star is placed on this row: the stars mark each model's best spectrum, and the control is
-not a model.
+**The bottom two rows are the biochemistry controls.** Grantham similarity is not a model
+and holds no nucleotide information, so it shows what the genetic code does by itself. In
+the "(control vs spectra)" row, Grantham similarity is correlated with mutational
+accessibility computed under the reference spectrum, "Influenza H3N2 (Pauly et al.)" (pink
+square, with 95% site-bootstrap interval); the pale bar behind it spans the lowest to the
+highest point estimate the control reaches across all 10 spectra, because that range is
+wide enough that a single number would misrepresent it (it is a range of point estimates
+across alternative spectra, not an interval). In the "(control vs PLMs)" row below it,
+each model's score is correlated directly against Grantham similarity (squares coloured by
+model, with 95% site-bootstrap intervals). Because the lineages share their sites and
+sequence, they are pseudo-replicates for evaluating amino-acid similarity; these values
+are therefore evaluated on the single reference lineage J.2 to avoid cross-lineage
+pseudo-replication. No star is placed on either control row: the stars mark each model's
+best spectrum, and the controls are not models.
 
 **Why "Influenza H1N1" scores lowest.** Its matrix is the closest to the reference of any
 in the panel by variance -- supplementary figure S5 puts the two at 83-85% of each other's

@@ -1,0 +1,2785 @@
+{
+  "checkpoint_name": "magma_ESMC_600M_99_95perc",
+  "model_family": "ESM-C",
+  "base_model": "esmc_600m",
+  "target_protein": "SARS-CoV-2 Spike",
+  "total_parameters": 575036992,
+  "total_tensors": 368,
+  "safetensors_header_metadata": {
+    "format": "pt"
+  },
+  "clustering": {
+    "training_identity_threshold": 0.99,
+    "split_identity_threshold": 0.95,
+    "description": "Trained on 99% clustered spike representatives; held-out validation split at 95% identity threshold."
+  },
+  "training_hyperparameters": {
+    "num_train_epochs": 40,
+    "per_device_train_batch_size": 12,
+    "per_device_eval_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 5e-05,
+    "optimizer": "adamw_torch",
+    "bf16": true,
+    "seed": 13,
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "eval_strategy": "epoch",
+    "save_strategy": "epoch",
+    "save_total_limit": 5
+  },
+  "files": {
+    "training_args.bin": {
+      "size_bytes": 5176,
+      "md5": "8e6646afaf45f40f5a67e63beaa8b1e7",
+      "sha256": "f44ca1522f183788c037805178657ea5ee65b59ea55018a1be9922e3791d2936",
+      "bundled_in_repo": true,
+      "relative_path": "evotuning/checkpoints/magma_ESMC_600M_99_95perc/training_args.bin"
+    },
+    "model.safetensors": {
+      "size_bytes": 1150117424,
+      "md5": "d6e234f47ab0232a4e84577a7c9a7d7e",
+      "sha256": "519de0fb9e224447c8725ac9686ed306be8f1c110c0da985efd28782c0437301",
+      "format": "safetensors",
+      "source_path": "my_SC2_finetunes/magma_ESMC_600M_99_95perc/model.safetensors"
+    },
+    "esmc_weights.pt": {
+      "size_bytes": 1150225302,
+      "md5": "404a1097cba81fde4926154ce427f94c",
+      "sha256": "1ab972b65da412ceebc033a8508ab66b7e56586bbeb6486c36d04ff0e80e2dc7",
+      "format": "pytorch_state_dict",
+      "source_path": "my_SC2_finetunes/magma_ESMC_600M_99_95perc/esmc_weights.pt"
+    },
+    "earlycehck": {
+      "is_dir": true,
+      "description": "Early checkpoint validation directory preserved from training run.",
+      "bundled_in_repo": true,
+      "relative_path": "evotuning/checkpoints/magma_ESMC_600M_99_95perc/earlycehck"
+    }
+  },
+  "tensors": {
+    "esmc.embed.weight": {
+      "shape": [
+        64,
+        1152
+      ],
+      "numel": 73728,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.sequence_head.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.sequence_head.0.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.sequence_head.2.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.sequence_head.2.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.sequence_head.3.bias": {
+      "shape": [
+        64
+      ],
+      "numel": 64,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.sequence_head.3.weight": {
+      "shape": [
+        64,
+        1152
+      ],
+      "numel": 73728,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.0.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.1.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.10.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.11.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.12.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.13.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.14.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.15.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.16.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.17.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.18.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.19.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.2.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.20.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.21.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.22.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.23.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.24.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.25.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.26.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.27.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.28.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.29.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.3.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.30.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.31.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.32.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.33.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.34.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.35.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.4.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.5.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.6.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.7.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.8.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.attn.k_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.attn.layernorm_qkv.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.attn.layernorm_qkv.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.attn.layernorm_qkv.1.weight": {
+      "shape": [
+        3456,
+        1152
+      ],
+      "numel": 3981312,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.attn.out_proj.weight": {
+      "shape": [
+        1152,
+        1152
+      ],
+      "numel": 1327104,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.attn.q_ln.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.ffn.0.bias": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.ffn.0.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.ffn.1.weight": {
+      "shape": [
+        6144,
+        1152
+      ],
+      "numel": 7077888,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.blocks.9.ffn.3.weight": {
+      "shape": [
+        1152,
+        3072
+      ],
+      "numel": 3538944,
+      "dtype": "torch.bfloat16"
+    },
+    "esmc.transformer.norm.weight": {
+      "shape": [
+        1152
+      ],
+      "numel": 1152,
+      "dtype": "torch.bfloat16"
+    }
+  }
+}

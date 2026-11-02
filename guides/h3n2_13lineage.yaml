@@ -34,6 +34,8 @@ lineages:
   - {id: J.2.4, root: data/roots/h3n2_13lineage/J.2.4.nt.fa, root_type: reconstructed}
   - {id: K,     root: data/roots/h3n2_13lineage/K.nt.fa,     root_type: reconstructed}
 
+primary_lineage: J.2
+
 tables:
   alpha_sweep_by_lineage: alpha_sweep_by_lineage.tsv.gz
   alpha_sweep_by_lineage_masked: alpha_sweep_by_lineage_masked.tsv.gz

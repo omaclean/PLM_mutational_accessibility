@@ -119,3 +119,11 @@ jc69	All changes equal (JC69)	False	neg_grantham	property	2	0.17372	0.14428	0.20
 jc69	All changes equal (JC69)	False	ESM2_650M_HA80_raw	model	3	0.0988466	0.0550956	0.145226	-0.0995112	-0.16889	-0.0399323	1933.92	300	Base model (ESM-2)	base
 jc69	All changes equal (JC69)	False	ESM2_650M_HA80	model	3	0.20953	0.169075	0.245183	-0.0680031	-0.131403	-0.0106863	1933.92	300	Fine-tuned on influenza HA	finetune
 jc69	All changes equal (JC69)	False	neg_grantham	property	3	0.0566028	0.00431819	0.0987258	-0.187625	-0.237944	-0.137353	1933.92	300	Grantham similarity (control)	biochemistry
+grantham_plm	Grantham similarity (control vs PLMs)	False	ESM2_650M_HA80	control	all	0.358435	0.337596	0.377172	0	0	0	10754	300	Fine-tuned on influenza HA	finetune
+grantham_plm	Grantham similarity (control vs PLMs)	False	ESM2_650M_HA80	control	1	0.382418	0.350228	0.416915	0	0	0	3334	300	Fine-tuned on influenza HA	finetune
+grantham_plm	Grantham similarity (control vs PLMs)	False	ESM2_650M_HA80	control	2	0.191657	0.162227	0.224372	0	0	0	5486	300	Fine-tuned on influenza HA	finetune
+grantham_plm	Grantham similarity (control vs PLMs)	False	ESM2_650M_HA80	control	3	0.276912	0.227916	0.323924	0	0	0	1934	300	Fine-tuned on influenza HA	finetune
+grantham_plm	Grantham similarity (control vs PLMs)	False	ESM2_650M_HA80_raw	control	all	0.336534	0.305508	0.362528	0	0	0	10754	300	Base model (ESM-2)	base
+grantham_plm	Grantham similarity (control vs PLMs)	False	ESM2_650M_HA80_raw	control	1	0.363169	0.330914	0.393866	0	0	0	3334	300	Base model (ESM-2)	base
+grantham_plm	Grantham similarity (control vs PLMs)	False	ESM2_650M_HA80_raw	control	2	0.241155	0.210301	0.27522	0	0	0	5486	300	Base model (ESM-2)	base
+grantham_plm	Grantham similarity (control vs PLMs)	False	ESM2_650M_HA80_raw	control	3	0.256819	0.209843	0.306919	0	0	0	1934	300	Base model (ESM-2)	base

@@ -70,24 +70,21 @@ What the manifest does **not** settle:
 
 ## Simulation arms (GPU)
 
-Everything for the simulated sequences lives in the archive's `dev/simulated_phylogenies/` (human and
-SARS-CoV-2 arms, fine-tuned earlier) and, for the new arms, `tmp_explore/gpu_sim_arms/`.
+The simulation suite used to generate the evolutionary arms for Reviewer 2's simulation control
+([`output/sN_simulation_control.png`](output/sN_simulation_control.png)) is packaged directly in
+[`evotuning/`](evotuning/):
 
-* Simulator: `scripts/simulate_v2_phylogenies.py --mode star --matrix <spectrum.csv> --calibration
-  dms_calibration_targets.json --beta 2.0 --star-branch-length 33.0 --n-sequences 10000 --length-aa 700
-  --seed 20260924`. The flat-spectrum arm used `data/spectra/jc69.csv`; its founder is byte-identical to the
-  other arms (md5 43f02a48...). Branch length means accepted amino-acid substitutions per site, so divergence
-  is comparable across spectra.
-* Fine-tune: `sc2_esmc_evotune/evotune_esmc_magma.py` under `torchrun --nproc-per-node 1`, ESM-C 600M,
-  10 epochs, batch 8, accumulation 4, bf16, gradient checkpointing. About 70 minutes per arm on a V100S.
+* Simulator: [`evotuning/simulation/simulate_v2_phylogenies.py`](evotuning/simulation/simulate_v2_phylogenies.py)
+  run with `--mode star --matrix <spectrum.csv> --calibration evotuning/simulation/dms_calibration_targets.json --beta 2.0 --star-branch-length 33.0 --n-sequences 10000 --length-aa 700 --seed 20260924`.
+  The flat-spectrum arm used `data/spectra/jc69.csv`; its founder is byte-identical to the other arms (md5 43f02a48...).
+  Branch length means accepted amino-acid substitutions per site, so divergence is comparable across spectra.
+* Fine-tune: [`evotune_gradient_MAGMA_ESMC.py`](evotune_gradient_MAGMA_ESMC.py) under `torchrun --nproc-per-node 1`,
+  ESM-C 600M, 10 epochs, batch 8, accumulation 4, bf16, gradient checkpointing.
 * Scoring: `slurm_mutation_acesiblity.sbatch.sh` with a `--guide-path` whose `reference` is the **founder**
   (the earlier scoring used a tip representative).
-* Queue: `tmp_explore/gpu_sim_arms/run_gpu_arms.sh`, run on `gpu1` (an idle V100S on the same filesystem),
-  idempotent. Launched 9 Oct 2026 15:38; log `tmp_explore/gpu_sim_arms/logs/queue.log`.
-  **Finished 10 Oct 2026 17:13, every step `exit 0`** — both fine-tunes and all four founder
-  scorings. Each fine-tune took about **11 h 45 m**, not the ~70 minutes the earlier shared card
-  suggested; the estimate above is for the older hardware and should not be used to plan a new
-  arm. The outputs have not been analysed yet (see `SYMMETRY_TESTS.md` §8).
+* Queue: [`evotuning/simulation/run_gpu_arms.sh`](evotuning/simulation/run_gpu_arms.sh) (derived from `tmp_explore/gpu_sim_arms/run_gpu_arms.sh`),
+  orchestrating fine-tunes and founder scorings. Finished 10 Oct 2026 17:13 (`exit 0` across all steps).
+  Outputs are cataloged in `results/sim_v3_star90/` and analyzed in `SYMMETRY_TESTS.md` §8.
 
 ## Masked marginals for the DMS figures (GPU), 19–20 Oct 2026
 
@@ -103,7 +100,7 @@ point them at):
 ```bash
 export PLM_REPO=<...>/PLM_SARS-CoV-2
 export PLM_MODEL_DIR=<...>/model_weights_topublish
-export SC2_FINETUNE=<...>/magma_ESMC_600M_99_95perc
+export SC2_FINETUNE=<...>/magma_ESMC_600M_99_95perc # metadata & args in evotuning/checkpoints/magma_ESMC_600M_99_95perc/
 
 # influenza backbones, ESM-2 via transformers, in the plm_sars environment
 python dev/masked_dms/embed_masked_profile.py --dataset MA22

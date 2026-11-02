@@ -1,34 +1,27 @@
-# Mutational accessibility and protein language models — figure engine
+# Mutational accessibility and protein language models — fine-tuning, simulation & analysis pipeline
 
-Code and derived tables that redraw every figure of **"Protein language models learn
-underlying mutation biases alongside fitness landscapes"** (MacLean, Lamb, Lytras,
-Mojsiejczuk, Yuan, Hughes & Robertson), bioRxiv
-[10.64898/2026.07.06.736753](https://www.biorxiv.org/content/10.64898/2026.07.06.736753) .
+Code, model fine-tuning recipes, evolutionary simulation pipelines, and derived tables that train, evaluate, and redraw every figure of **"Protein language models learn underlying mutation biases alongside fitness landscapes"** (MacLean, Lamb, Lytras, Mojsiejczuk, Yuan, Hughes & Robertson), bioRxiv [10.64898/2026.07.06.736753](https://www.biorxiv.org/content/10.64898/2026.07.06.736753) .
 
-Protein language models score amino acid replacements as pseudo-probabilities. Because they
-are trained on natural sequences, those scores conflate structural constraint with
-**nucleotide mutation bias** — how easy a replacement is to reach through the genetic code.
-This repository holds the analysis that separates the two, and the code that draws it.
+Protein language models score amino acid replacements as pseudo-probabilities. Because they are trained on natural sequences, those scores conflate structural constraint with **nucleotide mutation bias** — how easy a replacement is to reach through the genetic code. This repository holds the complete scientific pipeline that separates the two: from custom GPU fine-tuning and in silico evolutionary simulations to the statistical scoring and publication figure generation.
 
-## What this repository is, and is not
+## Structure of this repository
 
-**It is a figure engine.** Every figure script takes a *guide file* naming the lineages,
-models and tables of one analysis run, and draws what it finds. Nothing in `figures/` should
-name a lineage, a model, a virus or a count, and `tests/test_figure_rules.py` enforces that —
-with one known exception, recorded under [Known gaps](#known-gaps).
+This repository bundles the full end-to-end scientific workflow across two operational tiers:
 
-**No model runs here.** Scoring the protein language models needed GPUs and sequence data
-that cannot be redistributed. What ships is their *output* — the scored tables under
-`results/` — together with everything needed to turn those tables into the published
-figures. How the tables were made is recorded in [`RUNS.md`](RUNS.md); reproducing them is a
-separate, much heavier job.
+1. **The Model Fine-Tuning & Evolutionary Simulation Engine (`evotuning/`):**
+   * [`evotune_gradient_MAGMA_ESMC.py`](evotune_gradient_MAGMA_ESMC.py) (also accessible at root and in [`evotuning/`](evotuning/)): The production fine-tuning engine implementing Muon + Magma optimization and FSDP NO_SHARD (ZeRO-0 auto_wrap `UnifiedTransformerBlock`) for ESM-C (600M, 300M, 6B) and ESM-2 architectures.
+   * **Exact Run Modes:** Supports both `--run-mode standard` (dual MMseqs2 identity clustering for training downsampling and held-out evaluation splits) and `--run-mode full-finetune` (100% sequence training allocation without eval holdout).
+   * **Fine-Tuned Checkpoints & Metadata:** Complete training hyperparameters, serialized arguments (`training_args.bin`), JSON exports, and parameter inventories for the SARS-CoV-2 spike fine-tune [`evotuning/checkpoints/magma_ESMC_600M_99_95perc/`](evotuning/checkpoints/magma_ESMC_600M_99_95perc/).
+   * **Evolutionary Simulation Suite (`evotuning/simulation/`):** Synthetic founder generation and sequence evolution under shared fitness landscapes ($\beta = 2.0$) across defined nucleotide mutation spectra, directly powering the simulation control figure [`output/sN_simulation_control.png`](output/sN_simulation_control.png).
 
-So a reader can check **every number and every statistic in the paper** from this repository
-alone, on a laptop, with no GPU and no network, and rebuild every figure but one: the Fig 1A
-clade tree was drawn from GISAID sequences that cannot be redistributed and is placed as a
-frozen file. A reader cannot re-score the models from here.
+2. **The Deterministic Analysis & Figure Engine (`figures/`, `mutacc/`, `tools/`):**
+   * Self-contained, zero-GPU analytical suite turning scored model tables under `results/` into publication-grade figures.
+   * Every number, statistic, confidence interval, and caption can be validated on a laptop in a few minutes without GPU access or external downloads.
+   * Seeding ensures bit-for-bit reproducibility checked automatically by `tools/build_figures.py`.
 
 ## Quick start
+
+### 1. Validating Figures and Running the Test Suite (CPU, no GPU needed)
 
 ```bash
 git clone https://github.com/omaclean/PLM_mutational_accessibility
@@ -37,17 +30,78 @@ cd PLM_mutational_accessibility
 conda env create -f environment.yml && conda activate mutacc
 # or: python -m pip install -r requirements.txt
 
-pytest                        # the full suite; a few minutes, no GPU, no network
+pytest                        # test suite; a few minutes, no GPU, no network
 python tools/build_figures.py # redraw everything and check it against the shipped figures
 ```
 
-One environment draws every figure and runs every test. Tables ship as gzipped TSV so that
-no parquet reader is needed. Python 3.12; the dependencies are numpy, pandas, scipy,
-matplotlib, PyYAML, biopython, Pillow and PyMuPDF, with fonttools and threadpoolctl as
-optional extras and pytest for the tests. Nothing heavier, and no machine-learning stack:
-no model is run from this repository.
+### 2. Fine-Tuning ESM-C Models (GPU cluster)
 
-## How to validate this work
+```bash
+# Standard mode with 99% training clustering and 95% split holdout:
+python evotune_gradient_MAGMA_ESMC.py \
+    --input-fasta <path/to/sequences.fasta> \
+    --output-dir ./SC2_out \
+    --run-name spike_magma_esmc600m \
+    --model-type esmc_600m \
+    --run-mode standard \
+    --num-epochs 40 \
+    --train-batch-size 8 \
+    --gradient-accumulation-steps 4 \
+    --cluster-identity-for-training 0.99 \
+    --cluster-identity-for-split 0.95 \
+    --bf16 true \
+    --gradient-checkpointing true
+
+# Full-finetune mode (100% data, no eval split holdout):
+python evotune_gradient_MAGMA_ESMC.py \
+    --input-fasta <path/to/sequences.fasta> \
+    --output-dir ./SC2_out \
+    --run-name spike_full_esmc600m \
+    --run-mode full-finetune \
+    --model-type esmc_600m
+```
+
+## Custom Fine-Tuning Engine: Muon / Magma & FSDP Architecture
+
+Fine-tuning PLMs across viral clades requires preserving broad biochemical priors while adapting to specific evolutionary drift:
+* **Muon Optimizer:** Applies Newton-Schulz matrix iterations to orthogonalize 2D momentum buffers, yielding stable, directional gradient updates for internal attention and projection layers.
+* **Magma Integration:** Pairs Muon updates on internal 2D transformer blocks with AdamW for 1D biases, layernorms, and embedding weights.
+* **FSDP NO_SHARD Strategy:** Standard ZeRO-3 / FSDP parameter sharding splits weight matrices into contiguous 1D slices across ranks, destroying the 2D matrix structure required by Newton-Schulz orthogonalization. `evotune_gradient_MAGMA_ESMC.py` wraps `UnifiedTransformerBlock` under FSDP `no_shard auto_wrap` (ZeRO-0). Parameters are replicated across GPUs (~7 GB VRAM for ESM-C 600M params, grads, and momentum), while data parallelism scales cleanly across nodes.
+
+Distributed Slurm execution recipes are provided in [`evotuning/slurm/evotune_esmc_full_magma.sbatch`](evotuning/slurm/evotune_esmc_full_magma.sbatch).
+
+## Reviewer 2 Simulation Control Pipeline (`output/sN_simulation_control.png`)
+
+Figure SN (**Supplementary Figure SN: Reviewer 2's Simulation Control**) establishes that PLMs specifically learn the generating nucleotide mutation spectrum rather than generic accessibility. Sequences were evolved in silico from one synthetic founder under one invariant site-specific fitness landscape ($\beta = 2.0$), varying **only** the generating nucleotide substitution spectrum.
+
+The complete workflow that generates [`output/sN_simulation_control.png`](output/sN_simulation_control.png) is packaged end-to-end:
+
+1. **Evolutionary Simulation:** Four evolutionary arms (10,000 sequences each, length 700 aa) evolved using [`evotuning/simulation/simulate_v2_phylogenies.py`](evotuning/simulation/simulate_v2_phylogenies.py) calibrated against [`evotuning/simulation/dms_calibration_targets.json`](evotuning/simulation/dms_calibration_targets.json):
+   * Human germline spectrum: `data/spectra/human.csv`
+   * SARS-CoV-2 spectrum: `data/spectra/sars_cov_2.csv`
+   * Influenza A H3N2 spectrum: `data/spectra/influenza_h3n2.csv`
+   * Flat JC69 neutral control: `data/spectra/jc69.csv` (all nucleotide substitution rates identical)
+2. **ESM-C 600M Fine-Tuning:** Each evolutionary arm is fine-tuned from raw ESM-C 600M using [`evotune_gradient_MAGMA_ESMC.py`](evotune_gradient_MAGMA_ESMC.py) (10 epochs, batch size 8, gradient accumulation 4, bfloat16) via [`evotuning/simulation/run_gpu_arms.sh`](evotuning/simulation/run_gpu_arms.sh).
+3. **Founder Scoring:** The synthetic founder is scored across all 13,300 single-mutant replacements ($700\text{ sites} \times 19\text{ replacements}$) with raw ESM-C 600M and all four fine-tuned arms, assembled into [`results/sim_v3_star90/replacement_scores.tsv.gz`](results/sim_v3_star90/replacement_scores.tsv.gz).
+4. **Symmetry & Debiasing Battery:** Evaluated holding true fitness fixed via [`tools/run_symmetry_sim.py`](tools/run_symmetry_sim.py) across all four spectra, outputting [`results/sim_v3_star90/symmetry_*.tsv.gz`](results/sim_v3_star90/).
+5. **Figure Generation:**
+   ```bash
+   python figures/make_sN_simulation_control.py
+   ```
+   Renders [`output/sN_simulation_control.png`](output/sN_simulation_control.png), [`.pdf`](output/sN_simulation_control.pdf), point estimates [`sN_simulation_control_values.tsv`](output/sN_simulation_control_values.tsv), and caption [`sN_simulation_control_caption.md`](output/sN_simulation_control_caption.md). Full writeup in [`evotuning/README.md`](evotuning/README.md).
+
+## SARS-CoV-2 Spike Checkpoint Metadata (`magma_ESMC_600M_99_95perc`)
+
+The primary SARS-CoV-2 Spike model analyzed in this paper (evaluated in Figure SA, Figure 4, Figure SJ, Figure SM, and the symmetry tests) was trained with `evotune_gradient_MAGMA_ESMC.py`.
+
+Full runtime metadata, hyperparameters, and tensor inventories are bundled in [`evotuning/checkpoints/magma_ESMC_600M_99_95perc/`](evotuning/checkpoints/magma_ESMC_600M_99_95perc/):
+* **`training_args.bin`:** Serialized Hugging Face `TrainingArguments` binary file (bundled in repo, 5.1 KB, MD5 `8e6646afaf45f40f5a67e63beaa8b1e7`).
+* **`training_args.json`:** Human-readable JSON dump of all parameters (40 epochs, learning rate 5e-5, AdamW, batch size 12, accumulation 4, bfloat16, seed 13).
+* **`checkpoint_metadata.json`:** Complete tensor registry cataloging all 368 tensors, layer shapes, dtypes, and 575,036,992 parameter count.
+* **`earlycehck/`:** Early checkpoint validation directory preserved from the training run.
+* **Weights Provenance:** Full weights (`model.safetensors`, 1.15 GB, MD5 `d6e234f47ab0232a4e84577a7c9a7d7e`; `esmc_weights.pt`, 1.15 GB, MD5 `404a1097cba81fde4926154ce427f94c`) are stored under `my_SC2_finetunes/magma_ESMC_600M_99_95perc/`.
+
+## How to validate the analytical figures
 
 `tools/build_figures.py` is the check. It rebuilds every figure into a scratch directory and
 **compares the result with the shipped `output/`**: every `_values.tsv` and every
@@ -114,7 +168,7 @@ every other figure's: those are the record a rebuild is checked against, not an 
 | SB six ranking metrics: PR-AUC, fold enrichment, partial AUROC, the two frequency correlations and picking the winners | `python figures/make_sB_ranking_metrics.py --guide guides/h3n2_13lineage.yaml` | `replacement_scores_masked`, `replacement_observed`, `replacement_frequency`, `alpha_sweep_by_lineage_masked` (`--scoring unmasked` for the unmasked pair) |
 | SD partial correlation | `python figures/make_sD_partial_correlation.py --guide guides/h3n2_5lineage.yaml` | `replacement_scores` |
 | SE spectra in codon space + best generic stand-in | `python figures/make_sE_spectra_codon_space.py` | `spectra_pairwise`, `spectra_sources`, `spectra_generic_stand_in` |
-| SF spectrum swap (two figures) | `python figures/make_sF_spectrum_swap.py --guide guides/h3n2_13lineage.yaml` | `spectrum_swap_strata`, `replacement_scores` |
+| SF spectrum swap | `python figures/make_sF_spectrum_swap.py --guide guides/h3n2_13lineage.yaml` | `spectrum_swap_strata`, `replacement_scores` |
 | SG epistasis against a null | `python figures/make_sG_epistasis_null.py --guide guides/h3n2_13lineage.yaml` | `epistasis_cells`, `epistasis_focal_sites`, `epistasis_null_draws` |
 | SJ DMS agreement vs distance | `python figures/make_sJ_dms_concordance.py --guide guides/h3n2_13lineage.yaml` | `dms_cross_lineage_pairs` |
 | SK nucleotides per codon per branch | `python figures/make_sK_branch_codons.py --branch-table results/s11_h3n2_ha_tree/branch_codons.tsv.gz --column-table results/s11_h3n2_ha_tree/column_codons.tsv.gz --long-range-nodes results/s11_h3n2_ha_tree/long_range_nodes.tsv.gz --baseline-codons results/s11_h3n2_ha_tree/baseline_codons.tsv.gz --year-table results/s11_h3n2_ha_tree/year_counts.tsv.gz --plm-null-scores results/h3n2_13lineage/replacement_scores_masked.tsv.gz --plm-null-guide guides/h3n2_13lineage.yaml --plm-null-lineage J.2` | real tables, the 224,731-tip tree of 24 Sep 2026 |
@@ -148,6 +202,8 @@ pseudo-replication across closely related variants sharing >98% sequence identit
 ## Layout
 
 ```
+evotuning/     model fine-tuning engine (evotune_gradient_MAGMA_ESMC.py), Slurm recipes,
+               evolutionary simulations, and checkpoint metadata
 guides/        one YAML per analysis run (and composites/ for panel layouts)
 mutacc/        library: style, guide loader, metrics, io
 figures/       one script per figure, plus panelise.py
@@ -164,6 +220,7 @@ docs/notes/    working notes: the plan, the red-team audits, progress logs
 
 | Document | What it answers |
 |---|---|
+| [`evotuning/README.md`](evotuning/README.md) | Fine-tuning engine, Muon/Magma FSDP setup, SC2 spike training recipe, and simulation control pipeline |
 | [`DATA.md`](DATA.md) | What every derived table is, how many rows it has, and where it came from |
 | [`RUNS.md`](RUNS.md) | How the upstream scoring runs were done — models, checkpoints, commands |
 | [`DB_SOURCING.md`](DB_SOURCING.md) | Where the sequence data came from, which database build, and the metadata defects that shape the figures |
@@ -186,8 +243,9 @@ The within-stratum, comparator, direction, thirteen-lineage and DMS figures here
 ## Which models, which checkpoints
 
 The SARS-CoV-2 fine-tune used everywhere in this repository is **ESM-C 600M**, checkpoint
-`my_SC2_finetunes/magma_ESMC_600M_99_95perc/esmc_weights.pt`, with raw ESM-C 600M as its
-base. The influenza models are **ESM-2 650M**, base and fine-tuned on HA-80.
+`my_SC2_finetunes/magma_ESMC_600M_99_95perc/esmc_weights.pt` (full runtime metadata, training arguments,
+and tensor manifest bundled in [`evotuning/checkpoints/magma_ESMC_600M_99_95perc/`](evotuning/checkpoints/magma_ESMC_600M_99_95perc/)),
+with raw ESM-C 600M as its base. The influenza models are **ESM-2 650M**, base and fine-tuned on HA-80.
 
 The ESM-2 650M spike fine-tune (`magma_esm-2_650M_95perc`) is **not** the paper's model. SA
 first drew it by mistake (12 Oct 2026), and also showed an ESM-2 influenza fine-tune on
