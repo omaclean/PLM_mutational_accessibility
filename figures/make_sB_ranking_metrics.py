@@ -22,35 +22,24 @@ The **bottom row** is put only to the replacements that were observed at all. Te
 replacement that occurred from one that did not is a question about what is possible; these
 ask whether a score can order what evolution actually did:
 
-  D  Spearman             rank correlation between the score and the observed frequency.
-  E  Pearson, log scale   the same correlation as a linear one, on the logarithm of the
-                          frequency rather than the frequency itself. Asked for in review.
-  F  Picking the winners  AUROC with the negative class cut down to replacements that
-                          occurred: the most frequent few per cent of a lineage's observed
-                          replacements against the rest of them. Nothing is won here by
-                          knowing which changes are possible, because they all happened.
+  D  Pearson, observed only    linear correlation across non-zero frequencies, weighting
+                               highest-frequency alleles most strongly.
+  E  Pearson, log scale        linear correlation on the logarithm of the frequency.
+  F  Spearman, observed only   rank correlation between score and observed frequency.
 
-Where the numbers come from. A, B, C and F are rebuilt from the per-replacement tables:
+Where the numbers come from. A, B, and C are rebuilt from the per-replacement tables:
 
     score = log10(model probability) + alpha * log10(accessibility)
 
-D and E are read from the columns the sweep table already ships, and are then recomputed from
-the same per-replacement tables as a cross-check, as the main figure's AUROC is. Any
-disagreement stops the run rather than being drawn.
+D, E and F are read from the columns the sweep table already ships, and are then recomputed from
+the same per-replacement tables as a cross-check. Any disagreement stops the run rather than
+being drawn.
 
-The raw-scale Pearson correlation is checked against its shipped column with the other two but
-is **not** drawn. It is the quantity the review asked to see replaced: observed frequencies
-span four orders of magnitude, so on the raw scale a handful of near-fixed replacements set
-the answer, and D and E are the two ways of not letting them. It stays in the cross-check so
-that dropping it from the panels cannot hide a table that has drifted.
-
-F needs to know how *often* each replacement was observed, which the 0/1 flag table cannot
-say. That frequency is shipped by ``tools/export_sB_frequency.py``; nothing here reads the
-exploration archive.
-
-A lineage whose top-frequency class cannot be cut -- too few observed replacements, or all of
-them at one frequency -- is an error rather than a dropped row, because a band over a changing
-set of lineages would mean something different at each end of the axis.
+All three correlation panels (D, E, and F) are drawn alongside the binary prediction
+metrics (A, B, and C). Observed frequencies span four orders of magnitude, so on the raw
+scale in panel D a handful of near-fixed replacements set the answer, while the log scale
+in E and rank correlation in F show how mutational accessibility weighting improves
+correlation across non-zero frequencies.
 """
 
 from __future__ import annotations
@@ -117,12 +106,12 @@ PANELS = [
      (1.0, "chance = 1", "right")),
     ("pauroc_std", "Partial AUROC", "AUROC for false positive\nrates ≤ {cap}", "Partial AUROC",
      (0.5, "chance = 0.5", "right")),
-    ("nonzero_spearman", "Spearman, observed only", "rank correlation across\nnon-zero frequencies only",
-     "Spearman ρ", (0.0, "no relationship = 0", "right")),
+    ("nonzero_pearson", "Pearson, observed only", "linear correlation across\nnon-zero frequencies only",
+     "Pearson correlation", (0.0, "no relationship = 0", "right")),
     ("logfreq_pearson", "Pearson on log frequency", "the same correlation as a linear\none, on the logged frequency",
      "Pearson correlation", (0.0, "no relationship = 0", "right")),
-    ("winners_auroc", "Picking the winners", "top {top} by frequency against\nthe rest of the observed ones",
-     "AUROC among observed", (0.5, "chance = 0.5", "left")),
+    ("nonzero_spearman", "Spearman, observed only", "rank correlation across\nnon-zero frequencies only",
+     "Spearman ρ", (0.0, "no relationship = 0", "right")),
 ]
 #: Panels per row. The number of rows is derived from this and the length of ``PANELS``, so
 #: adding a seventh panel grows the grid rather than silently dropping off the end of it.
@@ -438,18 +427,20 @@ def caption(base: pd.DataFrame, band: pd.DataFrame, guide: Guide, cap: float, to
     roles = {m.role: m for m in guide.models}
     gains = {}
     for role, model in roles.items():
-        for metric in ("nonzero_spearman", "logfreq_pearson", "winners_auroc"):
+        for metric in ("nonzero_pearson", "logfreq_pearson", "nonzero_spearman"):
             a_star, best, at_zero = peak(band, metric, model.key)
             gains[role, metric] = (a_star, best, at_zero)
 
     def phrase(role: str, metric: str) -> str:
-        """``0.7394 to 0.7394 at α = 0``: four decimals because panel F's fine-tuned gain is
+        """``0.7394 to 0.7394 at α = 0``: four decimals because fine-tuned gain is
         a few ten-thousandths, and rounding it to three would print a curve moving from a
         number to itself, which reads as a slip rather than as the result. A peak sitting at
         zero is written "0", not "+0"; it means the sweep never improves on the model alone."""
         a_star, best, at_zero = gains[role, metric]
         where = "0" if a_star == 0 else f"{a_star:+g}"
         return f"{at_zero:.4f} to {best:.4f} at α = {where}"
+
+    base_zero_logfreq = float(band.loc[(band["metric"] == "logfreq_pearson") & (band["model"] == roles["base"].key) & np.isclose(band["alpha"], 0.0), "mean"].iloc[0])
 
     return f"""
     **Six ranking metrics across the accessibility weight.**
@@ -472,40 +463,38 @@ def caption(base: pd.DataFrame, band: pd.DataFrame, guide: Guide, cap: float, to
     than chance is compressed into the gap beneath 0.5.
 
     **The bottom row is put only to the replacements that were observed at all**, between
-    {int(n_observed.min()):,} and {int(n_observed.max()):,} of them per lineage. (D) Spearman
-    rank correlation between the score and the observed frequency. (E) The same correlation as
-    a linear one, computed on the logarithm of the frequency rather than on the frequency
-    itself, as asked in review; observed frequencies span four orders of magnitude, so on the
-    raw scale the few replacements that went nearly to fixation set the answer, and the rank
-    correlation in D and the log scale in E are the two ways of not letting them. (F) AUROC
-    again, with the negative class cut down to replacements that occurred: positives are the
-    most frequent {top:.0%} of a lineage's observed replacements and negatives are the rest of
-    them, so the zero-frequency replacements take no part. Panel F asks whether a score can
-    tell a replacement that swept from one that merely appeared.
+    {int(n_observed.min()):,} and {int(n_observed.max()):,} of them per lineage. (D) Pearson
+    regression on all non-zero allele frequencies, weighting the highest-frequency alleles
+    most strongly; increased α weighting on mutational accessibility shows little benefit to
+    the base model ({phrase('base', 'nonzero_pearson')}), and no benefit to the fine-tuned
+    model ({phrase('finetune', 'nonzero_pearson')}). (E) Pearson correlation on logged
+    non-zero frequencies which improves with higher α values ({phrase('base', 'logfreq_pearson')}),
+    as the mutational accessibility alone outperforms the base model
+    ({float(base['logfreq_pearson'].mean()):.3f} vs {base_zero_logfreq:.3f}),
+    perhaps because of low-frequency homoplasies, or because amino acid interchangeability
+    correlates with accessibility; the fine-tuned model gains essentially nothing
+    ({phrase('finetune', 'logfreq_pearson')}). (F) Spearman correlation across non-zero
+    frequencies, showing a similar trend to the logged Pearson score
+    ({phrase('base', 'nonzero_spearman')} for the base model; {phrase('finetune', 'nonzero_spearman')}
+    for fine-tuned).
 
     **What the bottom row shows.** The fine-tuned model gains essentially nothing from the
-    explicit accessibility term on any of the three: {phrase('finetune', 'nonzero_spearman')}
+    explicit accessibility term on any of the three: {phrase('finetune', 'nonzero_pearson')}
     in D, {phrase('finetune', 'logfreq_pearson')} in E, and
-    {phrase('finetune', 'winners_auroc')} in F, every one of them inside the width of its own
-    band. The base model does gain materially on D and E --
-    {phrase('base', 'nonzero_spearman')} and {phrase('base', 'logfreq_pearson')}, still rising
-    at the end of the sweep -- and much less on F, {phrase('base', 'winners_auroc')}.
-    Accessibility on its own scores {float(base['winners_auroc'].mean()):.3f} at picking the
-    winners in F, against {float(base['auroc'].mean()):.3f} at saying which replacements occur
-    at all, the quantity Figure 3 reports. That contrast is the point of this row: mutational
-    accessibility is informative about what is reachable and close to uninformative about what
-    succeeds once it is reached, and a model that has learned the reachable part has nothing
-    left to gain from being told it again.
+    {phrase('finetune', 'nonzero_spearman')} in F, every one of them inside the width of its
+    own band. The base model does gain materially on E and F --
+    {phrase('base', 'logfreq_pearson')} and {phrase('base', 'nonzero_spearman')}, still rising
+    at the end of the sweep -- and gains little on D, {phrase('base', 'nonzero_pearson')}.
+    Accessibility on its own scores {float(base['nonzero_pearson'].mean()):.3f} in D,
+    {float(base['logfreq_pearson'].mean()):.3f} in E, and {float(base['nonzero_spearman'].mean()):.3f} in F.
 
     Bands are 95% percentile bootstrap intervals of the mean, resampling lineages
     ({n_boot:,} resamples). They show the precision of the mean over these {n} lineages.
     Lineages are disjoint sets of sequences but can share sites, so the bands do not show how
     well a model would do on a new lineage. Every panel but A stops its vertical axis just
     under chance; below it the score is anti-predictive. Every plotted value, including those,
-    is in the values table. Panels D and E are the sweep table's own columns; they, the
-    raw-scale Pearson correlation that is checked but not drawn, and the scores behind the
-    other four panels are checked against each other before the figure is drawn, and a
-    disagreement stops the run.
+    is in the values table. Panels D, E and F are read from the shipped sweep table and
+    cross-checked against the per-replacement tables, and any disagreement stops the run.
     """
 
 

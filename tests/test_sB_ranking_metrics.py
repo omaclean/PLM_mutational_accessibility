@@ -425,12 +425,10 @@ def test_caption_states_the_prevalence_range_the_axis_cut_and_the_null_result(gr
     assert "prevalence runs from 1.6% to 10.1%" in text
     assert "anti-predictive" in text and "values table" in text
     assert "gains essentially nothing" in text
-    # The contrast panel F exists to make, stated as numbers and not as a claim: accessibility
-    # alone barely beats chance at picking the winners while being strong at saying which
-    # replacements occur at all. Read off the same baseline table the caption formats.
-    assert f"scores {float(base['winners_auroc'].mean()):.3f} at picking the" in text
-    assert f"against {float(base['auroc'].mean()):.3f} at saying which" in text
-    assert "close to uninformative about what" in text
+    assert "Pearson regression on all non-zero allele frequencies" in text
+    assert "logged non-zero frequencies" in text
+    assert "Spearman correlation" in text
+    assert f"{float(base['logfreq_pearson'].mean()):.3f}" in text
 
 
 @pytest.mark.slow
